@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="card">
+        <div class="dashboard-sellers">
+            <div class="col-md-6 account-summary-right-border">
+                <div class="dashboard-seller-main-heading">
+                    <h2 class="text-center">Orders</h2>
+                    <hr class="custom-hr">
+                </div>
+
+                <div class="row ">
+                    <div class="col-xs-4"><p class="text-center"><strong>Total Bought</strong></p></div>
+                    <div class="col-xs-4"><p class="text-center"><strong>Completed</strong></p></div>
+                    <div class="col-xs-4"><p class="text-center"><strong>In Queue</strong></p></div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-xs-4"><h4 class="text-center"><strong>{{profile.total_order_placed}}</strong></h4></div>
+                    <div class="col-xs-4"><h4 class="text-center"><strong>{{profile.completed_orders}}</strong></h4></div>
+                    <div class="col-xs-4"><h4 class="text-center"><strong>{{profile.ongoing_orders}}</strong></h4></div>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+                <div class="dashboard-seller-main-heading">
+                    <h2 class="text-center">Orders</h2>
+                    <hr class="custom-hr">
+                </div>
+
+                <div class="row ">
+                    <div class="col-xs-12 text-center"><p class="text-center"><strong>Amount Spent</strong></p></div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-xs-12 text-center"><h4 class="text-success"><strong>&#8377;{{profile.purchases.amount}}</strong></h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><strong>Manage Purchases</strong></h2>
+                <ul class="nav nav-tabs nav-primary manage-sales">
+                    <li><a href="">New</a></li>
+                    <li><a href="">Active</a></li>
+                    <li><a href="">Late</a></li>
+                    <li><a href="">Deliver</a></li>
+                    <li><a href="">Complete</a></li>
+                    <li><a href="">Cancelled</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="panel-header md-panel-controls">
+
+                </div>
+                <div ng-if="my_purchases.data.length>0" class="panel-content">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Sellers</th>
+                            <th>Packages</th>
+                            <th>Order Date</th>
+                            <th>Order Time</th>
+                            <th>Delivery Date</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="purchase in my_purchases.data">
+                            <td>{{$index+1}}</td>
+                            <td>{{purchase.seller_profile.name}}</td>
+                            <td><a ng-href="#orderSuccessful/{{purchase.id}}">{{purchase.package_title}}</a></td>
+                            <td>{{}}</td>
+                            <td>{{}}</td>
+                            <td>{{}}</td>
+                            <td>&#8377; {{purchase.deal_price}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="my_purchases.data.length<=0" class="panel-content">
+                    <p>You have not any purchases</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<div class="footer">
+    <div class="copyright">
+        <p class="pull-left sm-pull-reset">
+            <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+            <span>Zolo Technologies Pvt. Ltd.</span>.
+            <span>All rights reserved. </span>
+        </p>
+        <p class="pull-right sm-pull-reset">
+            <span><a ng-href="http://www.gozolo.in" class="m-r-10" target="_blank">About us</a> | <a ng-href="#" class="m-r-10">FAQ</a> | <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
+        </p>
+    </div>
+</div>

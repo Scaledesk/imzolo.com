@@ -1,0 +1,61 @@
+/**
+ * Created by tushar on 4/12/15.
+ */
+angular.module('newApp')
+    .factory("Message",function($routeParams,serverConfig,$resource){
+        //Message Service
+        return $resource(serverConfig.address+'/api/messages?include=sender',{user_id:"@user_id",placeholder_id:"@placeholder_id",message_id:"@message_id"},{
+            getOtherMessages:{
+                method:"GET",
+                url:serverConfig.address+'/api/otherMessages?placeholder_id=:placeholder_id&include=sender'
+            },
+            getStarredOtherMessages:{
+                method:"GET",
+                url:serverConfig.address+'/api/otherStarredMessages/:user_id?placeholder_id=:placeholder_id&include=sender'
+            },
+            getUnstarredOtherMessages:{
+                method:"GET",
+                url:serverConfig.address+'/api/otherUnstarredMessages/:user_id?placeholder_id=:placeholder_id&include=sender'
+            },
+            getReadOtherMessages:{
+                method:"GET",
+                url:serverConfig.address+'/api/otherReadMessages/:user_id?placeholder_id=:placeholder_id&include=sender'
+            },
+            getUnreadOtherMessages:{
+                method:"GET",
+                url:serverConfig.address+'/api/otherUnreadMessages/:user_id?placeholder_id=:placeholder_id&include=sender'
+            },
+            sendMessage:{
+                method:"POST",
+                url:serverConfig.address+'/api/send'
+            }
+            ,ReadMessage:{
+                method:"PUT",
+                url:serverConfig.address+'/api/read_messages'
+            }
+            ,StarMessage:{
+                method:"PUT",
+                url:serverConfig.address+'/api/star_messages'
+            }
+            ,UnstarMessage:{
+                method:"PUT",
+                url:serverConfig.address+'/api/unstar_messages'
+            },
+            getMessage:{
+                method:"GET",
+                url:serverConfig.address+'api/message/:message_id?include=sender'
+            }
+            ,deleteMessage:{
+                method:"PUT",
+                url:serverConfig.address+'/api/delete_messages'
+            }
+            ,numberOfNewMessages:{
+                method:"GET",
+                url:serverConfig.address+'/api/numberOfNewMessages'
+            },
+            placeholders:{
+                method:"GET",
+                url:serverConfig.address+'/api/placeholders'
+            }
+        });
+    });

@@ -1,0 +1,185 @@
+<!-- BEGIN PAGE CONTENT -->
+        <div class="page-content page-app mailbox">
+            <section class="app">
+                <aside class="aside-md emails-list">
+                    <section>
+                        <div class="mailbox-page clearfix">
+                            <h1 class="pull-left" ng-bind="active_placeholder.title|capitalize"></h1>
+                        </div>
+                        <ul class="nav nav-tabs text-right">
+                            <!--<li class="active f-right"><a href="#recent" data-toggle="tab">Recent</a></li>-->
+                            <li ng-class="{'active f-right':active_placeholder===placeholder,'f-right':active_placeholder!=placeholder}" ng-click="makePlaceholderActive(placeholder)" ng-repeat="placeholder in placeholders"><a href="{{hash}}{{placeholder.title}}" data-toggle="tab">{{placeholder.title|capitalize}}</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="{{active_placeholder.title}}">
+                                <div class="message-item media" ng-repeat="message in messages" ng-click="clickedMessage($index)">
+                                    <div class="media">
+                                        <span ng-if="message.sender.data.image!=''&&message.sender.data.image!=undefined&&message.sender.data.image!=null"><img  ng-src="{{message.sender.data.image}}" alt="sender photo" width="40" class="sender-img img-circle"/></span>
+                                        <span ng-if="message.sender.data.image==''||message.sender.data.image==undefined||message.sender.data.image==null"><img  src="/global/images/dummy.png" alt="sender photo" width="40" class="sender-img img-circle"/></span>
+                                        <div class="media-body">
+                                            <div class="sender" ng-bind="message.sender.data.name"></div>
+                                            <div class="subject"><span class="label label-success">Subject &nbsp;<i class="fa fa-hand-o-right"></i></span> <span class="subject-text" ng-bind="message.subject"></span></div>
+                                            <div class="date" ng-bind="message.timestamp"></div>
+                                            <div class="email-content" ng-bind="message.body">
+                                                <div class="email-attachment clearfix">
+                                                    <div class="attachments"><span><i class="fa fa-file-image-o"></i> Home.jpg <span class="small">(10mb)</span></span><span><i class="fa fa-file-pdf-o"></i> Resume.pdf <span class="small">(5.2mb)</span></span></div>
+                                                    <div class="attachments-actions">
+                                                        <div class="move-attachments"><i class=" icon-rounded-arrow-left-thin"></i><i class=" icon-rounded-arrow-right-thin"></i></div>
+                                                        <div class="download-attachment"><i class="icon-rounded-download"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+                <div class="email-details">
+                    <section>
+                        <div class="email-subject">
+                            <strong><h1 ng-bind="messages[0].subject"></h1></strong>
+                            <div class="clearfix">
+                                <div class="go-back-list"><i data-rel="tooltip" data-placement="bottom" data-original-title="Back to email list" class="icon-arrow-left"></i></div>
+                                <p>
+                                    <span ng-if="active_placeholder.title.toUpperCase()=='SENT'">to </span>
+                                    <span ng-if="active_placeholder.title.toUpperCase()!='SENT'">from </span>
+                                    <strong><span class="sender">
+                                        <span ng-if="active_placeholder.title.toUpperCase()!='SENT'">{{messages[0].sender.data.name}}</span>
+                                        <span ng-if="active_placeholder.title.toUpperCase()=='SENT'">you</span>
+                                    </span></strong> &bull; <span class="date" ng-bind="messages[0].timestamp"></span></p>
+                                <div class="pos-rel pull-left">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" data-delay="300">
+                                        <i class=" icon-rounded-arrow-down-thin"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" class="reorder-menu">Delete email</a></li>
+                                        <li><a href="#" class="remove-menu">Move</a></li>
+                                        <li><a href="#" class="hide-top-sidebar">Print</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-details-inner withScroll" data-height="window" data-padding="155">
+                            <div class="email-content" ng-bind="messages[0].body">
+                                <p>Hi Steve,</p>
+                                <p>Visual hierarchy is one of the most important principles behind effective web design. We will see how you can use some very basic exercises in your own designs to put these principles into practice.</p>
+                                <blockquote>
+                                    <p><strong>Design is a funny word. Some people think design means how it looks. But of course, if you dig deeper, it's really how it works.</strong></p>
+                                </blockquote>
+                                <p>At it's core, design is all about visual communication: To be an effective designer, you have to be able to clearly communicate your ideas to viewers or else lose their attention.</p>
+                                <div class="email-attachment clearfix">
+                                    <div class="attachments">
+                                        <span><i class="fa fa-file-image-o"></i> Home.jpg <span class="small">(10mb)</span></span>
+                                        <span><i class="fa fa-file-pdf-o"></i> Resume.pdf <span class="small">(5.2mb)</span></span>
+                                    </div>
+                                    <div class="attachments-actions">
+                                        <div class="move-attachments">
+                                            <i class=" icon-rounded-arrow-left-thin"></i>
+                                            <i class=" icon-rounded-arrow-right-thin"></i>
+                                        </div>
+                                        <div class="download-attachment">
+                                            <i class="icon-rounded-download"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" ng-if="error!=''">
+                                <div class="col-md-12 text-center">
+                                    <div style="color: red;">
+                                        {{error}}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" ng-if="success!=''">
+                                <div class="col-md-12 text-center">
+                                    <div style="color: green;">
+                                        {{success}}
+                                    </div>
+                                    </div>
+                                </div>
+                            <div>
+                                <hr/>
+                                <p ng-if="message.has_buy_action==true"><strong>Days required to complete: </strong><span>{{message.days}}</span></p><br/>
+                                <button ng-click="Book()" ng-if="message.has_buy_action==true">Buy(&#8377; {{message.price}})</button>
+                                <textarea ng-if="message.has_buy_action==false" class="form-control zolo_message_custom_textarea" ng-model="replyMessage.body"></textarea><br/>
+                                <label ng-if="message.has_buy_action==false&&message.receiver_placeholder_id==3">
+                                    <input type="radio" ng-model="replyMessage.is_custom" value="true" ng-change="showHideCustomOfferDaysPrice()">
+                                    Yes
+                                </label><br/>
+                                <label ng-if="message.has_buy_action==false&&message.receiver_placeholder_id==3">
+                                    <input type="radio" ng-model="replyMessage.is_custom" value="false" ng-change="showHideCustomOfferDaysPrice()">
+                                    No
+                                </label><br/>
+                                <input class="form-control" ng-if="show=='true'&&message.has_buy_action==false" ng-model="replyMessage.days" type="number" ng-keydown="resetErrorSuccess()" placeholder="enter the days to complete the offer"/><br/>
+                                <input class="form-control" ng-if="show=='true'&&message.has_buy_action==false" ng-model="replyMessage.price" type="number" ng-keydown="resetErrorSuccess()" placeholder="enter the price for the offer"/><br/>
+                            </div>
+                            <div style="height: 100%" ng-if="message.has_buy_action==false">
+                                <h2>Reply</h2>
+                                <textarea ng-model="replyMessage.body" ng-keydown="resetErrorSuccess()" rows="10" cols="60" style="margin-bottom: 10px;padding: 2%"/>
+                                <button id="save" ng-click="sendMessage_controller(replyMessage);" class="btn btn-primary" type="button">Send</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <div class="footer">
+                <div class="copyright">
+                    <p class="pull-left sm-pull-reset">
+                        <span>Copyright <span class="copyright">©</span> 2015 </span>
+                        <span>Zolo Technologies</span>.
+                        <span>All rights reserved. </span>
+                    </p>
+                    <p class="pull-right sm-pull-reset">
+                        <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+<div class="loader-overlay">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<!-- END PRELOADER -->
+<a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+<script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+<script src="../assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/global/plugins/jquery-cookies/jquery.cookies.min.js"></script> <!-- Jquery Cookies, for theme -->
+<script src="../assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+<script src="../assets/global/plugins/bootbox/bootbox.min.js"></script> <!-- Modal with Validation -->
+<script src="../assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+<script src="../assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+<script src="../assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+<script src="../assets/global/plugins/retina/retina.min.js"></script> <!-- Retina Display -->
+<script src="../assets/global/plugins/select2/select2.min.js"></script> <!-- Select Inputs -->
+<script src="../assets/global/plugins/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
+<script src="../assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
+<script src="../assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+<script src="../assets/global/plugins/charts-chartjs/Chart.min.js"></script>
+<script src="../assets/global/js/builder.js"></script> <!-- Theme Builder -->
+<script src="../assets/global/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
+<script src="../assets/global/js/application.js"></script> <!-- Main Application Script -->
+<script src="../assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+<script src="../assets/global/js/widgets/notes.js"></script> <!-- Notes Widget -->
+<script src="../assets/global/js/quickview.js"></script> <!-- Chat Script -->
+<script src="../assets/global/js/pages/search.js"></script> <!-- Search Script -->
+<!-- BEGIN PAGE SCRIPTS -->
+<script src="/global/plugins/bootstrap-context-menu/bootstrap-contextmenu.min.js"></script>
+<script src="/global/plugins/summernote/summernote.min.js"></script> <!-- Simple HTML Editor -->
+<script src="/global/plugins/quicksearch/quicksearch.min.js"></script> <!-- Search Filter -->
+<script src="/global/plugins/charts-morris/raphael.min.js"></script> <!-- Morris Charts -->
+<script src="/global/plugins/charts-morris/morris.min.js"></script> <!-- Morris Charts -->
+<script src="/global/js/pages/mailbox.js"></script>
+<!-- END PAGE SCRIPTS -->
+<script src="../assets/admin/md-layout4/material-design/js/material.js"></script>
+<script src="../assets/admin/layout4/js/layout.js"></script>
+<script>
+    $.material.init();
+</script>
