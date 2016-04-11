@@ -292,7 +292,7 @@
             </div>
 
             <div class="col-md-3">
-              {{package.Addons.data.length}}
+              <strong>{{package.Addons.data.length}}</strong>
             </div>
           </div>
 
@@ -574,6 +574,7 @@
         </div>
 
 
+
         <div class="row">
           <div class="col-md-12 text-center">
             <button type="button" ng-click="openMessageSellerCustomOffer()" class="btn zolo-pdp-make-offer-btn">Make An Offer</button>
@@ -656,6 +657,13 @@
             <span ng-if="package.meeting_availability==1">Seller available for meeting</span>
           </div>
         </div>
+        <div class="row zolo-pdp-more-info-user">
+          <div class="col-md-12">
+            <i class="fa fa-hashtag"></i>
+            <span style="font-size: 17px;font-weight: bold;">#</span>&nbsp;&nbsp;
+            <span>Listing Id:     #{{package.id}}</span>
+          </div>
+        </div>
 
       </div>
       <div class="card">
@@ -678,7 +686,7 @@
 
           <div class="row">
             <div class="col-md-12 text-center">
-              <p data-ng-bind-html="seller_description"></p>
+              <p data-ng-bind-html="seller_description" class="text-center"></p>
             </div>
 
             <div class="col-md-12 text-center">
@@ -725,7 +733,7 @@
 
     </div>
 
-    <div ng-if="sellerOtherPackages.length!=1" class="row">
+    <div class="row">
       <div class="widget widget_slider">
         <div class="row hidden-xs hidden-md">
           <slick arrows="true" vertical="false" touch-move=false id="slider-2" as-nav-for="#main-slider"
@@ -758,10 +766,8 @@
 
 
 
-
-
         <div class="row visible-md hidden-xs hidden-lg">
-          <slick arrows="true" vertical="false" touch-move=false id="slider-3" as-nav-for="#main-slider"
+          <slick arrows="true" vertical="false" touch-move=false id="slider-4" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
             <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
