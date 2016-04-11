@@ -1,0 +1,196 @@
+<div class="row">
+  <div class="col-md-2 ">
+    <div class="card">
+      <div class="dashboard-seller-profile text-center">
+        <h5>Hi {{profile.name}}</h5>
+        <div class="zolo-dashboard-profile-complete">Your Profile is 70% complete</div>
+        <a ng-href="#profile">Edit Profile</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="dashboard-seller-profile text-center">
+        <h5>Refer Zolo! And Earn Gifts</h5>
+        <i class="fa fa-gift f-18 text-danger"></i>
+        <a ng-href="#dashboard/referral">GO!</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-10">
+    <div class="card">
+      <div class="dashboard-a-summary">
+        <div class="row">
+          <div class="col-md-6 text-center account-summary-right-border">
+            <div class="dashboard-a-summary-heading">Account Summary</div>
+            <!--             <i class="fa fa-money fa-4x"></i>-->
+
+            <!-- Rupee icon by Icons8 -->
+            <img class="icon icons8-Rupee" src="data:image/png;base64,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" width="52" height="52">
+            <div class="zolo-wallet-price">&#8377;0</div>
+            <!--<span>Withdraw</span>-->
+          </div>
+          <div class="col-md-6">
+            <div class="dashboard-wallet text-center">
+              <div class="dashboard-a-summary-heading">Wallet Summary</div>
+              <div class="row">
+                <div class="col-md-6 text-center">
+                  <!-- Wallet icon by Icons8 -->
+                  <img class="icon icons8-Wallet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACL0lEQVRoQ+1ZS2sTURT+TlLNa9EsLC6bZciiRGyh7pQuuqylhUL7F9JNVyl1Wd0qKkgNKNg/ENouukihRCFVUpJAGtA+qEWRoNiieVhNMjIjVod2mEvnNJ0pd5Yz537nfI+Ze0kIDr/I4fNDEjhvB6UD0gGLCly8CD0Je0MNovsEJQqikEWBOJbnY6X6NSMgnQPa8C7KERDk6MyFESvVDZOie/A44ksCGOJqzIUjTOBRxLdvN/VVEYQJzPV4lV+Nf6Ys3x3kEpEFZ2k4eSxKuhsLA5eVvU/uo2aOI1CeIiWZ8uCvC72pVRblREESxWcoV8uG5aYOVO9AqdQIrwuX8PWAEF5Mi/ZmqUt/eIX0x5fWCLBMwghSaAVxr++mhijkAGNvNqix67clATY1TwMkHTiNapxrpAOcap6EdVgj7L3zoPbNhcMfLtN2t95Ujk4QuqOEupGZrmYuUIffWPOj8d8ZzKyFrQhs5rzY/9yBKzd6ERofQUfAj63EPL5ksoY8bEVgfSWAZpPQ//whvFe7tKEr27vITk47mMDOe2RjcWcQ0EVoYvRPhJ6+cE6E1Je4mPFrMRK9bPUOqENrn9G3HlS/u/DTaZ9REdXlTiyi0lnWSAfOUl0RbGEHKjM4IEKnCGg7a4QJVGeQBNnvp0VhAvU4Qk038nZzITBr/F/ese1PJdFy4wGAKAjd7YyKQa9CYBZRoznE928bMDlpBEngvI2RDkgHLCogI2RRQMvLfwMImPUxRxQGrAAAAABJRU5ErkJggg==" width="55" height="55">
+
+                  <div class="zolo-wallet-price">&#8377; {{profile.wallet.amount}}</div>
+                </div>
+
+
+                <div class="col-md-6 zolo-center col-xs-12">
+
+                  <a ng-href="#/wallet/addCredit">
+                    <button class="btn zolo-add-money ladda-button" data-style="zoom-in">
+                      <span class="ladda-label">Add Money</span><span class="ladda-spinner"></span>
+                      <div class="ripple-wrapper"></div>
+                    </button>
+                  </a>
+                </div>
+
+
+
+              </div>
+
+
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div ng-if="window.localStorage['is_seller']=='buyer'" class="row">
+      <div class="col-md-12 ">
+        <div class="card text-center">
+          <h3>Start Selling With Us</h3>
+          <hr>
+          <button class="btn btn-success btn-lg btn-transparent">Become a Seller</button>
+        </div>
+        <!--</div>-->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <!--<div class="panel">-->
+          <div class="panel-header md-panel-controls">
+            <h3> <strong>Sales overview</strong> </h3>
+          </div>
+          <div ng-if="my_seles.data.length>0" class="panel-content">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Sr. No.</th>
+                <th>Buyers Name</th>
+                <th>Package</th>
+                <th>Order Date</th>
+                <th>Order Time</th>
+                <th>Delivery Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="my_sale in my_seles.data | limitTo:5">
+                <td>{{$index+1}}</td>
+                <td>{{}}</td>
+                <td><a ng-href="#orderSummary/{{my_sale.id}}">{{my_sale.package_title}}</a></td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>&#8377; {{my_sale.deal_price}}</td>
+                <td>{{my_sale.booking_status}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div ng-if="my_seles.data.length<=0" class="panel-content">
+            <p class="text-center">You have not any sales</p>
+          </div>
+          <a ng-if="my_seles.data.length>4" ng-href="#dashboard/sales" class="pull-right">See All</a>
+        </div>
+        <!--</div>-->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <!--<div class="panel">-->
+          <div class="panel-header md-panel-controls">
+            <h3> <strong>Purchase overview</strong> </h3>
+          </div>
+          <div ng-if="my_purchases.data.length>0" class="panel-content">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Sr. No.</th>
+
+                <th>Package</th>
+                <th>Order Date</th>
+                <th>Order Time</th>
+                <th>Delivery Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="my_purchase in my_purchases.data | limitTo:5">
+                <td>{{$index+1}}</td>
+                <td><a ng-href="#orderSuccessful/{{my_purchase.id}}">{{my_purchase.package_title}}</a></td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>{{}}</td>
+                <td>&#8377; {{my_purchase.deal_price}}</td>
+                <td>{{my_purchase.booking_status}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div ng-if="my_purchases.data.length<=0" class="panel-content">
+
+            <p>You have not any purchases</p>
+
+          </div>
+          <a ng-if="my_purchases.data.length>4" ng-href="#dashboard/my-purchases" class="pull-right">See All</a>
+        </div>
+
+
+
+
+        <!--</div>-->
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+</div>
+
+
+
+
+

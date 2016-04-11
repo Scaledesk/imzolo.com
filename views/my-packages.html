@@ -1,0 +1,105 @@
+<div class="container zolo-pdp-page">
+  <div class="row">
+    <div class="card">
+      <div class="col-md-12">
+        <div class="panel-header md-panel-controls">
+          <h2 class="text-center">My<strong>Packages</strong></h2>
+          <div class="row">
+            <div class="col-md-12">
+              <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==0" ng-click="pausedAll()" class="btn pull-right">Pause All</button>
+              <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==1" ng-click="activeAll()" class="btn pull-right">Resume All</button>
+            </div>
+          </div>
+          <div ng-if="user_packages.data.length>0" class="panel-content">
+            <ul class="nav nav-tabs nav-primary">
+              <li class="active"><a data-target="#tab2_1" data-toggle="tab" aria-expanded="true"> All<div class="ripple-wrapper"></div></a></li>
+              <li class=""><a data-target="#tab2_2" data-toggle="tab" aria-expanded="false">Published<div class="ripple-wrapper"></div></a></li>
+              <li class=""><a data-target="#tab2_3" data-toggle="tab" aria-expanded="false"> Drafts<div class="ripple-wrapper"></div></a></li>
+              <li class=""><a data-target="#tab2_4" data-toggle="tab" aria-expanded="false"> Paused<div class="ripple-wrapper"></div></a></li>
+
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade active in" id="tab2_1">
+                <div class="row column-seperation">
+                  <div class="col-md-12 ">
+                    <div class="row">
+                      <div ng-repeat="package in user_packages.data" class="col-md-4 col-xs-12 col-sm-6">
+                        <div my-package-card package="package" master-collections="collections">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="tab2_2">
+                <!--ng-repeat="friendObj in friends | filter:search:strict"-->
+                <div class="row column-seperation">
+                  <div class="col-md-12 ">
+                    <div class="row">
+                      <div ng-repeat="package in user_packages.data | filter:'ACTIVE'" class="col-md-4 col-xs-12 col-sm-6">
+                        <div my-package-card package="package" master-collections="collections">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab2_3">
+                <div class="row column-seperation">
+                  <div class="col-md-12 ">
+                    <div class="row">
+                      <div ng-repeat="package in user_packages.data | filter:'DRAFT'" class="col-md-4 col-xs-12 col-sm-6">
+                        <div ng-if="package ===''">
+                          <P>No package found</P>
+                        </div>
+
+                        <div my-package-card package="package" master-collections="collections">
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="tab2_4">
+                <div class="row column-seperation">
+                  <div class="col-md-12 ">
+                    <div class="row">
+                      <div ng-repeat="package in user_packages.data | filter:'PAUSED'" class="col-md-4 col-xs-12 col-sm-6">
+                        <div my-package-card package="package" master-collections="collections">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div ng-if="user_packages.data.length<=0" class="panel-content">
+
+            <div class="row">
+              <div class="col-md-12">
+                <p class="text-center">You have not listed any packages</p>
+                <p class="text-center">START Monetizing your Talent now!</p>
+                <a ng-href="#post-a-package" class="btn btn-zolo">Post Your First Package</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
