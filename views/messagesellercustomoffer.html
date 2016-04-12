@@ -1,0 +1,58 @@
+<div class="modal-content" >
+  <div class="modal-body">
+    <div class="row">
+      <h3 class="col-md-12 text-center">Message {{receiver_name}} - Custom offer</h3>
+      <hr class="custom-hr">
+        <span class="pull-right col-md-2">
+        <button type="button" class="close" ng-click="cloaseModal()" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle fa-2x" style="margin-right: 30px;"></i></span></button>
+​
+        </span>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <label>Offer Description:</label>
+        <textarea class="form-control" placeholder="Type Here" rows="3" cols="50" ng-model="modalmessage.body" ng-keydown="keyPressed()"></textarea>
+      </div>
+    </div>
+    ​
+    ​
+    <!--<div class="custom_zolo_make_offer">-->
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <input class="form-control" ng-model="modalmessage.days"  ng-keydown="keyPressed()" placeholder="Enter Number of Days." type="number"/>
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" ng-model="modalmessage.title" ng-keydown="keyPressed()" placeholder="Enter title."/>
+      </div>
+      <div class="col-md-2">
+        <input class="form-control"ng-model="modalmessage.price" ng-keydown="keyPressed()" placeholder="Enter price." type="number"/>
+      </div>
+    </div>
+    ​
+    <!--</div>-->
+    ​
+    ​  <div class="row" ng-if="success!=''">
+    <div class="col-md-12 zolo-center">
+      <span style="color: green">{{success}}</span>
+    </div>
+  </div>
+    ​
+    <div class="row" ng-if="error!=''">
+      <div class="col-md-12 zolo-center">
+        <span style="color: red">{{error}}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 zolo-center">
+        <button class="btn zolo-btn" ng-click="sendMessageSeller(modalmessage);" type="button" data-dismiss="modal">Send Message</button>
+      </div>
+    </div>
+    ​
+    ​
+  </div>
+
+</div>

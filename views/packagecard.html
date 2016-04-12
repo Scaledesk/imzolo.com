@@ -1,0 +1,155 @@
+<div class="page-content page-app page-profil zolo-search-page-no-style" style="margin-top: 1px !important; top: 1px !important;">
+
+  <div class="profil-content">
+    <div class="item hover-effect">
+      <a ng-href="#package/{{package.slug}}">
+        <div class="user">
+          <img preload-image default-image="../global/images/imageloader.gif" ng-src="{{package.first_photo || '../global/images/no2.png'}}" class="img-responsive hover-img zolo-img-card-height">
+          <div class="info zolo-custom-info-card">
+            <div class="row">
+              <div class="col-md-12 text-center">
+
+                <i ng-if="package.average_rating>0" class="fa fa-star"></i>
+                <i ng-if="package.average_rating<=0" class="fa fa-star-o"></i>
+                <i ng-if="package.average_rating>1" class="fa fa-star"></i>
+                <i ng-if="package.average_rating<=1" class="fa fa-star-o"></i>
+                <i ng-if="package.average_rating>2" class="fa fa-star"></i>
+                <i ng-if="package.average_rating<=2" class="fa fa-star-o"></i>
+                <i ng-if="package.average_rating>3" class="fa fa-star"></i>
+                <i ng-if="package.average_rating<=3" class="fa fa-star-o"></i>
+                <i ng-if="package.average_rating>4" class="fa fa-star"></i>
+                <i ng-if="package.average_rating<=4" class="fa fa-star-o"></i>
+
+
+              </div>
+            </div>
+
+            <div class="zolo-card-user-location">
+              <div ng-if="package.location[0].text=='Any-where-in-India'" class="location pull-left zolo-card-location"><i class="icon-pointer"></i>Any-where</div>
+              <div ng-if="package.location[0].text!='Any-where-in-India'" class="location pull-left zolo-card-location"><i class="icon-pointer"></i>{{package.location[0].text}}</div>
+              <div class="date pull-right zolo-card-date"><i class="icon-calendar"></i>{{package.timestamp|date:'dd MMM yyyy'}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="comment zolo-custom-card-text">
+          {{ package.name }}
+        </div>
+        <hr class="custom-hr"/>
+      </a>
+      <!--custom-->
+
+      <div class="more price-user-container">
+        <div class="row">
+          <div class="col-xs-6 ">
+            <span class="card-price">{{package.deal_price | currency:"&#8377":0}}</span>
+          </div>
+
+          <div class="col-xs-6 ">
+            <a ng-href="#profile/{{package.seller_id}}" ><span class="card-by-user pull-right"><span style="font-weight: 300">By:</span> {{package.seller_name | limitTo:14}}</span></a>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!--end-->
+
+
+
+
+      <div class="more">
+        <div class="row">
+          <div ng-click="addAndDeleteWishlist(package)" class="col-sm-4 col-xs-4 like zolo-card-space" ng-class="{'liked': package.wished_by_user=='yes'}">
+            <i class="fa fa-heart"></i>
+          </div>
+          <div ng-if="isAuthenticated()" class="col-sm-4 col-xs-4 zolo-card-space">
+            <div class="comment-number" uib-dropdown is-open="package.openCollection">
+              <i class="fa fa-tasks" uib-dropdown-toggle> </i>
+              <ul uib-dropdown-menu role="menu" aria-labelledby="single-button" class="adc-dropup">
+
+                <li ng-click="toggleCollectionStatus(package.id,collection)" style="cursor: pointer;" ng-repeat="collection in collections" >
+                  <a>
+             <span title="Remove from this collection" ng-if="collection.package_collection_status == true">
+<img class="icon icons8-Checkmark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T52UMU/CUBDH/2fiAgMOBsMmcZXYSRhIbBcHbUzxC2hCdDSyqcRJCW66OpjAF4AOxMGFkjiAE3wBHYlMMsBCwjOv0OYVXtvoJU2Tvuvv7n/v7ggS0+uGyoATAAoBCndhQBdAl4BqI2dai7+R+OGgbigrwCMAVRZA+GZNgcJrzuRw21zQHNIEsBYCcY5/poDmwGzQPyBLMBuk1wwLhL2wTKKrUfBnMB6IrlYjZ2rECwuASwq1s1QeR1s6Sp0HtPsd0V+jw7pRodkNBVomkUYxfYXRZIz82zlGk5Hrz4Aq6TWjC8JOEIXLedl/tmVJsrFbg0tji5B4JG5HdKIW09fIJHbR7n+g1ClLYy6BkrEkytk7fI8HuHm/RWp921eSSFySxtMvZ++RjG3ic/iFjUjcV5JQpJ602CKMOwdJ4uezYvtcvwPj74tmwXNLkiJpgQ3p04BeDkOrcWyq7ogQg0WEWFg/ieeMYcgIKp83z9D+BSZCPNPvDi/DU+jcMbSmhEvpGhFTni+2U2JQ3K5n6DGyF1tFtth+Ab2ftcT+uhwaAAAAAElFTkSuQmCC" width="18" height="18">
+                 {{collection.name}}
+             </span>
+             <span title="Add to this collection" ng-if="collection.package_collection_status == false">
+<img class="icon icons8-Plus-Math" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABKElEQVQ4T62UzU3DQBBG39AAVMCFArBoABtu4KA1DUADSKESItFA0kBsCYsb4DSAnBaoAA45IXnQLonlkHUCwXOc3X07f98IHotTEypcAYFAYK8olEApMMqTrPj5TJqOs9QEO3AHhL4PGr6igtvHJLNwZzVoDnkB9jZAFsfvFUQLmANtAVmBOVA8NgXCsS+Si4Mes88ZT2/PbYEWeZJFYgsL2JS89mBS5+9lybqMIzlPzVC+O7Q1SGEk8diUCIf/BJU2NW1CTvdP6B/drG3c4PV+pWYdgjpIDWXaYbG7av+mgbTFt9Y6kMokv8zCWiKiFCLs/lJn7poqHyqEVm9Lov0LrAlZUn8tXmXQprs6WmVSCX3vGmmmNF9s16IE9dQrUxW32Ia+xfYFndORxD29eSoAAAAASUVORK5CYII=" width="18" height="18">
+
+                 {{collection.name}}
+             </span>
+                  </a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li ng-click="openAddCollectionModal()" style="cursor: pointer;">
+                  <a>
+                    <img class="icon icons8-Add-Folder" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABkUlEQVQ4T82Uv0tCURTHvyfBygJ/DNkkZQROakPREr2IwqHA/gJ1iyZFcAiKhqYgaoo2k/6AiBoMAoXAwYa0qUAlaUkke5FWGq8b71mWhuBTg+54uOdzv99zzj2ENh9qMw9/B2R+OEFw1CiOkRMeOS4khcwPKwgXdRL3yAlXo9AvIIdBQwgqVaN51fdeXnmavNGKwTIwqHdDp91qjvaZlXvwkC2z/UfAM+McOpVHLSksluZpInVcVnhu4sAQaglImKLRq/D/AeYFQrKolExZVEWxvc0rDGTV2M9qKhXqUQgY731eWV6IrMu2/BO2adtAMpfCTnRXggvsfUQWULRpvzZUlJ06gohnLuEN+soxhsMyMDpsBRT1vl4FEC90wZvWQ1Rm0ZurhsJ74kPsLs5Xtg2LmpxgzA6i7+LUzFHkqVuzettnWRpbxJDOKEELbwUkcknJduI+lZa9vqb9szyI1OJbvy2zQDNA0cWBNC79ZuRLeakxYOxRQGlANlAEcf4ZqwIdawDjGIgnsLCAkjvsCvMfNWGsWOIDwtIAAAAASUVORK5CYII=" width="20" height="20">&nbsp;&nbsp;New Collection</button>
+
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div ng-if="!isAuthenticated()" ng-click="reidrectTpLogin()" class="col-sm-4 col-xs-4 zolo-card-space">
+            <i class="fa fa-tasks"> </i>
+          </div>
+
+
+
+
+
+
+          <div ng-click="socialShair(package)" class="col-sm-4 col-xs-4 more-share zolo-card-space">
+            <i class="icon-share"></i>
+          </div>
+        </div>
+
+        <div ng-show="package.shareTab" class="row">
+
+          <a href=""
+             socialshare
+             socialshare-url="http://discover.gozolo.in/app/#/package/{{package.slug}}"
+             socialshare-provider="facebook"
+             socialshare-text="{{package.name}}"
+             socialshare-media="{{package.first_photo}}"
+             socialshare-via="953913041345816"
+             socialshare-description="{{package.description | htmlToPlaintext}}"
+             socialshare-type="feed">
+            <div class="share-facebook">
+              <i class="fa fa-facebook"></i>
+            </div>
+          </a>
+          <!--socialshare-hashtags="{{package.name}}"-->
+          <a href=""
+             socialshare
+             socialshare-provider="twitter"
+             socialshare-text="{{package.name}}"
+             socialshare-via=""
+             socialshare-url="http://discover.gozolo.in/#/package/{{package.slug}}">
+            <div class="share-twitter">
+              <i class="fa fa-twitter"></i>
+            </div>
+          </a>
+
+          <a href=""
+             socialshare
+             socialshare-provider="google+"
+             socialshare-url="http://discover.gozolo.in/#/package/{{package.slug}}"
+             socialshare-popup-height="300"
+             socialshare-media="{{package.photos.data[0].url}}"
+             socialshare-popup-width="400"
+             socialshare-trigger="click">
+            <div class="share-google">
+              <i class="fa fa-google-plus"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

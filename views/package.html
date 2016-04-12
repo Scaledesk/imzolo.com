@@ -1,0 +1,878 @@
+<style>
+  .slick-slide h3{
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  .slick-slider{
+    margin-bottom: 0px !important;
+  }
+
+
+  /*img {*/
+    /*!* Same as first example *!*/
+    /*min-height: 50px;*/
+  /*}*/
+
+  img:before {
+    content: " ";
+    display: block;
+
+    position: absolute;
+    top: -30px;
+    left: 0;
+    height: calc(100% + 10px);
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+    border: 2px dotted rgb(200, 200, 200);
+    border-radius: 5px;
+  }
+
+  img:after {
+    content: "\f127" " Image Not available ";
+    display: block;
+    font-size: 3em;
+    font-style: normal;
+    font-family: FontAwesome;
+    color: rgb(100, 100, 100);
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+
+
+
+
+
+</style>
+
+<div class="container">
+  <div class="row ">
+
+    <div class="col-md-8">
+      <div class="card">
+        <div class="zolo-product-description">
+          <h2>{{package.name}}</h2>
+          <hr>
+        </div>
+
+        <div class="zolo-tags-container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="zolo-pdp-location pull-left">
+                <i class="fa fa-map-marker"></i> {{package.location[0].text}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="zolo-pdp-tags pull-right">
+                <i class="fa fa-tags"></i> {{package.category.data.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="zolo-pdp-description">
+
+          <div ng-if="package.photos.data.length > 1" class="row">
+            <div class="col-md-12" style="padding: 0px; margin-bottom: 20px;">
+              <slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"
+                     slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true
+                     data="package.photos.data" class="slider multiple-items">
+                <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><h3 style="margin:0;"><img preload-image default-image="../global/images/imageloader.gif" width="100%" height="358" ng-src="{{img.url}}"></h3></div>
+              </slick>
+              <!--preload-image default-image="../global/images/imageloader.gif"-->
+            </div>
+            <div class="col-md-12" style="padding-left: 25px; margin-bottom: 25px;">
+              <slick arrows="false" vertical="false" id="slider-1" as-nav-for="#main-slider"
+                     focus-on-select="true" slides-to-show=3 slides-to-scroll=1 init-onload=true
+                     data="package.photos.data" class="slider multiple-items">
+                <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><h3 style="margin:0;"><img preload-image
+                                                                                                                      default-image="../global/images/imageloader.gif"
+                                                                                                                      height="117" width="220"
+                                                                                                                      ng-src="{{img.url}}"></h3></div>
+              </slick>
+            </div>
+          </div>
+
+
+          <div ng-if="package.photos.data.length == 1" class="row" style="margin-top: -13px;">
+            <div class="col-md-12 text-center">
+              <!--<slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"-->
+                     <!--slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true-->
+                     <!--data="package.photos.data" class="slider multiple-items">-->
+                <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><img class="img-responsive" preload-image
+                                                                                                                      default-image="../assets/images/abc.png" style="margin: 0 8px 30px;"
+
+                                                                                                                      ng-src="{{img.url}}"></div>
+
+            </div>
+          </div>
+
+          <div ng-if="package.photos.data.length == 0" class="row" style="margin-top: -13px;">
+            <div class="col-md-12" style="padding: 0px;">
+
+                <div><img preload-image default-image="../assets/images/abc.png" width="598"height="358"  ng-src="../assets/images/no2.png" style="margin-bottom: 20px;"></div>
+
+
+            </div>
+
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="pdp-pkg-share">
+                <ul class="nav nav-tabs">
+                  <li><a href=""
+                         socialshare
+                         socialshare-url="http://discover.gozolo.in/app/#/package/{{package.slug}}"
+                         socialshare-provider="facebook"
+                         socialshare-text="{{package.name}}"
+                         socialshare-media="{{package.photos.data[0].url}}"
+                         socialshare-via="953913041345816"
+                         socialshare-description="{{package.description | htmlToPlaintext}}"
+                         socialshare-type="feed"
+                         class="hover-f"><i class="fa fa-facebook fa-2x"></i></a></li>
+                  <li><a href=""
+                         socialshare
+                         socialshare-provider="google+"
+                         socialshare-url="http://discover.gozolo.in/#/package/{{package.slug}}"
+                         class="hover-g"><i class="fa fa-google-plus fa-2x "></i> </a></li>
+                  <li><a href=""
+                         socialshare
+                         socialshare-provider="twitter"
+                         socialshare-text="{{package.name}}"
+                         socialshare-via=""
+                         socialshare-url="http://discover.gozolo.in/#/package/{{package.slug}}"
+                         class="hover-t"><i class="fa fa-twitter fa-2x"></i></a></li>
+                  <li><a href=""
+                         socialshare
+                         socialshare-url="http://discover.gozolo.in/#/package/{{package.slug}}"
+                         socialshare-provider="linkedin"
+                         socialshare-text="{{package.name}}"
+                         socialshare-popup-height="300"
+                         socialshare-popup-width="400"
+                         socialshare-source="discover.gozolo.in"
+                         socialshare-description="{{package.description}}"
+                         class="hover-l"><i class="fa fa-linkedin fa-2x"></i></a></li>
+                </ul>
+              </div>
+
+            </div>
+
+
+            <!-- facebook-->
+
+
+            <!-- facebook-feed-share data-description="{{package.description | htmlToPlaintext}}" data-name="{{package.name}}" data-url='http://discover.gozolo.in/#/package/{{package.slug}}' data-picture="{{package.photos.data[0].url}}" >-->
+
+
+            <div class="col-md-6">
+              <div class="pdp-pkg-share">
+                <ul class="nav nav-tabs pull-right">
+                  <li><a href="" ng-click="addAndDeleteWishlist(package)" class="hover-g"><i class="fa fa-heart fa-2x " ng-class="{'text-danger': package.wished_by_user=='yes'}" ></i> </a><md-tooltip md-direction="left">
+                    Add to Wishlist
+                  </md-tooltip></li>
+                  <li>
+
+                    <a ng-if="!isLoggedIn()" href="#login" class="hover-f"><i class="fa fa-tasks fa-2x"></i></a>
+
+
+                    <md-menu ng-if="isLoggedIn()">
+                      <!--<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+                          <md-icon md-menu-origin md-svg-icon="call:ring-volume"></md-icon>
+                      </md-button>-->
+                      <i ng-click="openMenu($mdOpenMenu, $event)" style="padding: 10px 15px; color:#979996;" class="fa fa-tasks fa-2x"></i>
+                      <md-menu-content width="4">
+                        <md-menu-item ng-click="toggleCollectionStatus(package.id,collection)" ng-repeat="collection in Collections" style="cursor: pointer;">
+                          <!--<md-button ng-click="announceClick($index)"> <span md-menu-align-target>Option</span> {{item}} </md-button>-->
+                          <a>
+             <span title="Remove from this collection" ng-if="collection.package_collection_status == true">
+<img class="icon icons8-Checkmark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T52UMU/CUBDH/2fiAgMOBsMmcZXYSRhIbBcHbUzxC2hCdDSyqcRJCW66OpjAF4AOxMGFkjiAE3wBHYlMMsBCwjOv0OYVXtvoJU2Tvuvv7n/v7ggS0+uGyoATAAoBCndhQBdAl4BqI2dai7+R+OGgbigrwCMAVRZA+GZNgcJrzuRw21zQHNIEsBYCcY5/poDmwGzQPyBLMBuk1wwLhL2wTKKrUfBnMB6IrlYjZ2rECwuASwq1s1QeR1s6Sp0HtPsd0V+jw7pRodkNBVomkUYxfYXRZIz82zlGk5Hrz4Aq6TWjC8JOEIXLedl/tmVJsrFbg0tji5B4JG5HdKIW09fIJHbR7n+g1ClLYy6BkrEkytk7fI8HuHm/RWp921eSSFySxtMvZ++RjG3ic/iFjUjcV5JQpJ602CKMOwdJ4uezYvtcvwPj74tmwXNLkiJpgQ3p04BeDkOrcWyq7ogQg0WEWFg/ieeMYcgIKp83z9D+BSZCPNPvDi/DU+jcMbSmhEvpGhFTni+2U2JQ3K5n6DGyF1tFtth+Ab2ftcT+uhwaAAAAAElFTkSuQmCC" width="18" height="18">
+                 {{collection.name}}
+             </span>
+             <span title="Add to this collection" ng-if="collection.package_collection_status == false">
+<img class="icon icons8-Plus-Math" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABKElEQVQ4T62UzU3DQBBG39AAVMCFArBoABtu4KA1DUADSKESItFA0kBsCYsb4DSAnBaoAA45IXnQLonlkHUCwXOc3X07f98IHotTEypcAYFAYK8olEApMMqTrPj5TJqOs9QEO3AHhL4PGr6igtvHJLNwZzVoDnkB9jZAFsfvFUQLmANtAVmBOVA8NgXCsS+Si4Mes88ZT2/PbYEWeZJFYgsL2JS89mBS5+9lybqMIzlPzVC+O7Q1SGEk8diUCIf/BJU2NW1CTvdP6B/drG3c4PV+pWYdgjpIDWXaYbG7av+mgbTFt9Y6kMokv8zCWiKiFCLs/lJn7poqHyqEVm9Lov0LrAlZUn8tXmXQprs6WmVSCX3vGmmmNF9s16IE9dQrUxW32Ia+xfYFndORxD29eSoAAAAASUVORK5CYII=" width="18" height="18">
+
+                 {{collection.name}}
+             </span>
+                          </a>
+                        </md-menu-item>
+                        <hr class="custom-hr">
+
+                        <md-menu-item ng-click="openAddCollectionModal()" style="cursor: pointer;">
+                          <a>
+                            <img class="icon icons8-Add-Folder" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABkUlEQVQ4T82Uv0tCURTHvyfBygJ/DNkkZQROakPREr2IwqHA/gJ1iyZFcAiKhqYgaoo2k/6AiBoMAoXAwYa0qUAlaUkke5FWGq8b71mWhuBTg+54uOdzv99zzj2ENh9qMw9/B2R+OEFw1CiOkRMeOS4khcwPKwgXdRL3yAlXo9AvIIdBQwgqVaN51fdeXnmavNGKwTIwqHdDp91qjvaZlXvwkC2z/UfAM+McOpVHLSksluZpInVcVnhu4sAQaglImKLRq/D/AeYFQrKolExZVEWxvc0rDGTV2M9qKhXqUQgY731eWV6IrMu2/BO2adtAMpfCTnRXggvsfUQWULRpvzZUlJ06gohnLuEN+soxhsMyMDpsBRT1vl4FEC90wZvWQ1Rm0ZurhsJ74kPsLs5Xtg2LmpxgzA6i7+LUzFHkqVuzettnWRpbxJDOKEELbwUkcknJduI+lZa9vqb9szyI1OJbvy2zQDNA0cWBNC79ZuRLeakxYOxRQGlANlAEcf4ZqwIdawDjGIgnsLCAkjvsCvMfNWGsWOIDwtIAAAAASUVORK5CYII=" width="20" height="20">&nbsp;&nbsp;New Collection</button>
+
+                          </a>
+                        </md-menu-item>
+
+
+
+                      </md-menu-content>
+                    </md-menu>
+
+
+
+
+
+
+
+                    <!--uib-dropdown is-open="package.openCollection"-->
+                    <!--  <ul uib-dropdown-menu role="menu" aria-labelledby="single-button" class="adc-dropup">
+
+                        <li ng-click="toggleCollectionStatus(package.id,collection)" style="cursor: pointer;" ng-repeat="collection in Collections" >
+                            <a>
+<span title="Remove from this collection" ng-if="collection.package_collection_status == true">
+<img class="icon icons8-Checkmark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T52UMU/CUBDH/2fiAgMOBsMmcZXYSRhIbBcHbUzxC2hCdDSyqcRJCW66OpjAF4AOxMGFkjiAE3wBHYlMMsBCwjOv0OYVXtvoJU2Tvuvv7n/v7ggS0+uGyoATAAoBCndhQBdAl4BqI2dai7+R+OGgbigrwCMAVRZA+GZNgcJrzuRw21zQHNIEsBYCcY5/poDmwGzQPyBLMBuk1wwLhL2wTKKrUfBnMB6IrlYjZ2rECwuASwq1s1QeR1s6Sp0HtPsd0V+jw7pRodkNBVomkUYxfYXRZIz82zlGk5Hrz4Aq6TWjC8JOEIXLedl/tmVJsrFbg0tji5B4JG5HdKIW09fIJHbR7n+g1ClLYy6BkrEkytk7fI8HuHm/RWp921eSSFySxtMvZ++RjG3ic/iFjUjcV5JQpJ602CKMOwdJ4uezYvtcvwPj74tmwXNLkiJpgQ3p04BeDkOrcWyq7ogQg0WEWFg/ieeMYcgIKp83z9D+BSZCPNPvDi/DU+jcMbSmhEvpGhFTni+2U2JQ3K5n6DGyF1tFtth+Ab2ftcT+uhwaAAAAAElFTkSuQmCC" width="18" height="18">
+{{collection.name}}
+</span>
+<span title="Add to this collection" ng-if="collection.package_collection_status == false">
+<img class="icon icons8-Plus-Math" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABKElEQVQ4T62UzU3DQBBG39AAVMCFArBoABtu4KA1DUADSKESItFA0kBsCYsb4DSAnBaoAA45IXnQLonlkHUCwXOc3X07f98IHotTEypcAYFAYK8olEApMMqTrPj5TJqOs9QEO3AHhL4PGr6igtvHJLNwZzVoDnkB9jZAFsfvFUQLmANtAVmBOVA8NgXCsS+Si4Mes88ZT2/PbYEWeZJFYgsL2JS89mBS5+9lybqMIzlPzVC+O7Q1SGEk8diUCIf/BJU2NW1CTvdP6B/drG3c4PV+pWYdgjpIDWXaYbG7av+mgbTFt9Y6kMokv8zCWiKiFCLs/lJn7poqHyqEVm9Lov0LrAlZUn8tXmXQprs6WmVSCX3vGmmmNF9s16IE9dQrUxW32Ia+xfYFndORxD29eSoAAAAASUVORK5CYII=" width="18" height="18">
+
+{{collection.name}}
+</span>
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li ng-click="openAddCollectionModal()" style="cursor: pointer;">
+                            <a>
+                                <img class="icon icons8-Add-Folder" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABkUlEQVQ4T82Uv0tCURTHvyfBygJ/DNkkZQROakPREr2IwqHA/gJ1iyZFcAiKhqYgaoo2k/6AiBoMAoXAwYa0qUAlaUkke5FWGq8b71mWhuBTg+54uOdzv99zzj2ENh9qMw9/B2R+OEFw1CiOkRMeOS4khcwPKwgXdRL3yAlXo9AvIIdBQwgqVaN51fdeXnmavNGKwTIwqHdDp91qjvaZlXvwkC2z/UfAM+McOpVHLSksluZpInVcVnhu4sAQaglImKLRq/D/AeYFQrKolExZVEWxvc0rDGTV2M9qKhXqUQgY731eWV6IrMu2/BO2adtAMpfCTnRXggvsfUQWULRpvzZUlJ06gohnLuEN+soxhsMyMDpsBRT1vl4FEC90wZvWQ1Rm0ZurhsJ74kPsLs5Xtg2LmpxgzA6i7+LUzFHkqVuzettnWRpbxJDOKEELbwUkcknJduI+lZa9vqb9szyI1OJbvy2zQDNA0cWBNC79ZuRLeakxYOxRQGlANlAEcf4ZqwIdawDjGIgnsLCAkjvsCvMfNWGsWOIDwtIAAAAASUVORK5CYII=" width="20" height="20">&nbsp;&nbsp;New Collection</button>
+
+                            </a>
+                        </li>
+                    </ul>-->
+
+                    <!--</a>-->
+                    <md-tooltip md-direction="right">
+                      Add to Collections
+                    </md-tooltip></li>
+                </ul>
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+
+          <div class="zolo-pdp-review-header">Description</div>
+          <hr class="custom-hr">
+          <div class="col-md-12 desc-zolo-pdp" style="padding:15px;margin-left:-5px;margin-top:-20px;">
+
+            <!-- catchy title-->
+            <p ng-bind-html="package.introduction" style="width:100%;color: #74767d; font-size: 15px; ">
+            </p>
+            <!-- description-->
+            <p ng-bind-html="package.description" style="width:100%;color: #74767d; font-size: 15px; ">
+            </p>
+            <!-- deliverable-->
+            <p ng-bind-html="package.deliverables" style="width:100%;color: #74767d; font-size: 15px; ">
+            </p>
+            <!-- how it is different from other-->
+            <p ng-bind-html="package.different_from_others" style="width:100%;color: #74767d; font-size: 15px; ">
+            </p>
+
+            <!-- t and c-->
+            <p ng-bind-html="package.term_condition" style="width:100%;color: #74767d; font-size: 15px; ">
+            </p>
+            <!-- links-->
+            <p style="width:100%;color: #74767d; font-size: 15px;">
+              <a href="" ng-show="package.youtube_links != null" ng-click="redirectLink(package.youtube_links)"> Youtube link</a><br/>
+              <a href="" ng-show="package.facebook_links != null" ng-click="redirectLink(package.facebook_links)">Facebook link</a><br/>
+              <a href="" ng-show="package.any_other_links != null" ng-click="redirectLink(package.any_other_links)">other link</a>
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card">
+
+        <div class="zolo-pdp-add-ons">
+          <div class="add-ons-header">
+
+
+            <div ng-if="package.Addons.data.length>0" class="row">
+              <div class="col-md-12">
+                <div class="zolo-pdp-review-header">ADD-ONS</div>
+
+              </div>
+            </div>
+
+
+            <hr>
+          </div>
+
+          <div ng-if="package.Addons.data.length>0" class="row">
+            <div class="col-md-9">
+              <div class="checkbox checkbox-success">
+                <label>
+                  <strong>Total ADD-ONS</strong>
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <strong>{{package.Addons.data.length}}</strong>
+            </div>
+          </div>
+
+
+
+          <div ng-repeat="addon in package.Addons.data" class="p-t-20 p-l-10" ng-style="addon.style" ng-init="addon.style = {}">
+            <div class="row">
+              <div class="col-md-8 col-xs-8">
+                <!-- <div>
+                  <label>
+                      <input checklist-model="selectedaddons" checklist-value="addon.id"
+                             ng-change="changeSelectedAddonsPrice(addon,checked)" type="checkbox" class="md-checkbox">
+                      {{addon.name}}
+                  </label>
+              </div>-->
+                <div class="checkbox">
+                  <label>
+                    <!--<input type="checkbox" class="md-checkbox">-->
+                    <input checklist-model="selectedaddons" checklist-value="addon.id"
+                           ng-change="changeSelectedAddonsPrice(addon,checked)"
+                           type="checkbox" class="md-checkbox">
+                    <span class="checkbox-material"><span class="check"></span></span>
+                    {{addon.name}}
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4 col-xs-4">
+                <div>
+                  <label>
+                    &#8377;&nbsp;{{addon.amount}}
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr class="custom-hr"/>
+
+            <div class="row">
+
+              <div class="col-md-12 text-center">
+                <!--<button ng-hide="sameUser" ng-disabled="packagePaused" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn2">Buy Now
+                    (&#8377; {{package.deal_price + selected_addons_price}})
+                </button>-->
+                <!--ng-if="package.deal_price!=null"-->
+                <!--<button ng-if="package.deal_price==null" ng-hide="sameUser" ng-disabled="packagePaused" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn2">Buy Now
+                    (&#8377; {{package.price + selected_addons_price}})
+                </button>-->
+
+
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-md-12 text-center">
+              <button ng-hide="sameUser" ng-disabled="packagePaused" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn2">Buy Now
+                ( {{package.deal_price + selected_addons_price | currency:"&#8377 ":0}})
+              </button>
+              <!--ng-if="package.deal_price!=null"-->
+              <!--<button ng-if="package.deal_price==null" ng-hide="sameUser" ng-disabled="packagePaused" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn2">Buy Now
+                  (&#8377; {{package.price + selected_addons_price}})
+              </button>-->
+
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div ng-if="package.reviews.data.length>0" class="card">
+        <div class="zolo-pdp-reviews">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="zolo-pdp-review-header">Reviews</div>
+              <hr>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-9">
+              <div class="m-b-10">
+                                <span>
+
+                                    <div class="col-md-4">
+
+                                      <strong>{{package.reviews.data.length}} Reviews</strong>
+
+                                    </div>
+
+                             </span>
+
+                <div ng-if="package.reviews.data.length>0" class="rateit" data-value="4.7" data-readonly="true"></div>
+              </div>
+
+            </div>
+
+            <div class="col-md-3">
+              <select>
+                <option value="Most Recent">Most Recent</option>
+                <option value="Previus">Previus</option>
+              </select>
+            </div>
+
+
+          </div>
+
+          <div class="row" ng-if="package.reviews.data.length>0">
+            <div class="col-md-4">
+              <div class="">self Communication</div>
+              <div class="rateit" data-value="4.7" data-readonly="true"></div>
+            </div>
+
+            <div class="col-md-4 ">
+              <div class="">Service As Described</div>
+              <div class="rateit" data-value="4.7" data-readonly="true"></div>
+            </div>
+
+            <div class="col-md-4 ">
+              <div class="">Would Recommended</div>
+              <div class="rateit" data-value="4.7" data-readonly="true"></div>
+            </div>
+
+
+          </div>
+
+          <div ng-if="package.reviews.data.length>0">
+            <hr class="custom-hr">
+
+            <div class="row">
+              <div class="col-md-2">
+                <img src="../global/images/dummy.png" alt="" class="img-circle">
+              </div>
+
+              <div class="col-md-6">
+                <strong>Nitesh</strong>&nbsp;&nbsp;<div class="rateit" data-value="3.7" data-readonly="true"></div>
+                <div>Awesome product</div>
+                <small>Today</small>
+
+
+              </div>
+
+
+
+            </div>
+
+
+            <hr class="custom-hr">
+          </div>
+          <!--
+
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="../global/images/dummy.png" alt="" class="img-circle">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <strong>Javed</strong>&nbsp;&nbsp;<div class="rateit" data-value="4.3" data-readonly="true"></div>
+                                      <div>Amazing results! I will order again thank you</div>
+                                      <small>Today</small>
+
+
+                                  </div>
+
+
+
+                              </div>
+
+
+
+                              <hr class="custom-hr">
+
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="../global/images/dummy.png" alt="" class="img-circle">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <strong>Tushar</strong>&nbsp;&nbsp;<div class="rateit" data-value="4.7" data-readonly="true"></div>
+                                      <div>Outstanding product</div>
+                                      <small>Today</small>
+
+
+                                  </div>
+
+
+
+                              </div>
+
+
+                              <hr class="custom-hr">
+
+                              <div class="row">
+                                  <div class="col-md-2">
+                                      <img src="../global/images/dummy.png" alt="" class="img-circle">
+                                  </div>
+
+                                  <div class="col-md-6">
+                                      <strong>Tushar</strong>&nbsp;&nbsp;<div class="rateit" data-value="4.7" data-readonly="true"></div>
+                                      <div>Outstanding product</div>
+                                      <small>Today</small>
+
+                                  </div>
+
+
+
+                              </div>
+          -->
+
+
+
+        </div>
+      </div>
+
+
+    </div> <!--end col-md-8-->
+
+
+    <div class="col-md-4">
+      <div class="card hidden-xs">
+        <div class="pdp-buy-sectiion text-center">
+          <!--<button class="btn zolo-login-facebook">BUY</button>-->
+          <button ng-disabled="packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn ladda-button" data-style="zoom-in">
+            <span class="ladda-label">Buy Now ({{package.deal_price + selected_addons_price | currency:"&#8377 ":0}})</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+          </button>
+
+          <!--<button ng-if="package.deal_price==null" ng-disabled="packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">Buy Now (&#8377;
+              {{package.price + selected_addons_price}})
+          </button>-->
+
+
+
+          <!--ng-hide="sameUser"-->
+          <p class="text-center text-warning" ng-show="packagePaused">Package paused by user</p>
+          <!--<p class="text-center text-warning" ng-show="sameUser">Package paused by user</p>-->
+          <hr class="custom-hr">
+          <div class="add-ons-hidden" ng-if="package.Addons.data.length > 0" ng-mouseover="show_addon = false"
+               ng-mouseleave="show_addon = show_addon_checked">
+            <div class="row ">
+              <div class="col-md-12 col-xs-12">
+                <h3 class="text-center">Add-On &nbsp;&nbsp;
+                  <i class="fa fa-angle-down"></i>
+                </h3>
+              </div>
+            </div>
+            <div uib-collapse="show_addon">
+              <div class="row" ng-repeat="addon in package.Addons.data">
+                <div class="col-md-8 col-xs-4">
+                  <div class="checkbox">
+                    <label>
+                      <!--<input type="checkbox" class="md-checkbox">-->
+                      <input checklist-model="selectedaddons" checklist-value="addon.id"
+                             ng-change="changeSelectedAddonsPrice(addon,checked)"
+                             type="checkbox" class="md-checkbox">
+                      <span class="checkbox-material"><span class="check"></span></span>
+                      {{addon.name}}
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-xs-4">
+                  <div class="pdp-addon-price">
+                    &#8377; {{addon.amount}}
+                  </div>
+
+
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button type="button" ng-click="openMessageSellerCustomOffer()" class="btn zolo-pdp-make-offer-btn">Make An Offer</button>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="card">
+        <div class="row zolo-pdp-more-info-user">
+          <div class="user-info text-center">
+            <div class="row zolo-rating-section">
+              <div class="col-md-4 text-center col-xs-4">
+                <div class="zolo-pdp-rating text-center">
+                  <i class="fa fa-star fa-2x">
+                    <md-tooltip md-direction="top" style="font-size: 16px;">
+                      Feedback Ratings
+                    </md-tooltip>
+                  </i>
+                  <div class="m-b-10 text-center">
+                    <div class="rateit" data-value="2.5" data-readonly="true">
+                    </div>
+                  </div>
+
+
+                </div>
+
+
+              </div>
+
+              <div class="col-md-4 col-xs-4">
+                <div class="zolo-pdp-shopping-cart text-center">
+                  <i class="fa fa-shopping-cart fa-2x">
+                    <md-tooltip md-direction="top" style="font-size: 16px;">
+                      Sales
+                    </md-tooltip>
+                  </i>
+                  <br>
+                  {{package.sales_count}}
+                </div>
+              </div>
+              <div class="col-md-4 col-xs-4">
+                <div class="zolo-pdp-duration text-center">
+                  <i class="fa fa-calendar fa-2x">
+                    <md-tooltip md-direction="top" style="font-size: 16px;">
+                      Duration
+                    </md-tooltip>
+                  </i><br>
+                  <span>{{package.delivery_time}}</span>&nbsp;<span ng-if="package.delivery_time_type=='instant_delivery'">Instant Delivery</span>
+                  <span ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time_type}}</span>
+                </div>
+              </div>
+
+
+            </div>
+            <hr>
+            <h2 class="user-heading">More Info</h2>
+          </div>
+        </div>
+
+        <div class="row zolo-pdp-more-info-user">
+          <div class="col-md-12">
+            <i class="fa fa-file"></i>&nbsp;&nbsp;Package Type: {{package.PackagesTypes.data.name}}
+          </div>
+        </div>
+
+
+        <div class="row zolo-pdp-more-info-user">
+          <div class="col-md-12">
+            <i class="fa fa-truck"></i>&nbsp;&nbsp;Delivery: {{package.delivery_time}}&nbsp;{{package.delivery_time_type}}
+          </div>
+        </div>
+
+
+        <div class="row zolo-pdp-more-info-user">
+          <div class="col-md-12">
+            <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span ng-if="package.meeting_availability==0">Seller not available for meeting</span>
+            <span ng-if="package.meeting_availability==1">Seller available for meeting</span>
+          </div>
+        </div>
+        <div class="row zolo-pdp-more-info-user">
+          <div class="col-md-12">
+            <i class="fa fa-hashtag"></i>
+            <span style="font-size: 17px;font-weight: bold;">#</span>&nbsp;&nbsp;
+            <span>Listing Id:     #{{package.id}}</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="card">
+        <div class="zolo-pdp-seller-profile">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="zolo-user-img text-center">
+                <a ng-href="#profile/{{package.seller_profile.user_id}}"><img src="{{package.seller_profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle"></a>
+                <a ng-href="#profile/{{package.seller_profile.user_id}}"><h4>{{package.seller_profile.name}}</h4></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a ng-href="#profile/{{package.seller_profile.user_id}}" class="seller-contact-dtls btn " style="text-transform: capitalize;">{{package.seller_name}}'s Profile</a>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="text-center"data-ng-bind-html="seller_description" class="text-center"></p>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <a ng-href="#profile/{{package.seller_profile.user_id}}" class="seller-contact-dtls btn " style="text-transform: capitalize;">Contact Now</a>
+            </div>
+            <!--profile/:other_user_id'-->
+
+          </div>
+
+          <!--<div class="row">-->
+          <!--<div class="col-md-12 col-xs-12">-->
+          <!--<ul class="nav nav-tabs sellers-info-details">-->
+          <!--<li><a href=""><i class="fa fa-facebook"></i></a></li>-->
+          <!--<li><a href=""><i class="fa fa-youtube"></i> </a></li>-->
+          <!--<li><a href=""><i class="fa fa-instagram"></i></a></li>-->
+          <!--<li><a href=""><i class="fa fa-linkedin"></i></a></li>-->
+          <!--</ul>-->
+          <!--</div>-->
+          <!--</div>-->
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tags">
+            <h2>Tags:</h2>
+
+            <span ng-repeat="t in package.tags.data"><button class="tags-b">{{t.text}}</button>
+            </span>
+            <!--<button class="tags-b">Web</button>
+            <button class="tags-b">Web & programming</button>
+            <button class="tags-b">Website</button>
+            <button class="tags-b">Ecommerce</button>
+            <button class="tags-b">Web</button>
+            <button class="tags-b">Web</button>-->
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="card" ng-if="sellerOtherPackages.length>1">
+    <div class="row ">
+      <div class="col-md-12 text-center">
+        <h2>Other packages by this user</h2>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="widget widget_slider">
+        <div class="row hidden-xs hidden-md">
+          <slick arrows="true" vertical="false" touch-move=false id="slider-2" as-nav-for="#main-slider"
+                 focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
+                 data="sellerOtherPackages" class="slider multiple-items">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
+              <!-- <h3 class="bg-primary">1</h3> -->
+              <div package-card package="package1" master-collections="Collections">
+
+              </div>
+            </div>
+          </slick>
+        </div>
+
+
+
+        <div class="row visible-xs hidden-md hidden-lg">
+          <slick arrows="true" vertical="false" touch-move=false id="slider-3" as-nav-for="#main-slider"
+                 focus-on-select="true" slides-to-show=1 slides-to-scroll=1 init-onload=true
+                 data="sellerOtherPackages" class="slider multiple-items">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
+              <!-- <h3 class="bg-primary">1</h3> -->
+              <div package-card package="package1" master-collections="Collections">
+
+              </div>
+            </div>
+          </slick>
+        </div>
+
+
+
+
+        <div class="row visible-md hidden-xs hidden-lg">
+          <slick arrows="true" vertical="false" touch-move=false id="slider-4" as-nav-for="#main-slider"
+                 focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
+                 data="sellerOtherPackages" class="slider multiple-items">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
+              <!-- <h3 class="bg-primary">1</h3> -->
+              <div package-card package="package1" master-collections="Collections">
+
+              </div>
+            </div>
+          </slick>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.gozolo.in" class="m-r-10" target="_blank">About us</a> |   <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
+    </p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
