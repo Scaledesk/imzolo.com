@@ -1,0 +1,186 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="cover-img" style="background: url('{{profile.banner || '../global/images/bg.jpg'}}') center no-repeat; background-size:cover; "></div>
+
+    </div>
+    <div class="col-md-12">
+      <div class="card" style="margin-top: 0px;">
+        <div class="profile-preview">
+          <div class="row">
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <p>{{profile.name}} </p>
+              <strong>{{profile.short_description}}</strong>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <p>Projects Completed</p>
+              <strong>{{profile.completed_orders || 'None'}}</strong>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+              <p>Contact Number</p>
+              <strong ng-if="profile.is_contact_number_verified !=0">{{profile.mobile}}</strong>
+              <strong ng-if="profile.is_contact_number_verified ==0">NA</strong>
+            </div>
+            <!--<div class="col-md-2 col-sm-6 col-xs-6">
+                <p>Date Of Birth</p>
+                <strong ng-if="profile.birth_date==null || profile.birth_date ==''">NA</strong>
+                <strong ng-if="profile.birth_date!=null || profile.birth_date !=''">{{profile.birth_date | date : 'dd MMM yyyy'}}</strong>
+            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <h2>About {{profile.name}}:</h2>
+            <p ng-if="profile.description!='' || profile.description!=null">{{profile.description}}</p>
+            <p ng-if="profile.description=='' || profile.description==null">The seller has yet to update his description</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <h2>{{profile.name}} Gigs</h2>
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="widget widget_slider">
+
+                  <div class="row">
+
+                    <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
+                           focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
+                           data="other_user_packages.data" class="slider multiple-items">
+                      <div ng-repeat="package in other_user_packages.data">
+                        <!-- <h3 class="bg-primary">1</h3> -->
+                        <div package-card package="package" master-collections="collections">
+                        </div>
+                      </div>
+                    </slick>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--ng-repeat="package in user_packages.data"-->
+
+      <div ng-if="portfolios.length>0" class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <h2>{{profile.name}} Portfolio</h2>
+            <div class="row">
+              <div ng-repeat="portfolio in portfolios" class="col-md-4">
+                <div class="panel panel-transparent">
+                  <div class="panel-content">
+                    <div class="portfolioContainer grid">
+                      <figure class="effect-sarah my-portfolio">
+                        <img src="../global/images/gallery/13.jpg" alt="img13"/>
+                        <figcaption>
+                          <h2>{{portfolio.type}} <span></span></h2>
+                          <p>{{portfolio.description}}</p>
+                        </figcaption>
+                      </figure>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-center">No. of packages</h4>
+            <p class="text-center"><strong>{{other_user_packages.data.length}}</strong></p>
+            <hr class="custom-hr">
+
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-center">Skills</h4>
+            <p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
+            <strong ng-if="profile.skills.length<=0" class="text-center">NA</strong>
+            <hr class="custom-hr">
+          </div>
+
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-center">Location</h4>
+            <p class="text-center"><strong >NA</strong></p>
+            <hr class="custom-hr">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="text-center">Rating</h4>
+            <p class="text-center"><strong >NA</strong></p>
+            <hr class="custom-hr">
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.gozolo.in" class="m-r-10" target="_blank">About us</a> | <a ng-href="#contact" class="m-l-10 m-r-10">Contact us</a> |   <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 tex-center">
+      <div class="card text-center">
+        <h4 class="text-center"><strong>Wallet Balance</strong></h4>
+        <!-- Wallet icon by Icons8 -->
+        <img class="icon icons8-Wallet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAEA0lEQVR4Xu2dTUhUURTHz9PxY5iBWrSUsoJIiRKyhTtbRLSIalGtg9oZSi10oRCY0i4hqU1IENYiAhcREglhA4WbxhQ1IpqRAoXIj2ZGhfTGE2ahzpt3O57nUec/27nnnPt+v3vue/NmeOMQXqoEHNXqKE4QoLwIIAAClAkol0cHQIAyAeXy6AAIUCagXB4dAAHKBJTLowMgQJmAcnl0AAQoE1Aujw7YKQIeHS2vXHacRnKonohqlOe9fcobkzCGrt2cWHzHmZRVB3RXhe+TQ02cAgURY0yiYXzxIOdYfQV0V4c/YcX7o20YW/BlmStL3qAHVeEux6FG//IYIS5gdc8vcr4DrR0BcQFY/Xbgs6PEBWDv1xdg/m8KhT06iA7IK6C/42xhE/c5+leX+qyuijwH9daVmZm5Is8yEJDfwKYFDJwvMePfQhDA7PNNC5i+5ZgX/eUQoCUg3Urm43AJeXVB7VvWrQ/m4Wx92NPxZ5ScT7ILb7oDXAFu9b6BMsp1LtjtAgZ/xGjw53t9Ae4McnXCbhcwlZ6mx6M920OAO4tUxqHRryGa+lW02hG7XYB7zN3xhzS7NMeSILYFsaoXUFBiJUI9e6roy5GKNUcNAVu4CFwJzafOQMAWMt9Q6urJixAAAZoElGujAyBAmYByeXQABCgTUC6PDoAAZQLK5dEBEKBMQLk8OgAClAkIlV/KODQ9WULzv4spkyoWykp0eiiV8wcQnr+KyH4jJjaDHZBocqKUpiZLA5kpBPhgHfkQpoU/cit+fTkIyCMgyJWfLQsBHgLcPX84Flnz7r66Wqq4cI6ih/ZTKBql2c9jlOh9SbMjY+ztCQI80K1f/S78Y223c46ON7ezJUCAh4D1e3/NvTbae7w652i3E+It7awugAAPbENvomveqX/93BPw31SKYlduQACLgISAdJpil6+zyqMDsAWxFk7gQTgJB444f4G8l6GHD1AoEsFlaNCO8EEsaMIW+XErwgJS0EOC7ARcBVnay96OnpspFr05BwGWArjD8I0Yl5xQHAQIgeSmgQAuOaE4CBACyU0DAVxyQnEQIASSmwYCuOSE4iBACCQ3DQRwyQnFQYAQSG6aIATEiegEd0KFFicuINVKXQ7hkZW2C0lcwEILVa6ECI+ttDQgLsCtiy6wpE9Ekbu8fyX0fbBcupVwLrDwEJgAdIIFfUPJSAdVWozcMMS3A7IR7jlhOURNDq0+vh5XR1kwhpLG0J1oJz0JVAAnOWL8CVh3gH8qjOAQgAAONcEYCBCEyUkFARxqgjEQIAiTkwoCONQEYyBAECYnFQRwqAnGQIAgTE4qCOBQE4yBAEGYnFQQwKEmGAMBgjA5qSCAQ00wBgIEYXJS/QOWveFwlDIXtAAAAABJRU5ErkJggg==" width="96" height="96">
+
+        <div class="wallet-amount text-center"><strong>&#8377; {{amount}}</strong></div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="col-lg-9 text-center">
+      <div class="card">
+
+        <h2 class="text-center wallet-add-money-heading">Add Money To Your Wallet</h2>
+
+
+        <div class="row">
+          <div class="col-md-12">
+
+          </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+          <div class="col-md-4">
+            <input type="text" ng-model="money" class="form-control" placeholder="Enter Amount to be Added in Wallet "/>
+
+          </div>
+
+
+          <div class="col-md-8">
+
+
+            <div class="row">
+              <div class="col-lg-3">
+                <button ng-click="change_add_amount(1000)" class="btn">+ &#8377;1000</button>
+              </div>
+
+              <div class="col-lg-3">
+                <button ng-click="change_add_amount(2000)" class="btn">+ &#8377;2000</button>
+              </div>
+
+              <div class="col-lg-3">
+                <button ng-click="change_add_amount(5000)" class="btn">+ &#8377;5000</button>
+              </div>
+
+              <div class="col-lg-3">
+                <button ng-click="change_add_amount(10000)" class="btn">+ &#8377;10000</button>
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+
+        <div class="col-md-12 text-center">
+          <button ng-click="addToWallet(money)" class="btn zolo-btn-wallet">Add Money</button>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="panel-header md-panel-controls">
+          <h2><strong>Wallet History</strong></h2>
+          <div class="panel-content">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>transaction id</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Type</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="transaction in transactions">
+                <td>{{$index}}</td>
+                <td>{{transaction.id}}</td>
+                <td>{{transaction.timestamp}}</td>
+                <td>&#8377;{{transaction.amount}}</td>
+                <td>{{transaction.type}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <div class="footer">
+    <div class="copyright">
+      <p class="pull-left sm-pull-reset">
+        <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+        <span>Zolo Technologies Pvt. Ltd.</span>.
+        <span>All rights reserved. </span>
+      </p>
+      <p class="pull-right sm-pull-reset">
+        <span><a ng-href="http://www.gozolo.in" class="m-r-10" target="_blank">About us</a> | <a ng-href="#contact" class="m-l-10 m-r-10">Contact us</a> |   <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
+      </p>
+    </div>
+  </div>
+
+

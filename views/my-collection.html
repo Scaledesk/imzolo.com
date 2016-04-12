@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Your Collections</h2>
+    </div>
+  </div>
+  <hr class="custom-hr">
+  <div ng-hide="loading_collection" ng-if="collections.length>0" class="row">
+    <div ng-repeat="collection in collections" class="col-md-4  col-sm-6 portlets">
+      <div class="panel panel-transparent">
+        <a ng-href="#dashboard/my-collection/{{collection.id}}">
+          <div class="panel-content">
+            <div class="portfolioContainer grid">
+              <figure class="effect-sarah zolo-collection">
+                <img src="../../global/images/gallery/11.jpg">
+                <figcaption>
+                  <h2>{{collection.name}}</h2>
+                  <p class="f-14">{{collection.packages_ids.length}}&nbsp; Package</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </a>
+        <div class="row zolo-center">
+          <button ng-click="deleteCollection1(collection.id)" class="btn btn-transparent btn-warning zolo-center">Delete collection</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-hide="loading_collection" ng-if="collections.length<=0" class="row">
+    <h3 class="text-center" style="text-transform: capitalize;">Your collection list Is empty !</h3>
+  </div>
+  <div ng-show="loading_collection" class="row p-20 text-center">
+    <div class="col-md-12 text-center m-t-60">
+      <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
