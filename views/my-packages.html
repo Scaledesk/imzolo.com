@@ -11,7 +11,9 @@
               <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==1" ng-click="activeAll()" class="btn pull-right">Resume All</button>
             </div>
           </div>
-          <div ng-if="user_packages.data.length>0" class="panel-content">
+
+
+          <div ng-hide="myPackageLoading" ng-if="user_packages.data.length>0" class="panel-content">
             <ul class="nav nav-tabs nav-primary">
               <li class="active"><a data-target="#tab2_1" data-toggle="tab" aria-expanded="true"> All<div class="ripple-wrapper"></div></a></li>
               <li class=""><a data-target="#tab2_2" data-toggle="tab" aria-expanded="false">Published<div class="ripple-wrapper"></div></a></li>
@@ -75,16 +77,14 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
-          <div ng-if="user_packages.data.length<=0" class="panel-content">
 
+
+          <div ng-hide="myPackageLoading" ng-if="user_packages.data.length<=0" class="panel-content">
             <div class="row">
               <div class="col-md-12 text-center">
                 <p class="text-center  large-size">You have not listed any packages !</p>
@@ -92,8 +92,22 @@
                 <a ng-href="#post-a-package" class="btn btn-lg btn-success">Post Your First Package</a>
               </div>
             </div>
-
           </div>
+
+
+          <div ng-show="myPackageLoading" class="panel-content">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                  <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
         </div>
       </div>
     </div>

@@ -792,10 +792,10 @@
     <div class="row">
       <div class="widget widget_slider">
         <div class="row hidden-xs hidden-md">
-          <slick arrows="true" vertical="false" touch-move=false id="slider-2" as-nav-for="#main-slider"
+          <slick arrows="true" vertical="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
-            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug" ng-init="package1.shareTab=false">
               <!-- <h3 class="bg-primary">1</h3> -->
               <div package-card package="package1" master-collections="Collections">
 
@@ -807,10 +807,10 @@
 
 
         <div class="row visible-xs hidden-md hidden-lg">
-          <slick arrows="true" vertical="false" touch-move=false id="slider-3" as-nav-for="#main-slider"
+          <slick arrows="true" vertical="false" touch-move="false" id="slider-3" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=1 slides-to-scroll=1 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
-            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug" ng-init="package1.shareTab=false">
               <!-- <h3 class="bg-primary">1</h3> -->
               <div package-card package="package1" master-collections="Collections">
 
@@ -823,10 +823,10 @@
 
 
         <div class="row visible-md hidden-xs hidden-lg">
-          <slick arrows="true" vertical="false" touch-move=false id="slider-4" as-nav-for="#main-slider"
+          <slick arrows="true" vertical="false" touch-move="false" id="slider-4" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
-            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug" ng-init="package1.shareTab=false">
               <!-- <h3 class="bg-primary">1</h3> -->
               <div package-card package="package1" master-collections="Collections">
 
