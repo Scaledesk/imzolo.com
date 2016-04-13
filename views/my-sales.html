@@ -53,12 +53,13 @@
       <div class="col-md-12">
         <h2><strong>Manage Sales</strong></h2>
         <ul class="nav nav-tabs nav-primary manage-sales">
-          <li><a href="">New</a></li>
-          <li><a href="">Active</a></li>
-          <li><a href="">Late</a></li>
-          <li><a href="">Deliver</a></li>
-          <li><a href="">Complete</a></li>
-          <li><a href="">Cancelled</a></li>
+          <li><a ng-click="my_seles = my_all_seles">All</a></li>
+          <li><a ng-click="orderMySales('package_available_dates')">New</a></li>
+          <li><a ng-click="filterMySales('payment_done')">Active</a></li>
+          <li><a ng-click="filterMySales('payment_done')">Late</a></li>
+          <li><a ng-click="filterMySales('completed')">Deliver</a></li>
+          <li><a ng-click="filterMySales('completed')">Complete</a></li>
+          <li><a ng-click="filterMySales('cancelled')">Cancelled</a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +68,7 @@
         <div class="panel-header md-panel-controls">
 
         </div>
-        <div ng-if="my_seles.data.length>0" class="panel-content">
+        <div ng-if="my_seles.length>0" class="panel-content">
           <table class="table table-striped">
             <thead>
             <tr>
@@ -81,7 +82,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="my_sale in my_seles.data">
+            <tr ng-repeat="my_sale in my_seles">
               <td>{{$index+1}}</td>
               <td>{{}}</td>
               <td><a ng-href="#orderSummary/{{my_sale.id}}">{{my_sale.package_title}}</a></td>
@@ -93,7 +94,7 @@
             </tbody>
           </table>
         </div>
-        <div ng-if="my_seles.data.length<=0" class="panel-content">
+        <div ng-if="my_seles.length<=0" class="panel-content">
           <p>You have not any sales</p>
         </div>
       </div>
