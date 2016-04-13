@@ -43,6 +43,27 @@
     text-align: center;
   }
 
+  .other-p-s  .slick-prev {
+    left: 0px;
+    z-index: 2;
+  }
+
+  .other-p-s  .slick-prev:before,.other-p-s  .slick-next:before {
+    font-family: "slick";
+    font-size: 45px;
+    line-height: 1;
+    color: #313131;
+    opacity: 0.3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+  }
+
+  .other-p-s  .slick-next {
+    right: 25px;
+    z-index: 2;
+  }
+
+
 
 
 
@@ -82,8 +103,8 @@
 
         <div class="zolo-pdp-description">
 
-          <div ng-if="package.photos.data.length > 1" class="row">
-            <div class="col-md-12" style="padding: 0px; margin-bottom: 20px;">
+          <div ng-if="package.photos.data.length > 1" class="row ">
+            <div class="col-md-12 other-p-s" style="padding: 0px; margin-bottom: 20px;">
               <slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"
                      slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true
                      data="package.photos.data" class="slider multiple-items">
@@ -91,7 +112,7 @@
               </slick>
               <!--preload-image default-image="../global/images/imageloader.gif"-->
             </div>
-            <div class="col-md-12" style="padding-left: 25px; margin-bottom: 25px;">
+            <div class="col-md-12 other-p-s" style="padding-left: 25px; margin-bottom: 25px;">
               <slick arrows="false" vertical="false" id="slider-1" as-nav-for="#main-slider"
                      focus-on-select="true" slides-to-show=3 slides-to-scroll=1 init-onload=true
                      data="package.photos.data" class="slider multiple-items">
@@ -105,12 +126,12 @@
 
 
           <div ng-if="package.photos.data.length == 1" class="row" style="margin-top: -13px;">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center other-p-s">
               <!--<slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"-->
                      <!--slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true-->
                      <!--data="package.photos.data" class="slider multiple-items">-->
                 <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><img class="img-responsive" preload-image
-                                                                                                                      default-image="../assets/images/abc.png" style="margin: 0 8px 30px;"
+                                                                                                                      default-image="../assets/images/abc.png" width="100%" style="margin-bottom: 30px;"
 
                                                                                                                       ng-src="{{img.url}}"></div>
 
@@ -118,7 +139,7 @@
           </div>
 
           <div ng-if="package.photos.data.length == 0" class="row" style="margin-top: -13px;">
-            <div class="col-md-12" style="padding: 0px;">
+            <div class="col-md-12 other-p-s" style="padding: 0px;">
 
                 <div><img preload-image default-image="../assets/images/abc.png" width="598"height="358"  ng-src="../assets/images/no2.png" style="margin-bottom: 20px;"></div>
 
@@ -789,7 +810,7 @@
 
     </div>
 
-    <div class="row">
+    <div class="row ">
       <div class="widget widget_slider">
         <div class="row hidden-xs hidden-md">
           <slick arrows="true" vertical="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"

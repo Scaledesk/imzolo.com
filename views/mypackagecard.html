@@ -94,6 +94,10 @@
             <i ng-show="package.status==='PAUSED'" ng-click="activate(package)" class="mdi-av-play-circle-fill text-success m-l-10"></i>
             <span ng-show="package.status==='PAUSED'" ng-click="activate(package)">Resume</span>
 
+            <a ng-href="#/dashboard/edit-package/{{package.slug}}">
+            <i ng-show="package.status==='DRAFT'" ng-click="activate(package)" class="mdi-av-play-circle-fill text-success m-l-10"></i>
+            <span ng-show="package.status==='DRAFT'" ng-click="activate(package)">Publish</span>
+            </a>
             <!--    For published packages end-->
             <!--<i class="mdi-av-pause-circle-fill"></i>-->
           </div>
