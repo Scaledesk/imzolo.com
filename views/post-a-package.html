@@ -105,7 +105,7 @@
 
 
                   <div class="col-md-4">
-                    <tags-input ng-model="package.tags" key-property="value" add-from-autocomplete-only="true">
+                    <tags-input ng-desabled="true" ng-model="package.tags" key-property="value" add-from-autocomplete-only="true">
                       <auto-complete source="loadTags($query)"></auto-complete>
                     </tags-input>
                     <md-tooltip class="f-14 w-400" md-direction="right">
@@ -206,7 +206,7 @@
                   <div class="col-md-6">
                     <label>What does your package includes ? <span>(Deliverable)</span></label>
                     <textarea ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
-                    {{package.deliverable}}
+                    <!--{{package.deliverable}}-->
                     <md-tooltip md-direction="right">
                       what does your package includes
                     </md-tooltip>
@@ -618,7 +618,7 @@
 
                     <div class="col-md-6">
                       <label>Add-ons Price</label>
-                      <input ng-model="addon.amount" type="number" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="addon.amount" type="number" number-converter class="form-control" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
                     </div>
 
 
@@ -632,7 +632,7 @@
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
                         </label>
-                        <input ng-show="addon.delivery_time_type=='days'" ng-model="addon.days" type="number" class="form-control" placeholder="Days"/>
+                        <input ng-show="addon.delivery_time_type=='days'" number-converter ng-model="addon.days" min="1" type="number" class="form-control" placeholder="Days"/>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
@@ -641,7 +641,7 @@
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
-                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" type="number" class="form-control" placeholder="Hours"/>
+                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4">

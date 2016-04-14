@@ -73,7 +73,7 @@
             <thead>
             <tr>
               <th>#</th>
-              <th>Buyers</th>
+              <th>Buyers Name</th>
               <th>Packages</th>
               <th>Order Date</th>
               <th>Order Time</th>
@@ -84,12 +84,12 @@
             <tbody>
             <tr ng-repeat="my_sale in my_seles">
               <td>{{$index+1}}</td>
-              <td>{{}}</td>
+              <td>{{my_sale.buyer_name}}</td>
               <td><a ng-href="#orderSummary/{{my_sale.id}}">{{my_sale.package_title}}</a></td>
-              <td>{{}}</td>
-              <td>{{}}</td>
-              <td>{{}}</td>
-              <td>&#8377; {{my_sale.deal_price}}</td>
+              <td>{{my_sale.order_date}}</td>
+              <td>{{my_sale.order_time}}</td>
+              <td>{{my_sale.delivery_date}}</td>
+              <td>&#8377; {{my_sale.total_price}}</td>
             </tr>
             </tbody>
           </table>

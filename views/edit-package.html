@@ -1261,7 +1261,7 @@
 
                     <div class="col-md-6">
                       <label>Add-ons Price</label>
-                      <input ng-model="addon.amount" type="number" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="addon.amount" type="number" number-converter min="1" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
                     </div>
 
 
@@ -1275,16 +1275,17 @@
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon_time_type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
                         </label>
-                        <input ng-show="addon.delivery_time_type=='days'" ng-model="addon.days" type="number" class="form-control" placeholder="Days"/>
+                        <input ng-show="addon.delivery_time_type=='days'" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Days"/>
                       </div>
                     </div>
+                    {{addon.delivery_time_type}}
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label>
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
-                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" type="number" class="form-control" placeholder="Hours"/>
+                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
