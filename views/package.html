@@ -449,31 +449,12 @@
 
             </div>
 
-            <div class="col-md-3">
+            <!--<div class="col-md-3">
               <select>
                 <option value="Most Recent">Most Recent</option>
                 <option value="Previus">Previus</option>
               </select>
-            </div>
-
-
-          </div>
-
-          <div class="row" ng-if="package.reviews.data.length>0">
-            <div class="col-md-4">
-              <div class="">self Communication</div>
-              <div class="rateit" data-value="4.7" data-readonly="true"></div>
-            </div>
-
-            <div class="col-md-4 ">
-              <div class="">Service As Described</div>
-              <div class="rateit" data-value="4.7" data-readonly="true"></div>
-            </div>
-
-            <div class="col-md-4 ">
-              <div class="">Would Recommended</div>
-              <div class="rateit" data-value="4.7" data-readonly="true"></div>
-            </div>
+            </div>-->
 
 
           </div>
@@ -481,25 +462,52 @@
           <div ng-if="package.reviews.data.length>0">
             <hr class="custom-hr">
 
-            <div class="row">
+            <div ng-repeat="review in package.reviews.data" class="row">
               <div class="col-md-2">
-                <img src="../global/images/dummy.png" alt="" class="img-circle">
+                <img src="{{review.user_image || '../global/images/dummy.png'}}" alt="" class="img-responsive img-circle">
               </div>
 
-              <div class="col-md-6">
-                <strong>Nitesh</strong>&nbsp;&nbsp;<div class="rateit" data-value="3.7" data-readonly="true"></div>
-                <div>Awesome product</div>
-                <small>Today</small>
+              <div class="col-md-10">
+               <div class="row">
+                 <div class="col-md-8">
+                   <strong>{{review.user_name}}</strong>&nbsp;&nbsp;<div class="rateit" data-value="3.7" data-readonly="true"></div>
+                   <div>{{review.comment}}</div>
+                 </div>
+                 <div class="col-md-4">
+                   <small class="pull-right">{{review.review_date | date:'dd MMM yyyy'}}</small>
+                 </div>
+               </div>
 
 
+
+
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="">self Communication</div>
+                    <!--<div class="rateit" data-value="4.7" data-readonly="true"></div>-->
+                    <div number-converter star-rating ng-model="review.seller_communication_rating" readonly="true"></div>
+                  </div>
+
+                  <div class="col-md-4 ">
+                    <div class="">Service As Described</div>
+                    <!--<div class="rateit" data-value="4.7" data-readonly="true"></div>-->
+                    <div number-converter star-rating ng-model="review.seller_as_described_rating" readonly="true"></div>
+                  </div>
+
+                  <div class="col-md-4 ">
+                    <div class="">Would Recommended</div>
+                    <div number-converter star-rating ng-model="review.would_recommend_rating" readonly="true"></div>
+                    <!--<div class="rateit" data-value="4.7" data-readonly="true"></div>-->
+                  </div>
+                </div>
+                <hr class="custom-hr">
               </div>
-
-
 
             </div>
 
 
-            <hr class="custom-hr">
+
           </div>
           <!--
 
@@ -655,13 +663,14 @@
                     </md-tooltip>
                   </i>
                   <div class="m-b-10 text-center">
-                    <div class="rateit" data-value="2.5" data-readonly="true">
-                    </div>
+                    <!--<div class="rateit" data-value="2.5" data-readonly="true">
+                    </div>-->
+                    <div number-converter star-rating ng-model="package.average_rating" readonly="true"></div>
+                    <!--{{package.average_rating}}-->
                   </div>
 
 
                 </div>
-
 
               </div>
 

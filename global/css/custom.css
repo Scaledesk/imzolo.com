@@ -2640,3 +2640,54 @@ figure.effect-steve:hover p {
 .star-rating.readonly .star.filled {
   color: #666;
 }
+
+
+.about-t-1{
+  background-color: #F7F7F7;
+  padding: 10px 20px 30px 20px;
+  color: #000;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.about-t-2{
+  background-color: #F7F7F7;
+  padding: 10px 20px 50px 20px;
+  color: #000;
+  border-bottom: 1px solid #e0e0e0;
+}
+.about-t-3{
+  background-color: #F7F7F7;
+  padding: 10px 20px 28px 20px;
+  color: #000;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.about-t-1, .about-t-2, .about-t-3 h4{
+  text-align: center;
+  color: #444;
+}
+
+.test-img{
+  z-index: 2;
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 600px){
+  .home-s-btn{
+    margin-top: 10px!important;
+    font-size: 15px !important;
+    text-align: center !important;
+
+  }
+
+  .home-page-search{
+    font-size: 12px !important;
+  }
+
+  .redesigned-price-filter{
+    width: 100% !important;
+  }
+}
+
+

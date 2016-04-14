@@ -103,11 +103,15 @@
   }
 
   #search_area .card{
-    margin-top: -50px !important;
+    /*margin-top: -50px !important;*/
     z-index: 2;
 
 
   }
+
+  /*.card-about-us{*/
+  /*margin-top: 0 !important;*/
+  /*}*/
 
 
 
@@ -292,7 +296,7 @@
   <div class="card">
     <div class="row">
       <div class="col-md-12">
-        <h2><strong>Popular Categories on Zolo</strong></h2>
+        <h2 class="text-center"><strong>Popular Categories on Zolo</strong></h2>
         <hr>
       </div>
 
@@ -417,7 +421,7 @@
                  </div>
     -->
               <div ng-repeat="row in package_rows | limitTo:2" class="row">
-                <div ng-repeat="package in row" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+                <div ng-repeat="package in row" class="col-xs-12 col-sm-9 col-sm-offset-2 col-md-3 col-md-offset-0 col-lg-3 col-lg-offset-0">
                   <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
                   </div>
                 </div>
@@ -532,14 +536,14 @@
           </div>
 
 
-<!--
+          <!--
 
-          <div class="row">
-            <div class="col-md-12 text-center z-transparent">
-              <button class="btn btn-lg zolo-btn text-c">See all Packages</button>
-            </div>
-          </div>
--->
+                    <div class="row">
+                      <div class="col-md-12 text-center z-transparent">
+                        <button class="btn btn-lg zolo-btn text-c">See all Packages</button>
+                      </div>
+                    </div>
+          -->
 
 
 
@@ -558,25 +562,142 @@
         </div>
       </div>
 
+    </div>
+  </div>
 
+  <div class="card-about-us card">
+    <div class="row">
+      <div class="col-md-12">
+        <!--<h2><strong>About Zolo</strong></h2>-->
+        <h2 class="text-center f-32"><strong> Easiest way to get things done !</strong></h2>
+        <hr>
+      </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <h2><strong>About Zolo</strong></h2>
-          <hr>
-          <blockquote class="about-zolo">Zolo is India's first marketplace for on-demand talent where you can discover thousands of talented people ready to help you get anything done. Imagine having an army of people with a variety of 'specialized skills & talent' ready to help you complete your to-do list, finish your projects, solve any problem and accomplish your big goals in life.
-            Soon Zolo will have over 200,000 independent professionals in over 500+ categories across 50 cities in India sharing their talent, skills & services with you.
-            Whether you're looking for a mandarin teacher, a kitchen gardener, a tarot reader or a legal consultant, Zolo can find you an expert for every need and situation in your life.
-            With Zolo accomplish your life goals at god speed.</blockquote>
+        <div class="col-md-4 text-center">
+          <img src="../global/images/buy.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
+        </div>
+
+
+        <div class="col-md-4 text-center">
+          <img src="../global/images/payment.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
+        </div>
+
+
+        <div class="col-md-4 text-center">
+          <img src="../global/images/thank.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="about-t-1">
+          <h4><strong>Browse & Discover</strong></h4>
+          <p><i class="fa fa-check"></i> &nbsp;&nbsp;Find a package & vendor matching the best-fit to your project.</p>
+          <p><i class="fa fa-check"></i>&nbsp;&nbsp;Discover and choose from thousands of custom packages for any need.</p>
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+        <div class="about-t-2">
+          <h4><strong>Book & Pay</strong></h4>
+          <p><i class="fa fa-check"></i>&nbsp;&nbsp;Pay Securely online with PayU Money.</p>
+          <p><i class="fa fa-check"></i>&nbsp;&nbsp;Discuss flexibility on payment with your vendor and pay accordingly.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="about-t-3">
+          <h4><strong>Task Done !</strong></h4>
+          <p><i class="fa fa-check"></i>&nbsp;&nbsp;Skilled Partners ensuring quality & timely delivery.</p>
+          <p><i class="fa fa-check"></i>&nbsp;&nbsp;Dedicated support team to help you at every step.</p>
         </div>
       </div>
 
 
+
     </div>
 
 
 
 
+    <!--<p class="about-zolo">Zolo is India's first marketplace for on-demand talent where you can discover thousands of talented people ready to help you get anything done. Imagine having an army of people with a variety of 'specialized skills & talent' ready to help you complete your to-do list, finish your projects, solve any problem and accomplish your big goals in life.-->
+    <!--Soon Zolo will have over 200,000 independent professionals in over 500+ categories across 50 cities in India sharing their talent, skills & services with you.-->
+    <!--Whether you're looking for a mandarin teacher, a kitchen gardener, a tarot reader or a legal consultant, Zolo can find you an expert for every need and situation in your life.-->
+    <!--With Zolo accomplish your life goals at god speed.</p>-->
+
+
+  <div class="row">
+    <div class="col-md-12 m-t-60">
+      <h2 class="text-center f-32"><strong>Testimonials</strong></h2>
+      <hr>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="about-t-2" style="padding-bottom: 100px;">
+        <div class="row">
+          <div class="col-md-3 text-center">
+        <img src="../global/images/avatars/t-1.jpg" alt="" class="test-img img-circle img-responsive">
+
+        </div>
+
+          <div class="col-md-9">
+            <p>I'm guitar enthusiast and a student, but with Zolo I get regular weekends gigs to teach guitar lessons and play at small get togethers. I have quickly built up a healthy side income in no time. Thanks to Zolo.</p>
+            <p>Raghav Guitar Teacher,|<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
+            <hr class="custom-hr">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="about-t-3">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <img src="../global/images/avatars/t2.jpg" alt="" class="test-img img-circle img-responsive">
+
+
+          </div>
+
+          <div class="col-md-9">
+            <p>I was skeptical at first but once we listed our
+              personalised printing services on Zolo, we started receiving new clients almost within a week. All the clients we received through Zolo were really friendly and of highest quality. We look forward to expand our business on Zolo with help from the very capable Zolo team.</p>
+            <p>Shivani Printing Service,|<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
+            <hr class="custom-hr">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--<div class="col-md-4">-->
+      <!--<div class="card">-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-3 text-center">-->
+            <!--<img src="../global/images/avatars/avatar1.png" alt="" class="test-img img-circle">-->
+            <!--<p class="text-center">Manish</p>-->
+            <!--<hr>-->
+
+          <!--</div>-->
+
+          <!--<div class="col-md-9">-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, doloribus ducimus ea eos in, ipsa ipsam ipsum maiores modi nemo neque pariatur porro provident rem saepe similique suscipit unde voluptatum!</p>-->
+
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
 
 
 
@@ -585,20 +706,39 @@
   </div>
 
 
-
-
-  <div class="footer">
-    <div class="copyright">
-      <p class="pull-left sm-pull-reset">
-        <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-        <span>Zolo Technologies Pvt. Ltd.</span>.
-        <span>All rights reserved. </span>
-      </p>
-      <p class="pull-right sm-pull-reset">
-        <span><a ng-href="http://www.gozolo.in" class="m-r-10" target="_blank">About us</a> | <a ng-href="#contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
-      </p>
-    </div>
   </div>
+
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.gozolo.in" class="m-r-10" target="_blank">About us</a> | <a ng-href="#contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
+    </p>
+  </div>
+</div>
 
 
 

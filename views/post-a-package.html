@@ -105,12 +105,10 @@
 
 
                   <div class="col-md-4">
-                    <tags-input ng-disabled="validation_error.packageTag" ng-change="inputTagCheck()" ng-model="package.tags" key-property="value" add-from-autocomplete-only="true">
+                    <tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true">
                       <auto-complete source="loadTags($query)"></auto-complete>
                     </tags-input>
-                    <div ng-show="package.tags.length<4" class="text-danger">only five tag allowed</div>
-                    <div ng-show="package.tags.length>4" ng-click="validation_error.packageTag = false" class="text-danger">Edit</div>
-
+                    <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
                       * add tag
                     </md-tooltip>
