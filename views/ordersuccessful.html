@@ -507,36 +507,19 @@
 
                       <div class="row m-t-20">
 
-                        <div class="col-md-8 col-xs-8">
+                        <div class="col-md-6 col-xs-6">
 
-                          <p class="f-18 pull-right" >Quality : </p>
-
-
-                        </div>
-
-                        <div class="col-md-4 col-xs-4">
-
-                          <div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
-
-                          </div>
+                          <span class="f-18" >Quality : </span>
+                          <!--<div star-rating ng-model="rating" max="10"></div>-->
 
                         </div>
 
-                      </div>
+                        <div class="col-md-6 col-xs-6">
 
-                      <div class="row">
+                          <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
 
-                        <div class="col-md-8 col-xs-8">
-
-                          <p class="f-18 pull-right" >Punctuality : </p>
-
-                        </div>
-
-                        <div class="col-md-4 col-xs-4">
-
-                          <div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
-
-                          </div>
+                          </div>-->
+                          <star-rating ng-model="rating.would_recommend_rating"></star-rating>
 
                         </div>
 
@@ -544,22 +527,37 @@
 
                       <div class="row">
 
-                        <div class="col-md-8 col-xs-8">
+                        <div class="col-md-6 col-xs-6">
 
-                          <p class="f-18 pull-right">Communication : </p>
-
+                          <span class="f-18" >Punctuality : </span>
                         </div>
 
-                        <div class="col-md-4 col-xs-4">
+                        <div class="col-md-6 col-xs-6">
 
-                          <div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
+                          <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
 
-                          </div>
-
+                          </div>-->
+                          <div star-rating ng-model="rating.seller_as_described_rating"></div>
                         </div>
 
                       </div>
 
+                      <div class="row">
+
+                        <div class="col-md-6 col-xs-6">
+
+                          <span class="f-18">Communication : </span>
+                        </div>
+
+                        <div class="col-md-6 col-xs-6">
+
+                          <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
+
+                          </div>-->
+                          <div star-rating ng-model="rating.seller_communication_rating"></div>
+                        </div>
+
+                      </div>
 
 
                     </div>
@@ -578,13 +576,13 @@
                         <p class="f-18">Please write a review for the Seller</p>
                         <hr class="custom-hr">
                         <div class="form-control-wrapper">
-                          <textarea class="form-control empty bcolor-custom" style="height:50px;"></textarea>
+                          <textarea class="form-control empty bcolor-custom" ng-model="rating.comment" style="height:50px;" required></textarea>
                           <div class="floating-label">Any comments from your side are most welcome...</div>
                           <span class="material-input"></span>
                         </div>
                       </div>
 
-                      <button type="button" class="btn btn-zolo btn-transparent">Submit Review<div class="ripple-wrapper"></div></button>
+                      <button type="button" class="btn btn-zolo btn-transparent" ng-click="submitReview()">Submit Review<div class="ripple-wrapper"></div></button>
 
 
                     </form>
