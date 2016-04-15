@@ -171,7 +171,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
                     <label>Describe your package</label>
-                    <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" maxlength="4000" class="form-control" id="description" placeholder="Enter the package description"></textarea>
+                    <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
 
                     <!--<textarea cols="80" rows="10" class="cke-editor">
                         &lt;h2&gt;Technical details &lt;a id=&quot;tech-details&quot; name=&quot;tech-details&quot;&gt;&lt;/a&gt;&lt;/h2&gt; &lt;table align=&quot;right&quot; border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot;
@@ -508,7 +508,8 @@
                     <p>Instructions for Buyer</p>
                     <textarea class="form-control" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
                     <p>Terms And Conditions</p>
-                    <textarea ng-model="package.term_condition" class="form-control" placeholder="Please type here.." rows="4" id="term_condition"></textarea>
+                    <!--<textarea ng-model="package.term_condition" class="form-control" placeholder="Please type here.." rows="4" id="term_condition"></textarea>-->
+                    <textarea froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
                   </div>
 
 
