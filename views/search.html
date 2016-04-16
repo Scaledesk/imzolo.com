@@ -13,10 +13,10 @@
           <div class="row">
             <form role="form" ng-submit="newSearch()">
               <div class="col-md-9">
-                <input class="form-control" type="search" ng-model="searchQuery" placeholder="What are you looking for Today" >
+                <input class="form-control f-18" type="search" ng-model="searchQuery" placeholder="What are you looking for Today ?"  >
               </div>
               <div class="col-md-3 text-center">
-                <button class="btn" ng-click="newSearch()">Search</button>
+                <button class="btn home-s-btn btn-lg" ng-click="newSearch()">Search</button>
               </div>
 
             </form>
@@ -26,10 +26,11 @@
     </div>
   </div>
 
-  <div class="filters-navigation">
+  <!--<div class="filters-navigation">-->
+    <div class="row">
+
     <div class="card search-filter-custom-card hidden-xs">
 
-    <div class="row">
 
         <div class="col-md-3">
           <h2 class="text-center filter-main-heading">Search With Filters</h2>
@@ -102,7 +103,7 @@
 
       </div>
     </div>
-  </div>
+  <!--</div>-->
 
 
 
@@ -363,7 +364,7 @@
           </div>
         </div>
 
-        <div ng-show="loading" class="row">
+        <div ng-show="loading" class="row m-t-60">
           <div class="col-md-12 text-center m-t-60">
 
             <div layout="row" layout-sm="column" layout-align="space-around">

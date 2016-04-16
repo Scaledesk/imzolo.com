@@ -102,8 +102,8 @@
 
   }
 
-  #search_area .card{
-    /*margin-top: -50px !important;*/
+  #search_area .float-card{
+    margin-top: -50px !important;
     z-index: 2;
 
 
@@ -112,6 +112,28 @@
   /*.card-about-us{*/
   /*margin-top: 0 !important;*/
   /*}*/
+
+
+  .about-t-h{
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    box-shadow: none;
+
+  }
+
+
+  .about-t-h:hover{
+    margin: 0 !important;
+    /*box-shadow: 10px 10px 10px 10px rgba(0,0,0,.1)!important;*/
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+
+  .widget-profil-img-center{
+    margin-top: -60px;
+    border: 3px solid #fff;
+    z-index: 2147483638;
+  }
 
 
 
@@ -293,7 +315,7 @@
 
 
 
-  <div class="card">
+  <div class="card float-card">
     <div class="row">
       <div class="col-md-12">
         <h2 class="text-center"><strong>Popular Categories on Zolo</strong></h2>
@@ -401,7 +423,7 @@
         <div class="row">
 
           <div class="col-md-12">
-            <h2><strong>Featured Packages on Zolo</strong><span class="pull-right"><a class="zolo-c f-16 m-t-10" ng-href="#result">Browse all packages</a></span>
+            <h2><strong>Trending Packages on Zolo</strong><span class="pull-right"><a class="zolo-c f-16 m-t-10" ng-href="#result">Browse all packages</a></span>
             </h2>
             <hr>
 
@@ -431,14 +453,14 @@
 
 
             <div ng-show="loading" class="row">
-            <div class="col-md-12 text-center m-t-60">
+              <div class="col-md-12 text-center m-t-60">
 
-            <div layout="row" layout-sm="column" layout-align="space-around">
-            <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
-            </div>
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                  <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+                </div>
 
 
-            </div>
+              </div>
             </div>
 
 
@@ -490,9 +512,9 @@
           <!--</div>-->
           <!--</div>-->
 
-          <div class="col-md-2 hidden-md hidden-lg visible-xs">
-            <p class="text-center"><strong>Or</strong></p>
-          </div>
+          <!--<div class="col-md-2 hidden-md hidden-lg visible-xs">-->
+          <!--<p class="text-center"><strong>Or</strong></p>-->
+          <!--</div>-->
 
 
 
@@ -569,46 +591,657 @@
     </div>
   </div>
 
-  <div class="card-about-us card">
-    <div class="row">
-      <div class="col-md-12">
-        <!--<h2><strong>About Zolo</strong></h2>-->
-        <h2 class="text-center f-32"><strong> Easiest way to get things done !</strong></h2>
-        <hr>
+
+  <div class="row">
+    <div class="col-md-12 m-t-10">
+      <h2 class="f-32 text-center"><strong>Featured Sellers on Zolo</strong></h2>
+      <hr>
+    </div>
+  </div>
+
+
+
+
+  <div class="row m-t-40">
+
+
+
+    <!--<div class="col-md-4 m-b-30 ">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+    <!--<img src="../global/images/avatars/avatar3_big@2x.png" class="img-circle img-responsive" alt="">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-9">-->
+    <!--<p class="zolo-n-m"><strong>Spiti Sarkar</strong></p>-->
+    <!--<p class="zolo-n-m">Chocolate making<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-4 m-b-30 ">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+    <!--<img src="../global/images/avatars/avatar12_big@2x.png" class="img-circle img-responsive" alt="">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-9">-->
+    <!--<p class="zolo-n-m"><strong>Drupad Gaonkar</strong></p>-->
+    <!--<p class="zolo-n-m">MIME<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="col-md-4 m-b-30 ">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+    <!--<img src="../global/images/avatars/avatar4_big.png" class="img-circle img-responsive" alt="">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-9">-->
+    <!--<p class="zolo-n-m"><strong>Rahul Saxena</strong></p>-->
+    <!--<p class="zolo-n-m">Bartending<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
+
+
+    <a ng-href="http://www.imzolo.com/#/profile/209">
+    <div class="col-md-4 m-b-60 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body p-10">
+          <div class="col-md-6 col-md-offset-3 ">
+            <img class="widget-profil-img-center img-responsive img-circle z-img-center" src="https://scaledesk.s3.amazonaws.com/2PQxHJbWvyt4MHlRLOMbInuUtkQqcKNVkDY8PwtP.jpg" alt="" width=100>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 m-t-10">
+              <p class="text-center f-16"><strong>Spiti Sarkar</strong></p>
+              <p class="text-center m-t-10">Chocolate Making</p>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a ng-href="#/profile/205">
+
+    <div class="col-md-4 m-b-60 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body p-10">
+          <div class="col-md-6 col-md-offset-3 ">
+            <img class="widget-profil-img-center img-responsive img-circle z-img-center" src="https://scaledesk.s3.amazonaws.com/lPDNRFYN9hgnzOeRAGAe6FavvpAHrVnLkONYHOWC.jpg" alt="" width=100>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 m-t-10">
+              <p class="text-center f-16"><strong>Drupad Gaonkar</strong></p>
+              <p class="text-center m-t-10">MIME Artist</p>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a ng-href="http://www.imzolo.com/#/profile/210">
+    <div class="col-md-4 m-b-60 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body p-10">
+          <div class="col-md-6 col-md-offset-3 ">
+            <img class="widget-profil-img-center img-responsive img-circle z-img-center" src="https://scaledesk.s3.amazonaws.com/JKvhSV5DMGlpGaP621FKUbLo8Brhi75i5pvYqAw6.jpg" alt="" width=100>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 m-t-10">
+              <p class="text-center f-16"><strong>Rahul Saxena</strong></p>
+              <p class="text-center m-t-10">Bartending</p>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="row m-t-20">
+
+
+
+    <!--<div class="col-md-4 m-b-30 ">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+    <!--<img src="../global/images/avatars/avatar3_big@2x.png" class="img-circle img-responsive" alt="">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-9">-->
+    <!--<p class="zolo-n-m"><strong>Spiti Sarkar</strong></p>-->
+    <!--<p class="zolo-n-m">Chocolate making<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-4 m-b-30 ">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+    <!--<img src="../global/images/avatars/avatar12_big@2x.png" class="img-circle img-responsive" alt="">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-9">-->
+    <!--<p class="zolo-n-m"><strong>Drupad Gaonkar</strong></p>-->
+    <!--<p class="zolo-n-m">MIME<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="col-md-4 m-b-30 ">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+    <!--<img src="../global/images/avatars/avatar4_big.png" class="img-circle img-responsive" alt="">-->
+    <!--</div>-->
+
+    <!--<div class="col-md-9">-->
+    <!--<p class="zolo-n-m"><strong>Rahul Saxena</strong></p>-->
+    <!--<p class="zolo-n-m">Bartending<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
+
+
+    <a ng-href="#/profile/228">
+    <div class="col-md-4 m-b-60 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body p-10">
+          <div class="col-md-6 col-md-offset-3 ">
+            <img class="widget-profil-img-center img-responsive img-circle z-img-center" src="https://scaledesk.s3.amazonaws.com/RxT7MpbVzEm1nKeEJpOOl4xOcl3sGcYL8D88SYox.jpg" alt="" width=100>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 m-t-10">
+              <p class="text-center f-16"><strong>Ravi Yadav</strong></p>
+              <p class="text-center m-t-10">Event Cordinator & Celebrity Manager </p>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a ng-href="http://www.imzolo.com/#/profile/252">
+    <div class="col-md-4 m-b-60 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body p-10">
+          <div class="col-md-6 col-md-offset-3 ">
+            <img class="widget-profil-img-center img-responsive img-circle z-img-center" src="https://scaledesk.s3.amazonaws.com/UcXCr8IoPgG4Evvkmfit6uxv7xTOjSGbMKa6UYgx.jpg" alt="" width=100>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 m-t-10">
+              <p class="text-center f-16"><strong>Sidharth Dhanda </strong></p>
+              <p class="text-center m-t-10">Underwater Film Making & Photographer</p>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a ng-href="#/profile/225">
+    <div class="col-md-4 m-b-60 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body p-10">
+          <div class="col-md-6 col-md-offset-3 ">
+            <img class="widget-profil-img-center img-responsive img-circle z-img-center" src="https://scaledesk.s3.amazonaws.com/fZlPtrqA7jMhAa9DQwSBqReWyCLj84jkYwHUaVTw.jpg" alt="" width=100>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 m-t-10">
+              <p class="text-center f-16"><strong>Sudha Khanna</strong></p>
+              <p class="text-center m-t-10">Astrologer, Trarot & Marriage Consultant</p>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+  <!--<div class="row">-->
+  <!--<div class="col-md-4 m-b-30 ">-->
+  <!--<div class="card">-->
+  <!--<div class="row">-->
+  <!--<div class="col-md-3">-->
+  <!--<img src="../global/images/avatars/avatar9_big.png" class="img-circle img-responsive" alt="">-->
+  <!--</div>-->
+
+  <!--<div class="col-md-9">-->
+  <!--<p class="zolo-n-m"><strong>Ravi Yadav</strong></p>-->
+  <!--<p class="zolo-n-m">Event <span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+
+
+  <!--<div class="col-md-4 m-b-30 ">-->
+  <!--<div class="card">-->
+  <!--<div class="row">-->
+  <!--<div class="col-md-3">-->
+  <!--<img src="../global/images/avatars/avatar7_big.png" class="img-circle img-responsive" alt="">-->
+  <!--</div>-->
+
+  <!--<div class="col-md-9">-->
+  <!--<p class="zolo-n-m"><strong>Sidharth </strong></p>-->
+  <!--<p class="zolo-n-m">Underwater Film Making & Photographer</p>-->
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+
+
+
+  <!--<div class="col-md-4 m-b-30 ">-->
+  <!--<div class="card">-->
+  <!--<div class="row">-->
+  <!--<div class="col-md-3">-->
+  <!--<img src="../global/images/avatars/avatar3_big.png" class="img-circle img-responsive" alt="">-->
+  <!--</div>-->
+
+  <!--<div class="col-md-9">-->
+  <!--<p class="zolo-n-m"><strong>Sudha Khanna</strong></p>-->
+  <!--<p class="zolo-n-m">Astrologer, Trarot & Marriage Consultant</p>-->
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+  <!--</div>-->
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center f-32"><strong>Featured Companies on Zolo</strong></h2>
+      <hr>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <a ng-href="#/profile/223">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://scaledesk.s3.amazonaws.com/W1GeXBegiVpJp7FqaGij0waK6vE8wM41WEDxXzXA.png" class=" img-responsive" alt="" width=70>
+          </div>
+
+          <div class="col-md-9">
+            <p class=" f-18"><strong>itokri</strong></p>
+            <hr class="custom-hr">
+
+            <!--<p class="zolo-n-m">Bartending<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+          </div>
+
+        </div>
       </div>
 
-      <!--<div class="row">-->
-        <!--<div class="col-md-4 text-center">-->
-          <!--<img src="../global/images/buy.png" class="img-responsive"  width=200 alt="" style="margin: auto;">-->
-        <!--</div>-->
+
+    </div>
+    </a>
 
 
-        <!--<div class="col-md-4 text-center">-->
-          <!--<img src="../global/images/payment.png" class="img-responsive"  width=200 alt="" style="margin: auto;">-->
-        <!--</div>-->
+    <a ng-href="#/profile/293">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://scaledesk.s3.amazonaws.com/1dC0QFKzP918YKujiB6QTnInCOQytwWSNlhAjOAU.png" class=" img-responsive" alt="" width=70>
+          </div>
+
+          <div class="col-md-9">
+            <p class=" f-18"><strong>Beat the Best Productions</strong></p>
+            <hr class="custom-hr">
+            <!--<p class="zolo-n-m">Bartending<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+          </div>
+
+        </div>
+      </div>
 
 
-        <!--<div class="col-md-4 text-center">-->
-          <!--<img src="../global/images/thank.png" class="img-responsive"  width=200 alt="" style="margin: auto;">-->
-        <!--</div>-->
+    </div>
+    </a>
+
+    <a ng-href="#/profile/240">
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="https://scaledesk.s3.amazonaws.com/rCuWyG7hfZDGGfStmJR85W1B4SRA4z1Lfi6oCx79.jpg" class=" img-responsive" alt="" width=70>
+          </div>
+
+          <div class="col-md-9">
+            <p class=" f-18"><strong>ASAHR </strong></p>
+            <hr class="custom-hr">
+
+            <!--<p class="zolo-n-m">Bartending<span style="opacity: 0;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum</span></p>-->
+          </div>
+
+        </div>
+      </div>
 
 
-      <!--</div>-->
+    </div>
+    </a>
+
+
+
+
+
+
+
+  </div>
+
+
+
+  <!--</div>-->
+
+
+  <!--<div class="widget widget_slider">-->
+  <!--<div class="slick" data-arrows="true" data-num-slides="4" data-num-scroll="3" data-autoplay="false">-->
+  <!--<div class="slide">-->
+  <!--<a href="">-->
+  <!--<div class="panel panel-default">-->
+
+  <!--<div class="panel-body p-10">-->
+
+  <!--<div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">-->
+  <!--<img class="widget-profil-img-center img-circle img-responsive" src="../global/images/widgets/profil3.jpg" alt="">-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+  <!--<p class="text-center f-18"><strong>Tushar</strong></p>-->
+  <!--<p class="text-center">Guitar Teacher</p>-->
+
+  <!--</div>-->
+
+
+
+
+
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
+
+  <!--<div class="slide">-->
+  <!--<a href="">-->
+  <!--<div class="panel panel-default">-->
+
+  <!--<div class="panel-body p-10">-->
+
+  <!--<div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">-->
+  <!--<img class="widget-profil-img-center img-circle img-responsive" src="../global/images/widgets/profil3.jpg" alt="">-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+  <!--<p class="text-center f-18"><strong>Tushar</strong></p>-->
+  <!--<p class="text-center">Guitar Teacher</p>-->
+
+  <!--</div>-->
+
+
+
+
+
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
+
+
+
+  <!--<div class="slide">-->
+  <!--<a href="">-->
+  <!--<div class="panel panel-default">-->
+
+  <!--<div class="panel-body p-10">-->
+
+  <!--<div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">-->
+  <!--<img class="widget-profil-img-center img-circle img-responsive" src="../global/images/widgets/profil3.jpg" alt="">-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+  <!--<p class="text-center f-18"><strong>Tushar</strong></p>-->
+  <!--<p class="text-center">Guitar Teacher</p>-->
+
+  <!--</div>-->
+
+
+
+
+
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
+
+
+
+  <!--<div class="slide">-->
+  <!--<a href="">-->
+  <!--<div class="panel panel-default">-->
+
+  <!--<div class="panel-body p-10">-->
+
+  <!--<div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">-->
+  <!--<img class="widget-profil-img-center img-circle img-responsive" src="../global/images/widgets/profil3.jpg" alt="">-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+  <!--<p class="text-center f-18"><strong>Tushar</strong></p>-->
+  <!--<p class="text-center">Guitar Teacher</p>-->
+
+  <!--</div>-->
+
+
+
+
+
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
+
+  <!--<div class="slide">-->
+  <!--<a href="">-->
+  <!--<div class="panel panel-default">-->
+
+  <!--<div class="panel-body p-10">-->
+
+  <!--<div class="col-md-6 col-md-offset-3 col-xs-4 col-xs-offset-4">-->
+  <!--<img class="widget-profil-img-center img-circle img-responsive" src="../global/images/widgets/profil3.jpg" alt="">-->
+  <!--</div>-->
+
+  <!--</div>-->
+
+  <!--<div class="row">-->
+  <!--<div class="col-md-12">-->
+  <!--<p class="text-center f-18"><strong>Tushar</strong></p>-->
+  <!--<p class="text-center">Guitar Teacher</p>-->
+
+  <!--</div>-->
+
+
+
+
+
+
+  <!--</div>-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
+
+
+
+  <!--</div>-->
+  <!--</div>-->
+
+
+  <!--</div>-->
+
+
+
+
+
+  <!--<div class="card" style="margin-top: 0;">-->
+  <div class="row m-t-40">
+    <div class="col-md-12">
+      <!--<h2><strong>About Zolo</strong></h2>-->
+      <h2 class="text-center f-32"><strong> Easiest way to get things Done !</strong></h2>
+      <hr>
     </div>
 
-    <div class="row">
-      <div class="col-md-4">
-        <img src="../global/images/buy.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
+    <!--<div class="row">-->
+    <!--<div class="col-md-4 text-center">-->
+    <!--<img src="../global/images/buy.png" class="img-responsive"  width=200 alt="" style="margin: auto;">-->
+    <!--</div>-->
 
+
+    <!--<div class="col-md-4 text-center">-->
+    <!--<img src="../global/images/payment.png" class="img-responsive"  width=200 alt="" style="margin: auto;">-->
+    <!--</div>-->
+
+
+    <!--<div class="col-md-4 text-center">-->
+    <!--<img src="../global/images/thank.png" class="img-responsive"  width=200 alt="" style="margin: auto;">-->
+    <!--</div>-->
+
+
+    <!--</div>-->
+  </div>
+  <!--<div class="card">-->
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card about-t-h">
+        <img src="../global/images/buy.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
         <div class="about-t-1">
           <h4><strong>Browse & Discover</strong></h4>
           <p><i class="fa fa-check"></i> &nbsp;&nbsp;Find a package & vendor matching the best-fit to your project.</p>
           <p><i class="fa fa-check"></i>&nbsp;&nbsp;Discover and choose from thousands of custom packages for any need.</p>
         </div>
-
       </div>
 
-      <div class="col-md-4">
+    </div>
+
+
+    <div class="col-md-4 ">
+      <div class="card about-t-h">
         <img src="../global/images/payment.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
 
         <div class="about-t-2">
@@ -617,8 +1250,10 @@
           <p><i class="fa fa-check"></i>&nbsp;&nbsp;Discuss flexibility on payment with your vendor and pay accordingly.</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-md-4">
+    <div class="col-md-4">
+      <div class="card about-t-h">
         <img src="../global/images/thank.png" class="img-responsive"  width=200 alt="" style="margin: auto;">
 
         <div class="about-t-3">
@@ -627,97 +1262,113 @@
           <p><i class="fa fa-check"></i>&nbsp;&nbsp;Skilled Partners ensuring quality & timely delivery.</p>
           <p><i class="fa fa-check"></i>&nbsp;&nbsp;Dedicated support team to help you at every step.</p>
         </div>
-      </div>
-
-
-
-    </div>
-
-
-
-
-    <!--<p class="about-zolo">Zolo is India's first marketplace for on-demand talent where you can discover thousands of talented people ready to help you get anything done. Imagine having an army of people with a variety of 'specialized skills & talent' ready to help you complete your to-do list, finish your projects, solve any problem and accomplish your big goals in life.-->
-    <!--Soon Zolo will have over 200,000 independent professionals in over 500+ categories across 50 cities in India sharing their talent, skills & services with you.-->
-    <!--Whether you're looking for a mandarin teacher, a kitchen gardener, a tarot reader or a legal consultant, Zolo can find you an expert for every need and situation in your life.-->
-    <!--With Zolo accomplish your life goals at god speed.</p>-->
-
-
-  <div class="row">
-    <div class="col-md-12 m-t-60">
-      <h2 class="text-center f-32"><strong>Testimonials</strong></h2>
-      <hr>
-    </div>
-
-  </div>
-
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="about-t-2" style="padding-bottom: 100px;">
-        <div class="row">
-          <div class="col-md-3 text-center">
-        <img src="../global/images/avatars/t-1.jpg" alt="" class="test-img img-circle img-responsive">
-
-        </div>
-
-          <div class="col-md-9">
-            <p>I'm guitar enthusiast and a student, but with Zolo I get regular weekends gigs to teach guitar lessons and play at small get togethers. I have quickly built up a healthy side income in no time. Thanks to Zolo.</p>
-            <p>Raghav Guitar Teacher,|<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
-            <hr class="custom-hr">
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="about-t-3">
-        <div class="row">
-          <div class="col-md-3 text-center">
-            <img src="../global/images/avatars/t2.jpg" alt="" class="test-img img-circle img-responsive">
-
-
-          </div>
-
-          <div class="col-md-9">
-            <p>I was skeptical at first but once we listed our
-              personalised printing services on Zolo, we started receiving new clients almost within a week. All the clients we received through Zolo were really friendly and of highest quality. We look forward to expand our business on Zolo with help from the very capable Zolo team.</p>
-            <p>Shivani Printing Service,|<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
-            <hr class="custom-hr">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!--<div class="col-md-4">-->
-      <!--<div class="card">-->
-        <!--<div class="row">-->
-          <!--<div class="col-md-3 text-center">-->
-            <!--<img src="../global/images/avatars/avatar1.png" alt="" class="test-img img-circle">-->
-            <!--<p class="text-center">Manish</p>-->
-            <!--<hr>-->
-
-          <!--</div>-->
-
-          <!--<div class="col-md-9">-->
-            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, doloribus ducimus ea eos in, ipsa ipsam ipsum maiores modi nemo neque pariatur porro provident rem saepe similique suscipit unde voluptatum!</p>-->
-
-          <!--</div>-->
         <!--</div>-->
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!--<p class="about-zolo">Zolo is India's first marketplace for on-demand talent where you can discover thousands of talented people ready to help you get anything done. Imagine having an army of people with a variety of 'specialized skills & talent' ready to help you complete your to-do list, finish your projects, solve any problem and accomplish your big goals in life.-->
+  <!--Soon Zolo will have over 200,000 independent professionals in over 500+ categories across 50 cities in India sharing their talent, skills & services with you.-->
+  <!--Whether you're looking for a mandarin teacher, a kitchen gardener, a tarot reader or a legal consultant, Zolo can find you an expert for every need and situation in your life.-->
+  <!--With Zolo accomplish your life goals at god speed.</p>-->
+
+
+
+
+
+
+
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center f-32"><strong>Testimonials</strong></h2>
+        <hr>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="about-t-2" style="padding-bottom: 100px;">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <img src="../global/images/avatars/t-1.jpg" alt="" class="test-img img-circle img-responsive">
+
+            </div>
+
+            <div class="col-md-9">
+              <p>I'm guitar enthusiast and a student, but with Zolo I get regular weekends gigs to teach guitar lessons and play at small get togethers. I have quickly built up a healthy side income in no time. Thanks to Zolo.</p>
+              <p>Raghav Guitar Teacher |<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
+              <hr class="custom-hr">
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="about-t-3">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <img src="../global/images/avatars/t2.jpg" alt="" class="test-img img-circle img-responsive">
+
+
+            </div>
+
+            <div class="col-md-9">
+              <p>I was skeptical at first but once we listed our
+                personalised printing services on Zolo, we started receiving new clients almost within a week. All the clients we received through Zolo were really friendly and of highest quality. We look forward to expand our business on Zolo with help from the very capable Zolo team.</p>
+              <p>Shivani Printing Service |<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
+              <hr class="custom-hr">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--<div class="col-md-4">-->
+      <!--<div class="card">-->
+      <!--<div class="row">-->
+      <!--<div class="col-md-3 text-center">-->
+      <!--<img src="../global/images/avatars/avatar1.png" alt="" class="test-img img-circle">-->
+      <!--<p class="text-center">Manish</p>-->
+      <!--<hr>-->
+
       <!--</div>-->
-    <!--</div>-->
+
+      <!--<div class="col-md-9">-->
+      <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, doloribus ducimus ea eos in, ipsa ipsam ipsum maiores modi nemo neque pariatur porro provident rem saepe similique suscipit unde voluptatum!</p>-->
+
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
 
 
 
+
+
+    </div>
 
 
   </div>
 
 
-  </div>
+
+
+
+
+
+
+</div> <!--end container fluid-->
 
 
 

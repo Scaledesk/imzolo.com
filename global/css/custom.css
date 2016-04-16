@@ -329,9 +329,9 @@ padding-left: 5px !important;
 
 /*}*/
 
-.zolo-sidebar-position {
-	padding-left: 5px !important;
-}
+/*.zolo-sidebar-position {*/
+	/*padding-left: 5px !important;*/
+/*}*/
 
 /*.zolo-pdp-page {*/
 	/*margin-top: 100px;*/
@@ -879,9 +879,9 @@ padding-left: 5px !important;
 
 /*}*/
 
-.zolo-sidebar-position {
-	/*padding-left: 5px !important;*/
-}
+/*.zolo-sidebar-position {*/
+	/*!*padding-left: 5px !important;*!*/
+/*}*/
 
 .zolo-pdp-page {
 	margin-top: 100px;
@@ -1240,9 +1240,9 @@ padding-left: 5px !important;
 
 }
 
-.zolo-sidebar-position {
-	/*padding-left: 5px !important;*/
-}
+/*.zolo-sidebar-position {*/
+	/*!*padding-left: 5px !important;*!*/
+/*}*/
 
 .zolo-pdp-page {
 	/*margin-top: 100px;*/
@@ -1500,7 +1500,7 @@ padding-left: 5px !important;
 }
 
 .zolo-sidebar-position{
-	/*padding-left: 5px !important;*/
+	padding-left: 0 !important;
 }
 
 /*for card title*/
@@ -2483,7 +2483,7 @@ figure.effect-steve h2:before {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: rgba(0, 0, 0, 0.27);
   content: '';
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
@@ -2508,13 +2508,13 @@ figure.effect-steve img {
 
 figure.effect-steve h2,
 figure.effect-steve p {
-  background: #fff;
-  color: #2d434e;
+  background: rgba(0, 0, 0, 0.27);
+  color: #fff;
 }
 
 figure.effect-steve h2 {
   position: relative;
-  margin-top: 2em;
+  margin-top: 6em;
   padding: 0.25em;
 }
 
@@ -2580,6 +2580,7 @@ figure.effect-steve:hover p {
 .home-s-btn{
   margin-top: 2px!important;
   background-color: #78588C !important;
+  color: #fff!important;
 
 
 }
@@ -2644,7 +2645,7 @@ figure.effect-steve:hover p {
 
 .about-t-1{
   background-color: #F7F7F7;
-  padding: 10px 20px 30px 20px;
+  padding: 10px 20px 28px 20px;
   color: #000;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -2673,21 +2674,59 @@ figure.effect-steve:hover p {
 }
 
 
-@media screen and (max-width: 600px){
-  .home-s-btn{
-    margin-top: 10px!important;
+@media screen and (max-width: 600px) {
+  .home-s-btn {
+    margin: 10px 0 20px!important;
     font-size: 15px !important;
     text-align: center !important;
 
   }
 
-  .home-page-search{
+  .home-page-search {
     font-size: 12px !important;
   }
 
-  .redesigned-price-filter{
+  .redesigned-price-filter {
     width: 100% !important;
   }
+
 }
 
 
+
+
+
+
+/*//////////15 april///////*//
+
+.about-t-h:hover{
+  margin: 0 !important;
+  padding: 5px 10px 15px 5px !important;
+  -webkit-transform: scale(1.1)!important;
+  transform: scale(1.1)!important;
+  box-shadow: 0 1px 50px 0 rgba(0,0,0,.1)!important;
+}
+
+.zolo-p{
+  padding: 15px !important;
+}
+
+.zolo-n-m{
+  margin: 0 !important;
+}
+
+
+.z-img-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/*////end here///*/
+/**/
+
+[ng-cloak]
+{
+  display: none !important;
+}

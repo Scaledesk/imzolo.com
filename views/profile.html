@@ -76,6 +76,35 @@
                       <!--<p class="f-16 m-t-20">Date of Birth</p>
                       <md-datepicker ng-model="birth_date" md-placeholder="Enter date"
                                      md-min-date="1980-01-01" md-max-date="'1998-01-01'"></md-datepicker>-->
+                      <p class="f-16 m-t-20">Address</p>
+                      <input ng-model="profile.address" type="text" class="form-control" placeholder="Enter your address">
+
+                      <div class="row">
+                        <div class="col-md-4">
+                        <!--  <p class="f-16 m-t-20">Select State</p>
+                          <md-select ng-model="profile.state" placeholder="select state">
+                             <md-option ng-repeat="record in city_states" value="{{record.state}}">
+                               {{record.state}}
+                             </md-option>
+                          </md-select>-->
+                            <p class="f-16 m-t-20">State</p>
+                          <input ng-model="profile.state" type="text" class="form-control" placeholder="Enter your state">
+                        </div>
+                        <div class="col-md-4">
+                        <!--  <p class="f-16 m-t-20">Select City</p>
+                          <md-select ng-model="profile.city" placeholder="Select City">
+                             <md-option ng-repeat="record in city_states" value="{{record.name}}" ng-if="record.state==profile.state">
+                               {{pt.name}}
+                             </md-option>
+                          </md-select>-->
+                            <p class="f-16 m-t-20">City</p>
+                          <input ng-model="profile.city" type="text" class="form-control" placeholder="Enter your city">
+                        </div>
+                        <div class="col-md-4">
+                          <p class="f-16 m-t-20">Pincode</p>
+                          <input ng-model="profile.pin" type="text" class="form-control" placeholder="Enter your pincode">
+                        </div>
+                      </div>
                       <p class="f-16 m-t-20">Gender</p>
                       <div class="radio radio-primary" style="display:inline-block;">
                         <label>
