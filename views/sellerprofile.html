@@ -62,7 +62,7 @@
 
                 <div class="widget widget_slider">
 
-                  <div class="row">
+                  <div class="row hidden-xs hidden-md">
 
                     <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
                            focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
@@ -74,6 +74,47 @@
                       </div>
                     </slick>
                   </div>
+
+
+
+
+                    <div class="row visible-xs hidden-md hidden-lg">
+
+                        <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
+                               focus-on-select="true" slides-to-show=1 slides-to-scroll=3 init-onload=true
+                               data="other_user_packages.data" class="slider multiple-items">
+                            <div ng-repeat="package in other_user_packages.data">
+                                <!-- <h3 class="bg-primary">1</h3> -->
+                                <div package-card package="package" master-collections="collections">
+                                </div>
+                            </div>
+                        </slick>
+                    </div>
+
+
+
+                    <div class="row visible-md hidden-xs hidden-lg">
+
+                        <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
+                               focus-on-select="true" slides-to-show=2 slides-to-scroll=3 init-onload=true
+                               data="other_user_packages.data" class="slider multiple-items">
+                            <div ng-repeat="package in other_user_packages.data">
+                                <!-- <h3 class="bg-primary">1</h3> -->
+                                <div package-card package="package" master-collections="collections">
+                                </div>
+                            </div>
+                        </slick>
+                    </div>
+
+
+
+
+
+
+
+
+
+
                 </div>
               </div>
             </div>
@@ -132,7 +173,7 @@
           <div class="col-md-12">
             <h4 class="text-center">Skills</h4>
             <p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
-            <strong ng-if="profile.skills.length<=0" class="text-center">NA</strong>
+            <p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>
             <hr class="custom-hr">
           </div>
 

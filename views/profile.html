@@ -1,3 +1,32 @@
+<!--<style>-->
+
+    <!--.my-gigs  .slick-prev {-->
+        <!--left: 0px;-->
+        <!--z-index: 2;-->
+    <!--}-->
+
+    <!--.my-gigs  .slick-prev:before,.my-gigs  .slick-next:before {-->
+        <!--font-family: "slick";-->
+        <!--font-size: 45px;-->
+        <!--line-height: 1;-->
+        <!--color: #313131;-->
+        <!--opacity: 0.3;-->
+        <!-- -webkit-font-smoothing: antialiased;-->
+        <!-- -moz-osx-font-smoothing: grayscale-->
+    <!--}-->
+
+    <!--.my-gigs  .slick-next {-->
+        <!--right: 25px;-->
+        <!--z-index: 2;-->
+    <!--}-->
+
+
+<!--</style>-->
+
+
+
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -322,12 +351,12 @@
             <div class="row">
               <div ng-if="user_packages.data.length>0" class="col-md-12">
 
-                <!--<div class="widget widget_slider">-->
+                <div class="widget widget_slider">
 
-                <div class="row">
+                <div class="row hidden-xs hidden-md my-gigs">
 
                   <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
-                         focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
+                         focus-on-select="true" slides-to-show=3 slides-to-scroll=1 init-onload=true
                          data="user_packages.data" class="slider multiple-items">
                     <div ng-repeat="package in user_packages.data">
                       <!-- <h3 class="bg-primary">1</h3> -->
@@ -336,6 +365,39 @@
                     </div>
                   </slick>
                 </div>
+
+
+
+
+                <div class="row hidden-lg hidden-xs my-gigs">
+
+                  <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
+                         focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
+                         data="user_packages.data" class="slider multiple-items">
+                    <div ng-repeat="package in user_packages.data">
+                      <!-- <h3 class="bg-primary">1</h3> -->
+                      <div package-card package="package" master-collections="collections">
+                      </div>
+                    </div>
+                  </slick>
+                </div>
+
+                <div class="row hidden-md hidden-lg my-gigs">
+
+                  <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
+                         focus-on-select="true" slides-to-show=1 slides-to-scroll=1 init-onload=true
+                         data="user_packages.data" class="slider multiple-items">
+                    <div ng-repeat="package in user_packages.data">
+                      <!-- <h3 class="bg-primary">1</h3> -->
+                      <div package-card package="package" master-collections="collections">
+                      </div>
+                    </div>
+                  </slick>
+                </div>
+
+
+
+
                 <!--</div>-->
               </div>
               <div ng-if="user_packages.data.length<=0" class="col-md-12">

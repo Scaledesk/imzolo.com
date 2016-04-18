@@ -2286,15 +2286,20 @@ figure.zolo-collection{
 
 @media  screen and (max-width: 600px){
     .zolo-bg {
-        background: url('/global/images/web-cover.png');
+        background: url('/global/images/web-cover-m.jpg');
         /*background-attachment: fixed;*/
-        background-size: cover;
+        /*background-size: cover;*/
         min-height: 230px;
         display: table;
         width: 100%;
         background-repeat: no-repeat;
         background-position: 50% 0;
 
+
+    }
+
+    .redesigned-price-filter{
+        margin-top: 250px!important;
 
     }
 
@@ -2751,5 +2756,7 @@ figure.effect-steve:hover p {
 	color: #fff;
 	padding-top: 20px;
 }
+
+
 
 /*////ends here/////*/
