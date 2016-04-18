@@ -160,7 +160,7 @@
                     <!--<button class="btn btn-zolo">Preview</button>-->
                   </div>
                   <div class="col-lg-6 col-md-6 col-xs-12">
-                    <button class="btn btn-primary active pull-right" ng-click="checkValidationFirst('DRAFT')">Save and Continue</button>
+                    <button class="btn btn-primary active pull-right" ng-disabled="!completed_first || saving"  ng-click="checkValidationFirst('DRAFT')">Save and Continue</button>
                     <!--<button class="btn btn-primary active pull-right" ng-click="checkValidationFirst()">Save and Continue</button>-->
                   </div>
                 </div>
@@ -273,7 +273,7 @@
                   <div class="col-lg-6 col-md-6 col-xs-6">
 
 
-                    <button class="btn btn-primary active pull-right m-l-20" ng-click="checkValidationSecond()">Save and Continue</button>
+                    <button class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" ng-click="checkValidationSecond()">Save and Continue</button>
 
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
                   </div>
@@ -367,7 +367,7 @@
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-xs-12">
-                    <button class="btn btn-primary active pull-right m-l-20" ng-click="checkValidationThird()">Save and Continue</button>
+                    <button class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" ng-click="checkValidationThird()">Save and Continue</button>
 
 
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->

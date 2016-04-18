@@ -813,7 +813,7 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <!--<button class="btn btn-primary active pull-right" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="save(package.status)" type="button" class="btn btn-primary active pull-right ladda-button" data-style="zoom-in">
+                    <button ng-click="updateFirstTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right ladda-button" data-style="zoom-in">
                       <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
                     </button>
                   </div>
@@ -826,8 +826,8 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
                     <label>Describe your package</label>
-                    <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" maxlength="4000" class="form-control" id="description" placeholder="Enter the package description"></textarea>
-                    <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 4000 charector</div>
+                    <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
+                    <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 4000 character</div>
                     <md-tooltip md-direction="right">
                       * Required | Max 4000 character
                     </md-tooltip>
@@ -904,7 +904,7 @@
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="save(package.status)" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
+                    <button ng-click="updateDescriptionTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
                       <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
@@ -1000,7 +1000,7 @@
 
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save()">Save and Continue</button>-->
-                    <button ng-click="save(package.status)" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
+                    <button ng-click="updatePaymentTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
                       <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
@@ -1123,7 +1123,7 @@
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="save(package.status)" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
+                    <button ng-click="save(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
                       <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
@@ -1210,7 +1210,7 @@
                       <div class="col-md-3 col-xs-12 pull-right">
                         <!--<button class="btn btn-success pull-right m-l-20" ng-click="save('ACTIVE')">Publish
                             </button>-->
-                        <button ng-click="save('ACTIVE')" type="button" class="btn btn-success pull-right m-l-20 ladda-button" data-style="zoom-in">
+                        <button ng-click="save('ACTIVE')" ng-disabled="saving" type="button" class="btn btn-success pull-right m-l-20 ladda-button" data-style="zoom-in">
                           <span class="ladda-label">Publish</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
                         </button>
                       </div>

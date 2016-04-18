@@ -1,10 +1,13 @@
 
 <div class="page-content page-app page-profil zolo-custom-card">
   <div class="profil-content">
+    <div class="img-o">
     <div class="item hover-effect">
       <a ng-href="#package/{{package.slug}}">
         <div class="user">
           <img preload-image default-image="../global/images/imageloader.gif" ng-src="{{package.first_photo || '../global/images/no2.png'}}" class="img-responsive hover-img zolo-img-card-height">
+
+          <!--<h2 class="text-o">Saved <br> as <br> Draft</h2>-->
           <!-- <img src="../assets/global/images/profil_page/friend4.jpg" class="img-user" alt="picture 2"> -->
           <div class="info zolo-custom-info-card">
             <!-- div class="f-24">Sarah Bones</div> -->
@@ -31,11 +34,11 @@
             </div>
           </div>
         </div>
-      </a>
+
       <div class="comment zolo-custom-card-text">
         {{ package.name }}
       </div>
-
+      </a>
       <!--custom-->
 
       <div class="more">
@@ -163,7 +166,7 @@
   </div>
 </div>
 
-
+</div>
 <!--
 
 <div class="page-content page-app page-profil zolo-search-page-no-style" style="margin-top: 1px !important; top: 1px !important;">

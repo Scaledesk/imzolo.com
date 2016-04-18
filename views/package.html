@@ -757,7 +757,32 @@
             </div>
 
             <div class="col-md-12 text-center">
-              <a ng-href="#profile/{{package.seller_profile.user_id}}" class="seller-contact-dtls btn " style="text-transform: capitalize;">Contact Now</a>
+              <!--<a ng-click="show_seller_mobile()" class="seller-contact-dtls btn " style="text-transform: capitalize;">Contact Now</a>-->
+              <!------------------------------------------------------->
+              <!-----   if logged in user mobile is verified and seller mobile is given         ------>
+              <div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&other_user_profile.mobile" style="margin-left:10px;">
+                <!-- Phone Disconnected icon by Icons8 -->
+                <i class="fa fa-phone fa-2x"></i>
+                <p style="font-family:typo;display:inline-block;font-size:14px;color:#666666;">&nbsp;{{other_user_profile.mobile}}</p>
+
+              </div>
+              <!-----   if logged in user mobile is verified and seller mobile is not given         ------>
+              <div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&!other_user_profile.mobile" style="margin-left:10px;">
+                <!-- Phone Disconnected icon by Icons8 -->
+                <i class="fa fa-phone fa-2x"></i>
+                <p style="font-family:typo;display:inline-block;font-size:14px;color:#666666;">&nbsp;Mobile number not provided.</p>
+
+              </div>
+
+              <!--------------------------------->
+              <!-----   if logged in user mobile is not verified        ------>
+              <div ng-if="show_seller_mobile_var===0" class="col-md-12 text-center">
+                <div class="col-md-12 text-center" >
+                  <button class="seller-contact-dtls btn" ng-click="show_seller_mobile()">Show Seller Mobile</button>
+                </div>
+              </div>
+
+              <!------------------------------------------------------->
             </div>
             <!--profile/:other_user_id'-->
 

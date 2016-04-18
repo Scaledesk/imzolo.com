@@ -2730,3 +2730,26 @@ figure.effect-steve:hover p {
 {
   display: none !important;
 }
+
+/*///////april 18/////*/
+
+
+.img-o{
+	position: relative;
+	display: table;
+	text-align: center;
+}
+
+.text-o{
+	position: absolute;
+	background-color: rgba(21,21,21,0.70);
+	top: -11%;
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+	font-weight: 900;
+	color: #fff;
+	padding-top: 20px;
+}
+
+/*////ends here/////*/
