@@ -8,18 +8,18 @@
       <div class="card" style="margin-top: 0px;">
         <div class="profile-preview">
           <div class="row">
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <p>{{profile.name}} </p>
               <strong>{{profile.short_description}}</strong>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <p>Projects Completed</p>
               <strong>{{profile.completed_orders || 'None'}}</strong>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <p>Contact Number</p>
               <strong ng-if="profile.is_contact_number_verified !=0">{{profile.mobile}}</strong>
               <strong ng-if="profile.is_contact_number_verified ==0">NA</strong>

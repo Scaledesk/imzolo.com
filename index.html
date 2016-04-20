@@ -1,4 +1,4 @@
-<!Doctype html> <html> <head> <meta charset="utf-8"> <title>Zolo | Monetize Your Talent</title> <meta name="description" content="Zolo Technologies Pvt. Ltd."> <meta name="viewport" content="width=device-width"> <meta name="author" content="Zolo Technologies Pvt. Ltd."> <meta name="robots" content="noindex,nofollow"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.2f6f201c.css"> <link rel="stylesheet" href="styles/main.d41d8cd9.css"> <link href="/global/css/style.css" rel="stylesheet">
+<!Doctype html> <html> <head> <meta charset="utf-8"> <!--<base href="/">--> <title>Zolo | Monetize Your Talent</title> <meta name="description" content="Zolo Technologies Pvt. Ltd."> <meta name="viewport" content="width=device-width"> <meta name="author" content="Zolo Technologies Pvt. Ltd."> <meta name="robots" content="noindex,nofollow"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.2f6f201c.css"> <link rel="stylesheet" href="styles/main.d41d8cd9.css"> <link href="/global/css/style.css" rel="stylesheet">
   <link href="/global/css/custom.css" rel="stylesheet">
   <link href="/global/css/theme.css" rel="stylesheet">
   <link href="/global/css/ui.css" rel="stylesheet">
@@ -314,7 +314,7 @@
                     page-profil : /user-profile, page-app : /user-profile"> </div> <!-- END PAGE CONTENT --> </div> <!--
             <div ng-include="'includes/footer.html'">
                 </div>
--->  <!-- BEGIN QUICKVIEW SIDEBAR --> <div id="quickview-sidebar"> <!--    ######## Right Sidebar after login mobile viev ############# --> <div class="quickview-header"> <div class="col-md-12 col-xs-12 zolo-center m-t-10"> <a ng-if="!isAuthenticated()" class="f-24 text-muted">Menu</a> <a ng-if="isAuthenticated()" class="f-24 text-muted">Welcome</a> </div> </div> <div class="quickview"> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#profile"> <div class="col-md-12 card m-0 p-0 text-center"> <!--<img class="img-responsive img-circle user-img-rsb text-center" src="{{user_profile.image || '../global/images/dummy.png'}}">--> <p class="f-20 m-l-10 text-center"> Hi, {{user_profile.name}}</p> </div> </a> </div> <!--<div class="row m-l-0 hidden-lg hidden-md chat-search">
+--> <!--</section>--> <!-- BEGIN QUICKVIEW SIDEBAR --> <div id="quickview-sidebar"> <!--    ######## Right Sidebar after login mobile viev ############# --> <div class="quickview-header" style="background-color: #78588C"> <div class="col-md-12 col-xs-12 zolo-center m-t-10"> <a ng-if="!isAuthenticated()" class="f-24 text-muted">Menu</a> <a ng-if="isAuthenticated()" class="f-24 text-muted" style="color: #fff">Welcome</a> </div> </div> <div class="quickview"> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#profile"> <div class="col-md-12 card m-0 p-0 text-center"> <!--<img class="img-responsive img-circle user-img-rsb text-center" src="{{user_profile.image || '../global/images/dummy.png'}}">--> <p class="f-20 m-l-10 text-center"> Hi, {{user_profile.name}}</p> </div> </a> </div> <!--<div class="row m-l-0 hidden-lg hidden-md chat-search">
         <div class="col-md-12 card m-0 p-0">
             <form class="form-inverse ng-pristine ng-valid" ng-submit="newSearch()" role="search">
                 <div class="append-icon">
@@ -323,7 +323,87 @@
                 </div>
             </form>
         </div>
-    </div>--> <div class="chat-search p-l-10 p-r-10 m-t-10 hidden-lg hidden-md"> <form class="form-inverse" ng-submit="newSearch()" role="search"> <div class="append-icon"> <input type="text" class="form-control" ng-model="searchQuery" placeholder="What are you looking for.."> <i ng-click="newSearch()" class="icon-magnifier"></i> </div> </form> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-assignment"></i> Dashboard</p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-notifications-on"></i> Notifications </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard/referral"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-notifications-on"></i> Refer a friend </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-question-answer"></i> Messages </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> Settings </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-communication-live-help"></i> FAQ's </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-sms"></i> Help </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-assignment-ind"></i> Careers </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-people-outline"></i> Team </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-settings-power"></i> Logout </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 stick-bottom-custom"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-12 m-l-10"> &copy;Zolo Technologies Pvt. Ltd. </p> </div> </a> </div> <!--Right Sidebar desktop view and Mobile view before login (not authenticated)--> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="#login"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-system-update"></i> Login </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="#sign-up"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-person-add"></i> SignUp </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-people-outline"></i> Team </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-communication-live-help"></i> FAQ's </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-assignment-ind"></i> Careers </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-sms"></i> Help </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0 stick-bottom-custom"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-12 m-l-10"> &copy; &nbsp; Zolo Technologies Pvt. Ltd. </p> </div> </a> </div> </div> <!--            Right sidebar after login Mobile view end--> </div> <!-- END QUICKVIEW SIDEBAR --> <!-- BEGIN SEARCH --> <div id="morphsearch" class="morphsearch"> <form class="morphsearch-form"> <input class="morphsearch-input" type="search" placeholder="Search..."> <button class="morphsearch-submit" type="submit">Search</button> </form> <div class="morphsearch-content withScroll"> <div class="dummy-column user-column"> <h2>Users</h2> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar1_big.png" alt="Avatar 1"> <h3>John Smith</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar2_big.png" alt="Avatar 2"> <h3>Bod Dylan</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar3_big.png" alt="Avatar 3"> <h3>Jenny Finlan</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar4_big.png" alt="Avatar 4"> <h3>Harold Fox</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar5_big.png" alt="Avatar 5"> <h3>Martin Hendrix</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar6_big.png" alt="Avatar 6"> <h3>Paul Ferguson</h3> </a> </div> <div class="dummy-column"> <h2>Articles</h2> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/1.jpg" alt="1"> <h3>How to change webdesign?</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/2.jpg" alt="2"> <h3>News From the sky</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/3.jpg" alt="3"> <h3>Where is the cat?</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/4.jpg" alt="4"> <h3>Just another funny story</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/5.jpg" alt="5"> <h3>How many water we drink every day?</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/6.jpg" alt="6"> <h3>Drag and drop tutorials</h3> </a> </div> <div class="dummy-column"> <h2>Recent</h2> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/7.jpg" alt="7"> <h3>Design Inspiration</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/8.jpg" alt="8"> <h3>Animals drawing</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/9.jpg" alt="9"> <h3>Cup of tea please</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/10.jpg" alt="10"> <h3>New application arrive</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/11.jpg" alt="11"> <h3>Notification prettify</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/12.jpg" alt="12"> <h3>My article is the last recent</h3> </a> </div> </div> <!-- /morphsearch-content --> <span class="morphsearch-close"></span> </div> <!-- END SEARCH --> <!-- BEGIN PRELOADER --> <!--<div class="loader-overlay">
+    </div>--> <div class="chat-search p-l-10 p-r-10 m-t-10 hidden-lg hidden-md"> <form class="form-inverse" ng-submit="newSearch()" role="search"> <div class="append-icon"> <input type="text" class="form-control" ng-model="searchQuery" placeholder="What are you looking for.."> <i ng-click="newSearch()" class="icon-magnifier"></i> </div> </form> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-assignment"></i> Dashboard</p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-notifications-on"></i> Notifications </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard/referral"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-notifications-on"></i> Refer a friend </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-question-answer"></i> Messages </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> Settings </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="http://www.gozolo.in"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <!--<div ng-if="isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+          <p class="f-20 m-l-10">
+            <i class="mdi-communication-live-help"></i>
+            FAQ's
+          </p>
+        </div>
+      </a>
+    </div>--> <!--<div ng-if="isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+          <p class="f-20 m-l-10">
+            <i class="mdi-notification-sms"></i>
+            Help
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <div ng-if="isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+
+          <p class="f-20 m-l-10">
+            <i class="mdi-action-assignment-ind"></i>
+            Careers
+          </p>
+        </div>
+      </a>
+    </div>--> <!--
+
+    <div ng-if="isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+          <p class="f-20 m-l-10">
+            <i class="mdi-social-people-outline"></i>
+            Team
+          </p>
+        </div>
+      </a>
+    </div>
+
+--> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#terms-of-use"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#privacy-policy"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-settings-power"></i> Logout </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 stick-bottom-custom"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-12 m-l-10"> &copy;Zolo Technologies Pvt. Ltd. </p> </div> </a> </div> <!--Right Sidebar desktop view and Mobile view before login (not authenticated)--> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="#login"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-system-update"></i> Login </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="#sign-up"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-person-add"></i> SignUp </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="http://www.gozolo.in"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+          <p class="f-20 m-l-10">
+            <i class="mdi-social-people-outline"></i>
+            Team
+          </p>
+        </div>
+      </a>
+    </div>--> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#terms-of-use"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#privacy-policy"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+          <p class="f-20 m-l-10">
+            <i class="mdi-communication-live-help"></i>
+            FAQ's
+          </p>
+        </div>
+      </a>
+    </div>--> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+
+          <p class="f-20 m-l-10">
+            <i class="mdi-action-assignment-ind"></i>
+            Careers
+          </p>
+        </div>
+      </a>
+    </div>--> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
+      <a class="rsb-links" href="">
+        <div class="col-md-12 card m-0 p-0">
+          <p class="f-20 m-l-10">
+            <i class="mdi-notification-sms"></i>
+            Help
+          </p>
+        </div>
+      </a>
+    </div>--> <div ng-if="!isAuthenticated()" class="row m-l-0 stick-bottom-custom"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-12 m-l-10"> &copy; &nbsp; Zolo Technologies Pvt. Ltd. </p> </div> </a> </div> </div> <!--            Right sidebar after login Mobile view end--> </div> <!-- END QUICKVIEW SIDEBAR --> <!-- BEGIN SEARCH --> <div id="morphsearch" class="morphsearch"> <form class="morphsearch-form"> <input class="morphsearch-input" type="search" placeholder="Search..."> <button class="morphsearch-submit" type="submit">Search</button> </form> <div class="morphsearch-content withScroll"> <div class="dummy-column user-column"> <h2>Users</h2> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar1_big.png" alt="Avatar 1"> <h3>John Smith</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar2_big.png" alt="Avatar 2"> <h3>Bod Dylan</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar3_big.png" alt="Avatar 3"> <h3>Jenny Finlan</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar4_big.png" alt="Avatar 4"> <h3>Harold Fox</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar5_big.png" alt="Avatar 5"> <h3>Martin Hendrix</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/avatars/avatar6_big.png" alt="Avatar 6"> <h3>Paul Ferguson</h3> </a> </div> <div class="dummy-column"> <h2>Articles</h2> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/1.jpg" alt="1"> <h3>How to change webdesign?</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/2.jpg" alt="2"> <h3>News From the sky</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/3.jpg" alt="3"> <h3>Where is the cat?</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/4.jpg" alt="4"> <h3>Just another funny story</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/5.jpg" alt="5"> <h3>How many water we drink every day?</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/6.jpg" alt="6"> <h3>Drag and drop tutorials</h3> </a> </div> <div class="dummy-column"> <h2>Recent</h2> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/7.jpg" alt="7"> <h3>Design Inspiration</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/8.jpg" alt="8"> <h3>Animals drawing</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/9.jpg" alt="9"> <h3>Cup of tea please</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/10.jpg" alt="10"> <h3>New application arrive</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/11.jpg" alt="11"> <h3>Notification prettify</h3> </a> <a class="dummy-media-object" href="#"> <img src="../global/images/gallery/12.jpg" alt="12"> <h3>My article is the last recent</h3> </a> </div> </div> <!-- /morphsearch-content --> <span class="morphsearch-close"></span> </div> <!-- END SEARCH --> <!-- BEGIN PRELOADER --> <!--<div class="loader-overlay">
   <div class="spinner">
     <div class="bounce1"></div>
     <div class="bounce2"></div>
@@ -334,10 +414,10 @@
 
     </div>
 --> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-      (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+            (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+          r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
   }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-74584340-3', 'auto');
-  ga('send', 'pageview');</script> <script src="scripts/vendor.96fe8faa.js"></script> <script src="admin/md-layout4/js/layout.js"></script>
-<script src="admin/md-layout4/material-design/js/material.js"></script> <script src="scripts/scripts.ce689ef4.js"></script> </body> </html>
+  ga('send', 'pageview');</script> <script src="scripts/vendor.96fe8faa.js"></script><script src="admin/md-layout4/js/layout.js"></script>
+<script src="admin/md-layout4/material-design/js/material.js"></script> <script src="scripts/scripts.c56387b7.js"></script> </body> </html>

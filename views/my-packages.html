@@ -1,4 +1,3 @@
-<div class="container zolo-pdp-page">
   <div class="row">
     <div class="card">
       <div class="col-md-12">
@@ -6,7 +5,7 @@
           <h2 class="text-center"><strong>My Packages</strong></h2>
           <hr>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12">
               <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==0" ng-click="pausedAll()" class="btn pull-right">Pause All</button>
               <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==1" ng-click="activeAll()" class="btn pull-right">Resume All</button>
             </div>
@@ -24,7 +23,7 @@
             <div class="tab-content">
               <div class="tab-pane fade active in" id="tab2_1">
                 <div class="row column-seperation">
-                  <div class="col-md-12 ">
+                  <div class="col-md-12 col-xs-12">
                     <div class="row">
                       <div ng-repeat="package in user_packages.data" class="col-md-4 col-xs-12 col-sm-6">
                         <div my-package-card package="package" master-collections="collections">
@@ -38,7 +37,7 @@
               <div class="tab-pane fade" id="tab2_2">
                 <!--ng-repeat="friendObj in friends | filter:search:strict"-->
                 <div class="row column-seperation">
-                  <div class="col-md-12 ">
+                  <div class="col-md-12 col-xs-12">
                     <div class="row">
                       <div ng-repeat="package in user_packages.data | filter:'ACTIVE'" class="col-md-4 col-xs-12 col-sm-6">
                         <div my-package-card package="package" master-collections="collections">
@@ -51,7 +50,7 @@
               </div>
               <div class="tab-pane fade" id="tab2_3">
                 <div class="row column-seperation">
-                  <div class="col-md-12 ">
+                  <div class="col-md-12 col-xs-12">
                     <div class="row">
                       <div ng-repeat="package in user_packages.data | filter:'DRAFT'" class="col-md-4 col-xs-12 col-sm-6">
                         <div ng-if="package ===''">
@@ -70,7 +69,7 @@
 
               <div class="tab-pane fade" id="tab2_4">
                 <div class="row column-seperation">
-                  <div class="col-md-12 ">
+                  <div class="col-md-12 col-xs-12">
                     <div class="row">
                       <div ng-repeat="package in user_packages.data | filter:'PAUSED'" class="col-md-4 col-xs-12 col-sm-6">
                         <div my-package-card package="package" master-collections="collections">
@@ -86,7 +85,7 @@
 
           <div ng-hide="myPackageLoading" ng-if="user_packages.data.length<=0" class="panel-content">
             <div class="row">
-              <div class="col-md-12 text-center">
+              <div class="col-md-12 text-center col-xs-12">
                 <p class="text-center  large-size">You have not listed any packages !</p>
                 <p class="text-center  large-size">START Monetizing your Talent now!</p>
                 <a ng-href="#post-a-package" class="btn btn-lg btn-success">Post Your First Package</a>
@@ -97,7 +96,7 @@
 
           <div ng-show="myPackageLoading" class="panel-content">
             <div class="row">
-              <div class="col-md-12 text-center">
+              <div class="col-md-12 text-center col-xs-12">
                 <div layout="row" layout-sm="column" layout-align="space-around">
                   <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
                 </div>
@@ -113,7 +112,6 @@
     </div>
   </div>
 
-</div>
 
 
 

@@ -42,28 +42,28 @@
       <div class="card" style="margin-top: 0px;">
         <div class="profile-preview">
           <div class="row">
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
               <button ng-click="openProfilePicModal()" class="btn edit-profile">edit <i class="fa fa-pencil"></i></button>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <p>{{profile.name}} </p>
               <strong>{{profile.short_description}}</strong>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <p>Projects Completed</p>
               <strong>{{profile.completed_orders || 'None'}}</strong>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <p>Contact Number</p>
               <strong >{{profile.mobile || 'NA'}}</strong>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <!--<p>Date Of Birth</p>-->
               <!--<strong ng-if="profile.birth_date==null || profile.birth_date ==''">NA</strong>-->
               <!--<strong ng-if="profile.birth_date!=null || profile.birth_date !=''">{{profile.birth_date | date : 'dd MMM yyyy'}}</strong>-->
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-sm-6 col-xs-12">
               <button ng-hide="edit_profile" ng-click="edit_profile=true" class="btn e-profile-btn">Edit Profile</button>
               <button ng-show="edit_profile" ng-click="saveProfile()" class="btn e-profile-btn">Save</button>
             </div>
@@ -367,11 +367,11 @@
                 </div>
 
 
-
+</div>
 
                 <div class="row hidden-lg hidden-xs my-gigs">
 
-                  <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
+                  <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-3" as-nav-for="#main-slider"
                          focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
                          data="user_packages.data" class="slider multiple-items">
                     <div ng-repeat="package in user_packages.data">
@@ -382,9 +382,9 @@
                   </slick>
                 </div>
 
-                <div class="row hidden-md hidden-lg my-gigs">
+                <div class="row hidden-md hidden-lg my-gigs visible-xs" style="padding: 25px;">
 
-                  <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
+                  <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-4" as-nav-for="#main-slider"
                          focus-on-select="true" slides-to-show=1 slides-to-scroll=1 init-onload=true
                          data="user_packages.data" class="slider multiple-items">
                     <div ng-repeat="package in user_packages.data">
@@ -400,13 +400,15 @@
 
                 <!--</div>-->
               </div>
+
+                  <div class="row">
               <div ng-if="user_packages.data.length<=0" class="col-md-12">
                 <p>You have not posted a package yet to start selling click the button below</p>
 
                 <p class="text-center"><a ng-href="#post-a-package" class="btn btn-zolo">Post a package</a> </p>
               </div>
             </div>
-
+              </div>
           </div>
         </div>
       </div>
@@ -437,6 +439,8 @@
           </div>
         </div>
 
+          <div class="row">
+
         <div ng-show="portfolio_selected" class="col-md-12">
           <div class="card">
             <div class="row">
@@ -466,6 +470,7 @@
         </div>
       </div>
     </div>
+        </div>
 
 
 
@@ -520,7 +525,6 @@
 
 
   </div>
-</div>
 
 
 <div class="footer">

@@ -632,7 +632,7 @@ a.scrollup:hover {
   -webkit-transform: translate3d(0, -5px, 0);
   transform-origin: 50% 50%;
   transform: translate3d(0, -5px, 0);
-  background: #2b2e33;
+  background: #fff;
   content: '';
   height: 2px;
   left: 0;
@@ -645,12 +645,13 @@ a.scrollup:hover {
   -ms-transition: transform 0.3s linear;
   transition: transform 0.3s linear;
 }
+
 .topbar .header-left .topnav .menu__handle::after {
   -moz-transform-origin: 50% 50%;
   -moz-transform: translate3d(0, 5px, 0);
   -webkit-transform-origin: 50% 50%;
   -webkit-transform: translate3d(0, 5px, 0);
-  background: #2b2e33;
+  background: #fff;
   content: '';
   height: 2px;
   left: 0;
@@ -1403,7 +1404,7 @@ a.scrollup:hover {
   width: 100%;
 }
 .menu__handle span {
-  background: #2b2e33;
+  background: #fff;
 }
 .topbar .header-left .topnav .mmenu .nav,
 .topbar .header-left .topnav .mmenu .collapse,

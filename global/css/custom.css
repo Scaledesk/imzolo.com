@@ -1580,6 +1580,7 @@ padding-left: 5px !important;
 .zolo-topbar{
 	background-color: #78588C !important;
 	height: 55px; !important;
+    box-shadow: none !important;
 }
 
 .login-click{
@@ -2760,3 +2761,74 @@ figure.effect-steve:hover p {
 
 
 /*////ends here/////*/
+
+@media screen and (max-width: 600px){
+    .table-res{
+        overflow-x: scroll;
+    }
+
+    .home-page-search{
+        text-align: center;
+        margin-left: 10px;
+    }
+
+    .redesigned-price-filter{
+        padding: 0!important;
+
+    }
+
+    .home-s-btn{
+        margin: 15px 0 40px 0 !important;
+    }
+
+
+    .account-summary-right-border{
+        border: none;
+    }
+
+    .main-content .page-content .panel-content{
+        padding: 0;
+    }
+
+    .page-profil .profil-content{
+        padding: 0;
+    }
+
+    .cover-img{
+        background: url('/global/images/m-cover.jpg') center no-repeat !important;
+
+    }
+
+    .profile-preview .col-xs-12 {
+        text-align: center;
+
+    }
+
+    .profile-preview .col-xs-12 > p {
+        text-align: center;
+
+    }
+
+    .main-content .page-content{
+        padding: 0 !important;
+        top: 30px !important;
+    }
+
+
+
+}
+
+.topbar, .fixed-topbar .topbar{
+    box-shadow: 0px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
