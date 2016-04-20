@@ -1709,7 +1709,7 @@ padding-left: 5px !important;
 }
 .stick-bottom-custom {
 	bottom: 0;
-	position: absolute;
+	/*position: absolute;*/
 	width: 100%;
 }
 
@@ -2045,7 +2045,7 @@ figure.zolo-collection{
 
 /*/////////////End here*/
 
-.desc-zolo-pdp  ul{
+.desc-zolo-pdp  ul, .desc-zolo-pdp ol{
    padding-left: 20px;
 }
 
@@ -2822,6 +2822,19 @@ figure.effect-steve:hover p {
     box-shadow: 0px !important;
 }
 
+/*Froala Editor Indentation */
+
+
+.fr-basic .fr-element li{
+
+  margin-left: 15px !important;
+
+}
+
+.fr-basic .fr-element p{
+  margin-top: 0px ;
+  margin-bottom: 5px;
+}
 
 
 

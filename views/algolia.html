@@ -1,0 +1,46 @@
+
+<div class="container-fluid" style="margin-bottom: 200px;">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="m-t-40 card">
+        <div class="col-md-12">
+          <div ng-repeat="category in myalgolia.categories" ng-if="category.slug!='men'&&category.slug!='women'&&category.slug!='kids'&&category.slug!='teens'">
+          <div class="checkbox">
+            <label>
+              <!--<input type="checkbox" class="md-checkbox">-->
+              <input type="checkbox" checklist-change="myalgolia.selectedCategoryMake()" checklist-model="myalgolia.SelectedCategories" checklist-value="category.slug"  class="md-checkbox">
+              <span class="checkbox-material"><span class="check"></span></span>
+              {{category.name}}
+            </label>
+          </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  <div class="col-md-10">
+    <div class="m-t-40 card">
+      <div class="col-md-12">
+        <div class="search-filter">
+          <div class="row">
+            <form role="form" ng-submit="myalgolia.newSearch()">
+              <div class="col-md-9">
+                <input class="form-control f-18" type="search" ng-model="myalgolia.searchQuery" ng-keypress="myalgolia.newSearch()" placeholder="What are you looking for Today ?"  >
+              </div>
+              <div class="col-md-3 text-center">
+                <button class="btn home-s-btn btn-lg" ng-click="myalgolia.newSearch()">Search</button>
+              </div>
+
+            </form>
+          </div>
+          <div ng-repeat="row in myalgolia.package_rows" class="row">
+            <div ng-repeat="package in row" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+              <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
