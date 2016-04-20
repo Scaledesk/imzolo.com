@@ -2814,6 +2814,11 @@ figure.effect-steve:hover p {
         top: 30px !important;
     }
 
+    .img-n-p{
+      height: 250px !important;
+
+    }
+
 
 
 }
@@ -2837,8 +2842,24 @@ figure.effect-steve:hover p {
 }
 
 
+.img-n-p{
+  background-color: rgba(177, 182, 183, 0.55);
+  width: 100%;
+  height: 358px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 15px;
 
+}
 
+.img-n-p p{
+  vertical-align: middle;
+  padding: 15px;
+}
 
 
 

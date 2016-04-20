@@ -15,33 +15,33 @@
     /*min-height: 50px;*/
   /*}*/
 
-  img:before {
-    content: " ";
-    display: block;
+  /*img:before {*/
+    /*content: " ";*/
+    /*display: block;*/
 
-    position: absolute;
-    top: -30px;
-    left: 0;
-    height: calc(100% + 10px);
-    width: 100%;
-    background-color: rgb(230, 230, 230);
-    border: 2px dotted rgb(200, 200, 200);
-    border-radius: 5px;
-  }
+    /*position: absolute;*/
+    /*top: -30px;*/
+    /*left: 0;*/
+    /*height: calc(100% + 10px);*/
+    /*width: 100%;*/
+    /*background-color: rgb(230, 230, 230);*/
+    /*border: 2px dotted rgb(200, 200, 200);*/
+    /*border-radius: 5px;*/
+  /*}*/
 
-  img:after {
-    content: "\f127" " Image Not available ";
-    display: block;
-    font-size: 3em;
-    font-style: normal;
-    font-family: FontAwesome;
-    color: rgb(100, 100, 100);
-    position: absolute;
-    top: 40%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-  }
+  /*img:after {*/
+    /*content: "\f127" " Image Not available ";*/
+    /*display: block;*/
+    /*font-size: 3em;*/
+    /*font-style: normal;*/
+    /*font-family: FontAwesome;*/
+    /*color: rgb(100, 100, 100);*/
+    /*position: absolute;*/
+    /*top: 40%;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*text-align: center;*/
+  /*}*/
 
   .other-p-s  .slick-prev {
     left: 0px;
@@ -160,7 +160,9 @@
           <div ng-if="package.photos.data.length == 0" class="row" style="margin-top: -13px;">
             <div class="col-md-12 other-p-s" style="padding: 0px;">
 
-                <div><img preload-image default-image="../assets/images/abc.png" width="598"height="358"  ng-src="../assets/images/no2.png" style="margin-bottom: 20px;"></div>
+                <div class="row img-n-p">
+                <p>Image not Available !</p>
+                </div>
 
 
             </div>
@@ -333,8 +335,8 @@
             </p>
             <!-- links-->
             <p ng-if="package.youtube_links != null&&package.facebook_links != null&&package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
-              <a href="" ng-if="package.youtube_links != null" ng-click="redirectLink(package.youtube_links)"> Youtube link</a><br/>
-              <a href="" ng-if="package.facebook_links != null" ng-click="redirectLink(package.facebook_links)">Facebook link</a><br/>
+              <a href="" ng-if="package.youtube_links != null" ng-click="redirectLink(package.youtube_links)"><i class="fa fa-youtube"></i> Youtube link</a><br/>
+              <a href="" ng-if="package.facebook_links != null" ng-click="redirectLink(package.facebook_links)"><i class="fa fa-facebook"></i>Facebook link</a><br/>
               <a href="" ng-if="package.any_other_links != null" ng-click="redirectLink(package.any_other_links)">other link</a>
             </p>
           </div>

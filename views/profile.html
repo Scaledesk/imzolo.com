@@ -96,7 +96,7 @@
                       <input ng-model="profile.short_description" type="text" class="form-control" placeholder="Enter a Tagline to describe you" maxlength="100">
                       <div>Character Count: {{profile.short_description.length}} | Max 100 char</div>
                       <p class="f-16 m-t-20">Phone Number</p>
-                      <input ng-model="profile.mobile" type="number" number-converter class="form-control" placeholder="Enter your contact number">
+                      <input ng-model="profile.mobile" type="number" number-converter class="form-control" placeholder="Enter your contact number" ng-pattern="[0-9]{10}">
                       <p class="f-16 m-t-20">Email</p>
                       <input ng-model="profile.email" type="email" class="form-control" readonly maxlength="50">
 
