@@ -1,9 +1,10 @@
 
 <div class="container-fluid" style="margin-bottom: 200px;">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="m-t-40 card">
         <div class="col-md-12">
+          <h3><strong>Categories</strong></h3>
           <div ng-repeat="category in myalgolia.categories" ng-if="category.slug!='men'&&category.slug!='women'&&category.slug!='kids'&&category.slug!='teens'">
           <div class="checkbox">
             <label>
@@ -17,7 +18,7 @@
         </div>
         </div>
     </div>
-  <div class="col-md-10">
+  <div class="col-md-9">
     <div class="m-t-40 card">
       <div class="col-md-12">
         <div class="search-filter">

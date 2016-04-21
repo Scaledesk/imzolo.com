@@ -1,11 +1,11 @@
-<!Doctype html> <html> <head> <meta charset="utf-8"> <!--<base href="/">--> <title>Zolo | Monetize Your Talent</title> <meta name="description" content="Zolo Technologies Pvt. Ltd."> <meta name="viewport" content="width=device-width"> <meta name="author" content="Zolo Technologies Pvt. Ltd."> <meta name="robots" content="noindex,nofollow"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.2f6f201c.css"> <link rel="stylesheet" href="styles/main.d41d8cd9.css"> <link href="/global/css/style.css" rel="stylesheet">
+<!Doctype html> <html> <head> <meta charset="utf-8"> <!--<base href="/">--> <title>Zolo | Monetize Your Talent</title> <meta name="description" content="Zolo Technologies Pvt. Ltd."> <meta name="viewport" content="width=device-width"> <meta name="author" content="Zolo Technologies Pvt. Ltd."> <meta name="robots" content="noindex,nofollow"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.2f6f201c.css"> <link rel="stylesheet" href="styles/main.d41d8cd9.css"><link href="/global/css/style.css" rel="stylesheet">
   <link href="/global/css/custom.css" rel="stylesheet">
   <link href="/global/css/theme.css" rel="stylesheet">
   <link href="/global/css/ui.css" rel="stylesheet">
   <link href="/global/plugins/hover-effects/hover-effects.min.css" rel="stylesheet">
   <link href="/admin/md-layout4/material-design/css/material.css" rel="stylesheet">
   <link href="/admin/md-layout4/css/layout.css" rel="stylesheet">
-  <link href="/css/angular-theme.css" rel="stylesheet"></head> <body ng-app="newApp" class="sidebar-top fixed-topbar fixed-sidebar theme-sdtl color-default" ng-controller="MainCtrl" ng-cloak> <!--[if lte IE 8]>
+  <link href="/css/angular-theme.css" rel="stylesheet"> </head> <body ng-app="newApp" class="sidebar-top fixed-topbar fixed-sidebar theme-sdtl color-default" ng-controller="MainCtrl" ng-cloak> <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]--> <div class="sidebar"> <div class="logopanel zolo-logopanel"> <div> <a href="#/"> <img src="../global/images/Zolo-Logo-c.png" class="zolo-logo"> </a> </div> </div> <div class="sidebar-inner"> <!--<div class="sidebar-top">
         <form action="search-result.html" method="post" class="searchform" id="search-results">
@@ -41,7 +41,7 @@
                                 </ul>
                             </div>
                         </div>
-    --> <ul ng-show="munuItem.menuBar=='default'" class="nav nav-sidebar"> <!--ng-class="{ active  : isActive('/')}--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/business')"><i class="icon-briefcase"></i><span>Business</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 10}"><a ng-href="#category/Business/{{cat.slug}}">{{cat.name}}</a></li> </ul></li> <!--<li class="nav-parent" >--> <!--<a href=""><i class="fa fa-laptop"></i><span>Digital</span> <span class="fa arrow"></span></a>--> <!--<ul class="children collapse">--> <!--</ul>--> <!--</li>--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/creative')"><i class="icon-picture"></i><span>Creative</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 14}"><a ng-href="#category/Creative/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a ng-href="#category/art-and-media">Art & Media</a></li>
+    --> <ul ng-show="munuItem.menuBar=='default'" class="nav nav-sidebar"> <!--ng-class="{ active  : isActive('/')}--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/business')"><i class="icon-briefcase"></i><span>Business</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 10}"><a ng-href="#category/business/{{cat.slug}}">{{cat.name}}</a></li> </ul></li> <!--<li class="nav-parent" >--> <!--<a href=""><i class="fa fa-laptop"></i><span>Digital</span> <span class="fa arrow"></span></a>--> <!--<ul class="children collapse">--> <!--</ul>--> <!--</li>--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/creative')"><i class="icon-picture"></i><span>Creative</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 14}"><a ng-href="#category/creative/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a ng-href="#category/art-and-media">Art & Media</a></li>
           <li><a ng-href="#category/graphics-and-design">Graphic & Design</a></li>
           <li><a ng-href="#category/photography">Photography</a></li>
           <li><a ng-href="#category/music-production">Music production</a></li>
@@ -49,7 +49,7 @@
           <li><a ng-href="#category/performance-art">Performance Arts</a></li>
           <li><a ng-href="#category/writing">Writing</a></li>
           <li><a ng-href="#category/fashion">Fashion</a></li>
-          <li><a ng-href="#category/others">Others</a></li>--> </ul> </li> <li class="nav-parent"><a ng-click="topMenuRedirect('category/consultation')"><i class="icon-user"></i><span>Consultation</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 32}"><a ng-href="#category/Consultation/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academics & Career</a></li>
+          <li><a ng-href="#category/others">Others</a></li>--> </ul> </li> <li class="nav-parent"><a ng-click="topMenuRedirect('category/consultation')"><i class="icon-user"></i><span>Consultation</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 32}"><a ng-href="#category/consultation/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academics & Career</a></li>
           <li><a href="">Business & Management</a></li>
           <li><a href="">Finance, Accounting&Legal</a></li>
           <li><a href="">Fashion, Makeup & Grooming</a></li>
@@ -59,7 +59,7 @@
           <li><a href="">Anxiety & Stress</a></li>
           <li><a href="">Love & Relationship</a></li>
           <li><a href="">Personal Services</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/classes')"><i class="icon-note"></i><span>Classes </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 44}"><a ng-href="#category/Classes/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academic</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/classes')"><i class="icon-note"></i><span>Classes </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 44}"><a ng-href="#category/classes/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academic</a></li>
           <li><a href="">Arts & Crafts</a></li>
           <li><a href="">Business & IT</a></li>
           <li><a href="">Beauty & Wellness</a></li>
@@ -69,13 +69,13 @@
           <li><a href="">Sports & Adventures</a></li>
           <li><a href="">Hobbies</a></li>
           <li><a href="">Soft Skills</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/event')"><i class="fa fa-table"></i><span>Event</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 15}"><a ng-href="#category/Event/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Planning</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/event')"><i class="fa fa-table"></i><span>Event</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 15}"><a ng-href="#category/event/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Planning</a></li>
           <li><a href="">Decoration</a></li>
           <li><a href="">Live performance</a></li>
           <li><a href="">Catering</a></li>
           <li><a href="">Event supply</a></li>
           <li><a href="">Services</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/products')"><i class="icon icons-shopping-13"></i><span>Products </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 63}"><a ng-href="#category/Products/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Automotive</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/products')"><i class="icon icons-shopping-13"></i><span>Products </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 63}"><a ng-href="#category/products/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Automotive</a></li>
           <li><a href="">Mens</a></li>
           <li><a href="">Womens</a></li>
           <li><a href="">Kids & Toys</a></li>
@@ -87,7 +87,7 @@
           <li><a href="">Seasonal</a></li>
           <li><a href="">Customized</a></li>
           <li><a href="">Hard to find</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/gifts')"><i class="icon-magnifier-add"></i><span>Gifts</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 77}"><a ng-href="#category/Gifts/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Anniversary</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/gifts')"><i class="icon-magnifier-add"></i><span>Gifts</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 77}"><a ng-href="#category/gifts/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Anniversary</a></li>
           <li><a href="">Birthday</a></li>
           <li><a href="">Baby Shower</a></li>
           <li><a href="">Corporate</a></li>
@@ -419,5 +419,5 @@
   }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-74584340-3', 'auto');
-  ga('send', 'pageview');</script> <script src="scripts/vendor.627402fe.js"></script><script src="admin/md-layout4/js/layout.js"></script>
-<script src="admin/md-layout4/material-design/js/material.js"></script> <script src="scripts/scripts.a6689277.js"></script><script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.min.js"></script> </body> </html>
+  ga('send', 'pageview');</script> <script src="scripts/vendor.1cdd4d62.js"></script> <script src="admin/md-layout4/js/layout.js"></script>
+<script src="admin/md-layout4/material-design/js/material.js"></script><script src="scripts/scripts.0d78113a.js"></script><script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.min.js"></script> </body> </html>

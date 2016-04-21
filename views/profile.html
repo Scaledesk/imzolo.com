@@ -96,7 +96,8 @@
                       <input ng-model="profile.short_description" type="text" class="form-control" placeholder="Enter a Tagline to describe you" maxlength="100">
                       <div>Character Count: {{profile.short_description.length}} | Max 100 char</div>
                       <p class="f-16 m-t-20">Phone Number</p>
-                      <input ng-model="profile.mobile" type="number" number-converter class="form-control" placeholder="Enter your contact number" ng-pattern="[0-9]{10}">
+                      <input type="text" number-converter ng-model="profile.mobile" name="mobile" id="mobile"  class="form-control" ng-change="validateMobileNumber()" ng-maxlength="10" ng-minlength="10" placeholder="Enter your contact number">
+                      <div ng-show="validation.mobile" class="text-danger">Enter valid number</div>
                       <p class="f-16 m-t-20">Email</p>
                       <input ng-model="profile.email" type="email" class="form-control" readonly maxlength="50">
 
@@ -106,7 +107,8 @@
                       <md-datepicker ng-model="birth_date" md-placeholder="Enter date"
                                      md-min-date="1980-01-01" md-max-date="'1998-01-01'"></md-datepicker>-->
                       <p class="f-16 m-t-20">Address</p>
-                      <input ng-model="profile.address" type="text" class="form-control" placeholder="Enter your address">
+                      <input ng-model="profile.address" type="text" class="form-control" placeholder="Enter your address" maxlength="200">
+                      <div>Character Count: {{profile.address.length}} | Max 200 char</div>
 
                       <div class="row">
                         <div class="col-md-4">
@@ -117,7 +119,7 @@
                              </md-option>
                           </md-select>-->
                             <p class="f-16 m-t-20">State</p>
-                          <input ng-model="profile.state" type="text" class="form-control" placeholder="Enter your state">
+                          <input ng-model="profile.state" type="text" class="form-control" maxlength="30" placeholder="Enter your state">
                         </div>
                         <div class="col-md-4">
                         <!--  <p class="f-16 m-t-20">Select City</p>
@@ -127,11 +129,12 @@
                              </md-option>
                           </md-select>-->
                             <p class="f-16 m-t-20">City</p>
-                          <input ng-model="profile.city" type="text" class="form-control" placeholder="Enter your city">
+                          <input ng-model="profile.city" type="text" maxlength="30" class="form-control" placeholder="Enter your city">
                         </div>
                         <div class="col-md-4">
                           <p class="f-16 m-t-20">Pincode</p>
-                          <input ng-model="profile.pin" type="text" class="form-control" placeholder="Enter your pincode">
+                          <input number-converter ng-model="profile.pin" name="pin" id="pin" type="text" maxlength="6" minlength="6" ng-change="validatePinCode()"class="form-control" placeholder="Enter your pincode">
+                          <div ng-show="validation.pin" class="text-danger">Enter valid pin</div>
                         </div>
                       </div>
                       <p class="f-16 m-t-20">Gender</p>
@@ -182,7 +185,7 @@
                         <p class="f-16 m-t-20">Years of Experience</p>
 
                         <div class="col-md-10 col-sm-12 m-b-20">
-                          <input ng-model="profile.experiences" type="number" class="form-control" placeholder="Year">
+                          <input ng-model="profile.experiences" type="number"  class="form-control" placeholder="Year">
                         </div>
                       </div>
                       <div class="col-md-12 m-b-20">

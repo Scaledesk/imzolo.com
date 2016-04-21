@@ -2863,6 +2863,48 @@ figure.effect-steve:hover p {
 
 
 
+/*//////////custom//////*/
 
+.toast {
+  background-color: #030303;
+}
+.toast-success {
+  background-color: #26A69A;
+}
+.toast-error {
+  background-color: #e57373 !important;
+}
+.toast-info {
+  background-color: #2f96b4;
+}
+.toast-wait {
+  background-color: #2f96b4;
+}
+
+.toast-warning {
+  background-color: #f44336;
+}
+
+
+:not(.no-enter)#toast-container > div.ng-enter.ng-enter-active,
+:not(.no-leave)#toast-container > div.ng-leave {
+  opacity: 1 !important;
+}
+
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1!important;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+  opacity: 1;
+}
+
+
+
+}
+/*/////ends here///*/
 
 
