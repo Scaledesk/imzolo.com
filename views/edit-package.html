@@ -813,8 +813,8 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <!--<button class="btn btn-primary active pull-right" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="updateFirstTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right ladda-button" data-style="zoom-in">
-                      <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                    <button ng-click="updateFirstTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right">Save and Continue
+                      <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                   </div>
                 </div>
@@ -904,8 +904,8 @@
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="updateDescriptionTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
-                      <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                    <button ng-click="updateDescriptionTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20">
+                      Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
                   </div>
@@ -954,8 +954,8 @@
                         <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                         Days
                       </label>
-                      <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" maxlength="10" class="form-control" placeholder="Days"/>
-                      <div ng-show="validation_error.delivery_time_days" class="text-danger"> Required Delivery time</div>
+                      <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>
+                      <div ng-show="validation_error.delivery_time_days" class="text-danger"> Required Delivery time | min 1 max 300</div>
                       <md-tooltip class="f-14 w-400" md-direction="right">
                         * Required Delivery Time
                       </md-tooltip>
@@ -968,8 +968,8 @@
                         <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
                         Hours
                       </label>
-                      <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_houre=''" type="number" maxlength="50" class="form-control" placeholder="Hours"/>
-                      <div ng-show="validation_error.delivery_time_hours" class="text-danger"> Required Delivery time</div>
+                      <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=false" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
+                      <div ng-show="validation_error.delivery_time_hours" class="text-danger"> Required Delivery time | min 1 max 72</div>
                     </div>
                   </div>
 
@@ -1000,8 +1000,8 @@
 
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save()">Save and Continue</button>-->
-                    <button ng-click="updatePaymentTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
-                      <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                    <button ng-click="updatePaymentTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20">
+                     Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
 
@@ -1123,8 +1123,8 @@
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="save(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20 ladda-button" data-style="zoom-in">
-                      <span class="ladda-label">Save and Continue</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                    <button ng-click="save(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20">
+                      Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
 
@@ -1146,8 +1146,6 @@
                     <p>Terms And Conditions</p>
                     <textarea froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." rows="4" id="term_condition"></textarea>
                   </div>
-
-
                 </div>
 
                 <div class="row user-post-a-package">
@@ -1210,16 +1208,16 @@
                       <div class="col-md-3 col-xs-12 pull-right">
                         <!--<button class="btn btn-success pull-right m-l-20" ng-click="save('ACTIVE')">Publish
                             </button>-->
-                        <button ng-click="save('ACTIVE')" ng-disabled="saving" type="button" class="btn btn-success pull-right m-l-20 ladda-button" data-style="zoom-in">
-                          <span class="ladda-label">Publish</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                        <button ng-click="save('ACTIVE')" ng-disabled="saving" type="button" class="btn btn-success pull-right m-l-20">
+                         Publish<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                         </button>
                       </div>
 
                       <div class="col-md-3 col-xs-12 pull-right">
                         <!--<button class="btn btn-zolo  pull-right" ng-click="save('DRAFT')" style="margin-right: 10px;">Save as Draft
                             </button>-->
-                        <button ng-click="save('DRAFT')" type="button" class="btn btn-zolo active pull-right ladda-button" data-style="zoom-in">
-                          <span class="ladda-label">Save as Draft</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                        <button ng-click="save('DRAFT')" type="button" class="btn btn-zolo active pull-right">
+                          Save as Draft<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                         </button>
 
                       </div>
@@ -1332,15 +1330,11 @@
                   <div class="col-md-6">
                     <a ng-href="#/dashboard/my-packages" class="btn btn-primary active pull-right">Skip</a>
                     <!--<button class="btn btn-primary active pull-right" ng-click="savePackageAddons(addons)">Save Addon</button>-->
-                    <button ng-click="savePackageAddons(addons)" type="button" class="btn btn-primary active pull-right ladda-button" data-style="zoom-in">
-                      <span class="ladda-label">Save Addons</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+                    <button ng-click="savePackageAddons(addons)" type="button" class="btn btn-primary active pull-right">
+                      Save Addons<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                   </div>
-
-
                 </div>
-
-
               </md-content>
             </md-tab>
 

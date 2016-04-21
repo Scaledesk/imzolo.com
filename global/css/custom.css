@@ -2902,9 +2902,14 @@ figure.effect-steve:hover p {
   opacity: 1;
 }
 
-
-
-}
 /*/////ends here///*/
 
+.pdp-topstar .star-rating .star {
+  font-size: 15px;
+}
 
+
+.l-m{
+  padding: 25px;
+  width: 776px;
+}

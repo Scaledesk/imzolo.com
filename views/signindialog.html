@@ -1,0 +1,136 @@
+<md-dialog aria-label="Login (signup)">
+  <form>
+
+    <md-dialog-content style="max-width:800px;max-height:480px; overflow-y: hidden;">
+      <div class="l-m ">
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Login">
+          <md-content class="md-padding" style="height:480px; ">
+            <h1 class="md-display-2"></h1>
+            <div class="row">
+
+              <div class="col-md-6 m-t-20 m-r-60 ">
+                <div class="form-group m-b-30">
+                  <div class="form-control-wrapper"><input type="email" class="form-control empty"><div class="floating-label">Email</div><span class="material-input"></span></div>
+                </div>
+
+                <div class="form-group m-b-30">
+                  <div class="form-control-wrapper append-icon"><input type="password" class="form-control empty"><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                </div>
+
+
+
+                <button class="btn btn-lg zolo-btn" style="width: 100%; margin-bottom: 5px!important;">Login</button>
+                <div class="f-10 ">By Logging in you agree to our <span class="zolo-c"><a href=""> T&C</a></span> and <span class="zolo-c"><a href="">Privacy Policy.</a></span></div>
+
+
+                <div class="row m-t-40">
+                  <div class="col-md-12 text-center">
+                    <a href="" class="f-18 zolo-c">Forget Password</a>
+                    <hr>
+
+
+                  </div>
+                </div>
+
+
+
+
+              </div>
+
+
+
+
+
+
+              <div class="col-md-5 m-t-40">
+                <button type="button" ng-click="authenticate('facebook')" class="btn-fb btn btn-lg btn-block btn-square zolo-login-facebook" style="text-transform: capitalize;"><i class="fa fa-facebook pull-left"></i>Login with Facebook</button>
+
+                <button type="button" ng-click="authenticate('google')" class="btn btn-lg btn-block btn-square zolo-login-google-plus" style="text-transform: capitalize;"><i class="fa fa-google-plus pull-left"></i>Login with google+</button>
+
+
+                <div class="row m-t-40">
+                  <div class="col-md-12 ">
+                    <p class="text-center">New User ? <a href="" class="zolo-c">Signup Here</a></p>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+
+
+
+
+            </div>
+
+
+          </md-content>
+        </md-tab>
+        <md-tab label="Signup">
+          <md-content class="md-padding">
+            <div class="row">
+              <div class="col-md-6 m-t-20 m-r-60 ">
+
+                <div class="form-group m-b-30 ">
+                  <div class="form-control-wrapper"><input type="text" class="form-control empty"><div class="floating-label">First Name</div><span class="material-input"></span></div>
+                </div>
+
+
+                <div class="form-group m-b-30">
+                  <div class="form-control-wrapper"><input type="email" class="form-control empty"><div class="floating-label">Email</div><span class="material-input"></span></div>
+                </div>
+
+                <div class="form-group m-b-30">
+                  <div class="form-control-wrapper append-icon"><input type="password" class="form-control empty"><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                </div>
+
+
+                <div class="form-group m-b-30">
+                  <div class="form-control-wrapper"><input type="number" class="form-control empty"><div class="floating-label">Mobile Number</div><span class="material-input"></span></div>
+                </div>
+
+
+
+
+              <button class="btn btn-lg zolo-btn" style="width: 100%; margin-bottom: 5px!important;">Signup</button>
+
+              </div>
+
+
+
+
+
+              <div class="col-md-5 m-t-60">
+
+                <button type="button" ng-click="authenticate('facebook')" class="btn-fb btn btn-lg btn-block btn-square zolo-login-facebook" style="text-transform: capitalize;"><i class="fa fa-facebook pull-left"></i>Login with Facebook</button>
+
+                <button type="button" ng-click="authenticate('google')" class="btn btn-lg btn-block btn-square zolo-login-google-plus" style="text-transform: capitalize;"><i class="fa fa-google-plus pull-left"></i>Login with google+</button>
+
+                <div class="row m-t-40">
+                  <div class="col-md-12 ">
+                    <p class="text-center">Already Member ? <a href="" class="zolo-c">Login Here</a></p>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+            </div>
+
+
+          </md-content>
+        </md-tab>
+
+        <!--</md-tab>-->
+
+
+      </md-tabs>
+      </div>
+    <!--</md-dialog-content>-->
+
+  </form>
+</md-dialog>

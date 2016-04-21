@@ -90,20 +90,8 @@
 
 </style>
 
-<!--
+<update-title title="{{package.name}}"></update-title>
 
-<meta name="description" content="Zolo Technologies Pvt. Ltd.">
-<meta name="viewport" content="width=device-width">
-<meta name="author" content="Zolo Technologies Pvt. Ltd.">
-<meta name="robots" content="noindex,nofollow">
--->
-
-<update-title title="A new title"></update-title>
-
-<update-meta name="description" content="package description"></update-meta>
-<update-meta name="viewport" content="testing"></update-meta>
-<update-meta name="author" content="Zolo Technologies"></update-meta>
-<update-meta name="robots" content="testing"></update-meta>
 
 <div class="container-fluid">
   <div class="row ">
@@ -350,9 +338,9 @@
             </p>
             <!-- links-->
             <p ng-if="package.youtube_links != null&&package.facebook_links != null&&package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
-              <a href="" ng-if="package.youtube_links != null" ng-click="redirectLink(package.youtube_links)"><i class="fa fa-youtube"></i> Youtube link</a><br/>
-              <a href="" ng-if="package.facebook_links != null" ng-click="redirectLink(package.facebook_links)"><i class="fa fa-facebook"></i>Facebook link</a><br/>
-              <a href="" ng-if="package.any_other_links != null" ng-click="redirectLink(package.any_other_links)">other link</a>
+              <a ng-href="{{package.youtube_links}}" ng-if="package.youtube_links != null"><i class="fa fa-youtube"></i>&nbsp;&nbsp; Youtube link</a><br/>
+              <a ng-href="{{package.facebook_links}}" ng-if="package.facebook_links != null"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook link</a><br/>
+              <a ng-href="{{package.any_other_links}}" ng-if="package.any_other_links != null">&nbsp;&nbsp;other link</a>
             </p>
           </div>
         </div>
@@ -507,7 +495,7 @@
               <div class="col-md-10">
                <div class="row">
                  <div class="col-md-8">
-                   <strong>{{review.user_name}}</strong>&nbsp;&nbsp;<div class="rateit" data-value="3.7" data-readonly="true"></div>
+                   <strong>{{review.user_name}}</strong>&nbsp;&nbsp;<div number-converter star-rating ng-model="4" readonly="true"></div>
                    <div>{{review.comment}}</div>
                  </div>
                  <div class="col-md-4">
@@ -700,13 +688,15 @@
                       Feedback Ratings
                     </md-tooltip>
                   </i>
-                  <div class="m-b-10 text-center">
+                  <div class="m-b-10 m-l-5 m-t-5 text-center ">
                     <!--<div class="rateit" data-value="2.5" data-readonly="true">
                     </div>-->
-                    <div number-converter star-rating ng-model="package.average_rating" readonly="true"></div>
+                    <div ng-if="package.average_rating>0" number-converter star-rating ng-model="package.average_rating" readonly="true" class="pdp-topstar"></div>
+                    <div ng-if="package.average_rating==0.0" style="font-size: 13px;">Not Yet Rated</div>
+                    <!--{{package.average_rating}}-->
                     <!--{{package.average_rating}}-->
                   </div>
-
+                  <!--<div number-converter star-rating ng-model="package.average_rating" readonly="true"></div>-->
 
                 </div>
 
@@ -730,7 +720,7 @@
                       Duration
                     </md-tooltip>
                   </i><br>
-                  <span>{{package.delivery_time}}</span>&nbsp;<span ng-if="package.delivery_time_type=='instant_delivery'">Instant Delivery</span>
+                  <span ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time}}</span>&nbsp;<span ng-if="package.delivery_time_type=='instant_delivery'">Instant Delivery</span>
                   <span ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time_type}}</span>
                 </div>
               </div>
@@ -751,7 +741,7 @@
 
         <div class="row zolo-pdp-more-info-user">
           <div class="col-md-12">
-            <i class="fa fa-truck"></i>&nbsp;&nbsp;Delivery: <strong>{{package.delivery_time}}&nbsp;{{package.delivery_time_type}}</strong>
+            <i class="fa fa-truck"></i>&nbsp;&nbsp;Delivery: <strong><span ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time}}</span>&nbsp;<span ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time_type}}</span><span ng-if="package.delivery_time_type=='instant_delivery'">Instant Delivery</span></strong>
           </div>
         </div>
 
