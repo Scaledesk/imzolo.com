@@ -1,5 +1,4 @@
 <md-dialog aria-label="Login (signup)">
-  <form>
 
     <md-dialog-content style="max-width:800px;max-height:480px; overflow-y: hidden;">
       <div class="l-m ">
@@ -7,29 +6,54 @@
         <md-tab label="Login">
           <md-content class="md-padding" style="height:480px; ">
             <h1 class="md-display-2"></h1>
+           <form name="login" ng-submit="zLogin()" novalidate>
             <div class="row">
 
               <div class="col-md-6 m-t-20 m-r-60 ">
+
                 <div class="form-group m-b-30">
-                  <div class="form-control-wrapper"><input type="email" class="form-control empty"><div class="floating-label">Email</div><span class="material-input"></span></div>
+                  <div class="form-control-wrapper">
+                    <input type="email" name="email" ng-change="validation.email = false" ng-model="email" class="form-control empty" required><div class="floating-label">Email</div><span class="material-input"></span>
+                    <div ng-show="validation.email" class="text-danger">Invalid Email</div>
+                    <!--<div ng-messages="login.email.$invalid">
+                      <div ng-message="required">This is required!</div>
+                    </div>-->
+                  </div>
+
+                  <!--  <md-input-container>
+                      <label>Email</label>
+                      <input name="email" type="email" ng-model="email" md-maxlength="50" required>
+                      <div ng-messages="login.email.$error" ng-show="login.email.$invalid">
+                        <div ng-message="required">Enter valid email</div>
+                        &lt;!&ndash;<div ng-show="md-maxlength">maximum 10 character</div>&ndash;&gt;
+                      </div>
+                    </md-input-container>-->
                 </div>
 
                 <div class="form-group m-b-30">
-                  <div class="form-control-wrapper append-icon"><input type="password" class="form-control empty"><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                  <div class="form-control-wrapper append-icon"><input type="password" ng-change="validation.password=false" ng-model="password" class="form-control empty" required maxlength="10"><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                  <div ng-show="validation.password" class="text-danger">Password is required | Max 10 char</div>
+                  <!--<md-input-container>
+                    <label>Password</label>
+                    <input name="password" type="password" ng-model="password" md-maxlength="10" required>
+                    <div ng-messages="login.password.$error" ng-show="login.password.$invalid">
+                      <div ng-message="required">This is required! | max 10 character</div>
+                      <div ng-show="md-maxlength">maximum 10 character</div>
+                    </div>
+                  </md-input-container>-->
                 </div>
 
 
 
-                <button class="btn btn-lg zolo-btn" style="width: 100%; margin-bottom: 5px!important;">Login</button>
+                <!--<button type="submit" ng-disabled="disabled" class="btn btn-lg zolo-btn" >Login</button>-->
+                <button ladda-button="disabled" type="submit" class="btn btn-lg zolo-btn ladda-button" style="width: 100%; margin-bottom: 5px!important;" data-style="zoom-in"><span class="ladda-label">Login</span></button>
                 <div class="f-10 ">By Logging in you agree to our <span class="zolo-c"><a href=""> T&C</a></span> and <span class="zolo-c"><a href="">Privacy Policy.</a></span></div>
 
 
                 <div class="row m-t-40">
                   <div class="col-md-12 text-center">
-                    <a href="" class="f-18 zolo-c">Forget Password</a>
+                    <a href="" ng-click="forgotPassword()" class="f-18 zolo-c">Forget Password</a>
                     <hr>
-
-
                   </div>
                 </div>
 
@@ -37,11 +61,6 @@
 
 
               </div>
-
-
-
-
-
 
               <div class="col-md-5 m-t-40">
                 <button type="button" ng-click="authenticate('facebook')" class="btn-fb btn btn-lg btn-block btn-square zolo-login-facebook" style="text-transform: capitalize;"><i class="fa fa-facebook pull-left"></i>Login with Facebook</button>
@@ -51,7 +70,7 @@
 
                 <div class="row m-t-40">
                   <div class="col-md-12 ">
-                    <p class="text-center">New User ? <a href="" class="zolo-c">Signup Here</a></p>
+                    <p class="text-center">New User ? <a href="" ng-click="selectedIndex=1" class="zolo-c">Signup Here</a></p>
                   </div>
                 </div>
 
@@ -64,41 +83,46 @@
 
 
             </div>
-
+          </form>
 
           </md-content>
         </md-tab>
         <md-tab label="Signup">
           <md-content class="md-padding">
             <div class="row">
+              <form name="signup" ng-submit="userRegistration()" novalidate>
               <div class="col-md-6 m-t-20 m-r-60 ">
 
                 <div class="form-group m-b-30 ">
-                  <div class="form-control-wrapper"><input type="text" class="form-control empty"><div class="floating-label">First Name</div><span class="material-input"></span></div>
+                  <div class="form-control-wrapper"><input type="text" class="form-control empty" ng-change="validation.name=false" ng-model="registration.name" required maxlength="50"><div class="floating-label">First Name</div><span class="material-input"></span></div>
+                  <div ng-show="validation.name" class="text-danger">Name is required | max 50 character</div>
                 </div>
 
 
                 <div class="form-group m-b-30">
-                  <div class="form-control-wrapper"><input type="email" class="form-control empty"><div class="floating-label">Email</div><span class="material-input"></span></div>
+                  <div class="form-control-wrapper"><input type="email" class="form-control empty" ng-change="validation.email=false" ng-model="registration.email" required><div class="floating-label">Email</div><span class="material-input"></span></div>
+                  <div ng-show="validation.email" class="text-danger">Email is required </div>
                 </div>
 
                 <div class="form-group m-b-30">
-                  <div class="form-control-wrapper append-icon"><input type="password" class="form-control empty"><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                  <div class="form-control-wrapper append-icon"><input type="password" class="form-control empty" ng-change="validation.password=false" ng-model="registration.password" required><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                  <div ng-show="validation.password" class="text-danger">Password is required | min 6 max 10 char</div>
                 </div>
 
 
                 <div class="form-group m-b-30">
-                  <div class="form-control-wrapper"><input type="number" class="form-control empty"><div class="floating-label">Mobile Number</div><span class="material-input"></span></div>
+                  <div class="form-control-wrapper"><input type="number" class="form-control empty" ng-change="validation.mobile=false" ng-model="registration.mobile" required><div class="floating-label">Mobile Number</div><span class="material-input"></span></div>
+                  <div ng-show="validation.mobile" class="text-danger">Mobile Number is required</div>
                 </div>
 
 
 
 
-              <button class="btn btn-lg zolo-btn" style="width: 100%; margin-bottom: 5px!important;">Signup</button>
+              <button ng-disabled="disabled" class="btn btn-lg zolo-btn" type="submit" style="width: 100%; margin-bottom: 5px!important;">Signup</button>
 
               </div>
 
-
+              </form>
 
 
 
@@ -130,7 +154,5 @@
 
       </md-tabs>
       </div>
-    <!--</md-dialog-content>-->
-
-  </form>
+    </md-dialog-content>
 </md-dialog>

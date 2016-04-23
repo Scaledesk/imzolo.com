@@ -52,7 +52,7 @@
 <div class="container m-b-60">
   <div class="card">
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div ng-hide="loadingPackage" class="col-md-12 text-center">
         <!--<form name="postForm" novalidate>-->
         <md-content class="md-padding">
           <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex" class="tabsdemoDynamicHeight md-content">
@@ -77,12 +77,13 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-3">
                     <label for="category">Category</label>
-                    <md-select ng-model="package.category_id" id="category" ng-change="subCategory()">
+                    <md-select ng-model="p_category" id="category" ng-change="subCategory()">
                       <md-option value="" ng-selected="-1">Select Category</md-option>
                       <md-option ng-repeat="c in category" ng-if="c.id==10 || c.id==14 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77" value="{{c.id}}">
                         {{c.name}}
                       </md-option>
                     </md-select>
+                    {{p_category}}
                     <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
                       * Required Select category
@@ -90,14 +91,14 @@
                   </div>
                   <div class="col-md-3">
                     <label for="subcategory">Subcategory</label>
-                    <md-select ng-model="package.sub_category" ng-disabled="sub_category.length==0" id="subcategory">
-                      <md-option value="-1" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
+                    <md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">
+                      <md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
                       <md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">
                         {{sub_c.name}}
                       </md-option>
                     </md-select>
                   </div>
-
+{{s_category}}
 
                   <div class="col-md-1">
                     <label class="pull-right" style="margin: 10px;">Tags</label>
@@ -714,6 +715,13 @@
         </md-content>
         <!--</form>-->
       </div>
+
+      <div ng-show="loadingPackage" class="col-md-12 text-center m-t-60">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+        </div>
+      </div>
+
     </div>
   </div>
 
