@@ -2910,6 +2910,12 @@ figure.effect-steve:hover p {
 
 
 .l-m{
-  padding: 25px;
+  padding: 5px;
   width: 776px;
+}
+
+
+/*ladda button*/
+.ladda-button .ladda-spinner{
+  margin-top:0px !important;
 }
