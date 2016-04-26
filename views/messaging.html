@@ -127,7 +127,7 @@
           </div>
           <div style="height: 100%" ng-if="message.has_buy_action==false">
             <h2>Reply</h2>
-            <textarea class="form-control" ng-model="replyMessage.body" ng-keydown="resetErrorSuccess()" rows="10" cols="60" style="margin-bottom: 10px;padding: 2%"/>
+            <textarea class="form-control" ng-model="replyMessage.body" ng-keydown="resetErrorSuccess()" rows="10" cols="60"/>
             <button id="save" ng-click="sendMessage_controller(replyMessage);" class="btn btn-primary" type="button">Send</button>
           </div>
         </div>
