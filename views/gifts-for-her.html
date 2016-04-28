@@ -20,28 +20,126 @@
     top: 50%;
     left:50%;
   }*/
+
+
+
+  .main-content .page-content{
+    padding: 0!important;
+    top: 45px!important;
+  }
+
+  .slick-dots{
+    bottom:  -1px!important;
+  }
+
+
+
+  .slick-prev {
+    left: 0px;
+    z-index: 2;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    font-family: "slick";
+    font-size: 45px;
+    line-height: 1;
+    color: #313131;
+    opacity: 0.9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+  }
+
+  .slick-next {
+    right: 25px;
+    z-index: 2;
+  }
+
+  .widget_slider{
+    padding: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+
+    .card .col-md-2{
+      margin-top: 40px;
+      margin-right: 0!important;
+    }
+
+    .widget_slider{
+      padding: 20px 0 0;
+      margin-bottom: 0;
+    }
+
+    .slide .bg-primary{
+      height: 150px;
+    }
+
+  }
+
+
+
+
+
+
+  .container-fluid .card{
+    padding: 40px!important;
+  }
+
+
+
 </style>
 
 
 
-<div class="container" style="margin-bottom: 200px;">
+<div class="container-fluid" style="margin-bottom: 200px;">
 
 
-  <!--<div class="row">
-    <div class="col-md-12">
-      <div class="cover-img" style="background: url('../global/images/bg.jpg') center no-repeat; background-size:cover; ">
-        <div class="tag-txt">
-          {{categoryName}}
+
+
+  <div class="row">
+    <div class="widget widget_slider">
+      <div class="slick" data-fade="true">
+
+        <div class="slide">
+          <!--<h3 class="bg-primary">1</h3>-->
+          <img src="../global/images/LOVE-GIFTS.png" alt="" class="bg-primary" width="100%">
         </div>
+
+
+        <!--<div class="slide">-->
+        <!--&lt;!&ndash;<h3 class="bg-primary">1</h3>&ndash;&gt;-->
+        <!--<img src="http://www.geekenstein.com/wp-content/uploads/2013/10/planets-earth-crash-majoras-mask-1600x1200-hd-wallpaper-1300x300.png" alt="" class="bg-primary" width="100%">-->
+        <!--</div>-->
+        <!--<div class="slide">-->
+        <!--&lt;!&ndash;<h3 class="bg-primary">2</h3>&ndash;&gt;-->
+        <!--<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTsOjww5QTcpJkMbztYyNLddI5EiVoXX6pJPbR7uHCesSZjyIiO1A" alt="" class="bg-primary" width="100%">-->
+        <!--</div>-->
+        <!--<div class="slide">-->
+        <!--&lt;!&ndash;<h3 class="bg-primary">3</h3>&ndash;&gt;-->
+        <!--<img src="http://i0.wp.com/www.garageflooringllc.com/images/1300-1.jpg?fit=1300%2C300" alt="" class="bg-primary" width="100%">-->
+        <!--</div>-->
+
+        <!--<div class="slide">-->
+        <!--&lt;!&ndash;<h3 class="bg-primary">3</h3>&ndash;&gt;-->
+        <!--<img src="http://www.geekenstein.com/wp-content/uploads/2013/11/ScarecrowArkham2-1300x300.jpg" alt="" class="bg-primary" width="100%">-->
+        <!--</div>-->
+
+
       </div>
+      <!--</div>-->
+
     </div>
-  </div>-->
 
 
-  <div class="display-packages">
+  </div>
+
+
+
+  <div class="card">
     <div class="row">
-      <!--<div class="display-packages">-->
       <div class="col-md-12">
+        <h2 class="text-center"><strong>Gifts for Her</strong></h2>
+        <hr class="custom-hr">
         <div ng-hide="loading" ng-if="packages.length<=0" class="row">
           <div class="col-md-12 zolo-center">
             <!-- Search icon by Icons8 -->
@@ -51,49 +149,24 @@
           </div>
 
         </div>
+      </div>
 
-        <div ng-hide="loading" ng-if="packages.length>0" class="row">
-          <!--   <div ng-repeat="package in packages" class="col-md-4" ng-init="package.shareTab=false,package.openCollection=false">
-
-             <div package-card package="package" master-collections="collections">
-                 </div>
-             </div>
--->
-          <!--<div class="row">
-            <div ng-repeat="package in packages" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
-              <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
-              </div>
-            </div>
-          </div>-->
+      <div ng-hide="loading" ng-if="packages.length>0" class="row">
 
 
-          <div ng-repeat="row in package_rows" class="row">
-            <div ng-repeat="package in row" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
-              <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
-              </div>
+        <div ng-repeat="row in package_rows" class="row">
+          <div ng-repeat="package in row" class="col-xs-12 col-sm-6  col-md-3  col-lg-3">
+            <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
             </div>
           </div>
-
-          <!--<div ng-hide="loading" ng-if="packages.length>0" class="row mt-20">
-              <div ng-hide="pagination.current_page==pagination.total_pages" class="col-md-12 text-center" ng-click="loadMoreResults()">
-                  <button ng-disabled="loading_more" class="btn btn-lg btn-zolo m-t-20">
-                      Load More Packages... <span><i ng-style="SerchloaderStyle" class="fa fa-spinner fa-spin"></i> </span>
-                  </button>
-              </div>
-              <div ng-show="pagination.current_page==pagination.total_pages" class="col-md-12 text-center">
-                  &lt;!&ndash;<p>Yoy have browsed all the packages!</p>&ndash;&gt;
-                  <button class="btn btn-lg btn-zolo ladda-button m-t-20" disabled="disabled" data-style="expand-right">
-                      No More Results...
-                  </button>
-              </div>
-          </div>
-      </div>-->
         </div>
-        <div ng-show="loading" class="row">
-          <div class="col-md-12 text-center m-t-60">
-            <div layout="row" layout-sm="column" layout-align="space-around">
-              <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
-            </div>
+
+
+      </div>
+      <div ng-show="loading" class="row">
+        <div class="col-md-12 text-center m-t-60">
+          <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
           </div>
         </div>
       </div>
@@ -102,18 +175,26 @@
 
 
 
-  <div class="footer">
-    <div class="copyright">
-      <p class="pull-left sm-pull-reset">
-        <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-        <span>Zolo Technologies Pvt. Ltd.</span>.
-        <span>All rights reserved. </span>
-      </p>
-      <p class="pull-right sm-pull-reset">
-        <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact/" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use/" class="m-l-10 m-r-10">Terms of use</a> | <a href="/privacy-policy/" class="m-l-10">Privacy Policy</a></span>
-      </p>
-    </div>
+
+
+
+
+</div> <!--end container-->
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact/" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy/" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
   </div>
+</div>
 
 
 

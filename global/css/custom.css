@@ -2919,3 +2919,23 @@ figure.effect-steve:hover p {
 .ladda-button .ladda-spinner{
   margin-top:0px !important;
 }
+
+
+
+.zolo-sd-style > i{
+
+  color: #ffd700;
+
+}
+
+.zolo-sd-style > span:hover{
+  color: #ffffff;
+}
+
+@media screen and (min-width: 1024px) {
+
+  .sidebar-top .sidebar .nav > li {
+    margin-left: 25px !important;
+  }
+
+}
