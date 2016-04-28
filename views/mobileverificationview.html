@@ -1,64 +1,65 @@
-<style>
-  .zolo_custom_btn_verification{
-    margin: 20px 0;
-    background-color: #4c3cb1;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-
-  }
-
-  .zolo_custom_btn_verification:hover{
-    background: rgba(76, 60, 177, 0.76);
-    color: #fff;
-
-  }
-</style>
 
 
 
 <div class="modal-content" >
-  <div class="modal-body text-center">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h3>Verify Your Mobile</h3>
+  <div class="modal-body text-center " style="padding: 0 10px;">
+    <div class="row ">
+      <div class="col-xs-11 text-center">
+        <h3><strong>Verify Your Mobile</strong></h3>
       </div>
 
-            <span class="pull-right col-md-2">
-            <button type="button" class="close" ng-click="DismissModal()" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle fa-2x"></i></span></button>
 
-        </span>
+      <div class="col-xs-1 m-t-20">
+        <i class="close fa fa-times-circle fa-2x" ng-click="DismissModal()" aria-label="Close"></i>
+      </div>
+
+
     </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
+    <hr>
+
+
+
+
+
+    <div class="row m-t-40">
+      <div class="col-md-6 col-md-offset-3 text-center">
         <input class="form-control" ng-model="user.mobile" ng-keydown="keyPressed()" placeholder="Enter Your Mobile Number to verify"/>
-        <button class="btn zolo_custom_btn_verification" ng-click="send_verification_code()">Click to send verification code.</button>
+        <button class="btn zolo-btn text-c" ng-click="send_verification_code()">Click to send verification code.</button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
+
+
+
+    <div class="row m-t-40">
+      <div class="col-md-6 col-md-offset-3">
         <input class="form-control" ng-model="user.code" ng-keydown="keyPressed()" placeholder="Enter verification code you got"/>
       </div>
     </div>
+
+
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <button class="zolo_custom_btn_verification"ng-click="verifyMobile(user);" type="button" data-dismiss="modal">Verify Mobile</button>
-      </div>
-    </div>
-    <div class="row" ng-if="success!=''">
-      <div class="col-md-12 zolo-center">
-        <span style="color: green">{{success}}</span>
-      </div>
-    </div>
-    <div class="row" ng-if="error!=''">
-      <div class="col-md-12 zolo-center">
-        <span style="color: red">{{error}}</span>
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <button class="btn zolo-btn text-c" ng-click="verifyMobile(user);" type="button" data-dismiss="modal">Verify Mobile</button>
       </div>
     </div>
 
+
+
+    <div class="row m-t-20 m-b-40" ng-if="success!=''">
+      <div class="col-md-12 zolo-center">
+        <span class="text-success">{{success}}</span>
+      </div>
+    </div>
+
+
+    <div class="row m-t-20" ng-if="error!=''" style="padding-bottom: 40px;">
+      <div class="col-md-12 text-center">
+        <span class="text-danger">{{error}}</span>
+      </div>
+    </div>
+
+
   </div>
-</div>
+
+
 </div>

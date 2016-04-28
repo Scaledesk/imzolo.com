@@ -68,7 +68,7 @@
                                                 <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
                                             </span>
                       <md-tooltip class="f-14 w-400" md-direction="right">
-                        *REQUIRED | Min 20 character | Max 100 character
+                       Upto 100 characters
                       </md-tooltip>
                     </div>
                   </div>
@@ -87,12 +87,12 @@
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+                    <md-tooltip class="f-14 w-400" md-direction="bottom">
                       * Required Select category
                     </md-tooltip>
                   </div>
                   <div class="col-md-3">
-                    <label for="subcategory">Subcategory</label>
+                    <label for="subcategory">Sub-Category</label>
                     <md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">
                       <md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
                       <md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">
@@ -124,7 +124,7 @@
                       <auto-complete source="loadLocations($query)"></auto-complete>
                     </tags-input>
                     <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+                    <md-tooltip class="f-14 w-400" md-direction="bottom">
                       * required add location
                     </md-tooltip>
 
@@ -140,19 +140,21 @@
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+                    <md-tooltip class="f-14 w-400" md-direction="bottom">
                       * required select package type
                     </md-tooltip>
                   </div>
                 </div>
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
-                    <p class="w-400">Give a Catchy tagline to your package</p>
-                    <!--<textarea id="text-edit" ng-model="package.introduction" placeholder="Please type here.."></textarea>-->
-                    <textarea class="form-control" id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+
+                    <p class="w-400">Create a Catchy tagline for your package</p>
+                    <md-tooltip class="f-14 w-400" md-direction="top">
                       * type catchy introduction
                     </md-tooltip>
+                    <!--<textarea id="text-edit" ng-model="package.introduction" placeholder="Please type here.."></textarea>-->
+                    <textarea class="form-control" id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>
+
                   </div>
                 </div>
                 <hr>

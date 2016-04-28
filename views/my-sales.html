@@ -3,19 +3,20 @@
     <div class="dashboard-sellers">
       <div class="col-md-6 account-summary-right-border">
         <div class="dashboard-seller-main-heading">
-          <h3 class="text-center">Orders</h3>
+          <h2 class="text-center">Sales Summary</h2>
+          <hr>
         </div>
 
         <div class="row ">
-          <div class="col-xs-4"><strong>Total Orders</strong></div>
-          <div class="col-xs-4"><strong>Completed</strong></div>
-          <div class="col-xs-4"><strong>In Queue</strong></div>
+          <div class="col-xs-4"><p class="text-center f-18">Total Orders</p></div>
+          <div class="col-xs-4"><p class="text-center f-18">Completed</p></div>
+          <div class="col-xs-4"><p class="text-center f-18">In Queue</p></div>
         </div>
 
         <div class="row ">
-          <div class="col-xs-4">{{profile.sales.count}}</div>
-          <div class="col-xs-4">{{profile.sales.count-profile.sales_in_queue}}</div>
-          <div class="col-xs-4">{{profile.sales_in_queue}}</div>
+          <div class="col-xs-4 text-center"><strong>{{profile.sales.count}}</strong></div>
+          <div class="col-xs-4 text-center"><strong>{{profile.sales.count-profile.sales_in_queue}}</strong></div>
+          <div class="col-xs-4 text-center"><strong>{{profile.sales_in_queue}}</strong></div>
         </div>
 
 
@@ -26,19 +27,20 @@
 
       <div class="col-md-6">
         <div class="dashboard-seller-main-heading">
-          <h3 class="text-center">Orders</h3>
+          <h2 class="text-center">Payments</h2>
+          <hr>
         </div>
 
         <div class="row ">
-          <div class="col-xs-4"><strong>Total Amount</strong></div>
-          <div class="col-xs-4"><strong>Received</strong></div>
-          <div class="col-xs-4"><strong>Pending</strong></div>
+          <div class="col-xs-6 "><p class="text-center f-18">Amount Earned</p></div>
+          <!--<div class="col-xs-4 "><p class="text-center f-18">Received</p></div>-->
+          <div class="col-xs-6 "><p class="text-center f-18">Pending</p></div>
         </div>
 
         <div class="row ">
-          <div class="col-xs-4">&#8377; {{profile.sales.amount}}</div>
-          <div class="col-xs-4">&#8377;0</div>
-          <div class="col-xs-4">&#8377;{{profile.sales.amount}}</div>
+          <div class="col-xs-6 text-center"><strong>&#8377; {{profile.sales.amount}}</strong></div>
+          <!--<div class="col-xs-4 text-center"><strong>&#8377;0</strong></div>-->
+          <div class="col-xs-6 text-center"><strong>&#8377;{{profile.sales.amount}}</strong></div>
         </div>
       </div>
     </div>
@@ -52,13 +54,14 @@
     <div class="row">
       <div class="col-md-12">
         <h2><strong>Manage Sales</strong></h2>
+        <hr>
         <ul class="nav nav-tabs nav-primary manage-sales">
-          <li><a ng-click="my_seles = my_all_seles">All</a></li>
+          <li><a ng-click="my_seles = my_all_seles">Total Sales</a></li>
           <li><a ng-click="orderMySales('package_available_dates')">New</a></li>
-          <li><a ng-click="filterMySales('payment_done')">Active</a></li>
-          <li><a ng-click="filterMySales('payment_done')">Late</a></li>
-          <li><a ng-click="filterMySales('completed')">Deliver</a></li>
-          <li><a ng-click="filterMySales('completed')">Complete</a></li>
+          <li><a ng-click="filterMySales('payment_done')">In Process</a></li>
+          <!--<li><a ng-click="filterMySales('payment_done')">Late</a></li>-->
+          <li><a ng-click="filterMySales('completed')">Delivered</a></li>
+          <li><a ng-click="filterMySales('completed')">Transaction Completed</a></li>
           <li><a ng-click="filterMySales('cancelled')">Cancelled</a></li>
         </ul>
       </div>
@@ -95,7 +98,7 @@
           </table>
         </div>
         <div ng-if="my_seles.length<=0" class="panel-content">
-          <p>You have not any sales</p>
+          <p >You don't have any sales !</p>
         </div>
       </div>
     </div>

@@ -87,7 +87,7 @@
                       <p class="f-16 m-t-20">Name</p>
                       <input ng-model="profile.name" name="name" id="name" type="text" class="form-control" ng-change="validateProfileName()" maxlength="50" placeholder="Name">
                       <!--<div ng-messages="myProfile.name.$error" ng-show="myProfile.name.$dirty">-->
-                      <div ng-show="validation.name" class="text-danger">Name is required! Only charector are allowed | Max 50 char</div>
+                      <div ng-show="validation.name" class="text-danger">Name is required! Only charactor are allowed | Max 50 char</div>
                       <!--word count: {{profile.name.length}}-->
                       <!--</div>-->
                       <!-- Contacts icon by Icons8 -->
@@ -255,7 +255,7 @@
                         </div>
                       </div>
                       <md-button class="md-raised md-primary" ng-click="backTab()">Back</md-button>
-                      <md-button class="md-raised md-primary" ng-click="saveAndNext()">Save and Next</md-button>
+                      <md-button class="md-raised md-primary" ng-click="saveAndNext()">Save</md-button>
                       <md-button class="md-raised md-primary" ng-click="nextTab()">Next</md-button>
                     </md-content>
                   </md-tab>
@@ -265,7 +265,7 @@
                       <div class="form-group m-b-12">
                         <p class="f-16 m-t-20">Description</p>
                         <div class="form-control-wrapper">
-                          <textarea ng-model="portfolio.description" class="form-control empty" placeholder="Describe the portfolio" style="height:50px;"></textarea>
+                          <textarea ng-model="portfolio.description" class="form-control empty" placeholder="Describe your portfolio" style="height:50px;"></textarea>
                           <!--                                <div class="floating-label">textarea label</div>-->
                           <span class="material-input"></span>
 
@@ -278,7 +278,7 @@
                         </div>
                       </div>
                       <div class="col-md-12">
-                        <p class="f-16 m-t-20">select file</p>
+                        <!--<p class="f-16 m-t-20">select file</p>-->
                         <div class="col-md-10 col-sm-12 m-b-20">
                           <!--<input  ng-model="portfolioFile" type="file" class="form-control">-->
                           <button class="btn" ngf-select ng-model="port.picFile">select file</button>{{port.picFile.name}}
@@ -297,9 +297,10 @@
                         <div class="col-md-6">
                           <div class="form-group m-b-12">
                             <p class="f-16 m-t-20">Document Type</p>
+                            <hr class="custom-hr">
                             <div class="form-control-wrapper">
                               <md-input-container>
-                                <label>document</label>
+                                <label>Document</label>
                                 <md-select ng-model="document.fileType">
                                   <md-option ng-repeat="d in docType" value="{{d.name}}">
                                     {{d.name}}
@@ -312,10 +313,10 @@
                         <!--ng-disabled="$index === 1"-->
                         <div class="col-md-6">
                           <div class="col-md-12">
-                            <p class="f-16 m-t-20">select file</p>
+                            <!--<p class="f-16 m-t-20">select file</p>-->
                             <div class="col-md-10 col-sm-12 m-b-20">
                               <!--<input  ng-model="portfolioFile" type="file" class="form-control">-->
-                              <button class="btn" ngf-select ng-model="doc.picFile">select file</button><br/>{{doc.picFile.name}}
+                              <button class="btn" ngf-select ng-model="doc.picFile">Select file</button><br/>{{doc.picFile.name}}
                             </div>
                           </div>
                         </div>
@@ -335,7 +336,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <h2>About {{profile.name}}:</h2>
+            <h2 class="text-c">About {{profile.name}}</h2>
+            <hr>
             <p ng-if="profile.description != '' || profile.description != null">{{profile.description}}</p>
             <p ng-if="profile.description == '' || profile.description == null">You are yet to update your profile</p>
           </div>
@@ -350,7 +352,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <h2>{{profile.name}} Gigs</h2>
+            <h2 class="text-c">{{profile.name}} Gigs</h2>
+            <hr>
             <div class="row">
               <div ng-if="user_packages.data.length>0" class="col-md-12">
 
@@ -404,14 +407,16 @@
                 <!--</div>-->
               </div>
 
-                  <div class="row">
-              <div ng-if="user_packages.data.length<=0" class="col-md-12">
-                <p>You have not posted a package yet to start selling click the button below</p>
+              </div>
 
-                <p class="text-center"><a ng-href="#post-a-package" class="btn btn-zolo">Post a package</a> </p>
+            <div class="row">
+              <div ng-if="user_packages.data.length<=0" class="col-md-12">
+                <p>You haven't posted any package yet, to start selling click the button below</p>
+
+                <p class="text-center"><a ng-href="#post-a-package" class="btn btn-lg btn-success">Post a package</a> </p>
               </div>
             </div>
-              </div>
+
           </div>
         </div>
       </div>
@@ -481,9 +486,9 @@
       <div class="card">
         <div class="row">
           <div class="col-md-12">
-            <h4 class="text-center">No. of packages:</h4>
+            <h4 class="text-center">No. of packages</h4>
             <p ng-if="user_packages.data.length>0" class="text-center"><strong>{{user_packages.data.length}}</strong></p>
-            <p ng-if="user_packages.data.length<=0" class="text-center"><strong>Not yet post any packages</strong></p>
+            <p ng-if="user_packages.data.length<=0" class="text-center"><strong>No Packages !</strong></p>
             <hr class="custom-hr">
           </div>
 
@@ -492,7 +497,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h4 class="text-center">Skills:</h4>
+            <h4 class="text-center">Skills</h4>
             <p style="word-break: break-all;" ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
             <p ng-if="profile.skills.length<=0" class="text-center">NA</p>
             <hr class="custom-hr">
@@ -504,7 +509,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h4 class="text-center">Location:</h4>
+            <h4 class="text-center">Location</h4>
             <p class="text-center"><strong>NA</strong></p>
             <hr class="custom-hr">
           </div>
@@ -515,7 +520,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h4 class="text-center">Rating:</h4>
+            <h4 class="text-center">Rating</h4>
             <p class="text-center"><strong>NA</strong></p>
           </div>
 

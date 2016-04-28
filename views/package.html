@@ -368,7 +368,7 @@
           </div>
 
           <div ng-if="package.Addons.data.length>0" class="row">
-            <div class="col-xs-9">
+            <div class="col-xs-8">
               <div class="checkbox checkbox-success">
                 <label>
                   <strong>Total ADD-ONS</strong>
@@ -376,7 +376,7 @@
               </div>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-4">
               <p class="m-t-10"><strong>{{package.Addons.data.length}}</strong></p>
             </div>
           </div>
@@ -634,7 +634,7 @@
             </div>
             <div uib-collapse="show_addon">
               <div class="row" ng-repeat="addon in package.Addons.data">
-                <div class="col-md-8 col-xs-4">
+                <div class="col-md-9 col-xs-4">
                   <div class="checkbox">
                     <label>
                       <!--<input type="checkbox" class="md-checkbox">-->
@@ -647,7 +647,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-4 col-xs-4">
+                <div class="col-md-3 col-xs-4">
                   <div class="pdp-addon-price">
                     &#8377; {{addon.amount}}
                   </div>
@@ -694,7 +694,7 @@
                     <!--<div class="rateit" data-value="2.5" data-readonly="true">
                     </div>-->
                     <div ng-if="package.average_rating>0" number-converter star-rating ng-model="package.average_rating" readonly="true" class="pdp-topstar"></div>
-                    <div ng-if="package.average_rating==0.0" style="font-size: 12px;">Not Yet Rated</div>
+                    <div ng-if="package.average_rating==0.0" style="font-size: 11px;">Not Yet Rated</div>
                     <!--{{package.average_rating}}-->
                     <!--{{package.average_rating}}-->
                   </div>
@@ -748,9 +748,9 @@
         </div>
 
 
-        <div class="row zolo-pdp-more-info-user">
-          <div class="col-md-12">
-            <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span ng-if="package.meeting_availability==0">Seller not available for meeting</span>
+        <div class="row zolo-pdp-more-info-user"  ng-hide="package.meeting_availability==0">
+          <div class="col-md-12" >
+            <i class="fa fa-clock-o"></i>&nbsp;&nbsp;
             <span ng-if="package.meeting_availability==1">Seller available for meeting</span>
           </div>
         </div>
@@ -809,7 +809,7 @@
               <!-----   if logged in user mobile is not verified        ------>
               <div ng-if="show_seller_mobile_var===0" class="col-md-12 text-center">
                 <div class="col-md-12 text-center" >
-                  <button class="seller-contact-dtls btn" ng-click="show_seller_mobile()">Show Seller Mobile</button>
+                  <button class="seller-contact-dtls btn text-c" ng-click="show_seller_mobile()">Contact {{package.seller_name}} </button>
                 </div>
               </div>
 
@@ -870,7 +870,7 @@
   <div class="card m-t-20" ng-if="sellerOtherPackages.length>1">
     <div class="row ">
       <div class="col-md-12 text-center">
-        <h2>Other packages by this user</h2>
+        <h2><strong>View More packages by <a ng-href="#profile/{{package.seller_profile.user_id}}"> {{package.seller_name}}  </a></strong></h2>
       </div>
 
     </div>

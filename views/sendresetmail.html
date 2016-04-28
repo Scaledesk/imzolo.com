@@ -8,18 +8,20 @@
           <div class="card fadeIndDown animated">
             <div class="card-content">
               <p class="w-300 f-20 pulse animated">
-                Please enter the email registered with us to get the Password reset link
+                Please enter your registered email id for Password reset link
 
               </p>
               <hr>
-              {{msg}}
+
               <div class="row">
 
                 <div class="col-md-12 col-xs-12 zolo-center">
                   <div class="form-group m-b-30">
 
                     <div class="form-control-wrapper"><input type="email" ng-model="dt.email" class="form-control empty"><div class="floating-label">Your email ID</div><span class="material-input"></span></div>
+                    <div class="text-danger">{{msg}}</div>
                   </div>
+
                 </div>
 
               </div>
@@ -27,10 +29,9 @@
 
 
             </div>
-            <div class="card-action" style="
-    text-align: -webkit-center;">
-              <!--                    <a href="#">Know More</a> -->
-              <button type="button" ng-click="Z_sendResetMail()" class="btn btn-zolo btn-transparent">Send Reset Mail
+            <div class="card-action" style="text-align: -webkit-center; border: none; padding: 0;">
+              <!--<a href="#">Know More</a> -->
+              <button type="button" ng-click="Z_sendResetMail()" class="btn zolo-btn">Send Reset Mail
                 <div class="ripple-wrapper"></div>
               </button>
             </div>
