@@ -6,14 +6,14 @@
       <div class="dashboard-seller-profile text-center">
         <h5>Hi {{profile.name}}</h5>
         <div class="zolo-dashboard-profile-complete">Your Profile is 70% complete</div>
-        <a ng-href="#profile">Edit Profile</a>
+        <a ng-href="/profile/">Edit Profile</a>
       </div>
     </div>
     <div class="card">
       <div class="dashboard-seller-profile text-center">
         <h5>Refer Zolo! And Earn Gifts</h5>
         <i class="fa fa-gift f-18 text-danger"></i>
-        <a ng-href="#dashboard/referral">GO!</a>
+        <a ng-href="/dashboard/referral/">GO!</a>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@
 
                 <div class="col-md-6 zolo-center col-xs-12">
 
-                  <a ng-href="#/wallet/addCredit">
+                  <a ng-href="/wallet/addCredit/">
                     <button class="btn zolo-add-money ladda-button" data-style="zoom-in">
                       <span class="ladda-label">Add Money</span><span class="ladda-spinner"></span>
                       <div class="ripple-wrapper"></div>
@@ -118,7 +118,7 @@
               <tr ng-repeat="my_sale in my_seles | limitTo:5">
                 <td>{{$index+1}}</td>
                 <td>{{my_sale.buyer_name}}</td>
-                <td><a ng-href="#orderSummary/{{my_sale.id}}">{{my_sale.package_title}}</a></td>
+                <td><a ng-href="/orderSummary/{{my_sale.id}}/">{{my_sale.package_title}}</a></td>
                 <td>{{my_sale.order_date}}</td>
                 <td>{{my_sale.order_time}}</td>
                 <td>{{my_sale.delivery_date}}</td>
@@ -127,7 +127,7 @@
               </tr>
               </tbody>
             </table>
-              <a ng-if="my_seles.length>4" ng-href="#dashboard/sales" class="pull-right" style="margin-top: -20px;">See All</a>
+              <a ng-if="my_seles.length>4" ng-href="/dashboard/sales/" class="pull-right" style="margin-top: -20px;">See All</a>
 
           </div>
           <div ng-if="my_seles.length<=0" class="panel-content">
@@ -164,7 +164,7 @@
               <tbody>
               <tr ng-repeat="my_purchase in my_purchases.data | limitTo:5">
                 <td>{{$index+1}}</td>
-                <td><a ng-href="#orderSuccessful/{{my_purchase.id}}">{{my_purchase.package_title}}</a></td>
+                <td><a ng-href="/orderSuccessful/{{my_purchase.id}}/">{{my_purchase.package_title}}</a></td>
                 <td>{{my_purchase.order_date}}</td>
                 <td>{{my_purchase.order_time}}</td>
                 <td>{{my_purchase.delivery_date}}</td>
@@ -173,7 +173,7 @@
               </tr>
               </tbody>
             </table>
-              <a ng-if="my_purchases.data.length>4" ng-href="#dashboard/my-purchases" class="pull-right" style="margin-top: -20px;">See All</a>
+              <a ng-if="my_purchases.data.length>4" ng-href="/dashboard/my-purchases/" class="pull-right" style="margin-top: -20px;">See All</a>
 
           </div>
 

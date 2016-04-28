@@ -1,4 +1,4 @@
-<!Doctype html> <html> <head> <meta charset="utf-8"> <base href="/"> <title>Zolo - India's 1st Talent Marketplace | Monetize Your Talent</title> <meta name="description" content="Discover and book creative Professionals & Freelancers, choose from thousands of Pre-Packaged services at all budget. India's first ever Talent Marketplace | Zolo"> <meta name="viewport" content="width=device-width"> <meta name="author" content="Zolo Technologies Pvt. Ltd."> <meta name="robots" content="noindex,nofollow"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.2f6f201c.css"> <link rel="stylesheet" href="styles/main.d41d8cd9.css"> <link href="/global/css/style.css" rel="stylesheet">
+<!Doctype html> <html> <head> <meta charset="utf-8"> <base href="/"> <title>Zolo - India's 1st Talent Marketplace | Monetize Your Talent</title> <meta name="description" content="Discover and book creative Professionals & Freelancers, choose from thousands of Pre-Packaged services at all budget. India's first ever Talent Marketplace | Zolo"> <meta name="viewport" content="width=device-width"> <meta name="author" content="Zolo Technologies Pvt. Ltd."> <meta name="robots" content="noindex,nofollow"> <meta name="google-site-verification" content="vscF-5PoIOdW05Vt869NDjDTMH_mUuHhAI5R6Z3arOA"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.2f6f201c.css"> <link rel="stylesheet" href="styles/main.d41d8cd9.css"> <link href="/global/css/style.css" rel="stylesheet">
   <link href="/global/css/custom.css" rel="stylesheet">
   <link href="/global/css/theme.css" rel="stylesheet">
   <link href="/global/css/ui.css" rel="stylesheet">
@@ -7,7 +7,7 @@
   <link href="/admin/md-layout4/css/layout.css" rel="stylesheet">
   <link href="/css/angular-theme.css" rel="stylesheet"></head> <body ng-app="newApp" class="sidebar-top fixed-topbar fixed-sidebar theme-sdtl color-default" ng-controller="MainCtrl" ng-cloak> <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]--> <div class="sidebar"> <div class="logopanel zolo-logopanel"> <div> <a href="#/"> <img src="../global/images/Zolo-Logo-c.png" class="zolo-logo"> </a> </div> </div> <div class="sidebar-inner"> <!--<div class="sidebar-top">
+<![endif]--> <div class="sidebar"> <div class="logopanel zolo-logopanel"> <div> <a href="/"> <img src="../global/images/Zolo-Logo-c.png" class="zolo-logo"> </a> </div> </div> <div class="sidebar-inner"> <!--<div class="sidebar-top">
         <form action="search-result.html" method="post" class="searchform" id="search-results">
             <input type="text" class="form-control" name="keyword" placeholder="Search...">
         </form>
@@ -41,15 +41,15 @@
                                 </ul>
                             </div>
                         </div>
-    --> <ul ng-show="munuItem.menuBar=='default'" class="nav nav-sidebar"> <!--ng-class="{ active  : isActive('/')}--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/business')"><i class="icon-briefcase"></i><span>Business</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 10}"><a ng-href="#category/business/{{cat.slug}}">{{cat.name}}</a></li> </ul></li> <!--<li class="nav-parent" >--> <!--<a href=""><i class="fa fa-laptop"></i><span>Digital</span> <span class="fa arrow"></span></a>--> <!--<ul class="children collapse">--> <!--</ul>--> <!--</li>--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/creative')"><i class="icon-picture"></i><span>Creative</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 14}"><a ng-href="#category/creative/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a ng-href="#category/art-and-media">Art & Media</a></li>
+    --> <ul ng-show="munuItem.menuBar=='default'" class="nav nav-sidebar"> <!--ng-class="{ active  : isActive('/')}--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/business')"><i class="icon-briefcase"></i><span>Business</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 10}"><a ng-href="/category/business/{{cat.slug}}/">{{cat.name}}</a></li> </ul></li> <!--<li class="nav-parent" >--> <!--<a href=""><i class="fa fa-laptop"></i><span>Digital</span> <span class="fa arrow"></span></a>--> <!--<ul class="children collapse">--> <!--</ul>--> <!--</li>--> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/creative')"><i class="icon-picture"></i><span>Creative</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 14}"><a ng-href="/category/creative/{{cat.slug}}/">{{cat.name}}</a></li> <!--<li><a ng-href="category/art-and-media">Art & Media</a></li>
           <li><a ng-href="#category/graphics-and-design">Graphic & Design</a></li>
           <li><a ng-href="#category/photography">Photography</a></li>
-          <li><a ng-href="#category/music-production">Music production</a></li>
-          <li><a ng-href="#category/film-making">Film making</a></li>
-          <li><a ng-href="#category/performance-art">Performance Arts</a></li>
-          <li><a ng-href="#category/writing">Writing</a></li>
-          <li><a ng-href="#category/fashion">Fashion</a></li>
-          <li><a ng-href="#category/others">Others</a></li>--> </ul> </li> <li class="nav-parent"><a ng-click="topMenuRedirect('category/consultation')"><i class="icon-user"></i><span>Consultation</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 32}"><a ng-href="#category/consultation/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academics & Career</a></li>
+          <li><a ng-href="/category/music-production">Music production</a></li>
+          <li><a ng-href="/category/film-making">Film making</a></li>
+          <li><a ng-href="/category/performance-art">Performance Arts</a></li>
+          <li><a ng-href="/category/writing">Writing</a></li>
+          <li><a ng-href="/category/fashion">Fashion</a></li>
+          <li><a ng-href="/category/others">Others</a></li>--> </ul> </li> <li class="nav-parent"><a ng-click="topMenuRedirect('category/consultation')"><i class="icon-user"></i><span>Consultation</span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 32}"><a ng-href="/category/consultation/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academics & Career</a></li>
           <li><a href="">Business & Management</a></li>
           <li><a href="">Finance, Accounting&Legal</a></li>
           <li><a href="">Fashion, Makeup & Grooming</a></li>
@@ -59,7 +59,7 @@
           <li><a href="">Anxiety & Stress</a></li>
           <li><a href="">Love & Relationship</a></li>
           <li><a href="">Personal Services</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/classes')"><i class="icon-note"></i><span>Classes </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 44}"><a ng-href="#category/classes/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academic</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/classes')"><i class="icon-note"></i><span>Classes </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 44}"><a ng-href="/category/classes/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Academic</a></li>
           <li><a href="">Arts & Crafts</a></li>
           <li><a href="">Business & IT</a></li>
           <li><a href="">Beauty & Wellness</a></li>
@@ -69,13 +69,13 @@
           <li><a href="">Sports & Adventures</a></li>
           <li><a href="">Hobbies</a></li>
           <li><a href="">Soft Skills</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/events')"><i class="fa fa-table"></i><span>Events</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 15}"><a ng-href="#category/events/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Planning</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/events')"><i class="fa fa-table"></i><span>Events</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 15}"><a ng-href="/category/events/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Planning</a></li>
           <li><a href="">Decoration</a></li>
           <li><a href="">Live performance</a></li>
           <li><a href="">Catering</a></li>
           <li><a href="">Event supply</a></li>
           <li><a href="">Services</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/products')"><i class="icon icons-shopping-13"></i><span>Products </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 63}"><a ng-href="#category/products/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Automotive</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/products')"><i class="icon icons-shopping-13"></i><span>Products </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 63}"><a ng-href="/category/products/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Automotive</a></li>
           <li><a href="">Mens</a></li>
           <li><a href="">Womens</a></li>
           <li><a href="">Kids & Toys</a></li>
@@ -87,7 +87,7 @@
           <li><a href="">Seasonal</a></li>
           <li><a href="">Customized</a></li>
           <li><a href="">Hard to find</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/gifts')"><i class="icon-magnifier-add"></i><span>Gifts</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 77}"><a ng-href="#category/gifts/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Anniversary</a></li>
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('category/gifts')"><i class="icon-magnifier-add"></i><span>Gifts</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 77}"><a ng-href="/category/gifts/{{cat.slug}}">{{cat.name}}</a></li> <!--<li><a href="">Anniversary</a></li>
           <li><a href="">Birthday</a></li>
           <li><a href="">Baby Shower</a></li>
           <li><a href="">Corporate</a></li>
@@ -98,55 +98,55 @@
           <li><a href="">Romantic</a></li>
           <li><a href="">House Warming</a></li>
           <li><a href="">Unusual gifts</a></li>
-          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('summer-deals/all')"><i class="icon-magnifier-add"></i><span>Summer Deals</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="#summer-deals/{{cat.slug}}">{{cat.name}}</a></li> </ul> </li> <!--<li><a ng-href="#category/others"><i class="fa fa-file-o"></i> Others</a></li>--> <!--<li ng-repeat="cat in category_list | filter:{parent_id : 10}"><a ng-href="#category/{{cat.slug}}">{{cat.name}}</a></li>--> <!--                        <li class="nav-parent">
+          <li><a href="">Others</a></li>--> </ul> </li> <li class="nav-parent"> <a ng-click="topMenuRedirect('summer-deals/all')"><i class="icon-magnifier-add"></i><span>Summer Deals</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="/summer-deals/{{cat.slug}}">{{cat.name}}</a></li> </ul> </li> <!--<li><a ng-href="/category/others"><i class="fa fa-file-o"></i> Others</a></li>--> <!--<li ng-repeat="cat in category_list | filter:{parent_id : 10}"><a ng-href="/category/{{cat.slug}}">{{cat.name}}</a></li>--> <!--                        <li class="nav-parent">
                                   <a href=""><i class="icon-docs"></i><span>Pages </span><span class="fa arrow"></span></a>
                               </li>
       --> </ul> <!--<ul ng-show="munuItem.menuBar=='dashboard'" class="nav nav-sidebar">
         &lt;!&ndash;ng-class="{ active  : isActive('/')}&ndash;&gt;
-        <li><a ng-href="#dashboard"><i class="icon-wrench"></i><span>My Dashboard</span></a></li>
+        <li><a ng-href="/dashboard"><i class="icon-wrench"></i><span>My Dashboard</span></a></li>
         <li >
-            <a ng-href="#dashboard/my-packages"><i class="fa fa-laptop"></i><span>My Packages</span></a>
+            <a ng-href="/dashboard/my-packages"><i class="fa fa-laptop"></i><span>My Packages</span></a>
         </li>
         <li>
-            <a ng-href="#dashboard/my-messages"><i class="fa fa-table"></i><span>Messages</span>&lt;!&ndash;<span class="fa arrow"></span>&ndash;&gt;</a>
+            <a ng-href="/dashboard/my-messages"><i class="fa fa-table"></i><span>Messages</span>&lt;!&ndash;<span class="fa arrow"></span>&ndash;&gt;</a>
             &lt;!&ndash;<ul class="children collapse">
-                <li ng-class="{ active  : isActive('/tables-styling')}"><a href="#tables-styling"> Tables Styling</a></li>
-                <li ng-class="{ active  : isActive('/tables-dynamic')}"><a href="#tables-dynamic"> Tables Dynamic</a></li>
-                <li ng-class="{ active  : isActive('/tables-filter')}"><a href="#tables-filter"> Tables Filter</a></li>
-                <li ng-class="{ active  : isActive('/tables-editable')}"><a href="#tables-editable"> Tables Editable</a></li>
+                <li ng-class="{ active  : isActive('/tables-styling')}"><a href="/tables-styling"> Tables Styling</a></li>
+                <li ng-class="{ active  : isActive('/tables-dynamic')}"><a href="/tables-dynamic"> Tables Dynamic</a></li>
+                <li ng-class="{ active  : isActive('/tables-filter')}"><a href="/tables-filter"> Tables Filter</a></li>
+                <li ng-class="{ active  : isActive('/tables-editable')}"><a href="/tables-editable"> Tables Editable</a></li>
             </ul>&ndash;&gt;
         </li>
 
         <li>
-            <a ng-href="#dashboard/my-wishlist"><i class="icon icons-shopping-13"></i><span>Wishlist</span></a>
+            <a ng-href="/dashboard/my-wishlist"><i class="icon icons-shopping-13"></i><span>Wishlist</span></a>
         </li>
         &lt;!&ndash;class="nav-parent"&ndash;&gt;
         <li>
-            <a ng-href="#dashboard/my-collection"><i class="icon-magnifier-add"></i><span>Collection</span></a>
+            <a ng-href="/dashboard/my-collection"><i class="icon-magnifier-add"></i><span>Collection</span></a>
         </li>
 
         <li>
-            <a ng-href="#dashboard"><i class="icon-magnifier-add"></i><span>Wallet</span></a>
+            <a ng-href="/dashboard"><i class="icon-magnifier-add"></i><span>Wallet</span></a>
         </li>
 
         <li>
-            <a ng-href="#dashboard/my-purchases"><i class="icon-magnifier-add"></i><span>My Order</span></a>
+            <a ng-href="/dashboard/my-purchases"><i class="icon-magnifier-add"></i><span>My Order</span></a>
         </li>
 
 
         <li>
-            <a ng-href="#dashboard/my-help"><i class="icon-magnifier-add"></i><span>Help</span></a>
+            <a ng-href="/dashboard/my-help"><i class="icon-magnifier-add"></i><span>Help</span></a>
         </li>
 
     </ul>
---> <ul ng-show="munuItem.menuBar=='dashboard'" class="nav nav-sidebar db-zolo"> <!--ng-class="{ active  : isActive('/')}--> <li> <a ng-href="#dashboard" class="text-zolo w-500"> <i class="icon-briefcase"></i> <span class="text-zolo w-500">Dashboard</span> </a> </li> <li ng-class="{ active  : isActive('/dashboard/purchases')}"> <a ng-href="#dashboard/my-purchases"><i class="fa fa-money"></i><span>Purchases</span> <span class="fa arrow"></span></a> <!--
+--> <ul ng-show="munuItem.menuBar=='dashboard'" class="nav nav-sidebar db-zolo"> <!--ng-class="{ active  : isActive('/')}--> <li> <a ng-href="/dashboard" class="text-zolo w-500"> <i class="icon-briefcase"></i> <span class="text-zolo w-500">Dashboard</span> </a> </li> <li ng-class="{ active  : isActive('/dashboard/purchases')}"> <a ng-href="/dashboard/my-purchases"><i class="fa fa-money"></i><span>Purchases</span> <span class="fa arrow"></span></a> <!--
                                     <ul class="children collapse">
                                         <li ng-class="{ active  : isActive('mailbox.html')}"><a href="mailbox.html"> Inbox</a></li>
                                         <li ng-class="{ active  : isActive('mailbox.html/#send')}"><a href="mailbox.html#/send"> Send Email</a></li>
                                     </ul>
-        --> </li> <li class="nav-parent"> <a href=""><i class="fa fa-bar-chart-o"></i><span>Sales</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-class="{ active  : isActive('/post-a-package')}"><a ng-href="#post-a-package"> Post A New Package</a></li> <li ng-class="{ active  : isActive('/my-package')}"><a ng-href="#dashboard/my-packages"> My Packages</a></li> <li ng-class="{ active  : isActive('/sales')}"><a ng-href="#dashboard/sales"> My Sales</a></li> </ul> </li> <li class="nav-parent"> <a href=""><i class="icon-note"></i><span>Requests </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-class="{ active  : isActive('/Request')}"><a ng-href="#dashboard/post-a-request"> Post A Request</a></li> <li ng-class="{ active  : isActive('/')}"><a ng-href="#dashboard"> Manage Requests</a></li> </ul> </li> <!--<li class="nav-parent">
-          <a ng-href="#dashboard/my-messages"><i class="fa fa-envelope-o"></i><span>Messages</span><span class="fa arrow"></span></a>
-      </li>--> <li> <a ng-href="#wallet/addCredit"><i class="fa fa-inr"></i><span>Wallet </span><span class="fa arrow"></span></a> </li> <li> <a ng-href="#dashboard/my-collection"><i class="fa fa-folder-o"></i><span>Collections</span><span class="fa arrow"></span></a> </li> <li> <a ng-href="#dashboard/my-wishlist"><i class="fa fa-heart-o"></i><span>Wishlist</span><span class="fa arrow"></span></a> </li> <li> <a ng-href="#dashboard/setting"><i class="icon-wrench"></i><span>Settings</span><span class="fa arrow"></span></a> </li> <li> <a ng-href="#dashboard/referral"> <i class="icon-user-follow text-success"></i> <span class="text-success">Refer A Friend</span> <span class="fa arrow"></span></a> </li> <!--                        <li class="nav-parent">
+        --> </li> <li class="nav-parent"> <a href=""><i class="fa fa-bar-chart-o"></i><span>Sales</span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-class="{ active  : isActive('/post-a-package')}"><a ng-href="/post-a-package"> Post A New Package</a></li> <li ng-class="{ active  : isActive('/my-package')}"><a ng-href="/dashboard/my-packages"> My Packages</a></li> <li ng-class="{ active  : isActive('/sales')}"><a ng-href="/dashboard/sales"> My Sales</a></li> </ul> </li> <li class="nav-parent"> <a href=""><i class="icon-note"></i><span>Requests </span><span class="fa arrow"></span></a> <ul class="children collapse"> <li ng-class="{ active  : isActive('/Request')}"><a ng-href="/dashboard/post-a-request"> Post A Request</a></li> <li ng-class="{ active  : isActive('/')}"><a ng-href="/dashboard"> Manage Requests</a></li> </ul> </li> <!--<li class="nav-parent">
+          <a ng-href="/dashboard/my-messages"><i class="fa fa-envelope-o"></i><span>Messages</span><span class="fa arrow"></span></a>
+      </li>--> <li> <a ng-href="/wallet/addCredit"><i class="fa fa-inr"></i><span>Wallet </span><span class="fa arrow"></span></a> </li> <li> <a ng-href="/dashboard/my-collection"><i class="fa fa-folder-o"></i><span>Collections</span><span class="fa arrow"></span></a> </li> <li> <a ng-href="/dashboard/my-wishlist"><i class="fa fa-heart-o"></i><span>Wishlist</span><span class="fa arrow"></span></a> </li> <li> <a ng-href="/dashboard/setting"><i class="icon-wrench"></i><span>Settings</span><span class="fa arrow"></span></a> </li> <li> <a ng-href="/dashboard/referral"> <i class="icon-user-follow text-success"></i> <span class="text-success">Refer A Friend</span> <span class="fa arrow"></span></a> </li> <!--                        <li class="nav-parent">
                                   <a href=""><i class="icon-docs"></i><span>Pages </span><span class="fa arrow"></span></a>
                               </li>
                               <li class="nav-parent">
@@ -158,25 +158,25 @@
                               <li class="nav-parent">
                                   <a href=""><i class="icon-cup"></i><span>Extra </span><span class="fa arrow"></span></a>
                               </li>--> </ul> <!-- SIDEBAR WIDGET FOLDERS --> <!--<div class="sidebar-widgets">
-        <p class="menu-title widget-title">Folders <span class="pull-right"><a href="#" class="new-folder"> <i class="icon-plus"></i></a></span></p>
+        <p class="menu-title widget-title">Folders <span class="pull-right"><a href="/" class="new-folder"> <i class="icon-plus"></i></a></span></p>
         <ul class="folders">
             <li>
-                <a href="#"><i class="icon-doc c-primary"></i>My documents</a>
+                <a href="/"><i class="icon-doc c-primary"></i>My documents</a>
             </li>
             <li>
-                <a href="#"><i class="icon-picture"></i>My images</a>
+                <a href="/"><i class="icon-picture"></i>My images</a>
             </li>
             <li>
-                <a href="#"><i class="icon-lock"></i>Secure data</a>
+                <a href="/"><i class="icon-lock"></i>Secure data</a>
             </li>
             <li class="add-folder">
                 <input type="text" placeholder="Folder's name..." class="form-control input-sm">
             </li>
         </ul>
-    </div>--> <div class="sidebar-footer clearfix text-muted"> <!--<a class="pull-left footer-settings" data-target="#" data-rel="tooltip" data-placement="top" data-original-title="Settings">
+    </div>--> <div class="sidebar-footer clearfix text-muted"> <!--<a class="pull-left footer-settings" data-target="/" data-rel="tooltip" data-placement="top" data-original-title="Settings">
           <i class="icon-settings"></i>
       </a>
-      <a class="pull-left toggle_fullscreen" data-target="#" data-rel="tooltip" data-placement="top" data-original-title="Fullscreen">
+      <a class="pull-left toggle_fullscreen" data-target="/" data-rel="tooltip" data-placement="top" data-original-title="Fullscreen">
           <i class="icon-size-fullscreen"></i>
       </a>
       <a class="pull-left" href="../../user-lockscreen.html" data-rel="tooltip" data-placement="top" data-original-title="Lockscreen">
@@ -186,56 +186,56 @@
           <i class="icon-power"></i>
       </a>--> &copy; Zolo Technologies Pvt. Ltd. </div> </div> </div> <!-- END SIDEBAR --> <div class="main-content"> <!-- BEGIN TOPBAR --> <!--<div ng-include="'includes/topbar.html'"></div>--> <!--<div ng-include="'includes/topbar.html'" class="topbar">
 
-  </div>--> <div class="topbar zolo-topbar"> <div class="header-left"> <div class="topnav"> <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a> <!--                            <ul class="nav nav-icons">
-                                        <li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
+  </div>--> <div class="topbar zolo-topbar"> <div class="header-left"> <div class="topnav"> <a class="menutoggle" href="/" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a> <!--                            <ul class="nav nav-icons">
+                                        <li><a href="/" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
                                         <li><a href="mailbox.html"><span class="octicon octicon-mail-read"></span></a></li>
-                                        <li><a href="#"><span class="octicon octicon-flame"></span></a></li>
+                                        <li><a href="/"><span class="octicon octicon-flame"></span></a></li>
                                         <li><a href="builder-page.html"><span class="octicon octicon-rocket"></span></a></li>
-                                    </ul>--> <a ng-href="#/"> <img src="../global/images/Zolo-Logo-c.png" alt="" class="visible-xs zolo-logo" style="height: 70%; width: 50%; margin-left: 70%; margin-top: 3%"></a> <div class="prepend-icon hidden-xs m-t-10 zolo-header"> <form role="form" ng-submit="newSearch()"> <input type="text" class="form-control zolo-h-m-search" ng-model="searchQuery" placeholder="What are you looking for today ?"> <i ng-click="newSearch()" class="fa fa-search header-search-icon"></i> </form> </div> </div> </div> <div class="header-right"> <ul ng-show="isAuthenticated()" class="header-menu nav navbar-nav hidden-xs"> <!-- BEGIN NOTIFICATION DROPDOWN
-         'MESSAGE', 'WALLET_CREDIT', 'WALLET_DEBIT', 'NEW_PACKAGE', 'PACKAGE_PUBLISHED', 'ORDER_PLACED'--> <li class="dropdown" id="notifications-header"> <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> <i class="icon-bell"></i> <span class="badge badge-danger badge-header">{{unseenNotification.length}}</span> </a> <ul class="dropdown-menu"> <li class="dropdown-header clearfix"> <p class="pull-left">{{unseenNotification.length}} Pending Notifications</p> </li> <li> <ul class="dropdown-menu-list withScroll" data-height="220"> <li ng-repeat="n in unseenNotification"> <a ng-click="gotoNotification(n)" href=""> <i class="fa fa-star p-r-10 f-18 c-orange"></i> {{n.text}} <span class="dropdown-time">Just now</span> </a> </li> <!--<li>
-                       <a href="#">
+                                    </ul>--> <a ng-href="//"> <img src="../global/images/Zolo-Logo-c.png" alt="" class="visible-xs zolo-logo" style="height: 70%; width: 50%; margin-left: 70%; margin-top: 3%"></a> <div class="prepend-icon hidden-xs m-t-10 zolo-header"> <form role="form" ng-submit="newSearch()"> <input type="text" class="form-control zolo-h-m-search" ng-model="searchQuery" placeholder="What are you looking for today ?"> <i ng-click="newSearch()" class="fa fa-search header-search-icon"></i> </form> </div> </div> </div> <div class="header-right"> <ul ng-show="isAuthenticated()" class="header-menu nav navbar-nav hidden-xs"> <!-- BEGIN NOTIFICATION DROPDOWN
+         'MESSAGE', 'WALLET_CREDIT', 'WALLET_DEBIT', 'NEW_PACKAGE', 'PACKAGE_PUBLISHED', 'ORDER_PLACED'--> <li class="dropdown" id="notifications-header"> <a href="/" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> <i class="icon-bell"></i> <span class="badge badge-danger badge-header">{{unseenNotification.length}}</span> </a> <ul class="dropdown-menu"> <li class="dropdown-header clearfix"> <p class="pull-left">{{unseenNotification.length}} Pending Notifications</p> </li> <li> <ul class="dropdown-menu-list withScroll" data-height="220"> <li ng-repeat="n in unseenNotification"> <a ng-click="gotoNotification(n)" href=""> <i class="fa fa-star p-r-10 f-18 c-orange"></i> {{n.text}} <span class="dropdown-time">Just now</span> </a> </li> <!--<li>
+                       <a href="/">
                            <i class="fa fa-heart p-r-10 f-18 c-red"></i>
                            John added you to his favs
                            <span class="dropdown-time">15 mins</span>
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="/">
                            <i class="fa fa-file-text p-r-10 f-18"></i>
                            New document available
                            <span class="dropdown-time">22 mins</span>
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="/">
                            <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
                            New picture added
                            <span class="dropdown-time">40 mins</span>
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="/">
                            <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
                            Meeting in 1 hour
                            <span class="dropdown-time">1 hour</span>
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="/">
                            <i class="fa fa-bell p-r-10 f-18"></i>
                            Server 5 overloaded
                            <span class="dropdown-time">2 hours</span>
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="/">
                            <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
                            Bill comment your post
                            <span class="dropdown-time">3 hours</span>
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="/">
                            <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
                            New picture added
                            <span class="dropdown-time">2 days</span>
@@ -299,9 +299,9 @@
                         </div>
                     </li>
                 </ul>
-            </li>--> <li class="dropdown-footer clearfix"> <a href="mailbox.html" class="pull-left">See all messages</a> <a href="#" class="pull-right"> <i class="icon-settings"></i> </a> </li></ul> </li> <!-- END MESSAGES DROPDOWN --> <!-- BEGIN USER DROPDOWN --> <li class="dropdown hidden-xs" id="user-header"> <a href="" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> <img src="{{user_profile.image || '../global/images/dummy.png'}}" alt="user image"> <span class="username text-c">Hi, {{user_profile.name}}</span> </a> <ul class="dropdown-menu"> <li> <a ng-href="#profile"><i class="icon-user"></i><span>My Profile</span></a> </li> <li> <a ng-href="#dashboard"><i class="icon-wrench"></i><span>My Dashboard</span></a> </li> <li> <a ng-href="#post-a-package"><i class="fa fa-folder-o" aria-hidden="true"></i><span>Post a Package</span></a> </li> <li> <a ng-href="#dashboard/setting"><i class="fa fa-cog" aria-hidden="true"></i> <span>Setting</span></a> </li> <li> <a ng-click="logout()"><i class="icon-logout"></i><span>Logout</span></a> </li> </ul> </li> <!-- END USER DROPDOWN --> <!-- CHAT BAR ICON --> </ul> <ul ng-show="!isAuthenticated()" class="header-menu nav navbar-nav hidden-xs"> <!-- BEGIN NOTIFICATION DROPDOWN --> <li> <a href="#login"> <!--<a ng-click="showTabDialog($event)" href="">--> <!--<a ng-click="showTabDialog()" href="">--> <p class="login-click">Login</p> </a> </li> <li> <a href="#sign-up"> <p class="signup-click">Sign up</p> </a> </li> </ul> <ul class="header-menu nav navbar-nav"> <li id="quickview-toggle"> <a href="#"><i class="mdi-navigation-apps"></i></a> </li> </ul> <!--<div ng-show="!isAuthenticated()" class="header-menu nav navbar-nav">
-          <a ng-href="#login"><div class="login-click">Login</div></a>&nbsp;/&nbsp;
-          <a ng-href="#sign-up"> <div class="signup-click">Sign up</div></a>
+            </li>--> <li class="dropdown-footer clearfix"> <a href="mailbox.html" class="pull-left">See all messages</a> <a href="#" class="pull-right"> <i class="icon-settings"></i> </a> </li></ul> </li> <!-- END MESSAGES DROPDOWN --> <!-- BEGIN USER DROPDOWN --> <li class="dropdown hidden-xs" id="user-header"> <a href="" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> <img src="{{user_profile.image || '../global/images/dummy.png'}}" alt="user image"> <span class="username text-c">Hi, {{user_profile.name}}</span> </a> <ul class="dropdown-menu"> <li> <a ng-href="/profile"><i class="icon-user"></i><span>My Profile</span></a> </li> <li> <a ng-href="/dashboard"><i class="icon-wrench"></i><span>My Dashboard</span></a> </li> <li> <a ng-href="/post-a-package"><i class="fa fa-folder-o" aria-hidden="true"></i><span>Post a Package</span></a> </li> <li> <a ng-href="/dashboard/setting"><i class="fa fa-cog" aria-hidden="true"></i> <span>Setting</span></a> </li> <li> <a ng-click="logout()"><i class="icon-logout"></i><span>Logout</span></a> </li> </ul> </li> <!-- END USER DROPDOWN --> <!-- CHAT BAR ICON --> </ul> <ul ng-show="!isAuthenticated()" class="header-menu nav navbar-nav hidden-xs"> <!-- BEGIN NOTIFICATION DROPDOWN --> <li> <a href="/login"> <!--<a ng-click="showTabDialog($event)" href="">--> <!--<a ng-click="showTabDialog()" href="">--> <p class="login-click">Login</p> </a> </li> <li> <a href="/sign-up"> <p class="signup-click">Sign up</p> </a> </li> </ul> <ul class="header-menu nav navbar-nav"> <li id="quickview-toggle"> <a href="#"><i class="mdi-navigation-apps"></i></a> </li> </ul> <!--<div ng-show="!isAuthenticated()" class="header-menu nav navbar-nav">
+          <a ng-href="/login"><div class="login-click">Login</div></a>&nbsp;/&nbsp;
+          <a ng-href="/sign-up"> <div class="signup-click">Sign up</div></a>
       </div>--> </div> <!-- header-right --> </div> <!-- END TOPBAR --> <!-- BEGIN PAGE CONTENT --> <toaster-container toaster-options="{'close-button': true}"></toaster-container> <div ng-view autoscroll="true" class="page-content" ng-view-class=" page-wizard : /forms-wizard , page-thin : / , page-contact : /pages-contact,
                     page-profil : /user-profile, page-app : /user-profile"> </div> <!-- END PAGE CONTENT --> </div> <!--
             <div ng-include="'includes/footer.html'">
@@ -314,7 +314,7 @@
           $('#quickview-sidebar').removeClass('closing');
         }, 400);
       }
-    }</script> <div class="quickview-header" style="background-color: #78588C"> <div class="col-md-12 col-xs-12 zolo-center m-t-10"> <div class="row"> <div class="col-md-3 pull-left"> <i ng-click="closeSidebarfunc()" class="fa fa-close" style="color: #fff; font-size: 20px; margin-top: 5px"></i> </div> <!--<i ng-click="closeSidebar()" class="fa fa-user" style="color: #fff; font-size: 20px; margin-top: 5px; display: none;"></i>--> <div class="col-md-7 text-center"> <a ng-if="!isAuthenticated()" class="f-24 text-muted">Menu</a> </div> </div> <a ng-if="isAuthenticated()" class="f-24 text-muted" style="color: #fff">Welcome</a> </div> </div> <div class="quickview"> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#profile"> <div class="col-md-12 card m-0 p-0 text-center"> <!--<img class="img-responsive img-circle user-img-rsb text-center" src="{{user_profile.image || '../global/images/dummy.png'}}">--> <p class="f-20 m-l-10 text-center"> Hi, {{user_profile.name}}</p> </div> </a> </div> <!--<div class="row m-l-0 hidden-lg hidden-md chat-search">
+    }</script> <div class="quickview-header" style="background-color: #78588C"> <div class="col-md-12 col-xs-12 zolo-center m-t-10"> <div class="row"> <div class="col-md-3 pull-left"> <i ng-click="closeSidebarfunc()" class="fa fa-close" style="color: #fff; font-size: 20px; margin-top: 5px"></i> </div> <!--<i ng-click="closeSidebar()" class="fa fa-user" style="color: #fff; font-size: 20px; margin-top: 5px; display: none;"></i>--> <div class="col-md-7 text-center"> <a ng-if="!isAuthenticated()" class="f-24 text-muted">Menu</a> </div> </div> <a ng-if="isAuthenticated()" class="f-24 text-muted" style="color: #fff">Welcome</a> </div> </div> <div class="quickview"> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="/profile"> <div class="col-md-12 card m-0 p-0 text-center"> <!--<img class="img-responsive img-circle user-img-rsb text-center" src="{{user_profile.image || '../global/images/dummy.png'}}">--> <p class="f-20 m-l-10 text-center"> Hi, {{user_profile.name}}</p> </div> </a> </div> <!--<div class="row m-l-0 hidden-lg hidden-md chat-search">
         <div class="col-md-12 card m-0 p-0">
             <form class="form-inverse ng-pristine ng-valid" ng-submit="newSearch()" role="search">
                 <div class="append-icon">
@@ -323,7 +323,7 @@
                 </div>
             </form>
         </div>
-    </div>--> <div class="chat-search p-l-10 p-r-10 m-t-10 hidden-lg hidden-md"> <form class="form-inverse" ng-submit="newSearch()" role="search"> <div class="append-icon"> <input type="text" class="form-control" ng-model="searchQuery" placeholder="What are you looking for today.."> <i ng-click="newSearch()" class="icon-magnifier"></i> </div> </form> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-assignment"></i> Dashboard</p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-notifications-on"></i> Notifications </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard/referral"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="fa fa-user" aria-hidden="true"></i> Refer a friend </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-question-answer"></i> Messages </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-click="closeSidebar()" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-question-answer"></i> Close </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="#dashboard/setting"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="fa fa-cog" aria-hidden="true"></i> Settings </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="http://www.imzolo.com"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <!--<div ng-if="isAuthenticated()" class="row m-l-0">
+    </div>--> <div class="chat-search p-l-10 p-r-10 m-t-10 hidden-lg hidden-md"> <form class="form-inverse" ng-submit="newSearch()" role="search"> <div class="append-icon"> <input type="text" class="form-control" ng-model="searchQuery" placeholder="What are you looking for today.."> <i ng-click="newSearch()" class="icon-magnifier"></i> </div> </form> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="/dashboard"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-assignment"></i> Dashboard</p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-notifications-on"></i> Notifications </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="/dashboard/referral"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="fa fa-user" aria-hidden="true"></i> Refer a friend </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-question-answer"></i> Messages </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-click="closeSidebar()" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-question-answer"></i> Close </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-href="/dashboard/setting"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="fa fa-cog" aria-hidden="true"></i> Settings </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="http://www.imzolo.com"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <!--<div ng-if="isAuthenticated()" class="row m-l-0">
       <a class="rsb-links" href="">
         <div class="col-md-12 card m-0 p-0">
           <p class="f-20 m-l-10">
@@ -366,7 +366,7 @@
       </a>
     </div>
 
---> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#terms-of-use"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#privacy-policy"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-click="logout()" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-settings-power"></i> Logout </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 stick-bottom-custom"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-12 m-l-10"> &copy;Zolo Technologies Pvt. Ltd. </p> </div> </a> </div> <!--Right Sidebar desktop view and Mobile view before login (not authenticated)--> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="#login"> <!--<a ng-click="showTabDialog($event)" href="">--> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-system-update"></i> Login </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="#sign-up"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-person-add"></i> SignUp </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="http://www.imzolo.com"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
+--> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="/terms-of-use"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="/privacy-policy"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" ng-click="logout()" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-settings-power"></i> Logout </p> </div> </a> </div> <div ng-if="isAuthenticated()" class="row m-l-0 stick-bottom-custom"> <a class="rsb-links" href=""> <div class="col-md-12 card m-0 p-0"> <p class="f-12 m-l-10"> &copy;Zolo Technologies Pvt. Ltd. </p> </div> </a> </div> <!--Right Sidebar desktop view and Mobile view before login (not authenticated)--> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="/login"> <!--<a ng-click="showTabDialog($event)" href="">--> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-system-update"></i> Login </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0 hidden-lg hidden-md"> <a class="rsb-links" href="/sign-up"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-social-person-add"></i> SignUp </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="http://www.imzolo.com"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-home"></i> About Us </p> </div> </a> </div> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
       <a class="rsb-links" href="">
         <div class="col-md-12 card m-0 p-0">
           <p class="f-20 m-l-10">
@@ -375,7 +375,7 @@
           </p>
         </div>
       </a>
-    </div>--> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#terms-of-use"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="#privacy-policy"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
+    </div>--> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="/terms-of-use"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-notification-vpn-lock"></i> T&C </p> </div> </a> </div> <div ng-if="!isAuthenticated()" class="row m-l-0"> <a class="rsb-links" ng-href="/privacy-policy"> <div class="col-md-12 card m-0 p-0"> <p class="f-20 m-l-10"> <i class="mdi-action-list"></i> Privacy Policy </p> </div> </a> </div> <!--<div ng-if="!isAuthenticated()" class="row m-l-0">
       <a class="rsb-links" href="">
         <div class="col-md-12 card m-0 p-0">
           <p class="f-20 m-l-10">
@@ -420,4 +420,4 @@
 
   ga('create', 'UA-74584340-4', 'none');
   //ga('send', 'pageview');</script> <script src="scripts/vendor.395d146c.js"></script> <script src="admin/md-layout4/js/layout.js"></script>
-<script src="admin/md-layout4/material-design/js/material.js"></script> <script src="scripts/scripts.16ae7d8b.js"></script> <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.min.js"></script></body> </html>
+<script src="admin/md-layout4/material-design/js/material.js"></script> <script src="scripts/scripts.8cae676e.js"></script> <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.min.js"></script></body> </html>

@@ -3,7 +3,7 @@
   <div class="profil-content">
     <div class="img-o">
     <div class="item hover-effect">
-      <a ng-href="#package/{{package.slug}}">
+      <a ng-href="/package/{{package.slug}}/">
         <div class="user">
           <img preload-image default-image="../global/images/imageloader.gif" ng-src="{{package.first_photo || '../global/images/no2.png'}}" class="img-responsive hover-img zolo-img-card-height">
 
@@ -97,7 +97,7 @@
             <i ng-show="package.status==='PAUSED'" ng-click="activate(package)" class="mdi-av-play-circle-fill text-success m-l-10"></i>
             <span ng-show="package.status==='PAUSED'" ng-click="activate(package)">Resume</span>
 
-            <a ng-href="#/dashboard/edit-package/{{package.slug}}">
+            <a ng-href="/dashboard/edit-package/{{package.slug}}/">
             <i ng-show="package.status==='DRAFT'" ng-click="activate(package)" class="mdi-av-play-circle-fill text-success m-l-10"></i>
             <span ng-show="package.status==='DRAFT'" ng-click="activate(package)">Publish</span>
             </a>
@@ -106,7 +106,7 @@
           </div>
           <div ng-click="" class="col-xs-4 border-right">
             <!-- <div class="comment-number"> -->
-            <a ng-href="#/dashboard/edit-package/{{package.slug}}">
+            <a ng-href="/dashboard/edit-package/{{package.slug}}/">
               <i class="mdi-content-create text-info"></i>
               <span>Edit</span>
             </a>

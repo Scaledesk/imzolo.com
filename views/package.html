@@ -671,7 +671,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <button ng-if="!sameUser" type="button" ng-click="openMessageSellerCustomOffer()" class="btn zolo-pdp-make-offer-btn">Make An Offer</button>
-            <a ng-if="sameUser" ng-href="#/dashboard/edit-package/{{package.slug}}" class="btn zolo-pdp-make-offer-btn">Edit Package</a>
+            <a ng-if="sameUser" ng-href="/dashboard/edit-package/{{package.slug}}/" class="btn zolo-pdp-make-offer-btn">Edit Package</a>
           </div>
         </div>
 
@@ -768,8 +768,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="zolo-user-img text-center">
-                <a ng-href="#profile/{{package.seller_profile.user_id}}"><img src="{{package.seller_profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle"></a>
-                <a ng-href="#profile/{{package.seller_profile.user_id}}"><h4>{{package.seller_profile.name}}</h4></a>
+                <a ng-href="/profile/{{package.seller_profile.user_id}}/"><img src="{{package.seller_profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle"></a>
+                <a ng-href="/profile/{{package.seller_profile.user_id}}/"><h4>{{package.seller_profile.name}}</h4></a>
               </div>
             </div>
             </div>
@@ -777,7 +777,7 @@
 
           <div class="row">
             <div class="col-md-12 text-center">
-              <a ng-href="#profile/{{package.seller_profile.user_id}}" class="seller-contact-dtls btn " style="text-transform: capitalize;">{{package.seller_name}}'s Profile</a>
+              <a ng-href="/profile/{{package.seller_profile.user_id}}/" class="seller-contact-dtls btn " style="text-transform: capitalize;">{{package.seller_name}}'s Profile</a>
             </div>
           </div>
 
@@ -838,7 +838,7 @@
           <div class="tags">
             <h2>Tags:</h2>
 
-            <span ng-repeat="t in package.tags.data"><a ng-href="#tag/{{t.slug}}"><button class="tags-b">{{t.text}}</button></a>
+            <span ng-repeat="t in package.tags.data"><a ng-href="/tag/{{t.slug}}/"><button class="tags-b">{{t.text}}</button></a>
             </span>
             <!--<button class="tags-b">Web</button>
             <button class="tags-b">Web & programming</button>
@@ -870,7 +870,7 @@
   <div class="card m-t-20" ng-if="sellerOtherPackages.length>1">
     <div class="row ">
       <div class="col-md-12 text-center">
-        <h2><strong>View More packages by <a ng-href="#profile/{{package.seller_profile.user_id}}"> {{package.seller_name}}  </a></strong></h2>
+        <h2><strong>View More packages by <a ng-href="/profile/{{package.seller_profile.user_id}}/"> {{package.seller_name}}  </a></strong></h2>
       </div>
 
     </div>
@@ -944,7 +944,7 @@
       <span>All rights reserved. </span>
     </p>
     <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="#contact" class="m-l-10 m-r-10">Contact us</a> |   <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="#privacy-policy" class="m-l-10">Privacy Policy</a></span>
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact/" class="m-l-10 m-r-10">Contact us</a> |   <a ng-href="/terms-of-use/" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy/" class="m-l-10">Privacy Policy</a></span>
     </p>
   </div>
 </div>
