@@ -1,4 +1,8 @@
 # robotstxt.org
 
 User-agent: *
-Disallow:
+Allow:
+Disallow: /dashboard/
+Disallow: /wallet/
+Disallow: /post-a-package
+
