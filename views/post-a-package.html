@@ -63,7 +63,7 @@
                     <div class="form-group">
                       <label for="title">Package Title</label>
                       <input id="title" type="text" name="title" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 16px; !important;">
-                      <div ng-show="validation_error.package_name" class="text-danger">Title is required! || Min 20 charector | Max 100 charector</div>
+                      <div ng-show="validation_error.package_name" class="text-danger">Title is Required! || Min 20 charector | Max 100 charector</div>
                                             <span class="word-counter">
                                                 <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
                                             </span>
@@ -79,7 +79,7 @@
                     <label for="category">Category</label>
                     <md-select ng-model="p_category" id="category" ng-change="subCategory()">
                       <md-option value="" ng-selected="-1">Select Category</md-option>
-                      <md-option ng-repeat="c in category" ng-if="c.id==10 || c.id==14 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77" value="{{c.id}}">
+                      <md-option ng-repeat="c in category" ng-if="c.id==10 || c.id==14 || c.id==90 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77" value="{{c.id}}">
                         {{c.name}}
                       </md-option>
                       <md-option value="13">
@@ -150,9 +150,10 @@
 
                     <p class="w-400">Create a Catchy tagline for your package</p>
                     <md-tooltip class="f-14 w-400" md-direction="top">
-                      * type catchy introduction
+                      * Create a introduction for your Package
                     </md-tooltip>
-                    <!--<textarea id="text-edit" ng-model="package.introduction" placeholder="Please type here.."></textarea>-->
+
+
                     <textarea class="form-control" id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>
 
                   </div>
@@ -200,9 +201,9 @@
                     <!--<div class="summernote"></div>-->
 
 
-                    <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 4000 character</div>
+                    <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
                     <md-tooltip md-direction="right">
-                      * Required | Max 4000 character
+                      * Required | Max 8000 character
                     </md-tooltip>
                   </div>
                 </div>

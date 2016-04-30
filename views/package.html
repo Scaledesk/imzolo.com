@@ -339,7 +339,7 @@
             <p ng-if="package.term_condition!=null || package.term_condition!=''" ng-bind-html="package.term_condition" style="width:100%;color: #74767d; font-size: 15px; ">
             </p>
             <!-- links-->
-            <p ng-if="package.youtube_links != null&&package.facebook_links != null&&package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
+            <p ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
               <a ng-href="{{package.youtube_links}}" ng-if="package.youtube_links != null"><i class="fa fa-youtube"></i>&nbsp;&nbsp; Youtube link</a><br/>
               <a ng-href="{{package.facebook_links}}" ng-if="package.facebook_links != null"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook link</a><br/>
               <a ng-href="{{package.any_other_links}}" ng-if="package.any_other_links != null">&nbsp;&nbsp;other link</a>
