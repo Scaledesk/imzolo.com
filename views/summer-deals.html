@@ -9,6 +9,14 @@
 
 
 <style>
+  .nav > li > a {
+    padding: 10px 10px !important;
+    color: #333;
+  }
+
+  .summerdeals-active {
+    color: #78588c !important;
+  }
   .main-content .page-content{
     padding: 0!important;
     top: 45px!important;
@@ -137,8 +145,9 @@
     <div class="row m-t-40">
       <div class="col-md-12 ">
         <ul class="nav nav-tabs hidden-xs">
-          <li><a ng-href="/summer-deals/all" ng-class="{ 'active': slug=='all' }">All</a></li>
-          <li ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="/summer-deals/{{cat.slug}}" ng-class="{ 'active': slug==cat.slug }">{{cat.name}}</a></li>
+          <!--<li><a ng-href="/summer-deals/all" ng-class="{ 'active': slug=='all' }">All</a></li>-->
+          <li ng-repeat="cat in category_list | filter:{parent_id : 90}" ng-if="cat.id!='97'"><a ng-href="/summer-deals/{{cat.slug}}" ng-class="{ 'summerdeals-active': slug==cat.slug }">{{cat.name}}</a></li>
+          <li><a ng-href="/summer-deals/summer-deals-others" ng-class="{ 'summerdeals-active': slug=='summer-deals-others' }">Others</a></li>
         </ul>
 
 
@@ -147,7 +156,7 @@
           <label>Sub-Categories</label>
           <md-select name="myModel" ng-model="myModel">
             <md-option ng-class="{ 'active': slug=='all' }">All</md-option>
-            <md-option ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="#summer-deals/{{cat.slug}}" ng-class="{ 'active': slug==cat.slug }">{{cat.name}}</a> </md-option>
+            <md-option ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="#summer-deals/{{cat.slug}}" ng-class="{ 'summerdeals-active': slug==cat.slug }">{{cat.name}}</a> </md-option>
             <!--<md-option value="3">Creative</md-option>-->
             <!--<md-option value="4">Consultation</md-option>-->
             <!--<md-option value="5">Classes</md-option>-->
