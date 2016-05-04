@@ -57,13 +57,13 @@
     }
 
     .slide .bg-primary{
-      height: 150px;
+      height: 280px;
     }
 
   }
 
   /*.container-fluid .card .nav li {*/
-    /*display: inline-block;*/
+  /*display: inline-block;*/
   /*}*/
 
 
@@ -77,39 +77,60 @@
 
 
 <div class="container-fluid">
-  <!--<div class="row">-->
-    <!--&lt;!&ndash;<div class="col-md-12">&ndash;&gt;-->
-    <!--<div class="widget widget_slider">-->
-      <!--<div class="slick" data-fade="true">-->
+  <div class="row">
+    <!--<div class="col-md-12">-->
+    <div class="widget widget_slider">
+      <div class="slick" data-fade="true">
 
-        <!--<div class="slide">-->
-          <!--&lt;!&ndash;<h3 class="bg-primary">1</h3>&ndash;&gt;-->
-          <!--<img src="http://www.garageflooringllc.com/images/2015/08/Bohdan.jpg" alt="" class="bg-primary" width="100%">-->
-        <!--</div>-->
-        <!--<div class="slide">-->
-          <!--&lt;!&ndash;<h3 class="bg-primary">1</h3>&ndash;&gt;-->
-          <!--<img src="http://www.geekenstein.com/wp-content/uploads/2013/10/planets-earth-crash-majoras-mask-1600x1200-hd-wallpaper-1300x300.png" alt="" class="bg-primary" width="100%">-->
-        <!--</div>-->
-        <!--<div class="slide">-->
-          <!--&lt;!&ndash;<h3 class="bg-primary">2</h3>&ndash;&gt;-->
-          <!--<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTsOjww5QTcpJkMbztYyNLddI5EiVoXX6pJPbR7uHCesSZjyIiO1A" alt="" class="bg-primary" width="100%">-->
-        <!--</div>-->
+        <style>
+        .slide{
+          width: 100%;
+        }
+        </style>
+
+        <div class="slide">
+          <!--<h3 class="bg-primary">1</h3>-->
+          <a  ng-href="summer-deals/weekend-getaways">
+            <img src="../global/images/s-w1.jpg" alt="" class="bg-primary hidden-xs" width="100%">
+
+            <img src="../global/images/s-m1.jpg" alt="" class="bg-primary hidden-md hidden-sm hidden-lg" width="100%">
+          </a>
+        </div>
+
+        <div class="slide">
+          <a ng-href="summer-deals/adventure-camps-and-trips">
+          <!--<h3 class="bg-primary">1</h3>-->
+          <img src="../global/images/s-w2.jpg" alt="" class="bg-primary hidden-xs" width="100%">
+
+            <img src="../global/images/s-m2.jpg" alt="" class="bg-primary hidden-md hidden-sm hidden-lg" width="100%">
+            </a>
+        </div>
+        <div class="slide">
+          <a ng-href="summer-deals/kids-summer-camps">
+          <!--<h3 class="bg-primary">2</h3>-->
+          <img src="../global/images/s-w3.jpg" alt="" class="bg-primary hidden-xs" width="100%">
+
+            <img src="../global/images/s-m3.jpg" alt="" class="bg-primary hidden-md hidden-sm hidden-lg" width="100%">
+            </a>
+        </div>
+        <div class="slide">
+          <!--<h3 class="bg-primary">3</h3>-->
+          <img src="../global/images/s-w4.jpg" alt="" class="bg-primary hidden-xs" width="100%">
+
+          <img src="../global/images/s-m4.jpg" alt="" class="bg-primary hidden-md hidden-sm hidden-lg" width="100%">
+        </div>
+
         <!--<div class="slide">-->
           <!--&lt;!&ndash;<h3 class="bg-primary">3</h3>&ndash;&gt;-->
-          <!--<img src="http://i0.wp.com/www.garageflooringllc.com/images/1300-1.jpg?fit=1300%2C300" alt="" class="bg-primary" width="100%">-->
-        <!--</div>-->
-
-        <!--<div class="slide">-->
-          <!--&lt;!&ndash;<h3 class="bg-primary">3</h3>&ndash;&gt;-->
-          <!--<img src="http://www.geekenstein.com/wp-content/uploads/2013/11/ScarecrowArkham2-1300x300.jpg" alt="" class="bg-primary" width="100%">-->
+          <!--<img src="../global/images/s-w5.jpg" alt="" class="bg-primary" width="100%">-->
         <!--</div>-->
 
 
+      </div>
       <!--</div>-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-    <!--</div>-->
-  <!--</div>-->
+    </div>
+  </div>
 
   <div class="card">
 
@@ -124,7 +145,7 @@
 
 
         <md-input-container class="md-block visible-xs" style="margin: 0;">
-          <label>Categories</label>
+          <label>Sub-Categories</label>
           <md-select name="myModel" ng-model="myModel">
             <md-option value="1" ng-class="{ 'active': slug=='all' }">All</md-option>
             <md-option value="2" ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="#summer-deals/{{cat.slug}}" ng-class="{ 'active': slug==cat.slug }">{{cat.name}}</a> </md-option>
