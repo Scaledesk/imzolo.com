@@ -18,22 +18,26 @@
             <hr>
             <div class="row">
               <div class="col-md-12 col-xs-12 zolo-center">
+
                 <div class="form-group row m-b-30">
                   <label class="control-label">Old Password</label>
                   <div class="">
-                    <input class="form-control input-sm" type="password" ng-model="pass.old_password" placeholder="Old Password">
+                    <input class="form-control input-sm" type="password" ng-change="settings_error.old=''" ng-model="pass.old_password" placeholder="Old Password">
+                    <p class="text-danger">{{settings_error.old}}</p>
                   </div>
                 </div>
                 <div class="form-group row m-b-30">
                   <label class="control-label">New Password</label>
                   <div class="">
-                    <input class="form-control input-sm" type="password" ng-model="pass.new_password" placeholder="New Password">
+                    <input class="form-control input-sm" type="password" ng-change="settings_error.new=''" ng-model="pass.new_password" placeholder="New Password">
+                    <p class="text-danger">{{settings_error.new}}</p>
                   </div>
                 </div>
                 <div class="form-group row m-b-30">
                   <label class="control-label">Confirm Password</label>
                   <div class="">
-                    <input class="form-control input-sm" type="password" ng-model="pass.confirm_password" placeholder="Confirm Password">
+                    <input class="form-control input-sm" type="password" ng-model="pass.confirm_password" ng-change="settings_error.match=''" placeholder="Confirm Password">
+                    <p class="text-danger">{{settings_error.match}}</p>
                   </div>
                 </div>
               </div>
@@ -47,6 +51,9 @@
             </button>
           </div>
         </div>
+
+
+
       </div>
     </div>
 

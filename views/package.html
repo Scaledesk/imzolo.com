@@ -791,16 +791,16 @@
               <!--<a ng-click="show_seller_mobile()" class="seller-contact-dtls btn " style="text-transform: capitalize;">Contact Now</a>-->
               <!------------------------------------------------------->
               <!-----   if logged in user mobile is verified and seller mobile is given         ------>
-              <div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&other_user_profile.mobile" style="margin-left:10px;">
+              <div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&other_user_profile.mobile">
                 <!-- Phone Disconnected icon by Icons8 -->
-                <i class="fa fa-phone fa-2x"></i>
-                <p class="f-24" style="display:inline-block;">&nbsp;{{other_user_profile.mobile}}</p>
+                <i class="icon icon-call-out" style="font-size: 20px;"></i>
+                <a href="tel: {{other_user_profile.mobile}}" style="display:inline-block; font-size: 20px;">&nbsp;{{other_user_profile.mobile}}</a>
 
               </div>
               <!-----   if logged in user mobile is verified and seller mobile is not given         ------>
-              <div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&!other_user_profile.mobile" style="margin-left:10px;">
+              <div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&!other_user_profile.mobile">
                 <!-- Phone Disconnected icon by Icons8 -->
-                <i class="fa fa-phone fa-2x"></i>
+                <i class="icon icon-call-out "></i>
                 <p style="display:inline-block;">&nbsp;Mobile number not provided.</p>
 
               </div>

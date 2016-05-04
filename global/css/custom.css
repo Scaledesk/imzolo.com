@@ -2276,7 +2276,7 @@ figure.zolo-collection{
 
 
 .zolo-bg {
-    background: url('/global/images/web-cover.png');
+    background: url('/global/images/web-cover.jpg');
     /*background-attachment: fixed;*/
     background-size: cover;
     min-height: 630px;
@@ -2950,4 +2950,9 @@ figure.effect-steve:hover p {
 .zolo-messaging a:hover {
   color: #565a5c;
 
+}
+
+
+a{
+  color: #78588c!important;
 }

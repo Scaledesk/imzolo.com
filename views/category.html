@@ -1,141 +1,3 @@
-<!--
-
-<div ng-hide="loading"  class="zolo-inner">
-
-
-
-
-
-    <div ng-switch="category_id">
-
-
-        <div ng-switch-when="1" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/mens.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="2" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/women.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="3" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/kids.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="4" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/teens.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="5" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/art.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="6" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/health-fitness1.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="7" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/wellness.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="8" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/home-decor2.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="9" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/food2.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="10" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/business.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="11" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/skills.jpg);-webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="12" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/events.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-        <div ng-switch-when="13" style="background:#A2A2A2; background-image: url(assets/images/Zolo-category-bgs/spaces.jpg); -webkit-background-size: cover; width:100%" class="hidden-xs hidden-sm">
-            <div class="container zolo-center" style="padding:30px;">
-                <h1 > {{categoryName}}</h1>
-            </div>
-        </div>
-
-
-    </div>
-    <div class="container ">
-
-
-
-
-
-
-
-
-
-
-        <div ng-if="packages.length===0">
-            <h2 align="center" style="color: black">No Packages in this category</h2>
-        </div>
-        <br><br>
-
-        <div class="row" ng-if="packages.length>0">
-            <div class="col-md-4 " ng-repeat="package in packages">
-                <div package-card package="package"></div>
-            </div>
-            <br><br>
-
-        </div>
-        <br><br>
-
-
-
-    </div>
-
-
-    <br><br>
-
-</div>
-
-
-<div ng-show="loading"  class="zolo-center">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <div class="spinner-loader">
-
-    </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-</div>
-
-
--->
-
 
 
 <style>
@@ -145,19 +7,12 @@
   .main-content .page-content{
     padding: 0 !important;
   }
-  /*.tag-img{
-    background: url('../global/images/bg.jpg');
-    position: relative;
-    text-align: center;
-    width: 100%;
-    max-height: 500px;
 
+  .display-packages .page-profil .profil-content{
+    padding: 0 20px;
+    margin-right: 20px;
   }
-  .tag-txt{
-    position: absolute;
-    top: 50%;
-    left:50%;
-  }*/
+
 </style>
 
 
@@ -217,16 +72,6 @@
 <div class="container" style="margin-bottom: 200px;">
 
 
-  <!--<div class="row">
-    <div class="col-md-12">
-      <div class="cover-img" style="background: url('../global/images/bg.jpg') center no-repeat; background-size:cover; ">
-        <div class="tag-txt">
-          {{categoryName}}
-        </div>
-      </div>
-    </div>
-  </div>-->
-
 
   <div class="display-packages">
     <div class="row">
@@ -243,18 +88,6 @@
         </div>
 
         <div ng-hide="loading" ng-if="packages.length>0" class="row">
-          <!--   <div ng-repeat="package in packages" class="col-md-4" ng-init="package.shareTab=false,package.openCollection=false">
-
-             <div package-card package="package" master-collections="collections">
-                 </div>
-             </div>
--->
-          <!--<div class="row">
-            <div ng-repeat="package in packages" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
-              <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
-              </div>
-            </div>
-          </div>-->
 
 
           <div ng-repeat="row in package_rows" class="row">
@@ -264,20 +97,7 @@
             </div>
           </div>
 
-          <!--<div ng-hide="loading" ng-if="packages.length>0" class="row mt-20">
-              <div ng-hide="pagination.current_page==pagination.total_pages" class="col-md-12 text-center" ng-click="loadMoreResults()">
-                  <button ng-disabled="loading_more" class="btn btn-lg btn-zolo m-t-20">
-                      Load More Packages... <span><i ng-style="SerchloaderStyle" class="fa fa-spinner fa-spin"></i> </span>
-                  </button>
-              </div>
-              <div ng-show="pagination.current_page==pagination.total_pages" class="col-md-12 text-center">
-                  &lt;!&ndash;<p>Yoy have browsed all the packages!</p>&ndash;&gt;
-                  <button class="btn btn-lg btn-zolo ladda-button m-t-20" disabled="disabled" data-style="expand-right">
-                      No More Results...
-                  </button>
-              </div>
-          </div>
-      </div>-->
+
         </div>
         <div ng-show="loading" class="row">
           <div class="col-md-12 text-center m-t-60">

@@ -27,133 +27,20 @@
 
   <div ng-hide="wishlistLoading" class="row">
     <div ng-repeat="wishlist in user_wishlist" class="col-md-4">
-      <!--
-                      <div class="page-content page-app page-profil zolo-custom-card">
-
-
-                          <div class="profil-content">
-
-                              <div class="item hover-effect">
-                                  <div class="user">
-                                      <img src="../global/images/6.png" class="img-responsive hover-img" alt="">
-                                      &lt;!&ndash; <img src="../assets/global/images/profil_page/friend4.jpg" class="img-user" alt="picture 2"> &ndash;&gt;
-                                      <div class="info zolo-custom-info-card">
-                                          &lt;!&ndash; div class="f-24">Sarah Bones</div> &ndash;&gt;
-                                          <div class="row">
-                                              <div class="col-md-12 text-center">
-                                                  <i class="fa fa-star"></i>
-                                                  <i class="fa fa-star"></i>
-                                                  <i class="fa fa-star"></i>
-                                                  <i class="fa fa-star"></i>
-                                                  <i class="fa fa-star"></i>
-                                              </div>
-                                          </div>
-
-                                          <div class="zolo-card-user-location">
-                                              <div class="location pull-left"><i class="icon-pointer"></i> New Delhi,</div>
-                                              <div class="date pull-right"><i class="icon-calendar"></i> 14 hours ago</div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="comment zolo-custom-card-text">
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                  </div>
-
-                                  &lt;!&ndash;custom&ndash;&gt;
-
-                                  <div class="more">
-                                      <div class="row">
-                                          <div class="col-xs-6 ">
-                                              <span class="card-price">&#8377;24000</span>
-                                          </div>
-
-                                          <div class="col-xs-6 ">
-                                              <sp class="card-by-user pull-right">By Tushar</p>
-                                          </div>
-
-
-                                      </div>
-                                  </div>
-
-                                  &lt;!&ndash;end&ndash;&gt;
-
-
-
-
-                                  <div class="more">
-                                      <div class="row">
-                                          <div class="col-xs-4 like">
-                                              <i class="fa fa-heart"></i> Like
-                                          </div>
-                                          <div class="col-xs-4">
-                                              &lt;!&ndash; <div class="comment-number"> &ndash;&gt;
-                                              <i class="fa fa-tasks"></i>Collections
-                                              &lt;!&ndash; </div> &ndash;&gt;
-                                          </div>
-                                          <div class="col-xs-4 more-share">
-                                              <i class="icon-share"></i> Share
-                                          </div>
-                                      </div>
-                                      <div class="row comments">
-                                          <div class="col-sm-12">
-                                              <ul>
-                                                  <li class="clearfix">
-                                        <span class="pull-left">
-                                        <img src="../global/images/profil_page/friend5.jpg" alt="friend 1">
-                                        </span>
-                                                      <div class="clearfix">
-                                                          <div class="info">
-                                                              <div class="name"><strong class="primary-font">Anna Martin</strong></div>
-                                                              <div class="date">12 mins ago</div>
-                                                          </div>
-                                                          <p>
-                                                              Wow! Looks great!
-                                                          </p>
-                                                      </div>
-                                                  </li>
-                                                  <li class="clearfix">
-                                        <span class="pull-left">
-                                        <img src="../global/images/profil_page/friend6.jpg" alt="friend 2">
-                                        </span>
-                                                      <div class="clearfix">
-                                                          <div class="info">
-                                                              <div class="name"><strong class="primary-font">John Smith</strong></div>
-                                                              <div class="date">12 mins ago</div>
-                                                          </div>
-                                                          <p>
-                                                              Hey! What's up here? Give me a call soon.
-                                                          </p>
-                                                      </div>
-                                                  </li>
-                                              </ul>
-                                          </div>
-                                      </div>
-                                      <div class="row share">
-                                          <div class="share-facebook">
-                                              <i class="fa fa-facebook"></i>
-                                          </div>
-                                          <div class="share-twitter">
-                                              <i class="fa fa-twitter"></i>
-                                          </div>
-                                          <div class="share-google">
-                                              <i class="fa fa-google-plus"></i>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-
-                          </div>
-
-                      </div>
-      -->
       <div package-card package="wishlist" master-collections="collections">
 
       </div>
-
     </div>
   </div>
 
+  <div ng-hide="wishlistLoading" class="row">
+    <div ng-if="user_wishlist.length==0" class="col-md-12 text-center">
 
+<p class="f-18 text-center">You do not have any packages in your Wishlist. </p>
+      <a class="btn btn-zolo" ng-href="/">Browse more packages. </a>
+
+    </div>
+  </div>
 
 
   <div ng-show="wishlistLoading" class="row">

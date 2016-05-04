@@ -132,8 +132,7 @@
     </div>
   </div>
 
-  <div class="card">
-
+  <div class="card" id="packagePanel">
 
     <div class="row m-t-40">
       <div class="col-md-12 ">
@@ -147,8 +146,8 @@
         <md-input-container class="md-block visible-xs" style="margin: 0;">
           <label>Sub-Categories</label>
           <md-select name="myModel" ng-model="myModel">
-            <md-option value="1" ng-class="{ 'active': slug=='all' }">All</md-option>
-            <md-option value="2" ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="#summer-deals/{{cat.slug}}" ng-class="{ 'active': slug==cat.slug }">{{cat.name}}</a> </md-option>
+            <md-option ng-class="{ 'active': slug=='all' }">All</md-option>
+            <md-option ng-repeat="cat in category_list | filter:{parent_id : 90}"><a ng-href="#summer-deals/{{cat.slug}}" ng-class="{ 'active': slug==cat.slug }">{{cat.name}}</a> </md-option>
             <!--<md-option value="3">Creative</md-option>-->
             <!--<md-option value="4">Consultation</md-option>-->
             <!--<md-option value="5">Classes</md-option>-->

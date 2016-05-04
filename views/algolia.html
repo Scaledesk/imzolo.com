@@ -1,39 +1,49 @@
 <update-title   title="{{myalgolia.searchResult.nbHits}} packages found {{myalgolia.query_to_show}} | Zolo "></update-title>
 <update-meta    name="description" content="{{myalgolia.searchResult.nbHits}} Pre-Packaged services/products found {{myalgolia.query_to_show}}. Discover and book creative Professionals & Freelancers, choose from thousands of Pre-Packaged services at all budget. India's first ever Talent Marketplace | Zolo"></update-meta>
-<div class="container-fluid" style="margin-bottom: 200px;">
+<div class="container-fluid" style="margin-top: 50px;">
   <div class="row">
-    <div class="col-md-12 card">
+    <div class="col-md-12 ">
+      <div class="card">
 
-          <form role="form" ng-submit="myalgolia.newSearch()">
-            <div class="col-md-9">
-              <input class="form-control f-18" style="margin-top: 2%;border-bottom: 1px solid #aaa" type="search" ng-keydown="myalgolia.newSearchOnBackspace($event)" ng-model="myalgolia.searchQuery" ng-keypress="myalgolia.newSearch()" placeholder="What are you looking for Today ?"  >
-            </div>
-            <div class="col-md-3 text-center">
-              <div class="row">
-                <div class="col-md-offset-4 col-md-8">
-                  <button class="btn home-s-btn btn-lg" ng-click="myalgolia.newSearch()">Search</button>
-                </div>
-              </div>
-            </div>
-          </form>
+      <div class="row">
+        <form role="form" ng-submit="myalgolia.newSearch()">
+          <div class="col-md-9">
+            <input class="form-control f-18"  type="search" ng-keydown="myalgolia.newSearchOnBackspace($event)" ng-model="myalgolia.searchQuery" ng-keypress="myalgolia.newSearch()" placeholder="What are you looking for Today ?"  >
+
+          </div>
+
+
+
+          <div class="col-md-3 text-center">
+            <button class="btn home-s-btn btn-lg" ng-click="myalgolia.newSearch()">Search</button>
+          </div>
+
+
+        </form>
+
+      </div>
 
     </div>
+    </div>
+
   </div>
+
+
   <div class="row">
     <div class="col-md-3">
-        <div class="col-md-12 card">
-            <h3><strong>Package Types</strong></h3>
-            <div ng-repeat="package_type in myalgolia.package_types">
-                  <div class="checkbox">
-                    <label>
-                      <!--<input type="checkbox" class="md-checkbox">-->
-                      <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
-                      <span class="checkbox-material"><span class="check"></span></span>
-                      {{package_type.name}}
-                    </label>
-                  </div>
-            </div>
-           </div>
+      <div class="col-md-12 card hidden-xs">
+        <h3><strong>Package Types</strong></h3>
+        <div ng-repeat="package_type in myalgolia.package_types">
+          <div class="checkbox">
+            <label>
+              <!--<input type="checkbox" class="md-checkbox">-->
+              <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
+              <span class="checkbox-material"><span class="check"></span></span>
+              {{package_type.name}}
+            </label>
+          </div>
+        </div>
+      </div>
       <!--remove the category-->
       <!--<div class="m-t-40 card">
         <div class="col-md-12">
@@ -51,67 +61,69 @@
         </div>
         </div>-->
 
-        <div class="col-md-12 card">
-          <h3><strong>Price</strong></h3>
-          <div class="primary m-b-0">
-            <div class="radio radio-primary">
-              <label>
-                <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="1" class="md-radio">
-                <i class="fa fa-inr"></i> 1000 and Below
-              </label>
-            </div>
+      <div class="col-md-12 card">
+        <h3><strong>Price</strong></h3>
+        <div class="primary m-b-0">
+          <div class="radio radio-primary">
+            <label>
+              <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="1" class="md-radio">
+              <i class="fa fa-inr"></i> 1000 and Below
+            </label>
+          </div>
 
-            <div class="radio radio-primary">
-              <label>
-                <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="2" class="md-radio">
-                <i class="fa fa-inr"></i>  1001- &nbsp;<i class="fa fa-inr"></i>20000
-              </label>
-            </div>
+          <div class="radio radio-primary">
+            <label>
+              <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="2" class="md-radio">
+              <i class="fa fa-inr"></i>  1001- &nbsp;<i class="fa fa-inr"></i>20000
+            </label>
+          </div>
 
-            <div class="radio radio-primary">
-              <label>
-                <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="3" class="md-radio">
-                <i class="fa fa-inr"></i>  10001-&nbsp;<i class="fa fa-inr"></i>50000
-              </label>
-            </div>
+          <div class="radio radio-primary">
+            <label>
+              <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="3" class="md-radio">
+              <i class="fa fa-inr"></i>  10001-&nbsp;<i class="fa fa-inr"></i>50000
+            </label>
+          </div>
 
-            <div class="radio radio-primary">
-              <label>
-                <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="4" class="md-radio">
-                <i class="fa fa-inr"></i>  50001-&nbsp;<i class="fa fa-inr"></i>100000
-              </label>
-            </div>
+          <div class="radio radio-primary">
+            <label>
+              <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="4" class="md-radio">
+              <i class="fa fa-inr"></i>  50001-&nbsp;<i class="fa fa-inr"></i>100000
+            </label>
+          </div>
 
-            <div class="radio radio-primary">
-              <label>
-                <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="5" class="md-radio">
-                <i class="fa fa-inr"></i>   100001 and Above
-              </label>
-            </div>
+          <div class="radio radio-primary">
+            <label>
+              <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="5" class="md-radio">
+              <i class="fa fa-inr"></i>   100001 and Above
+            </label>
+          </div>
 
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 ">
+      <div class="card">
+      <div class="col-md-offset-8 col-md-4">
+        <md-select id="sorting" ng-model="myalgolia.sortParameter" ng-change="myalgolia.newSearch()">
+          <md-option value="none" selected="true">Sort by: Relevance</md-option>
+          <md-option value="p_htol">Price High to low</md-option>
+          <md-option value="p_ltoh">Price Low to High</md-option>
+          <md-option value="newPackagesFirst">New Arrivals</md-option>
+        </md-select>
+
+      </div>
+      <div ng-repeat="row in myalgolia.package_rows" class="col-md-12">
+        <div ng-repeat="package in row" style="padding-left: 0; padding-right: 0;" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+          <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
           </div>
         </div>
       </div>
-  <div class="col-md-9 card">
-    <div class="col-md-offset-8 col-md-4">
-      <md-select id="sorting" ng-model="myalgolia.sortParameter" ng-change="myalgolia.newSearch()">
-        <md-option value="none" selected="true">Sort by: Relevance</md-option>
-        <md-option value="p_htol">Price High to low</md-option>
-        <md-option value="p_ltoh">Price Low to High</md-option>
-        <md-option value="newPackagesFirst">New Arrivals</md-option>
-      </md-select>
-
+      <div ng-if="myalgolia.package_rows.length==0">
+        <img class="img-responsive" src="images/not_found_package.png" height="auto" width="100%">
+      </div>
     </div>
-              <div ng-repeat="row in myalgolia.package_rows" class="col-md-12">
-                <div ng-repeat="package in row" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
-                  <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
-                  </div>
-                </div>
-              </div>
-    <div ng-if="myalgolia.package_rows.length==0">
-      <img class="img-responsive" src="images/not_found_package.png" height="auto" width="100%">
-    </div>
+  <div infinite-scroll="myalgolia.loadNextPage()" infinite-scroll-distance="1" class="text-center text-c f-18"></div>
 </div>
-  </div>
-  <div infinite-scroll="myalgolia.loadNextPage()" infinite-scroll-distance="1"> More packages are loading...</div>
+</div>
 </div>
