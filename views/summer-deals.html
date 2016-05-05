@@ -75,6 +75,13 @@
   /*}*/
 
 
+ #packagePanel .page-profil .profil-content{
+   padding: 0 20px;
+   margin-right: 20px;
+
+  }
+
+
 
 
 
@@ -175,16 +182,24 @@
 
       </div>
 
-      <div class="col-md-2 col-md-offset-10 m-r-10 m-t-20">
-        <!--<span style="padding: 10px 15px;"><a href="">High Price <i class="fa  fa-long-arrow-up"></i></a></span>-->
-        <!--<span style="padding: 10px 15px;"><a href="">Low Price <i class="fa  fa-long-arrow-down"></i></a></span>-->
+      </div>
 
-        <md-input-container class="md-block" style="margin: 0;">
+    <div class="row">
+
+
+      <div class="col-md-3 m-t-10 ">
+        <h4 class="m-l-10 "><a ng-href="/summer-deals/all" style="color: #78588c;">View All Deals</a></h4>
+      </div>
+
+
+      <div class="col-md-2 col-md-offset-7">
+        <md-input-container class="md-block">
           <label>Sort by Price</label>
           <md-select name="myModel" ng-model="myModel">
             <md-option value="1">High</md-option>
             <md-option value="2">Low</md-option>
           </md-select>
+
           <div class="errors" ng-messages="myForm.myModel.$error" ng-if="myForm.$dirty">
             <div ng-message="required">Required</div>
           </div>
@@ -192,21 +207,12 @@
 
       </div>
 
-
-
-
     </div>
+
+
     <hr>
 
 
-    <!--
-        <div class="row">
-          <div class="col-md-3">
-
-
-          </div>
-        </div>
-    -->
 
 
 
@@ -270,6 +276,7 @@
   </div>
 
 
+</div>
 
 
 </div>

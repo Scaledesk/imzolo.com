@@ -80,8 +80,11 @@
                     <label for="category">Category</label>
                     <md-select ng-model="p_category" id="category" ng-change="subCategory()">
                       <md-option value="" ng-selected="-1">Select Category</md-option>
-                      <md-option ng-repeat="c in category" ng-if="c.id==10 || c.id==14 || c.id==90 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77" value="{{c.id}}">
+                      <md-option ng-repeat="c in category" ng-if="c.id!=13" value="{{c.id}}">
                         {{c.name}}
+                      </md-option>
+                      <md-option value="13">
+                        {{"Others"}}
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>

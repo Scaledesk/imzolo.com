@@ -22,22 +22,22 @@
                 <div class="form-group row m-b-30">
                   <label class="control-label">Old Password</label>
                   <div class="">
-                    <input class="form-control input-sm" type="password" ng-change="settings_error.old=''" ng-model="pass.old_password" placeholder="Old Password">
-                    <p class="text-danger">{{settings_error.old}}</p>
+                    <input class="form-control input-sm" type="password" ng-change="settings_error.old=''" ng-focus="flag = true" ng-model="pass.old_password" placeholder="Old Password">
+                    <div class="text-danger">{{settings_error.old}}</div>
                   </div>
                 </div>
                 <div class="form-group row m-b-30">
                   <label class="control-label">New Password</label>
                   <div class="">
-                    <input class="form-control input-sm" type="password" ng-change="settings_error.new=''" ng-model="pass.new_password" placeholder="New Password">
-                    <p class="text-danger">{{settings_error.new}}</p>
+                    <input class="form-control input-sm" type="password" ng-change="settings_error.new=''" ng-focus="flag = true" ng-model="pass.new_password" placeholder="New Password">
+                    <div class="text-danger">{{settings_error.new}}</div>
                   </div>
                 </div>
                 <div class="form-group row m-b-30">
                   <label class="control-label">Confirm Password</label>
                   <div class="">
-                    <input class="form-control input-sm" type="password" ng-model="pass.confirm_password" ng-change="settings_error.match=''" placeholder="Confirm Password">
-                    <p class="text-danger">{{settings_error.match}}</p>
+                    <input class="form-control input-sm" type="password" ng-model="pass.confirm_password" ng-change="settings_error.match=''" ng-focus="flag = true" placeholder="Confirm Password">
+                    <div class="text-danger">{{settings_error.match}}</div>
                   </div>
                 </div>
               </div>
@@ -46,8 +46,8 @@
           <div class="card-action" style="
     text-align: -webkit-center;">
             <!--                    <a href="#">Know More</a> -->
-            <button type="button" ng-click="changePassword(pass)" class="btn btn-zolo btn-transparent">Change Password
-              <div class="ripple-wrapper"></div>
+            <button type="button" ng-disabled="disabled" ng-click="changePassword(pass)" class="btn btn-zolo btn-transparent">Change Password
+              <div class="ripple-wrapper"></div>&nbsp;<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
             </button>
           </div>
         </div>
