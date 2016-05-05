@@ -152,7 +152,7 @@
 
         <md-tab label="Signup" class="signup-m">
           <md-content layout-padding style="overflow-x: hidden;">
-            <div class="row">
+            <div ng-hide="sign_up_successful" class="row">
               <form name="signup" ng-submit="userRegistration1()" novalidate>
                 <div class="col-md-6 col-xs-12 m-t-5 m-r-60 ">
 
@@ -278,8 +278,17 @@
 
 
             </div>
+            <div ng-show="sign_up_successful" class="row">
+              <div class="col-md-12 text-center m-t-60">
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                  <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular> </div>
+                <div class="row text-center">
+                  <p class="text-center"> Sign Up successful . Loggin you in !</p>
+                  <p class="f-18 text-zolo text-center"> Welcome to Zolo </p>
+                </div>
 
-
+              </div>
+            </div>
           </md-content>
         </md-tab>
 

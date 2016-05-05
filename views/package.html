@@ -339,11 +339,17 @@
             <p ng-if="package.term_condition!=null || package.term_condition!=''" ng-bind-html="package.term_condition" style="width:100%;color: #74767d; font-size: 15px; ">
             </p>
             <!-- links-->
-            <p ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
-              <a ng-href="{{package.youtube_links}}" ng-if="package.youtube_links != null"><i class="fa fa-youtube"></i>&nbsp;&nbsp; Youtube link</a><br/>
-              <a ng-href="{{package.facebook_links}}" ng-if="package.facebook_links != null"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook link</a><br/>
-              <a ng-href="{{package.any_other_links}}" ng-if="package.any_other_links != null">&nbsp;&nbsp;other link</a>
-            </p>
+            <h3>Social Links</h3>
+            <hr class="custom-hr">
+            <div style ="display: inline-block;"ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
+
+              <a ng-href="{{package.facebook_links}}" ng-if="package.facebook_links != null"><i class="fa fa-facebook-square fa-3x" style="color: #3b5998;"></i></a>&nbsp;&nbsp;
+
+              <a ng-href="{{package.youtube_links}}" ng-if="package.youtube_links != null"><i class="fa fa-youtube-square fa-3x" style="color: #e52d27;"></i>&nbsp;&nbsp;</a>
+
+              <a ng-href="{{package.any_other_links}}" ng-if="package.any_other_links != null"><i class="fa fa-link fa-3x" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -944,7 +950,7 @@
       <span>All rights reserved. </span>
     </p>
     <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact/" class="m-l-10 m-r-10">Contact us</a> |   <a ng-href="/terms-of-use/" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy/" class="m-l-10">Privacy Policy</a></span>
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
     </p>
   </div>
 </div>
