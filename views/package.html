@@ -339,9 +339,9 @@
             <p ng-if="package.term_condition!=null || package.term_condition!=''" ng-bind-html="package.term_condition" style="width:100%;color: #74767d; font-size: 15px; ">
             </p>
             <!-- links-->
-            <h3>Social Links</h3>
-            <hr class="custom-hr">
-            <div style ="display: inline-block;"ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
+            <h3 ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null">Social Links</h3>
+            <hr ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null" class="custom-hr">
+            <div style ="display: inline-block;" ng-if="package.youtube_links != null || package.facebook_links != null || package.any_other_links != null" style="width:100%;color: #74767d; font-size: 15px;">
 
               <a ng-href="{{package.facebook_links}}" ng-if="package.facebook_links != null"><i class="fa fa-facebook-square fa-3x" style="color: #3b5998;"></i></a>&nbsp;&nbsp;
 
