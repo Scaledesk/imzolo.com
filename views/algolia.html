@@ -33,6 +33,7 @@
     <div class="col-md-3">
       <div class="col-md-12 card hidden-xs">
         <h3><strong>Package Types</strong></h3>
+        <hr class="custom-hr">
         <div ng-repeat="package_type in myalgolia.package_types">
           <div class="checkbox">
             <label>
@@ -63,6 +64,7 @@
 
       <div class="col-md-12 card">
         <h3><strong>Price</strong></h3>
+        <hr class="custom-hr">
         <div class="primary m-b-0">
           <div class="radio radio-primary">
             <label>
@@ -74,21 +76,21 @@
           <div class="radio radio-primary">
             <label>
               <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="2" class="md-radio">
-              <i class="fa fa-inr"></i>  1001- &nbsp;<i class="fa fa-inr"></i>20000
+              <i class="fa fa-inr"></i>  1001- &nbsp;<i class="fa fa-inr"></i> 20000
             </label>
           </div>
 
           <div class="radio radio-primary">
             <label>
               <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="3" class="md-radio">
-              <i class="fa fa-inr"></i>  10001-&nbsp;<i class="fa fa-inr"></i>50000
+              <i class="fa fa-inr"></i>  10001-&nbsp;<i class="fa fa-inr"></i> 50000
             </label>
           </div>
 
           <div class="radio radio-primary">
             <label>
               <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="4" class="md-radio">
-              <i class="fa fa-inr"></i>  50001-&nbsp;<i class="fa fa-inr"></i>100000
+              <i class="fa fa-inr"></i>  50001-&nbsp;<i class="fa fa-inr"></i> 100000
             </label>
           </div>
 

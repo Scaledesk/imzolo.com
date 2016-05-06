@@ -4,7 +4,8 @@
     <div class="item hover-effect">
       <a ng-href="/package/{{package.slug}}/">
         <div class="user">
-          <img preload-image default-image="../global/images/imageloader.gif" ng-src="{{package.first_photo || '../global/images/no2.png'}}" class="img-responsive hover-img zolo-img-card-height">
+          <!--<img preload-image default-image="../global/images/imageloader.gif" ng-src="{{package.first_photo || '../global/images/no2.png'}}" class="img-responsive hover-img zolo-img-card-height">-->
+          <zolo-image photo="{{package.first_photo}}"></zolo-image>
           <div class="info zolo-custom-info-card">
             <div class="row">
               <div class="col-md-12 text-center">
@@ -94,7 +95,7 @@
 
           </div>
 
-          <div ng-if="!isAuthenticated()" ng-click="reidrectTpLogin()" class="col-sm-4 col-xs-4 zolo-card-space">
+          <div ng-if="!isAuthenticated()" ng-click="showTabDialog()" class="col-sm-4 col-xs-4 zolo-card-space">
             <i class="fa fa-tasks"> </i>
           </div>
 

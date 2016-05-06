@@ -233,7 +233,7 @@
                   </md-tooltip></li>
                   <li>
 
-                    <a ng-if="!isLoggedIn()" href="#login" class="hover-f"><i class="fa fa-tasks fa-2x"></i></a>
+                    <a ng-if="!isLoggedIn()" ng-click="showTabDialog()" href="" class="hover-f"><i class="fa fa-tasks fa-2x"></i></a>
 
 
                     <md-menu ng-if="isLoggedIn()">
@@ -655,7 +655,7 @@
 
                 <div class="col-md-3 col-xs-4">
                   <div class="pdp-addon-price">
-                    &#8377; {{addon.amount}}
+                    &#8377;{{addon.amount}}
                   </div>
 
 
@@ -877,6 +877,7 @@
     <div class="row ">
       <div class="col-md-12 text-center">
         <h2><strong>View More packages by <a ng-href="/profile/{{package.seller_profile.user_id}}/"> {{package.seller_name}}  </a></strong></h2>
+        <hr>
       </div>
 
     </div>

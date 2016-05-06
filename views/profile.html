@@ -64,8 +64,8 @@
               <!--<strong ng-if="profile.birth_date!=null || profile.birth_date !=''">{{profile.birth_date | date : 'dd MMM yyyy'}}</strong>-->
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <button ng-hide="edit_profile" ng-click="edit_profile=true" class="btn e-profile-btn">Edit Profile</button>
-              <button ng-show="edit_profile" ng-click="saveProfile()" class="btn e-profile-btn">Save</button>
+              <button ng-hide="edit_profile" ng-click="edit_profile=true" class="btn e-profile-btn zolo-btn">Edit Profile</button>
+              <button ng-show="edit_profile" ng-click="saveProfile()" class="btn e-profile-btn zolo-btn">Save</button>
             </div>
           </div>
         </div>
@@ -153,8 +153,8 @@
                       </div>
                       <br>
                       <hr class="custom-hr">
-                      <md-button class="md-raised md-primary" ng-click="updateFirstTab()">Save</md-button>
-                      <md-button ng-show="profile.is_seller == 1 && profile.step_number!=null" class="md-raised md-primary"ng-click="nextTab()">next</md-button>
+                      <md-button class="md-raised md-primary zolo-btn" ng-click="updateFirstTab()">Save</md-button>
+                      <md-button ng-show="profile.is_seller == 1 && profile.step_number!=null" class="md-raised md-primary zolo-btn"ng-click="nextTab()">next</md-button>
                     </md-content>
                   </md-tab>
                   <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="About Yourself">
@@ -254,9 +254,9 @@
                           </div>
                         </div>
                       </div>
-                      <md-button class="md-raised md-primary" ng-click="backTab()">Back</md-button>
-                      <md-button class="md-raised md-primary" ng-click="saveAndNext()">Save</md-button>
-                      <md-button class="md-raised md-primary" ng-click="nextTab()">Next</md-button>
+                      <md-button class="md-raised md-primary zolo-btn" ng-click="backTab()">Back</md-button>
+                      <md-button class="md-raised md-primary zolo-btn" ng-click="saveAndNext()">Save</md-button>
+                      <md-button class="md-raised md-primary zolo-btn" ng-click="nextTab()">Next</md-button>
                     </md-content>
                   </md-tab>
                   <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="Portfolio">
@@ -285,9 +285,9 @@
                         </div>
                       </div>
                       <!--<button ng-click="uploadPortfolio(portfolio.picFile,portfolio)" class="btn">add</button>-->
-                      <md-button class="md-raised md-primary" ng-click="backTab()">Back</md-button>
-                      <md-button ng-click="uploadPortfolio(port.picFile)" class="md-raised md-primary">Save</md-button>
-                      <md-button ng-click="nextTab()" class="md-raised md-primary">Next</md-button>
+                      <md-button class="md-raised md-primary zolo-btn" ng-click="backTab()">Back</md-button>
+                      <md-button ng-click="uploadPortfolio(port.picFile)" class="md-raised md-primary zolo-btn">Save</md-button>
+                      <md-button ng-click="nextTab()" class="md-raised md-primary zolo-btn">Next</md-button>
                     </md-content>
                   </md-tab>
                   <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="Document">
@@ -322,7 +322,7 @@
                         </div>
                       </div>
 
-                      <md-button ng-click="updateDocument(doc.picFile)" class="md-raised md-primary">Save</md-button>
+                      <md-button ng-click="updateDocument(doc.picFile)" class="md-raised md-primary zolo-btn">Save</md-button>
                     </md-content>
                   </md-tab>
 
@@ -427,6 +427,7 @@
         <div ng-hide="portfolio_selected" class="col-md-12">
           <div class="card">
             <h2>My Portfolio</h2>
+            <hr>
             <div class="row">
               <div ng-repeat="portfolio in portfolios" class="col-md-4">
                 <div class="panel panel-transparent">

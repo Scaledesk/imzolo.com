@@ -1515,7 +1515,8 @@ padding-left: 5px !important;
 	-webkit-box-orient: vertical !important;
 	height: 70px !important;
 	padding: 11px !important;
-    color: #78588c;
+  color: #78588c;
+  font-size: 14px!important;
 }
 
 .zolo-img-card-height{
@@ -2652,20 +2653,20 @@ figure.effect-steve:hover p {
 .about-t-1{
   background-color: #F7F7F7;
   padding: 10px 20px 28px 20px;
-  color: #000;
+  color: #444;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .about-t-2{
   background-color: #F7F7F7;
   padding: 10px 20px 50px 20px;
-  color: #000;
+  color: #444;
   border-bottom: 1px solid #e0e0e0;
 }
 .about-t-3{
   background-color: #F7F7F7;
   padding: 10px 20px 28px 20px;
-  color: #000;
+  color: #444;
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -2963,3 +2964,10 @@ end bootstrap off canvas
 */
 
 
+
+
+.b-s-img{
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid #765f89;
+}
