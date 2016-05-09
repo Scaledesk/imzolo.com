@@ -46,7 +46,7 @@
           </div>
 
           <div class="col-xs-6 ">
-            <a ng-href="/profile/{{package.seller_id}}/" ><span class="card-by-user pull-right"><span style="font-weight: 300">By:</span> {{package.seller_name | limitTo:14}}</span></a>
+            <a ng-href="/profile/{{package.seller_id}}/" ><span class="card-by-user pull-right"><span style="font-weight: 300">By:</span> {{package.seller_name | limitTo:14}}<span ng-if="package.seller_name.length>14">..</span></span></a>
           </div>
 
 

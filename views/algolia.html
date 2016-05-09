@@ -121,11 +121,16 @@
           </div>
         </div>
       </div>
+        <div ng-if="myalgolia.current_page!=myalgolia.total_page" class="col-md-12 text-center" ng-click="myalgolia.loadNextPage()">
+          <button ng-disabled="myalgolia.loading_more" class="btn btn-lg btn-zolo m-t-20">
+            Load More Packages... <span><i ng-if="myalgolia.loading_more" class="fa fa-spinner fa-spin"></i> </span>
+          </button>
+        </div>
       <div ng-if="myalgolia.package_rows.length==0">
         <img class="img-responsive" src="images/not_found_package.png" height="auto" width="100%">
       </div>
     </div>
-  <div infinite-scroll="myalgolia.loadNextPage()" infinite-scroll-distance="1" class="text-center text-c f-18"></div>
+  <!--<div infinite-scroll="myalgolia.loadNextPage()" infinite-scroll-distance="1" class="text-center text-c f-18"></div>-->
 </div>
 </div>
 </div>

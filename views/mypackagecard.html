@@ -48,10 +48,8 @@
           </div>
 
           <div class="col-xs-6 ">
-            <span class="card-by-user pull-right"><span style="font-weight: 300">By:</span> {{package.seller_name}}</span>
+            <span class="card-by-user pull-right"><span style="font-weight: 300">By:</span> {{package.seller_name | limitTo:14}}<span ng-if="package.seller_name.length>14">..</span></span>
           </div>
-
-
         </div>
       </div>
 
