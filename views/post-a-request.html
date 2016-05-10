@@ -87,6 +87,7 @@
 
 
   <div class="row">
+    <form role="form" novalidate>
     <div class="col-md-8 col-md-offset-2 col-md-offset-2">
 
       <div class="row m-t-20">
@@ -96,15 +97,14 @@
 
 
         <div class="col-md-6 ">
-          <select >
-            <option>Category 1</option>
-            <option>Category 1</option>
-            <option>Category 1</option>
-            <option>Category 1</option>
-          </select>
+          <!--<label for="package_type">Select Package Type</label>-->
+          <md-select ng-model="package_type" id="package_type">
+            <md-option value="" ng-selected="-1">Select Package Type</md-option>
+            <md-option ng-repeat="pt in packagesType" value="{{pt.id}}">
+              {{pt.name}}
+            </md-option>
+          </md-select>
         </div>
-
-
       </div>
 
 
@@ -114,16 +114,14 @@
         </div>
 
         <div class="col-md-6">
-          <select>
-            <option>New Delhi</option>
-            <option>New Delhi</option>
-
-            <option>New Delhi</option>
-
-          </select>
+          <!--<label for="location">Location</label>-->
+          <md-select multiple ng-model="location" id="location">
+            <md-option value="" ng-selected="-1">Select Location</md-option>
+            <md-option ng-repeat="l in locations" value="{{l.text}}">
+              {{l.text}}
+            </md-option>
+          </md-select>
         </div>
-
-
       </div>
 
       <div class="row m-t-20">
@@ -184,6 +182,7 @@
 
 
     </div>
+    </form>
   </div>
 
 
