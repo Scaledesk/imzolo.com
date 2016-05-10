@@ -54,7 +54,7 @@
           <hr>
 
 
-          <a>
+          <a ng-if="_message.messages.length>0">
             <div class="row m-t-5 border-bottom" ng-repeat="message in _message.messages track by $index" ng-click="_message.setMessageRead($index);_message.openMessage($index);">
 
 
@@ -91,7 +91,9 @@
 
             </div>
           </a>
-
+<div class="row" ng-if="_message.messages.length==0">
+  <p class="text-center large-size">No Message Found</p>
+</div>
 
           <!--</div>-->
         </div>
