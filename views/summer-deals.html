@@ -195,9 +195,9 @@
       <div class="col-md-2 col-md-offset-7">
         <md-input-container class="md-block">
           <label>Sort by Price</label>
-          <md-select name="myModel" ng-model="myModel">
-            <md-option value="1">High</md-option>
-            <md-option value="2">Low</md-option>
+          <md-select name="myModel" ng-model="sortBy" ng-change="sortingPackageByPrice(sortBy)">
+            <md-option value="high">High to Low</md-option>
+            <md-option value="low">Low to High</md-option>
           </md-select>
 
           <div class="errors" ng-messages="myForm.myModel.$error" ng-if="myForm.$dirty">

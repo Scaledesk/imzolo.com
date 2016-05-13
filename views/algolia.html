@@ -1,26 +1,40 @@
 <update-title   title="{{myalgolia.searchResult.nbHits}} packages found {{myalgolia.query_to_show}} | Zolo "></update-title>
 <update-meta    name="description" content="{{myalgolia.searchResult.nbHits}} Pre-Packaged services/products found {{myalgolia.query_to_show}}. Discover and book creative Professionals & Freelancers, choose from thousands of Pre-Packaged services at all budget. India's first ever Talent Marketplace | Zolo"></update-meta>
+
+
+<style>
+   .main-content .page-content{
+     top: 40px!important;
+
+  }
+</style>
+
+
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 ">
-      <div class="card">
+      <div class="new-search-a m-b-10">
 
       <div class="row">
+        <div class="append-icon">
         <form role="form" ng-submit="myalgolia.newSearch()">
-          <div class="col-md-9">
-            <input class="form-control f-18"  type="search" ng-keydown="myalgolia.newSearchOnBackspace($event)" ng-model="myalgolia.searchQuery" ng-keypress="myalgolia.newSearch()" placeholder="What are you looking for Today ?"  >
+          <div class="col-md-9" style="padding-right: 0;">
+            <input class=" f-18 home-page-search-a"  type="search" ng-keydown="myalgolia.newSearchOnBackspace($event)" ng-model="myalgolia.searchQuery" ng-keypress="myalgolia.newSearch()" placeholder="What are you looking for Today ?"  >
+            <i ng-click="myalgolia.newSearch()" class="fa fa-search header-search-icon-a"></i>
+</div>
 
-          </div>
 
 
 
-          <div class="col-md-3 text-center">
-            <button class="btn home-s-btn btn-lg" ng-click="myalgolia.newSearch()">Search</button>
+          <div class="col-md-3 text-center" style="padding-left: 0;">
+            <button class="btn home-s-btn-a btn-lg" ng-click="myalgolia.newSearch()">Search</button>
           </div>
 
 
         </form>
-
+        </div>
       </div>
 
     </div>
@@ -62,7 +76,7 @@
         </div>
         </div>-->
 
-      <div class="col-md-12 card">
+      <div class="col-md-12 card hidden-xs">
         <h3><strong>Price</strong></h3>
         <hr class="custom-hr">
         <div class="primary m-b-0">
@@ -103,6 +117,146 @@
 
         </div>
       </div>
+
+
+      <div class="col-md-12 visible-xs hidden-md- hidden-lg hidden-sm card">
+        <!--<div class="col-md-6 portlets">-->
+          <!--<div class="panel">-->
+            <!--<div class="panel-header md-panel-controls">-->
+              <!--&lt;!&ndash;<h3><strong>Light</strong> style</h3>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="panel-content">-->
+              <!--<ul class="nav nav-tabs">-->
+                <!--<li class="active"><a href="#tab1_1" data-toggle="tab">Home</a></li>-->
+                <!--<li class=""><a href="#tab1_2" data-toggle="tab">Profile</a></li>-->
+                <!--&lt;!&ndash;<li><a href="#tab1_3" data-toggle="tab">Other Tab</a></li>&ndash;&gt;-->
+              <!--</ul>-->
+              <!--<div class="tab-content">-->
+                <!--<div class="tab-pane fade active in" id="tab1_1">-->
+                  <!--<div class="row column-seperation">-->
+                    <!--<div class="col-md-6 line-separator">-->
+                      <!--<h3><strong>Big</strong> Title for your tab</h3>-->
+                      <!--<h4>Customize your tab as you want easily</h4>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6">-->
+                      <!--<p class="light">default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="tab-pane fade" id="tab1_2">-->
+                  <!--<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<div class="tab-pane fade" id="tab1_3">&ndash;&gt;-->
+                  <!--&lt;!&ndash;<p>Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+              <!--</div>-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+
+          <!--<div class="col-xs-4">-->
+            <!--<p class="zolo-n-m  text-center"><i id="packageType-f" class="fa fa-lock fa-2x"></i></p>-->
+
+
+          <!--</div>-->
+
+
+          <!--<div class="col-xs-4">-->
+            <!--<p class="zolo-n-m text-center"><i id="packageTime-f" class="fa fa-lock fa-2x"></i></p>-->
+
+
+          <!--</div>-->
+
+
+          <!--<div class="col-xs-4">-->
+            <!--<p class="zolo-n-m  text-center"><i class="fa fa-lock fa-2x"></i></p>-->
+
+
+          <!--</div>-->
+
+
+        <!--</div>-->
+
+        <!--<hr class="custom-hr">-->
+
+        <div class="row">
+          <div id="packageType-f-content" class="col-md-12">
+            <h3><strong>Package Types</strong></h3>
+            <hr class="custom-hr">
+            <div ng-repeat="package_type in myalgolia.package_types">
+              <div class="checkbox">
+                <label>
+                  <!--<input type="checkbox" class="md-checkbox">-->
+                  <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
+                  <span class="checkbox-material"><span class="check"></span></span>
+                  {{package_type.name}}
+                </label>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div id="packageTime-f-content" class="col-md-12">
+            <h3><strong>Price</strong></h3>
+            <hr class="custom-hr">
+            <div class="primary m-b-0">
+              <div class="radio radio-primary">
+                <label>
+                  <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="1" class="md-radio">
+                  <i class="fa fa-inr"></i> 1000 and Below
+                </label>
+              </div>
+
+              <div class="radio radio-primary">
+                <label>
+                  <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="2" class="md-radio">
+                  <i class="fa fa-inr"></i>  1001- &nbsp;<i class="fa fa-inr"></i> 20000
+                </label>
+              </div>
+
+              <div class="radio radio-primary">
+                <label>
+                  <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="3" class="md-radio">
+                  <i class="fa fa-inr"></i>  10001-&nbsp;<i class="fa fa-inr"></i> 50000
+                </label>
+              </div>
+
+              <div class="radio radio-primary">
+                <label>
+                  <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="4" class="md-radio">
+                  <i class="fa fa-inr"></i>  50001-&nbsp;<i class="fa fa-inr"></i> 100000
+                </label>
+              </div>
+
+              <div class="radio radio-primary">
+                <label>
+                  <input type="radio" ng-change="myalgolia.filterByPrice(myalgolia.selectedPrice)" ng-model="myalgolia.selectedPrice" ng-value="5" class="md-radio">
+                  <i class="fa fa-inr"></i>   100001 and Above
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
     </div>
     <div class="col-md-9 ">
       <div class="card">
@@ -133,4 +287,35 @@
   <!--<div infinite-scroll="myalgolia.loadNextPage()" infinite-scroll-distance="1" class="text-center text-c f-18"></div>-->
 </div>
 </div>
+</div>
+
+
+<!--<script>-->
+  <!--$(document).ready(function(){-->
+    <!--$("#packageType-f").click(function(){-->
+      <!--$("#packageType-f-content").slideToggle("slow");-->
+    <!--});-->
+  <!--});-->
+<!--</script>-->
+
+
+<!--<style>-->
+  <!--#packageType-f-content{-->
+    <!--background-color: #00A000;-->
+  <!--}-->
+
+<!--</style>-->
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
+  </div>
 </div>

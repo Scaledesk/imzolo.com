@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
   <!-- <div class="header">
       <h2><strong>Blank</strong> Page</h2>
 
@@ -118,7 +118,7 @@
                       <div class="row m-t-10">
                         <div class="col-md-5 f-14 text-primary">Order Status :</div>
                         <div class="col-md-7" style="text-align:left;">
-                          <p class="bg-red zolo-center p-2">{{booking.booking_status}}</p></div>
+                          <p class="bg-green zolo-center p-2">{{booking.booking_status}}</p></div>
 
                       </div>
 
@@ -164,8 +164,7 @@
             <div class="card-content p-t-10">
 
 
-              <p class="w-500 f-20 p-t-10" style="
-    text-align: -webkit-center;">
+              <p class="w-500 f-20 p-t-10 text-center">
                 <strong>Order Summary</strong>
               </p>
               <hr class="custom-hr">
@@ -245,8 +244,7 @@
 
             <div class="card-content p-t-10">
 
-              <p class="w-500 f-20 p-t-10" style="
-    text-align: -webkit-center;">
+              <p class="w-500 f-20 p-t-10 text-center">
                 <strong>Seller Instructions</strong>
               </p>
               <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
@@ -348,17 +346,6 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
           </section>
           <!-- END TIMELINE CONTENT -->
         </div>
@@ -371,22 +358,15 @@
 
 
 
-
-
-
-
-
-
       <div class="row">
 
         <div class="col-md-12">
 
-          <div class="card pulse animated p-t-0">
+          <div class="card  p-t-0">
 
             <div class="card-content p-t-10">
 
-              <p class="w-500 f-20 p-t-10" style="
-    text-align: -webkit-center;">
+              <p class="w-500 f-20 p-t-10 text-center">
                 <strong>Contact Seller</strong>
               </p>
               <hr class="custom-hr">
@@ -412,9 +392,9 @@
                           </div>
                         </div>
 
-                        <button type="button" ng-click="sendMessageBooking(booking_message)" class="btn btn-zolo btn-transparent">Send Message<div class="ripple-wrapper"></div></button>
+                        <button type="button" ng-click="sendMessageBooking(booking_message)" class="btn zolo-btn">Send Message<div class="ripple-wrapper"></div></button>
 
-                        <button type="button" class="btn btn-primary btn-transparent"><i class="icon-link"></i>Attach a file<div class="ripple-wrapper"></div></button>
+                        <button type="button" class="btn btn-primary m-t-10"><i class="icon-link"></i>Attach a file<div class="ripple-wrapper"></div></button>
 
                       </form>
 
@@ -456,26 +436,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
       <!--shown only if the booking status is completed-->
       <div class="row"  ng-if="booking.booking_status=='completed'||booking.booking_status=='review'">
 
         <div class="col-md-12">
 
-          <div class="card pulse animated p-t-0">
+          <div class="card  p-t-0">
 
             <div class="card-content p-t-10">
 
-              <p class="w-500 f-24 p-t-10" style="
-    text-align: -webkit-center; color:#4caf50;">
+              <p class="w-500 f-24 p-t-10 text-center" style=" color:#4caf50;">
                 Congratulations!! The task has been completed by <span>Seller Name</span>
               </p>
               <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
@@ -501,7 +471,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12" >
 
                       <div class="row">
-                        <p class="f-18 m-t-20" style="text-align:center;"> Please rate your experince with the seller :  </p>
+                        <p class="f-18 m-t-20 text-center"> Please rate your experince with the seller :  </p>
                         <hr class="custom-hr">
                       </div>
 
@@ -576,10 +546,11 @@
                         <p class="f-18">Please write a review for the Seller</p>
                         <hr class="custom-hr">
                         <div class="form-control-wrapper">
-                          <textarea class="form-control empty bcolor-custom" ng-model="rating.comment" style="height:50px;" required></textarea>
+                          <textarea class="form-control empty bcolor-custom" ng-model="rating.comment" id="rating_comment" ng-change="comment_error = false" style="height:50px;" required></textarea>
                           <div class="floating-label">Any comments from your side are most welcome...</div>
                           <span class="material-input"></span>
                         </div>
+                        <div class="text-danger" ng-show="comment_error">Comment is Required!</div>
                       </div>
 
                       <button type="button" class="btn btn-zolo btn-transparent" ng-click="submitReview()">Submit Review<div class="ripple-wrapper"></div></button>
@@ -649,4 +620,4 @@
 </div>
 
 
-</div>
+

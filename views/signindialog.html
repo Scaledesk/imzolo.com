@@ -1,4 +1,5 @@
 <style>
+
   input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -38,18 +39,22 @@
       /*margin-top: -21px;*/
     /*}*/
 
-
-
-
-
-
   }
+
+
+  .md-tab span{
+    text-transform: capitalize;
+  }
+
+
+
+
 </style>
 
 
 <md-dialog class="m-t-40" aria-label="Login (signup)">
 
-  <md-dialog-content class="login-m" style="max-width:800px;height:500px; overflow-y: scroll;">
+  <md-dialog-content class="login-m" style="max-width:800px;height:500px; overflow-y: scroll; text-transform: capitalize;">
     <div class="l-m ">
       <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
         <md-tab label="Login" >
@@ -108,7 +113,7 @@
 
                   <button type="submit" ng-disabled="disabled" class="btn btn-lg zolo-btn" style="width: 100%; ">Login&nbsp;&nbsp;<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
                   <!--<button ladda-button="disabled" type="submit" class="btn btn-lg zolo-btn ladda-button" style="width: 100%; " data-style="zoom-in"><span class="ladda-label">Login</span></button>-->
-                  <div class="f-10 ">By Logging in you agree to our <span class="zolo-c"><a ng-href="/terms-of-use" target="_blank"> T&C</a></span> and <span class="zolo-c"><a ng-href="/privacy-policy" target="_blank">Privacy Policy.</a></span></div>
+                  <div class="f-10 text-t-n">By logging in you agree to our <span class="zolo-c"><a ng-href="/terms-of-use" target="_blank"> T&C</a></span> and <span class="zolo-c"><a ng-href="/privacy-policy" target="_blank">Privacy Policy.</a></span></div>
 
 
                   <div class="row m-t-40">

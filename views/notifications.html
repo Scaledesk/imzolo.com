@@ -1,0 +1,54 @@
+<style>
+  .unseen {
+    background-color: #ededed;
+  }
+
+  .sidebar-top.fixed-topbar .main-content .page-content
+  {
+    top:33px;
+  }
+
+</style>
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <h2 class="text-center m-t-0 m-b-0"><i class="icon-bell f-18 w-400"></i> Notifications</h2>
+    </div>
+
+  <hr class="custom-hr">
+
+  <div ng-hide="loading_notification" ng-repeat="n in notifications" class="row">
+    <div ng-click="gotoNotification(n)" class="col-md-12" style="cursor: pointer;">
+      <div class="row border-bottom"  ng-class="{'unseen':n.seen==0}">
+        <div class="col-md-8 col-xs-12">
+
+          <i ng-if="n.type==='REFERRAL'" class="fa fa-user f-16"></i>
+          <i ng-if="n.type==='MESSAGE'" class="fa fa-envelope f-16"></i>
+          <i ng-if="n.type==='WALLET_CREDIT'" class="fa fa-inr f-16"></i>
+          <i ng-if="n.type==='WALLET_DEBIT'" class="fa fa-money f-16"></i>
+          <i ng-if="n.type==='NEW_PACKAGE'" class="fa fa-tasks f-16"></i>
+          <i ng-if="n.type==='PACKAGE_PUBLISHED'" class="fa fa-play f-16"></i>
+          <i ng-if="n.type==='ORDER_PLACED'" class="fa fa-star-o f-16"></i>
+          <i ng-if="n.type==='ORDER_COMPLETED'" class="fa fa-pause f-16"></i>
+          <i ng-if="n.type==='ORDER_CANCELLED'" class="fa fa-times f-16"></i>
+          <i ng-if="n.type==='ORDER_REREVIEW'" class="fa fa-spin f-16"></i>
+
+        <p class="ib f-16 l-s-05">{{n.text}}</p>
+        </div>
+        <div class="col-md-4 col-xs-12">
+        <p class="pull-right">{{dt|date:'medium'}}</p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div ng-show="loading_notification" class="row p-20 text-center">
+    <div class="text-center m-t-60">
+      <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

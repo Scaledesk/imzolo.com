@@ -1518,8 +1518,10 @@ padding-left: 5px !important;
 	-webkit-box-orient: vertical !important;
 	height: 70px !important;
 	padding: 11px !important;
-  color: #78588c;
+  color: #565a5c;
   font-size: 14px!important;
+  font-weight: 400!important;
+  font-family: RobotoDraft,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif!important;
 }
 
 .zolo-img-card-height{
@@ -2607,7 +2609,7 @@ figure.effect-steve:hover p {
 
 .z-transparent{
   background-color: #f5f5f5 !important;
-  margin: 10px 0 !important;
+  /*margin: 10px 0 !important;*/
 }
 
 .about-zolo{
@@ -3005,6 +3007,11 @@ end bootstrap off canvas
 }
 
 
+.card-5-15{
+  padding: 5px 15px!important;
+}
+
+
 
 .text-indent{
   text-indent: -2em!important;
@@ -3039,3 +3046,114 @@ end bootstrap off canvas
   cursor: pointer;
   margin-top: 10px!important;
 }
+
+.pdp-s-img{
+  border: 3px solid #765f89;
+}
+
+
+.zolo-pdp-seller-name:hover{
+  color: #78588c!important;
+
+}
+
+
+.new-search-a{
+  background-color: rgba(0, 0, 0, 0.33);
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.home-s-btn-a{
+  background-color: #78588c!important;
+  color: #fff!important;
+
+}
+
+.home-page-search-a{
+  width: 100%;
+  border-radius: 1px;
+  padding: 10px 17px;
+  border: none;
+  font-size: 14px !important;
+}
+
+@media screen and (max-width: 600px){
+  .new-search-a{
+    margin-top: 30px;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .home-s-btn-a{
+    margin: 15px 5px 5px 5px!important;
+    background-color: #78588c!important;
+    color: #fff!important;
+    display: none;
+  }
+
+  .header-search-icon-a{
+    margin-right: 30px;
+  }
+
+  .home-page-search-a{
+    margin-bottom: 20px;
+    width: 90%;
+    border-radius: 1px;
+    padding: 10px 17px;
+    border: none;
+    font-size: 14px !important;
+    margin-left: 10px;
+  }
+
+  .need-a-z strong{
+    font-size: 20px;
+  }
+
+}
+
+
+.header-search-icon-a{
+  margin-top: 5px;
+  font-size: 20px!important;
+}
+
+
+.about-z-h{
+  font-size: 20px;
+  text-align: center;
+  font-family: Roboto, Lato, Halvetica, sans-serif;
+  line-height: 1.3em;
+}
+
+
+
+.roboto-light{
+  font-family: Roboto, Lato, Halvetica, sans-serif !important;
+  font-weight: 100 !important;
+}
+
+
+.roboto-bold{
+  font-family: Roboto, Lato, Halvetica, sans-serif !important;
+  font-weight: 400 !important;
+}
+
+
+.text-t-n{
+  text-transform: none!important;
+}
+
+
+.card-shadow-0{
+  box-shadow: none!important;
+}
+
+
+.text-muted-z{
+  color: #999999!important;
+}
+
+

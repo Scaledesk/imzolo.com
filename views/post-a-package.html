@@ -107,21 +107,20 @@
 
                   <div class="col-md-4">
                     <tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true">
-                      <auto-complete source="loadTags($query)"></auto-complete>
+                      <auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>
                     </tags-input>
                     <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
                       * add tag
                     </md-tooltip>
                   </div>
-
                 </div>
 
                 <div class="row user-post-a-package">
                   <div class="col-md-6 m-b-20">
                     <p>Location <span>(Your service is available at)</span></p>
                     <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location">
-                      <auto-complete source="loadLocations($query)"></auto-complete>
+                      <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
                     </tags-input>
                     <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
                     <md-tooltip class="f-14 w-400" md-direction="bottom">
