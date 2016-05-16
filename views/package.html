@@ -371,7 +371,7 @@
 
                 <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
                   <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
-                    <md-option ng-repeat="n in a" value='{{n}}'>({{n}})&#8377;{{addon.amount}}</md-option>
+                    <md-option ng-repeat="n in a" value='{{n}}'>{{n}}(&#8377;{{addon.amount*n}})</md-option>
                   </md-select>
                 </div>
               </div>
@@ -551,8 +551,8 @@
                 </div>
 
                 <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
-                  <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
-                    <md-option ng-repeat="n in a" value='{{n}}'>({{n}})&#8377;{{addon.amount}}</md-option>
+                  <md-select id="Addon_Quantity_1" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
+                    <md-option ng-repeat="n in a" value='{{n}}'>{{n}}(&#8377;{{addon.amount*n}})</md-option>
                   </md-select>
                 </div>
               </div>
