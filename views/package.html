@@ -354,41 +354,28 @@
 
 
 
-
-          <div ng-repeat="addon in package.Addons.data" class="p-t-5 p-l-10" ng-style="addon.style" ng-init="addon.style = {}">
-            <div class="row">
-              <div class="col-md-8 col-xs-8 checkbox-p-l ">
-                <!-- <div>
-                  <label>
-                      <input checklist-model="selectedaddons" checklist-value="addon.id"
-                             ng-change="changeSelectedAddonsPrice(addon,checked)" type="checkbox" class="md-checkbox">
+            <div class="col-md-12">
+              <div class="row" ng-repeat="addon in package.Addons.data">
+                <div class="col-md-9 col-xs-9 checkbox-p p-r-0 col-sm-9 ">
+                  <div class="checkbox">
+                    <label class="text-indent">
+                      <!--<input type="checkbox" class="md-checkbox">-->
+                      <input checklist-model="selectedaddons[$index].id;" checklist-value="addon.id"
+                             ng-change="setIndex($index,checked)"
+                             type="checkbox" class="md-checkbox">
+                      <span class="checkbox-material"><span class="check"></span></span>
                       {{addon.name}}
-                  </label>
-              </div>-->
-                <div class="checkbox">
-                  <label class="f-16 text-indent">
-                    <!--<input type="checkbox" class="md-checkbox">-->
-                    <input checklist-model="selectedaddons" checklist-value="addon.id"
-                           ng-change="changeSelectedAddonsPrice(addon,checked)"
-                           type="checkbox" class="md-checkbox">
-                    <span class="checkbox-material"><span class="check"></span></span>
-                    {{addon.name}}
-                  </label>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-4 col-xs-4">
-                <div class="m-t-20">
-                  <label class="f-16 w-600">
-                    &#8377;&nbsp;{{addon.amount}}
-                  </label>
+
+                <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+                  <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
+                    <md-option ng-repeat="n in a" value='{{n}}'>({{n}})&#8377;{{addon.amount}}</md-option>
+                  </md-select>
                 </div>
               </div>
             </div>
-
-
-          </div>
-
-
         </div>
 
         <hr>
@@ -550,7 +537,7 @@
             </div>
             <div>
               <div class="row" ng-repeat="addon in package.Addons.data">
-                <div class="col-md-6 col-xs-6 checkbox-p p-r-0 col-sm-6 ">
+                <div class="col-md-9 col-xs-9 checkbox-p p-r-0 col-sm-9 ">
                   <div class="checkbox">
                     <label class="text-indent">
                       <!--<input type="checkbox" class="md-checkbox">-->
@@ -565,22 +552,10 @@
 
                 <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
                   <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
-                    <md-option ng-repeat="n in a" value='{{n}}'>{{n}}</md-option>
+                    <md-option ng-repeat="n in a" value='{{n}}'>({{n}})&#8377;{{addon.amount}}</md-option>
                   </md-select>
                 </div>
-
-                <div class="col-md-3 col-xs-3 p-r-0 col-sm-3">
-                  <div class="pdp-addon-price w-700">
-                    &#8377;{{addon.amount}}
-                  </div>
-
-
-                </div>
               </div>
-
-
-
-
             </div>
           </div>
 
