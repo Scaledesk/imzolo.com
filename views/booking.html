@@ -16,7 +16,7 @@
 
         <div class="row">
           <div class="col-md-12 text-center">
-            <button class="btn btn-primary btn-transparent" ng-click="hideFailed()">Click Here To try Again</button>
+            <button ng-disabled="gettingNewTid" class="btn btn-primary btn-transparent" ng-click="hideFailed()">Click Here To try Again</button>
           </div>
         </div>
 
@@ -29,7 +29,7 @@
 
         <div class="row">
           <div class="col-md-12 text-center">
-            <button class="btn btn-zolo btn-transparent">Go Back to zolo</button>
+            <a ng-href="/" class="btn btn-zolo btn-transparent">Go Back to zolo</a>
           </div>
 
         </div>
@@ -38,7 +38,7 @@
     </div>
 
   </div>
-  <div class="row">
+  <div class="row" ng-if="isfailed!=1">
 
     <div class="col-md-8 col-lg-8 col-sm-8">
       <!-- HERE COMES YOUR CONTENT -->
@@ -70,7 +70,7 @@
                 <div class="col-md-8 zolo-center" >
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <h3>{{booking.package_title}}</h3>
+                      <h3>{{booking.package_title| capitalizeFirst}}</h3>
                     </div>
                   </div>
 
