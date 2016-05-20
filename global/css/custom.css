@@ -504,7 +504,6 @@ padding-left: 5px !important;
 }
 
 .post-new-request-header {
-	background-color: #ededed !important;
 	color: #565a5c;
 	padding: 13px 0;
 
@@ -1425,12 +1424,6 @@ padding-left: 5px !important;
 	border-bottom: none !important;
 }
 
-.post-new-request-header {
-	background-color: #ededed !important;
-	color: #565a5c;
-	padding: 13px 0;
-
-}
 
 .post-request-offer-btn {
 	margin-top: 20px !important;
@@ -1676,8 +1669,11 @@ padding-left: 5px !important;
 	background-color: #69f0ae !important;
 }
 
-/*input.form-control, textarea.form-control */textarea.bcolor-custom{
-												  border-bottom: 2px solid #454545 !important;
+/*input.form-control, textarea.form-control */input.bcolor-custom{
+                                                width: 100%!important;
+                                                padding: 10px!important;
+  border: none!important;
+
 											  }
 
 .p-2 {
@@ -3157,3 +3153,50 @@ end bootstrap off canvas
 }
 
 
+.address-strip{
+  background-color: #765f89;
+  margin-right: -20px;
+  margin-left: -20px;
+  color: #fff;
+  padding: 7px;
+}
+
+
+.s-strip{
+  background-color: #f5f5f5;
+  margin-bottom: -15px;
+}
+
+.z-notify{
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.z-notify:hover{
+  background-color: #f9f9f9;
+}
+
+/*orp custome css neeraj*/
+
+.address-strip{
+  background-color: #765f89;
+  margin-right: -20px;
+  margin-left: -20px;
+  color: #fff;
+  padding: 7px;
+}
+
+
+.s-strip{
+  background-color: #f5f5f5;
+  margin-bottom: -15px;
+}
+
+.z-notify{
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.z-notify:hover{
+  background-color: #f9f9f9;
+}

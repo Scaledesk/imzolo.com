@@ -1,27 +1,12 @@
-<!--<style>-->
-
-    <!--.my-gigs  .slick-prev {-->
-        <!--left: 0px;-->
-        <!--z-index: 2;-->
-    <!--}-->
-
-    <!--.my-gigs  .slick-prev:before,.my-gigs  .slick-next:before {-->
-        <!--font-family: "slick";-->
-        <!--font-size: 45px;-->
-        <!--line-height: 1;-->
-        <!--color: #313131;-->
-        <!--opacity: 0.3;-->
-        <!-- -webkit-font-smoothing: antialiased;-->
-        <!-- -moz-osx-font-smoothing: grayscale-->
-    <!--}-->
-
-    <!--.my-gigs  .slick-next {-->
-        <!--right: 25px;-->
-        <!--z-index: 2;-->
-    <!--}-->
 
 
-<!--</style>-->
+<style>
+  .main-content .page-content{
+    padding: 0!important;
+  }
+
+
+</style>
 
 
 
@@ -39,24 +24,26 @@
       </div>
     </div>
     <div class="col-md-12">
-      <div class="card" style="margin-top: 0px;">
+      <div class="card m-t-0">
         <div class="profile-preview">
           <div class="row">
-            <div class="col-md-2 col-sm-6 col-xs-12">
+            <div class="col-md-2 col-sm-6 col-xs-12 text-center">
               <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
               <button ng-click="openProfilePicModal()" class="btn edit-profile">edit <i class="fa fa-pencil"></i></button>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <p>{{profile.name}} </p>
-              <strong>{{profile.short_description}}</strong>
+              <p class="w-600 f-20">{{profile.name}} </p>
+              <p class="text-muted-z f-14 zolo-n-m w-500">{{profile.short_description}}</p>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <p>Projects Completed</p>
-              <strong>{{profile.completed_orders || 'None'}}</strong>
+              <p class="w-600 f-20 text-center">{{profile.completed_orders || 'None'}}</p>
+              <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Projects Completed</p>
+
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <p>Contact Number</p>
-              <strong >{{profile.mobile || 'NA'}}</strong>
+              <p class="w-600 f-20 text-center">{{profile.mobile || 'NA'}}</p>
+              <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Contact Number</p>
+
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
               <!--<p>Date Of Birth</p>-->
@@ -73,7 +60,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
       <div class="row">
         <div ng-show="edit_profile" class="col-md-12">
           <div class="card">
@@ -334,10 +321,10 @@
         </div></div>
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 p-r-0">
           <div class="card">
-            <h2 class="text-c">About {{profile.name}}</h2>
-            <hr>
+            <h2 class="text-c m-t-5">About {{profile.name}}</h2>
+            <hr class="custom-hr">
             <p ng-if="profile.description != '' || profile.description != null">{{profile.description}}</p>
             <p ng-if="profile.description == '' || profile.description == null">You are yet to update your profile</p>
           </div>
@@ -350,10 +337,10 @@
 
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 p-r-0">
           <div class="card">
-            <h2 class="text-c">{{profile.name}} Gigs</h2>
-            <hr>
+            <h2 class="text-c m-t-5">{{profile.name}} Packages</h2>
+            <hr class="custom-hr">
             <div class="row">
               <div ng-if="user_packages.data.length>0" class="col-md-12">
 
@@ -426,8 +413,8 @@
       <div ng-if="portfolios.length>0" class="row">
         <div ng-hide="portfolio_selected" class="col-md-12">
           <div class="card">
-            <h2>My Portfolio</h2>
-            <hr>
+            <h2 class="m-t-5">My Portfolio</h2>
+            <hr class="custom-hr">
             <div class="row">
               <div ng-repeat="portfolio in portfolios" class="col-md-4">
                 <div class="panel panel-transparent">
@@ -483,68 +470,143 @@
 
 
 
-    <div class="col-md-3">
-      <div class="card">
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">No. of packages</h4>
-            <p ng-if="user_packages.data.length>0" class="text-center"><strong>{{user_packages.data.length}}</strong></p>
-            <p ng-if="user_packages.data.length<=0" class="text-center"><strong>No Packages !</strong></p>
-            <hr class="custom-hr">
+    <!--<div class="col-md-4">-->
+      <!--<div class="card">-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+            <!--<h4 class="text-center">No. of packages</h4>-->
+            <!--<p ng-if="user_packages.data.length>0" class="text-center"><strong>{{user_packages.data.length}}</strong></p>-->
+            <!--<p ng-if="user_packages.data.length<=0" class="text-center"><strong>No Packages !</strong></p>-->
+            <!--<hr class="custom-hr">-->
+          <!--</div>-->
+
+        <!--</div>-->
+
+
+        <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+            <!--<h4 class="text-center">Skills</h4>-->
+            <!--<p style="word-break: break-all;" ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>-->
+            <!--<p ng-if="profile.skills.length<=0" class="text-center">NA</p>-->
+            <!--<hr class="custom-hr">-->
+          <!--</div>-->
+
+        <!--</div>-->
+
+
+
+        <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+            <!--<h4 class="text-center">Location</h4>-->
+            <!--<p class="text-center"><strong>NA</strong></p>-->
+            <!--<hr class="custom-hr">-->
+          <!--</div>-->
+
+        <!--</div>-->
+
+
+
+        <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+            <!--<h4 class="text-center">Rating</h4>-->
+            <!--<p class="text-center"><strong>NA</strong></p>-->
+          <!--</div>-->
+
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</div>-->
+
+
+    <div class="col-md-4">
+      <div class="card p-b-0 p-t-0">
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>
+
           </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>
+            <p class="pull-right w-500 f-18" ng-if="user_packages.data.length<=0" >0</p>
+
+
+          </div>
+
 
         </div>
 
 
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">Skills</h4>
-            <p style="word-break: break-all;" ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
-            <p ng-if="profile.skills.length<=0" class="text-center">NA</p>
-            <hr class="custom-hr">
+
+
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-map-marker"></i>&nbsp;Location</p>
+
           </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18">N/A</p>
+
+          </div>
+
 
         </div>
 
 
 
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">Location</h4>
-            <p class="text-center"><strong>NA</strong></p>
-            <hr class="custom-hr">
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-star"></i>&nbsp;Ratings</p>
+
           </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18">No Ratings</p>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-signal"></i>&nbsp;Skills</p>
+
+          </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
+            <p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
+            <p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>
+
+          </div>
+
 
         </div>
 
 
 
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">Rating</h4>
-            <p class="text-center"><strong>NA</strong></p>
-          </div>
-
-        </div>
       </div>
-
     </div>
 
 
 
 
-  </div>
 
-
-<div class="footer">
-  <div class="copyright">
-    <p class="pull-left sm-pull-reset">
-      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-      <span>Zolo Technologies Pvt. Ltd.</span>.
-      <span>All rights reserved. </span>
-    </p>
-    <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
-    </p>
   </div>
 </div>
+
+  <div class="footer">
+    <div class="copyright">
+      <p class="pull-left sm-pull-reset">
+        <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+        <span>Zolo Technologies Pvt. Ltd.</span>.
+        <span>All rights reserved. </span>
+      </p>
+      <p class="pull-right sm-pull-reset">
+        <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+      </p>
+    </div>
+  </div>

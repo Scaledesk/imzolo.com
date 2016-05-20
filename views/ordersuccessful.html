@@ -1,623 +1,442 @@
 <div class="container-fluid">
-  <!-- <div class="header">
-      <h2><strong>Blank</strong> Page</h2>
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <div class="card c-b-0">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="pull-right zolo-n-m"><span class="text-muted-z">Seller:</span><b> {{booking.seller_profile.name}}</b></p>
+            <span class="pull-left f-18"><span class="text-muted-z">Order no</span> <b>#{{booking.id}}</b></span>
+          </div>
+        </div>
+        <hr class="custom-hr m-t-5">
 
-      <div class="breadcrumb-wrapper">
-          <ol class="breadcrumb">
-              <li>
-                  <a href="dashboard.html">Make</a>
-              </li>
-              <li>
-                  <a href="#">Pages</a>
-              </li>
-              <li class="active">Dashboard</li>
-          </ol>
+        <div class="row">
+          <div class="col-md-2 col-xs-2">
+            <img class=".img-md m-t-10" ng-src="{{booking.first_photo||'../global/images/Screen Shot 2016-05-20 at 4.02.00 PM.png'}}" style="height: auto;width:100%;" >
+
+          </div>
+
+          <div class="col-md-5 col-xs-5">
+            <h4 class="w-600 text-c">{{booking.package_title}}</h4>
+
+
+
+          </div>
+
+
+          <div class="col-md-2 col-xs-2">
+            <div class="m-t-10 text-center">
+              <span class="text-muted-z f-12 ">Delivery time:</span><br>
+              <span ng-if="booking.package_delivery_time==0" class="w-600">Instant Delivery</span>
+              <span ng-if="booking.package_delivery_time!=0" class="w-600">{{booking.package_delivery_time}}&nbsp;{{booking.package_delivery_time_type}}</span>
+            </div>
+          </div>
+          <div class="col-md-1 col-xs-1">
+            <div class="m-t-10 text-center">
+              <span class="text-muted-z f-12 ">Quantity:</span><br>
+              <span class="w-600">{{booking.quantity}}</span>
+            </div>
+          </div>
+
+          <div class="col-xs-2">
+            <div class="m-t-10 text-center pull-right">
+              <span class="text-muted-z f-12">Total Amount: <br></span>
+              <span class="w-600"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</span>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div ng-show="booking.bookingPackagesAddons.data.length>0" class="row">
+          <div class="col-xs-6 col-md-offset-2 col-xs-6"> <p class="p-l-10 f-18 w-600">Add-on's</p></div>
+          <div class="col-xs-4 w-500 col-xs-6"> <!-- &#8377; {{total_price}}--> </div>
+        </div>
+
+        <div  ng-repeat="addon_local in booking.bookingPackagesAddons.data" class="row m-t-10 ">
+          <div class="col-xs-10 col-md-offset-2  border-bottom">
+            <p class="f-16  zolo-n-m pull-left"><i class="fa fa-check-circle text-success"></i>&nbsp;{{addon_local.name}}
+            </p>
+            <p class="zolo-n-m p-r-20 w-600 pull-right"><i class="fa fa-inr text-success"></i>&nbsp;{{addon_local.amount}}</p>
+          </div>
+        </div>
+        <hr ng-hide="booking.bookingPackagesAddons.data.length>0" class="custom-hr">
+
+
+
+
+        <div class="row m-t-10">
+          <div class="col-md-6">
+            <p class="zolo-n-m f-16">Order Status : <span class="w-500">&nbsp;{{booking.booking_status.replace('_',' ')| capitalizeFirst}}</span>
+          </div>
+          <div class="col-md-6 col-xs-10">
+            <p class="zolo-n-m p-r-20 pull-right f-16">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price}}</span>
+            </p>
+          </div>
+        </div>
       </div>
-
-  </div> -->
+    </div>
+  </div>
   <div class="row">
 
-    <div class="col-md-12 col-lg-12 col-sm-12">
-      <!-- HERE COMES YOUR CONTENT -->
+    <div class="col-md-12 p-0">
 
-      <div class="row">
+      <div class="card bg-ldark p-t-0">
 
-        <div class="col-md-12">
-
-          <div class="card pulse animated p-t-0">
-
-            <div class="card-content p-t-10">
-
-              <div class="row">
-
-                <div class="col-md-6 col-sm-6 col-xs-6">
-
-                  <p class="w-400 f-26 p-t-10 " style="text-align:left;">
-                        <span><strong>Order Summary</strong>
-
-                        </span>
-
-                  </p>
-
+        <p class="w-500 f-20 p-t-10">
+          <strong>Seller Instructions</strong>
+        </p>
+        <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
+        <div class="row">
+          <div class="col-md-12" >
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-6">
+                <p ng-show="booking.package_instruction!=''" class="f-16">The seller has the following instructions for you.....</p>
+                <div class="row m-t-10">
+                  <div class="col-md-12" ng-if="booking.package_instruction!=''">{{booking.package_instruction}}</div>
+                  <div class="col-md-12" ng-if="booking.package_instruction==''">No instruction from the Seller!You can contact seller below.</div>
                 </div>
-
-                <div class="col-md-6 col-sm-6 col-xs-6">
-
-                  <p class="w-300 f-20 p-t-10" style="text-align:right;">
-
-                        <span style="text-align:right;"> Order ID
-                            </span>
-                    <span class="w-400"> #{{booking.id}} </span>
-                  </p>
-
-                </div>
-
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
-
-              <hr class="custom-hr">
-
-              <div class="row">
-
-                <div class="col-md-3 zolo-center" >
-
-                  <!--<img class=".img-md m-t-10" src="http://www.momentgallery.in/wp-content/uploads/2015/06/Amazing-Nature-Background-picspaper-com-600x337-150x150.jpg">-->
-                  <img class=".img-md m-t-10" ng-src="{{booking.first_photo}}" style="width: 100%;height: auto;">
-
-
-
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- BEGIN TIMELINE CONTENT -->
+      <div class="timeline-btn-day"> <i class="icon-custom-left"></i>
+        <button type="button" class="btn btn-primary f-16"><strong>Contact Seller</strong></button>
+      </div>
+      <section id="timeline">
+        <!--<div class="timeline-block">
+          <div class="timeline-icon bg-primary">
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-heading clearfix">
+              <h2 class="pull-left">Images <strong>SlideShow</strong></h2>
+              <div class="pull-right">
+                <div class="pull-left">
+                  <div class="timeline-day-number">01</div>
                 </div>
-
-                <div class="col-md-9" >
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                      <h3>{{booking.package_title}}</h3>
-                    </div>
-                  </div>
-
-                  <div class="row m-t-10">
-
-                    <div class="col-md-6">
-
-                      <div class="row">
-                        <div class="col-md-5 col-xs-5"> Total amount :</div>
-                        <div class="col-md-7 col-xs-7 w-500"> &#8377; {{booking.deal_price}}</div>
-
-                      </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                      <div class="row">
-                        <div class="col-md-5 col-xs-5"> Delivery Time :</div>
-                        <div class="col-md-7 col-xs-7 w-500"> {{booking.package_delivery_time}}&nbsp;{{booking.package_delivery_time_type}}</div>
-
-                      </div>
-
-                    </div>
-
-
-                  </div>
-
-
-
-                  <div class="row m-t-20 m-b-10">
-                    <div class="col-md-6">
-                      <div class="row">
-                        <div class="col-md-5 col-xs-5">  Seller :</div>
-                        <div class="col-md-7 col-xs-7" style="text-align:left;">{{booking.seller_profile.name}}</div>
-
-                      </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="row m-t-10">
-                        <div class="col-md-5 f-14 text-primary">Order Status :</div>
-                        <div class="col-md-7" style="text-align:left;">
-                          <p class="bg-green zolo-center p-2">{{booking.booking_status}}</p></div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  <!--<div class="row m-t-20">
-
-                     <div class="col-md-6 col-md-offset-3 f-18 alert bg-zolo" style="text-align:left;"> Order STATUS</div>
-                  </div>-->
-
-
+                <div class="pull-left">
+                  <div class="timeline-day">thursday</div>
+                  <div class="timeline-month c-gray">March 2015</div>
                 </div>
-
               </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+            <div class="widget-slider-img">
+              <div class="slick" data-fade="true" data-dots="false">
+                <div class="slide opacity-70">
+                  <img src="../assets/global/images/gallery/4.jpg" alt="1">
+                  <div class="text">
+                    <p>Sun shining</p>
+                  </div>
+                </div>
+                <div class="slide opacity-70">
+                  <img src="../assets/global/images/gallery/8.jpg" alt="1">
+                  <div class="text">
+                    <p>At the beach</p>
+                  </div>
+                </div>
+                <div class="slide opacity-70">
+                  <img src="../assets/global/images/gallery/3.jpg" alt="3">
+                  <div class="text">
+                    <p>Field blee</p>
+                  </div>
+                </div>
+                <div class="slide opacity-70">
+                  <img src="../assets/global/images/gallery/7.jpg" alt="7">
+                  <div class="text">
+                    <p>When we took the boat</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
 
+        <div class="timeline-block" ng-repeat="message in messages">
+          <div class="timeline-icon bg-primary">
+            <img  ng-if="message.sender_photo!=undefined||message.sender_photo!=''||message.sender_photo!=null" ng-src="{{message.sender_photo}}" class="img-circle img-responsive">
+            <img  ng-if="message.sender_photo==undefined||message.sender_photo==''||message.sender_photo==null" ng-src="../global/images/dummy.png" class="img-circle img-responsive">
+          </div>
+          <div ng-class="{'timeline-content my-style': message.sender_id == booking.buyer_id,'timeline-content other-style':message.sender_id==booking.seller_id}">
+            <div class="timeline-heading clearfix">
+              <h2 ng-if="message.sender_id==booking.seller_id" class="pull-left">{{message.sender_name}}</h2>
+              <h2 ng-if="message.sender_id==booking.buyer_id" class="pull-left">You</h2>
+              <div class="pull-right">
+                <div class="pull-left">
+                  <div class="timeline-day-number">{{message.day}}</div>
+                </div>
+                <div class="pull-left">
+                  <div class="timeline-day">{{message.weekday}}</div>
+                  <div class="timeline-month c-gray">{{message.month}}, {{message.year}}</div>
+                </div>
+              </div>
+            </div>
+            <p>{{message.body}}</p>
+
+          </div>
+        </div>
+
+
+      </section>
+      <!-- END TIMELINE CONTENT -->
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="row">
+
+    <div class="col-md-12 p-0">
+
+      <div class="card  p-t-0">
+
+        <div class="card-content p-t-10">
+
+          <p class="w-500 f-20 p-t-10 text-center">
+            <strong>Contact Seller</strong>
+          </p>
+          <hr class="custom-hr">
+
+          <div class="row">
+
+            <div class="col-md-10 col-md-offset-1 zolo-center" >
+
+              <div class="row m-t-20">
+
+                <div class="col-md-12 col-sm-12 col-xs-12 p-20" style="background:#f5f5f5;">
+
+
+                  <form role="form" ng-submit="sendMessageBooking(booking_message)">
+                    <div class="form-group">
+                      <p class="f-20">Message Seller</p>
+                      <br>
+                          <input type="text" ng-model="booking_message.body" placeholder="Contact the seller if you have any queries" class=" bcolor-custom" style="height:50px;" required>
+
+                          <button type="submit" ng-disabled="sendingMessage" class="btn zolo-btn text-c pull-right m-t-10"><i class="fa fa-paper-plane-o"></i>&nbsp;Send Message<div class="ripple-wrapper"></div></button>
+
+                          <!--<i class="fa fa-attach btn btn-primary m-t-10 text-c pull-right ">Attach a file</i>-->
+                          <!--<i class="fa fa-paperclip" aria-hidden="true"></i>-->
+                      </div>
+                  </form>
+                </div>
+              </div>
 
 
 
             </div>
 
-            <!-- <div class="card-action" style="text-align: -webkit-center;">
-                 <a href="#">Know More</a>
-                  <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-                 <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-             </div>-->
-
           </div>
+
+
+
 
         </div>
 
 
       </div>
-
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="card pulse animated p-t-0">
-            <div class="card-content p-t-10">
-
-
-              <p class="w-500 f-20 p-t-10 text-center">
-                <strong>Order Summary</strong>
-              </p>
-              <hr class="custom-hr">
-
-              <div class="row">
-
-
-                <div class="col-md-10 col-md-offset-1 zolo-center" >
-
-                  <div class="row">
-
-                    <div class="col-md-9 col-sm-9 col-xs-6">
-                      <p class="f-16">Package Cost</p>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p class="f-14">&#8377; <span>{{booking.deal_price}}</span></p>
-                    </div>
-                  </div>
-
-                  <div class="row m-t-10" ng-repeat="addon_local in booking.bookingPackagesAddons.data">
-                    <div class="col-md-9 col-sm-9 col-xs-6">
-                      <p class="f-16">+ {{addon_local.name}}</p>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p class="f-14 ">&#8377; {{addon_local.amount}}</p>
-                    </div>
-
-                  </div>
-
-
-
-                  <div class="row m-t-10">
-                    <div class="col-md-9 col-sm-9 col-xs-6" >
-                      <p style="text-align:right;">Total Amount :</p>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p class="w-500">&#8377; {{total_price}}</p>
-                    </div>
-
-                  </div>
-
-
-
-                </div>
-
-              </div>
-
-
-
-
-            </div>
-
-            <!-- <div class="card-action" style="text-align: -webkit-center;">
-                 <a href="#">Know More</a>
-                  <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-                 <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-             </div>-->
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="card bg-ldark pulse animated p-t-0">
-
-            <div class="card-content p-t-10">
-
-              <p class="w-500 f-20 p-t-10 text-center">
-                <strong>Seller Instructions</strong>
-              </p>
-              <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
-
-              <div class="row">
-
-
-                <div class="col-md-10 col-md-offset-1 zolo-center" >
-
-                  <div class="row">
-
-                    <div class="col-md-9 col-sm-9 col-xs-6">
-                      <p class="f-16">The seller has the following instructions for you.....</p>
-                    </div>
-
-
-                  </div>
-
-                  <div class="row m-t-10">
-                    <span ng-if="booking.package_instruction!=''">{{booking.package_instruction}}</span>
-                    <span ng-if="booking.package_instruction==''">No instruction from the Seller!You can contact seller below.</span>
-                  </div>
-
-
-
-                </div>
-
-              </div>
-
-
-
-
-            </div>
-
-            <!-- <div class="card-action" style="text-align: -webkit-center;">
-                 <a href="#">Know More</a>
-                  <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-                 <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-             </div>-->
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-      <!--==========================-->
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- BEGIN TIMELINE CONTENT -->
-          <div class="timeline-btn-day">
-            <i class="icon-custom-left"></i>
-            <button type="button" class="btn btn-primary f-16"><strong>Contact Seller</strong></button>
-          </div>
-          <section id="timeline">
-
-
-
-
-
-
-
-
-
-            <div class="timeline-block" ng-repeat="message in messages">
-              <div class="timeline-icon bg-primary">
-                <img  ng-if="message.sender_photo!=undefined||message.sender_photo!=''||message.sender_photo!=null" ng-src="{{message.sender_photo}}" class="img-circle img-responsive">
-                <img  ng-if="message.sender_photo==undefined||message.sender_photo==''||message.sender_photo==null" ng-src="../global/images/dummy.png" class="img-circle img-responsive">
-              </div>
-              <div ng-class="{'timeline-content my-style': message.sender_id == booking.buyer_id,'timeline-content other-style':message.sender_id==booking.seller_id}">
-                <div class="timeline-heading clearfix">
-                  <h2 ng-if="message.sender_id==booking.seller_id" class="pull-left">{{message.sender_name}}</h2>
-                  <h2 ng-if="message.sender_id==booking.buyer_id" class="pull-left">You</h2>
-                  <div class="pull-right">
-                    <div class="pull-left">
-                      <div class="timeline-day-number">{{message.day}}</div>
-                    </div>
-                    <div class="pull-left">
-                      <div class="timeline-day">{{message.weekday}}</div>
-                      <div class="timeline-month c-gray">{{message.month}}, {{message.year}}</div>
-                    </div>
-                  </div>
-                </div>
-                <p>{{message.body}}</p>
-
-              </div>
-            </div>
-
-
-          </section>
-          <!-- END TIMELINE CONTENT -->
-        </div>
-      </div>
-      <!--===============================================-->
-
-
-
-
-
-
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="card  p-t-0">
-
-            <div class="card-content p-t-10">
-
-              <p class="w-500 f-20 p-t-10 text-center">
-                <strong>Contact Seller</strong>
-              </p>
-              <hr class="custom-hr">
-
-              <div class="row">
-
-                <div class="col-md-10 col-md-offset-1 zolo-center" >
-
-                  <div class="row m-t-20">
-
-                    <div class="col-md-12 col-sm-12 col-xs-12 p-20" style="background:#f5f5f5;">
-
-
-                      <form role="form" class="">
-
-                        <div class="form-group m-b-30">
-                          <p class="f-20">Message Seller</p>
-                          <br>
-                          <div class="form-control-wrapper">
-                            <textarea ng-model="booking_message.body" class="form-control empty bcolor-custom" style="height:50px;"></textarea>
-                            <div class="floating-label">Contact the seller if you have any queries</div>
-                            <span class="material-input"></span>
-                          </div>
-                        </div>
-
-                        <button type="button" ng-click="sendMessageBooking(booking_message)" class="btn zolo-btn">Send Message<div class="ripple-wrapper"></div></button>
-
-                        <button type="button" class="btn btn-primary m-t-10"><i class="icon-link"></i>Attach a file<div class="ripple-wrapper"></div></button>
-
-                      </form>
-
-                    </div>
-
-
-
-                  </div>
-
-
-
-                </div>
-
-              </div>
-
-
-
-
-            </div>
-
-            <!-- <div class="card-action" style="text-align: -webkit-center;">
-                 <a href="#">Know More</a>
-                  <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-                 <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-             </div>-->
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-
-
-
-
-
-      <!--shown only if the booking status is completed-->
-      <div class="row"  ng-if="booking.booking_status=='completed'||booking.booking_status=='review'">
-
-        <div class="col-md-12">
-
-          <div class="card  p-t-0">
-
-            <div class="card-content p-t-10">
-
-              <p class="w-500 f-24 p-t-10 text-center" style=" color:#4caf50;">
-                Congratulations!! The task has been completed by <span>Seller Name</span>
-              </p>
-              <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
-
-              <div class="row text-center" ng-if="booking.booking_status=='review'&&booking.review_counter%2!=0">
-                <p class="f-18 ib m-l-30 m-r-20">Is the work Done as per your satisfaction ?  </p>
-
-                <button  ng-click="acceptWork()" type="button" class="btn btn-success btn-transparent ib m-l-20">Yes<div class="ripple-wrapper"></div></button>
-
-                <br>
-
-                <p class="f-16 text-center text-zolo ib">Please Rate/Review the Seller below ...</p>
-              </div>
-
-
-              <div class="row m-t-10 m-b-10">
-
-
-                <div class="col-md-4 zolo-center">
-
-                  <div class="row">
-
-                    <div class="col-md-12 col-sm-12 col-xs-12" >
-
-                      <div class="row">
-                        <p class="f-18 m-t-20 text-center"> Please rate your experince with the seller :  </p>
-                        <hr class="custom-hr">
-                      </div>
-
-                      <div class="row m-t-20">
-
-                        <div class="col-md-6 col-xs-6">
-
-                          <span class="f-18" >Quality : </span>
-                          <!--<div star-rating ng-model="rating" max="10"></div>-->
-
-                        </div>
-
-                        <div class="col-md-6 col-xs-6">
-
-                          <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
-
-                          </div>-->
-                          <star-rating ng-model="rating.would_recommend_rating"></star-rating>
-
-                        </div>
-
-                      </div>
-
-                      <div class="row">
-
-                        <div class="col-md-6 col-xs-6">
-
-                          <span class="f-18" >Punctuality : </span>
-                        </div>
-
-                        <div class="col-md-6 col-xs-6">
-
-                          <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
-
-                          </div>-->
-                          <div star-rating ng-model="rating.seller_as_described_rating"></div>
-                        </div>
-
-                      </div>
-
-                      <div class="row">
-
-                        <div class="col-md-6 col-xs-6">
-
-                          <span class="f-18">Communication : </span>
-                        </div>
-
-                        <div class="col-md-6 col-xs-6">
-
-                          <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
-
-                          </div>-->
-                          <div star-rating ng-model="rating.seller_communication_rating"></div>
-                        </div>
-
-                      </div>
-
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div class="col-md-7 col-md-offset-1 m-t-20">
-
-                  <div class="row">
-
-                    <form role="form" class="">
-
-                      <div class="form-group">
-                        <p class="f-18">Please write a review for the Seller</p>
-                        <hr class="custom-hr">
-                        <div class="form-control-wrapper">
-                          <textarea class="form-control empty bcolor-custom" ng-model="rating.comment" id="rating_comment" ng-change="comment_error = false" style="height:50px;" required></textarea>
-                          <div class="floating-label">Any comments from your side are most welcome...</div>
-                          <span class="material-input"></span>
-                        </div>
-                        <div class="text-danger" ng-show="comment_error">Comment is Required!</div>
-                      </div>
-
-                      <button type="button" class="btn btn-zolo btn-transparent" ng-click="submitReview()">Submit Review<div class="ripple-wrapper"></div></button>
-
-
-                    </form>
-
-
-
-                  </div>
-
-                </div>
-
-
-              </div>
-
-
-
-
-            </div>
-
-
-
-
-          </div>
-
-          <!-- <div class="card-action" style="text-align: -webkit-center;">
-               <a href="#">Know More</a>
-                <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-               <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-           </div>-->
-
-        </div>
-
-      </div>
-
-      <!--shown only if the booking status is completed-->
-      <div class="row"  ng-if="booking.booking_status=='completed'||booking.booking_status=='review'">
-
-        <div class="col-md-12 col-xs-12" ng-if="booking.booking_status=='review'&&booking.review_counter%2!=0">
-
-          <div class="card">
-
-            <p class="f-18 m-l-20 m-t-10 ib m-r-20">Are you not satisfied with the work delivered ?  </p>
-
-            <button ng-click="notAccept()" type="button" class="btn btn-warning btn-transparent ib m-l-20">Send for Review<div class="ripple-wrapper"></div></button>
-
-          </div>
-
-        </div>
-      </div>
-
 
     </div>
-
-
-
-
-
 
 
   </div>
 
 
 
+
+
+
+
+
+  <!--shown only if the booking status is completed-->
+  <div class="row"  ng-if="booking.booking_status=='completed'||booking.booking_status=='review'">
+
+    <div class="col-md-12 p-0">
+
+      <div class="card  p-t-0">
+
+        <div class="card-content p-t-10">
+
+          <p class="w-500 f-24 p-t-10 text-center" style=" color:#4caf50;">
+            Congratulations!! The task has been completed by <span>Seller Name</span>
+          </p>
+          <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
+
+          <div class="row text-center" ng-if="booking.booking_status=='review'&&booking.review_counter%2!=0">
+            <p class="f-18 ib m-l-30 m-r-20">Is the work Done as per your satisfaction ?  </p>
+
+            <button  ng-click="acceptWork()" type="button" class="btn btn-success btn-transparent ib m-l-20">Yes<div class="ripple-wrapper"></div></button>
+
+            <br>
+
+            <p class="f-16 text-center text-zolo ib">Please Rate/Review the Seller below ...</p>
+          </div>
+
+
+          <div class="row m-t-10 m-b-10">
+
+
+            <div class="col-md-4 zolo-center">
+
+              <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-xs-12" >
+
+                  <div class="row">
+                    <p class="f-18 m-t-20 text-center"> Please rate your experince with the seller :  </p>
+                    <hr class="custom-hr">
+                  </div>
+
+                  <div class="row m-t-20">
+
+                    <div class="col-md-6 col-xs-6">
+
+                      <span class="f-18" >Quality : </span>
+                      <!--<div star-rating ng-model="rating" max="10"></div>-->
+
+                    </div>
+
+                    <div class="col-md-6 col-xs-6">
+
+                      <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
+
+                      </div>-->
+                      <star-rating ng-model="rating.would_recommend_rating"></star-rating>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-6 col-xs-6">
+
+                      <span class="f-18" >Punctuality : </span>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6">
+
+                      <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
+
+                      </div>-->
+                      <div star-rating ng-model="rating.seller_as_described_rating"></div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-6 col-xs-6">
+
+                      <span class="f-18">Communication : </span>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6">
+
+                      <!--<div class="rateit m-t-0" data-value="4" data-step="0.5" data-tooltip="true" title="super">
+
+                      </div>-->
+                      <div star-rating ng-model="rating.seller_communication_rating"></div>
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-7 col-md-offset-1 m-t-20">
+
+              <div class="row">
+
+                <form role="form" class="">
+
+                  <div class="form-group">
+                    <p class="f-18">Please write a review for the Seller</p>
+                    <hr class="custom-hr">
+                    <div class="form-control-wrapper">
+                      <textarea class="form-control empty bcolor-custom" ng-model="rating.comment" id="rating_comment" ng-change="comment_error = false" style="height:50px;" required></textarea>
+                      <div class="floating-label">Any comments from your side are most welcome...</div>
+                      <span class="material-input"></span>
+                    </div>
+                    <div class="text-danger" ng-show="comment_error">Comment is Required!</div>
+                  </div>
+
+                  <button type="button" class="btn btn-zolo btn-transparent" ng-click="submitReview()">Submit Review<div class="ripple-wrapper"></div></button>
+
+
+                </form>
+
+
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <!--shown only if the booking status is completed-->
+  <div class="row"  ng-if="booking.booking_status=='completed'||booking.booking_status=='review'">
+
+    <div class="col-md-12 col-xs-12 p-0" ng-if="booking.booking_status=='review'&&booking.review_counter%2!=0">
+
+      <div class="card">
+
+        <p class="f-18 m-l-20 m-t-10 ib m-r-20">Are you not satisfied with the work delivered ?  </p>
+
+        <button ng-click="notAccept()" type="button" class="btn btn-warning btn-transparent ib m-l-20">Send for Review<div class="ripple-wrapper"></div></button>
+
+      </div>
+
+    </div>
+  </div>
 </div>
 
 
 
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
+  </div>
+</div>

@@ -1,54 +1,227 @@
+
 <style>
-  .unseen {
-    background-color: #ededed;
+  .main-content .page-content{
+    top: 40px!important;
   }
 
-  .sidebar-top.fixed-topbar .main-content .page-content
-  {
-    top:33px;
+
+  .cbp_tmtimeline {
+    margin: 30px 0 0 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+  }
+
+  /* The line */
+  .cbp_tmtimeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    /*background: #765F89;*/
+    background: #A993BB;
+    left: 20%;
+    margin-left: -10px;
+  }
+
+  .cbp_tmtimeline > li {
+    position: relative;
+  }
+
+  /* The date/time */
+  .cbp_tmtimeline > li .cbp_tmtime {
+    display: block;
+    width: 25%;
+    padding-right: 100px;
+    position: absolute;
+  }
+
+  .cbp_tmtimeline > li .cbp_tmtime span {
+    display: block;
+    text-align: right;
+  }
+
+  .cbp_tmtimeline > li .cbp_tmtime span:first-child {
+    font-size: 1.4em;
+    color: #765F89;
+    margin-bottom: 10px;
+  }
+
+  .cbp_tmtimeline > li .cbp_tmtime span:last-child {
+    font-size: 1.2em;
+    color: #765F89;
+  }
+
+  .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+    color: #765F89;
+  }
+
+  /* Right content */
+  .cbp_tmtimeline > li .cbp_tmlabel {
+    margin: 0 0 15px 25%;
+    background-color: #f0f0f0;
+    color: #565a5c;
+    padding: 1em;
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 1.4;
+    position: relative;
+    border-radius: 5px;
+  }
+
+  .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+    background: #f0f0f0;
+  }
+
+  .cbp_tmtimeline > li .cbp_tmlabel h2 {
+    margin-top: 0px;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+
+  /* The triangle */
+  .cbp_tmtimeline > li .cbp_tmlabel:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #f0f0f0;
+    border-width: 10px;
+    top: 10px;
+  }
+
+  .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+    border-right-color: #f0f0f0;
+  }
+
+  /* The icons */
+  .cbp_tmtimeline > li .cbp_tmicon {
+    width: 40px;
+    height: 40px;
+    speak: none;
+    text-transform: none;
+    font-size: 1.4em;
+    line-height: 40px;
+    position: absolute;
+    color: #fff;
+    background: #765F89;
+    border-radius: 50%;
+    /*box-shadow: 0 0 0 8px #765f89;*/
+    box-shadow: 0 0 0 8px #A993BB;
+    text-align: center;
+    left: 20%;
+    top: 0;
+    margin: 0 0 0 -25px;
+  }
+  @media screen and (max-width: 65.375em) {
+
+    .cbp_tmtimeline > li .cbp_tmtime span:last-child {
+      font-size: 1.5em;
+    }
+  }
+
+  @media screen and (max-width: 47.2em) {
+    .cbp_tmtimeline:before {
+      display: none;
+    }
+
+    .cbp_tmtimeline > li .cbp_tmtime {
+      width: 100%;
+      position: relative;
+      padding: 0 0 20px 0;
+    }
+
+    .cbp_tmtimeline > li .cbp_tmtime span {
+      text-align: left;
+    }
+
+    .cbp_tmtimeline > li .cbp_tmlabel {
+      margin: 0 0 30px 0;
+      padding: 1em;
+      font-weight: 400;
+      font-size: 95%;
+    }
+
+    .cbp_tmtimeline > li .cbp_tmlabel:after {
+      right: auto;
+      left: 20px;
+      border-right-color: transparent;
+      border-bottom-color: #f0f0f0;
+      top: -20px;
+    }
+
+    .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+      border-right-color: transparent;
+      border-bottom-color: #f0f0f0;
+    }
+
+    .cbp_tmtimeline > li .cbp_tmicon {
+      position: relative;
+      float: right;
+      left: auto;
+      margin: -55px 5px 0 0px;
+    }
+
+    .sidebar-top .main-content .page-content{
+      top:15px !important;
+    }
+  }
+
+  .z_seen {
+    background-color: #f5f5f5 !important;
   }
 
 </style>
-<div class="container">
-  <div class="card">
-    <div class="row">
-      <h2 class="text-center m-t-0 m-b-0"><i class="icon-bell f-18 w-400"></i> Notifications</h2>
-    </div>
 
-  <hr class="custom-hr">
 
-  <div ng-hide="loading_notification" ng-repeat="n in notifications" class="row">
-    <div ng-click="gotoNotification(n)" class="col-md-12" style="cursor: pointer;">
-      <div class="row border-bottom"  ng-class="{'unseen':n.seen==0}">
-        <div class="col-md-8 col-xs-12">
 
-          <i ng-if="n.type==='REFERRAL'" class="fa fa-user f-16"></i>
-          <i ng-if="n.type==='MESSAGE'" class="fa fa-envelope f-16"></i>
-          <i ng-if="n.type==='WALLET_CREDIT'" class="fa fa-inr f-16"></i>
-          <i ng-if="n.type==='WALLET_DEBIT'" class="fa fa-money f-16"></i>
-          <i ng-if="n.type==='NEW_PACKAGE'" class="fa fa-tasks f-16"></i>
-          <i ng-if="n.type==='PACKAGE_PUBLISHED'" class="fa fa-play f-16"></i>
-          <i ng-if="n.type==='ORDER_PLACED'" class="fa fa-star-o f-16"></i>
-          <i ng-if="n.type==='ORDER_COMPLETED'" class="fa fa-pause f-16"></i>
-          <i ng-if="n.type==='ORDER_CANCELLED'" class="fa fa-times f-16"></i>
-          <i ng-if="n.type==='ORDER_REREVIEW'" class="fa fa-spin f-16"></i>
 
-        <p class="ib f-16 l-s-05">{{n.text}}</p>
-        </div>
-        <div class="col-md-4 col-xs-12">
-        <p class="pull-right">{{dt|date:'medium'}}</p>
-
-      </div>
-
-    </div>
-  </div>
-
-  <div ng-show="loading_notification" class="row p-20 text-center">
+<div class="container-fluid">
+  <div ng-show="loading_notification" class="card p-b-0">
+    <div class="row p-20 text-center">
     <div class="text-center m-t-60">
       <div layout="row" layout-sm="column" layout-align="space-around">
         <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
       </div>
     </div>
+    </div>
   </div>
-</div>
+
+
+  <div ng-hide="loading_notification" class="card p-b-0">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center m-t-0 m-b-0">Notifications</h2>
+      </div>
+    </div>
+    <hr class="custom-hr">
+    <ul class="cbp_tmtimeline">
+      <li ng-repeat="n in notifications">
+        <a ng-href="" ng-click="gotoNotification(n)" style="cursor: pointer;">
+        <time class="cbp_tmtime"><span class="f-16">{{dt|date:'MMM dd, yyyy'}}</span> <span>{{dt|date:'shortTime'}}</span></time>
+        <div class="cbp_tmicon cbp_tmicon-phone">
+          <i ng-if="n.type==='REFERRAL'" class="fa fa-user" aria-hidden="true"></i>
+          <i ng-if="n.type==='WALLET_CREDIT'" class="fa fa-inr" aria-hidden="true"></i>
+          <i ng-if="n.type==='WALLET_DEBIT'" class="fa fa-inr" aria-hidden="true"></i>
+          <i ng-if="n.type==='MESSAGE'" class="fa fa-envelope" aria-hidden="true"></i>
+          <i ng-if="n.type==='NEW_PACKAGE'" class="fa fa-archive" aria-hidden="true"></i>
+          <i ng-if="n.type==='PACKAGE_PUBLISHED'" class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          <i ng-if="n.type==='ORDER_PLACED'" class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+          <i ng-if="n.type==='ORDER_COMPLETED'" class="fa fa-bell" aria-hidden="true"></i>
+          <i ng-if="n.type==='ORDER_CANCELLED'" class="fa fa-bell" aria-hidden="true"></i>
+          <i ng-if="n.type==='ORDER_REVIEW'" class="fa fa-bell" aria-hidden="true"></i>
+
+        </div>
+        <div class="cbp_tmlabel" ng-class="{'z_seen':n.seen==1}">
+          <h2 class="f-18">{{n.type.replace('_',' ') | capitalizeFirst}}</h2>
+          <p class="zolo-n-m f-15">{{n.text}}</p>
+        </div>
+          </a>
+      </li>
+    </ul>
+  </div>
 </div>

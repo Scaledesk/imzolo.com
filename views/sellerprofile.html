@@ -1,3 +1,14 @@
+<style>
+  .main-content .page-content{
+    padding: 0!important;
+  }
+
+
+</style>
+
+
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -5,24 +16,26 @@
 
     </div>
     <div class="col-md-12">
-      <div class="card" style="margin-top: 0px;">
+      <div class="card m-t-0">
         <div class="profile-preview">
           <div class="row">
-            <div class="col-md-2 col-sm-6 col-xs-12">
+            <div class="col-md-2 col-sm-6 col-xs-12 text-center">
               <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-12">
-              <p>{{profile.name}} </p>
-              <strong>{{profile.short_description}}</strong>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <p class="w-600 f-20">{{profile.name}} </p>
+              <p class="text-muted-z f-14 zolo-n-m w-500">{{profile.short_description}}</p>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <p>Projects Completed</p>
-              <strong>{{profile.completed_orders || 'None'}}</strong>
+              <p class="w-600 f-20 text-center">{{profile.completed_orders || 'None'}}</p>
+              <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Projects Completed</p>
+
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <p>Contact Number</p>
-              <strong ng-if="profile.is_contact_number_verified !=0">{{profile.mobile}}</strong>
-              <strong ng-if="profile.is_contact_number_verified ==0">NA</strong>
+              <p class=" w-600 f-20 text-center" ng-if="profile.is_contact_number_verified !=0">{{profile.mobile}}</p>
+              <p class="w-600 f-20 text-center" ng-if="profile.is_contact_number_verified ==0">NA</p>
+              <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Contact Number</p>
+
             </div>
             <!--<div class="col-md-2 col-sm-6 col-xs-6">
                 <p>Date Of Birth</p>
@@ -35,14 +48,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
 
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 p-r-0">
           <div class="card">
-            <h2>About {{profile.name}}</h2>
-            <hr>
+            <h2 class="m-t-5">About {{profile.name}}</h2>
+            <hr class="custom-hr">
             <p ng-if="profile.description!='' || profile.description!=null">{{profile.description}}</p>
             <p ng-if="profile.description=='' || profile.description==null">The seller has yet to update his description</p>
           </div>
@@ -55,20 +68,20 @@
 
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 p-r-0">
           <div class="card">
-            <h2>{{profile.name}} Packages</h2>
-            <hr>
+            <h2 class="m-t-5">{{profile.name}} Packages</h2>
+            <hr class="custom-hr">
             <div class="row">
               <div class="col-md-12">
 
-                <div class="widget widget_slider">
+                <div class="widget widget_slider p-t-0 p-b-0 m-b-0">
 
                   <div class="row hidden-xs hidden-md">
 
                     <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
                            focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
-                           data="other_user_packages.data" class="slider multiple-items">
+                           data="other_user_packages.data" class="slider multiple-items m-b-0">
                       <div ng-repeat="package in other_user_packages.data">
                         <!-- <h3 class="bg-primary">1</h3> -->
                         <div package-card package="package" master-collections="collections">
@@ -80,33 +93,33 @@
 
 
 
-                    <div class="row visible-xs hidden-md hidden-lg">
+                  <div class="row visible-xs hidden-md hidden-lg">
 
-                        <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
-                               focus-on-select="true" slides-to-show=1 slides-to-scroll=3 init-onload=true
-                               data="other_user_packages.data" class="slider multiple-items">
-                            <div ng-repeat="package in other_user_packages.data">
-                                <!-- <h3 class="bg-primary">1</h3> -->
-                                <div package-card package="package" master-collections="collections">
-                                </div>
-                            </div>
-                        </slick>
-                    </div>
+                    <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
+                           focus-on-select="true" slides-to-show=1 slides-to-scroll=3 init-onload=true
+                           data="other_user_packages.data" class="slider multiple-items">
+                      <div ng-repeat="package in other_user_packages.data">
+                        <!-- <h3 class="bg-primary">1</h3> -->
+                        <div package-card package="package" master-collections="collections">
+                        </div>
+                      </div>
+                    </slick>
+                  </div>
 
 
 
-                    <div class="row visible-md hidden-xs hidden-lg">
+                  <div class="row visible-md hidden-xs hidden-lg">
 
-                        <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
-                               focus-on-select="true" slides-to-show=2 slides-to-scroll=3 init-onload=true
-                               data="other_user_packages.data" class="slider multiple-items">
-                            <div ng-repeat="package in other_user_packages.data">
-                                <!-- <h3 class="bg-primary">1</h3> -->
-                                <div package-card package="package" master-collections="collections">
-                                </div>
-                            </div>
-                        </slick>
-                    </div>
+                    <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
+                           focus-on-select="true" slides-to-show=2 slides-to-scroll=3 init-onload=true
+                           data="other_user_packages.data" class="slider multiple-items">
+                      <div ng-repeat="package in other_user_packages.data">
+                        <!-- <h3 class="bg-primary">1</h3> -->
+                        <div package-card package="package" master-collections="collections">
+                        </div>
+                      </div>
+                    </slick>
+                  </div>
 
 
 
@@ -128,9 +141,9 @@
       <!--ng-repeat="package in user_packages.data"-->
 
       <div ng-if="portfolios.length>0" class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 p-r-0">
           <div class="card">
-            <h2>{{profile.name}} Portfolio</h2>
+            <h2 class="m-t-5">{{profile.name}} Portfolio</h2>
             <div class="row">
               <div ng-repeat="portfolio in portfolios" class="col-md-4">
                 <div class="panel panel-transparent">
@@ -158,53 +171,124 @@
 
 
 
-    <div class="col-md-3">
-      <div class="card">
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">No. of packages</h4>
-            <p class="text-center"><strong>{{other_user_packages.data.length}}</strong></p>
-            <hr class="custom-hr">
+    <!--<div class="col-md-3">-->
+    <!--<div class="card">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<h4 class="text-center">No. of packages</h4>-->
+    <!--<p class="text-center"><strong>{{other_user_packages.data.length}}</strong></p>-->
+    <!--<hr class="custom-hr">-->
+
+    <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<h4 class="text-center">Skills</h4>-->
+    <!--<p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>-->
+    <!--<p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>-->
+    <!--<hr class="custom-hr">-->
+    <!--</div>-->
+
+    <!--</div>-->
+
+
+
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<h4 class="text-center">Location</h4>-->
+    <!--<p class="text-center"><strong >NA</strong></p>-->
+    <!--<hr class="custom-hr">-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<h4 class="text-center">Rating</h4>-->
+    <!--<p class="text-center"><strong >NA</strong></p>-->
+    <!--<hr class="custom-hr">-->
+
+
+
+
+    <!--</div>-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
+
+    <div class="col-md-4">
+      <div class="card p-b-0 p-t-0">
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>
 
           </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>
+
+          </div>
+
 
         </div>
 
 
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">Skills</h4>
+
+
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-map-marker"></i>&nbsp;Location</p>
+
+          </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18">N/A</p>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-star"></i>&nbsp;Ratings</p>
+
+          </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18">No Ratings</p>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="row border-bottom">
+          <div class="col-xs-6 p-r-0">
+            <p class="f-16 text-muted-z w-500"><i class="fa fa-signal"></i>&nbsp;Skills</p>
+
+          </div>
+
+          <div class="col-xs-6">
+            <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
             <p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
             <p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>
-            <hr class="custom-hr">
+
           </div>
+
 
         </div>
 
 
 
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">Location</h4>
-            <p class="text-center"><strong >NA</strong></p>
-            <hr class="custom-hr">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-center">Rating</h4>
-            <p class="text-center"><strong >NA</strong></p>
-            <hr class="custom-hr">
-
-
-
-
-          </div>
-
-        </div>
       </div>
-
     </div>
 
 
@@ -223,7 +307,7 @@
       <span>All rights reserved. </span>
     </p>
     <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact/" class="m-l-10 m-r-10">Contact us</a> |   <a ng-href="/terms-of-use/" class="m-l-10 m-r-10">Terms of use</a> | <a href="/privacy-policy/" class="m-l-10">Privacy Policy</a></span>
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
     </p>
   </div>
 </div>

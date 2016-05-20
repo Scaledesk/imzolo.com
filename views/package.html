@@ -4,7 +4,9 @@
     margin-left: 0px !important;
     margin-right: 0px !important;
   }
-
+.s_top {
+  top:'71px !important'
+}
   .slick-slider{
     margin-bottom: 0px !important;
   }
@@ -509,22 +511,27 @@
           <p class="text-center text-warning" ng-show="packagePaused">Package paused by user</p>
           <!--<p class="text-center text-warning" ng-show="sameUser">Package paused by user</p>-->
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-2">
               <p class="m-t-30 f-16 w-400">Quantity</p>
             </div>
 
-            <div class="col-md-6" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
-              <md-select id="Quantity" ng-model="book.quantity"  placeholder="Quantity" md-on-close="setIndex(-1,true)">
+            <div class="col-md-2 hidden-xs m-l-10" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+              <md-select id="Quantity" ng-model="book.quantity"  placeholder="Quantity" md-on-close="setIndex(-1,true);removeFix()" md-on-open="fixPosition()">
                     <md-option ng-repeat="n in a" value='{{n}}'>{{n}}</md-option>
               </md-select>
+            </div>
 
+            <div class="col-md-2 col-xs-3 m-l-10 hidden-md hidden-lg hidden-sm" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+              <md-select id="Quantity" ng-model="book.quantity"  placeholder="Quantity" md-on-close="setIndex(-1,true)">
+                <md-option ng-repeat="n in a" value='{{n}}'>{{n}}</md-option>
+              </md-select>
             </div>
 
 
           </div>
 
 
-          <p class="text-muted text-center f-16 w-500 m-t-10 l-s-05" ng-if="package.Addons.data.length > 0">Enhance Your Package</p>
+          <p class="text-muted text-center f-16 w-500 m-t-0 l-s-05" ng-if="package.Addons.data.length > 0">Enhance Your Package</p>
           <hr class="custom-hr" ng-if="package.Addons.data.length > 0">
           <div  ng-if="package.Addons.data.length > 0" ng-mouseover="show_addon = false"
                 ng-mouseleave="show_addon = show_addon_checked">

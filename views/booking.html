@@ -1,308 +1,483 @@
 <style>
   .main-content .page-content{
-    top: 40px!important;
+    top: 25px!important;
+
 
   }
+
+  .other-p-s  .slick-prev {
+    left: 0px;
+    z-index: 2;
+  }
+
+  .other-p-s  .slick-prev:before,.other-p-s  .slick-next:before {
+    font-family: "slick";
+    font-size: 45px;
+    line-height: 1;
+    color: #313131;
+    opacity: 0.9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+  }
+
+  .other-p-s  .slick-next {
+    right: 25px;
+    z-index: 2;
+  }
+
 </style>
 
 
 <div class="container-fluid">
-  <div class="row" ng-if="isfailed==1">
+  <div ng-hide="bookingLoading || isfailed==1" class="row">
+    <div class="col-md-12">
+      <p class="zolo-n-m w-600 f-14 text-right m-t-10"> <i class="fa fa-shield text-success" aria-hidden="true"></i>
+        Secure: 100% Payment Protection, Easy Refunds Policy</p>
+      <div class="card card-5-15">
+
+        <md-content>
+          <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+            <md-tab label="Review Order">
+              <md-content class="md-padding">
+                <div class="row">
+                  <div class="col-md-8 p-0">
+                    <div class="card">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p class="pull-right zolo-n-m"><span class="text-muted-z">Seller:</span><b> {{booking.seller_profile.name}}</b></p>
+                          <span class="pull-left f-18"><span class="text-muted-z">Order no</span> <b>#{{booking.id}}</b></span>
+                        </div>
+                      </div>
+                      <hr class="custom-hr m-t-5">
+                      <div class="row">
+                        <div class="col-xs-2">
+                          <img class=".img-md m-t-10" ng-src="{{booking.first_photo||'../global/images/Screen Shot 2016-05-20 at 4.02.00 PM.png'}}" style="height: auto;width:100%;" >
+                        </div>
+                        <div class="col-xs-4">
+                          <h4 class="w-600 text-c">{{booking.package_title}}</h4>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <!--<md-input-container class="zolo-n-m">
+                                <label>Quantity</label>
+                                <md-select ng-model="ctrl.userState">
+                                  <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
+                                    {{state.abbrev}}
+                                  </md-option>
+                                </md-select>
+                              </md-input-container>-->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-2">
+                          <div class="m-t-10 text-center">
+                            <span class="text-muted-z f-12 ">Delivery time:</span>
+                            <span class="w-600">{{booking.package_delivery_time}}&nbsp;{{booking.package_delivery_time_type}}</span>
+                          </div>
+                        </div>
+                        <div class="col-xs-2">
+                          <div class="m-t-10 text-center">
+                            <span class="text-muted-z f-12 ">Quantity</span><br/>
+                            <span class="w-600">{{booking.quantity}}</span>
+                          </div>
+                        </div>
+                        <div class="col-xs-2">
+                          <div class="m-t-10 text-center">
+                            <span class="text-muted-z f-12">Total Amount: <br></span>
+                            <span class="w-600"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</span>
+                          </div>
+                        </div>
+
+
+
+                      </div>
+
+
+                      <div ng-show="booking.bookingPackagesAddons.data.length>0" class="row">
+                        <div class="col-xs-6 col-md-offset-2 col-xs-6"> <p class="p-l-10 f-18 w-600">Add-on's</p></div>
+                        <div class="col-xs-4 w-500 col-xs-6"> <!-- &#8377; {{total_price}}--> </div>
+
+                      </div>
+
+
+
+                      <div ng-repeat="addon_local in booking.bookingPackagesAddons.data" class="row m-t-10 ">
+                        <div class="col-xs-10 col-md-offset-2  border-bottom">
+                          <p class="f-16  zolo-n-m pull-left"><i class="fa fa-check-circle text-success"></i>&nbsp;{{addon_local.name}}<!--Add-on {{$index}}-->
+                            <!--<md-input-container class="zolo-n-m m-b-10">
+                              <label>Quantity</label>
+                              <md-select ng-model="ctrl.userState">
+                                <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
+                                  {{state.abbrev}}
+                                </md-option>
+                              </md-select>
+                            </md-input-container>-->
+                          </p>
+                          <p class="zolo-n-m p-r-20 w-600 pull-right"><i class="fa fa-inr text-success"></i>&nbsp;{{addon_local.amount}}</p>
+                        </div>
+                      </div>
+                      <hr ng-hide="booking.bookingPackagesAddons.data.length>0" class="custom-hr">
+
+                      <div class="row m-t-20 ">
+                        <div class="col-xs-10 col-md-offset-2">
+                          <p class="zolo-n-m p-r-20 pull-right f-20">Total Amount: <span class="w-600"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price}}</span>
+                          </p>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+
+
+
+
+                  <div class="col-md-4">
+                    <div class="card">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <p class="zolo-n-m f-25 w-600"><i class="fa fa-credit-card f-17 zolo-c text-c"></i>&nbsp;&nbsp;Payment Summary</p>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <hr class="custom-hr m-t-10">
+
+                          <p class="f-14 w-600 pull-left zolo-n-m">Order Total</p>
+                          <p class="zolo-n-m pull-right f-14 w-600"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</p>
+
+                        </div>
+                      </div>
+                      <hr class="custom-hr m-t-5">
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p class="w-500">Have a <span class="zolo-c">Promocode?</span>  Apply here!</p>
+                          </div>
+                        </div>
+
+                      <div class="row">
+                        <div class="col-md-8">
+                          <input type="email" name="email" class="form-control" placeholder="Enter Promo Code.."aria-required="true">
+                        </div>
+
+                        <div class="col-md-4 p-l-0">
+                          <button ng-click="applyCode()" class="btn zolo-btn m-0 text-c">
+                            <span ng-hide="applying">Apply</span>
+                            <span ng-show="applying"><i class="fa fa-spinner fa-spin" style="font-size: 16px"></i></span>
+                          </button>
+                        </div>
+
+
+                      </div>
+
+
+
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button class="btn btn-lg zolo-btn text-c btn-success" ng-click="selectedIndex = 1" style="width: 100%;">Proceed to pay &nbsp;<i class="fa fa-inr"></i>&nbsp;{{total_price}}</button>
+
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <ul class="nav nav-tabs">
+                            <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/MasterCard.png" alt="" height="25"></li>
+                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/visa.png" alt="" height="25"></li>
+                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/maestro_10.jpg" alt="" height="25"></li>
+                            <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/payumoney.png" alt="" height="20" class="m"></li>
+                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" height="25" class="m-l-5"></li>
+                          </ul>
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p class="zolo-n-m m-t-10 f-13">
+                            Pay Using Debit/Credit Card and Netbanking
+                          </p>
+                        </div>
+
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+
+
+
+              </md-content>
+            </md-tab>
+            <md-tab label="Confirm Address">
+              <md-content class="md-padding">
+                <h2 class="">Confirm Address<span class="pull-right"><button ng-click="selectedIndex=2" class="btn zolo-btn m-t-0">Skip</button></span></h2>
+                <span class="text-muted-z f-13">We will deliver your order here</span>
+                <div ng-show="new_address" class="row">
+                <form role="form" ng-submit="saveAddress()">
+                  <div class="col-md-12">
+                      <div class="row m-t-20">
+                        <div class="col-xs-6">
+                          <label for="">Pincode</label>
+                          <input type="number" ng-model="adr.pincode" number-converter placeholder="Pincode" class="form-control" min="0" required/>
+                        </div>
+                        <div class="col-xs-6">
+                          <label for="">Name</label>
+                          <input type="text" placeholder="Name" ng-model="adr.name" class="form-control" required/>
+                        </div>
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-xs-6">
+                          <label for="">Address</label>
+                          <textarea rows="3" type="text" placeholder="Address" ng-model="adr.street_address" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-xs-6">
+                          <label for="">Landmark</label>
+                          <textarea rows="3" type="text" placeholder="Landmark" ng-model="adr.landmark" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-xs-6">
+                          <label for="">City</label>
+                          <input type="text" placeholder="Landmark" ng-model="adr.city" class="form-control" required/>
+                        </div>
+                        <div class="col-xs-6">
+                          <label for="">State</label>
+                          <md-select name="" id="" class="zolo-n-m" ng-change="stateError=false" ng-model="adr.state">
+                            <md-option value="" ng-selected="-1">Select State</md-option>
+                            <md-option  ng-repeat="l in locations" value="{{l.text}}">{{l.text}}</md-option>
+                          </md-select>
+                          <p ng-show="stateError" class="text-danger">State is required</p>
+                        </div>
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-xs-6">
+                          <label for="">Mobile Number</label>
+                          <input type="Number" id="mobile" number-converter placeholder="Mobile Number" min="0" ng-change="checkMobile()" ng-model="adr.phone_number" class="form-control" required/>
+                          <p ng-show="mobileError" class="text-danger">mobile number must be 10 digit</p>
+                        </div>
+                        <div class="col-xs-6">
+                          <div class="col-xs-12 text-center">
+                            <div class="checkbox m-l-30">
+                              <label class="text-indent ng-binding">
+                                <input value="1" type="checkbox" class="md-checkbox ng-scope ng-pristine ng-untouched ng-valid ng-empty" ng-model="adr.is_default" aria-invalid="false">
+                                <span class="checkbox-material"><span class="check"></span></span>
+                                Make this My Default Address
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row m-t-20">
+                        <div class="col-xs-6">
+                        </div>
+                        <div class="col-xs-6">
+                          <div class="col-xs-3">
+                            <button class="btn zolo-btn pull-right btn-success" ng-click="selectedIndex=2">Skip</button>
+                          </div>
+                          <div class="col-xs-3">
+                            <button ng-disabled="savingAddress" class="btn zolo-btn pull-left btn-success" type="submit">Save and Continue
+                              &nbsp;<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i></span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </form>
+                </div>
+                <div ng-hide="new_address" class="row">
+                  <div class="col-md-12">
+                    <div ng-repeat="addr in user_address" class="col-md-3">
+                      <a href="" class="text-muted">
+                        <div class="card">
+                          <div ng-show="addr.is_default==1" class="address-strip text-center">
+                            <span class="text-c">Default-Address</span>
+                          </div>
+                          <p class="w-600 f-16">{{addr.name}}</p>
+                          <p class="zolo-n-m">{{addr.street_address}}</p>
+                          <p class="zolo-n-m">{{addr.landmark}}</p>
+                          <p class="zolo-n-m">{{addr.city+' '+addr.state+' '+addr.pincode}}</p>
+                          <p class="zolo-n-m text-muted-z">Phone <span class="w-600">{{addr.phone_number}}</span></p>
+                          <button ng-click="add_address(addr.id)" ng-disabled="savingAddress" class="btn zolo-btn text-c btn-lg" style="width: 100%;">Continue</button>
+                          <a href="" ng-click="deleteAddress(addr.id)" class="text-muted-z"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</a>&nbsp;&nbsp;
+                          <a href="" ng-click="editAddress(addr)" class="text-muted-z"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</a>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="col-md-3">
+                      <button ng-click="newAddress()" class="btn zolo-btn text-c btn-lg" style="width: 100%;">New Address</button>
+                    </div>
+                  </div>
+                </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="Make Payment">
+              <md-content class="md-padding">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3 class="text-c f-18 m-t-5 m-b-5">Payment Options</h3>
+                  </div>
+                </div>
+
+                <hr class="custom-hr m-t-5">
+
+
+                <div class="row">
+                  <div class="col-md-4 m-t-30 col-xs-12 text-center">
+                <span class="check-img ">
+                <input type="radio" class="" id="2" name="1102" ng-model="by_medium" value="by_payment_gateway" aria-invalid="false">
+                <label for="2"> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/payumoney.png" alt="" width="150" height="35">
+                </label>
+                </span>
+                    <br>(Pay Using Credit/Debit Card and Netbanking)
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 text-center m-t-30">
+                <span class="check-img ">
+                <input type="radio" class="" id="3" name="1102" ng-model="by_medium" value="by_paytm" aria-invalid="false">
+
+                <label for="3"> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" width="100"></label>
+
+                </span>
+                    <br>(Pay Using Patym Wallet)
+
+                  </div>
+
+                  <div class="col-md-4 m-t-20 col-xs-12 text-center zolo-wallet-o">
+                <span class="check-img ">
+                <input type="radio" class="" id="4" name="1102" ng-model="by_medium" value="by_wallet" aria-invalid="false">
+
+                <label for="4"><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/zolo+favicon-01.png" alt="" width="50">&nbsp;Pay with Zolo Wallet</label>
+                </span>
+                    <p class="f-14 m-t-10 m-l-20 text-center"> ( Current Wallet balance:<span class="w-500">&#8377; {{wallet_amount.data}} )</span>
+                      <span style="color:red;"><p ng-show="restAmount!=0&&(restAmount>0)" class="f-14 m-t-10 m-l-20 text-center"> ( Amount:<span class="w-500">&#8377; {{restAmount}} )</span> need more to do the transaction.</p>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-center m-t-30 m-b-20">
+                    <!--<button class="btn btn-lg text-c btn-success w-100 f-20">Proceed to Payment</button>-->
+                    <button ng-click="onSelectPaymentMethod()" type="button" class="btn btn-lg text-c btn-success w-100 f-20"><span ng-if="restAmount>0&&by_medium=='by_wallet'" >Add <i class="fa fa-inr"></i>{{restAmount}} and Proceed to Payment</span>
+                      <span ng-if="!(restAmount>0&&by_medium=='by_wallet')">Proceed to Payment</span>
+                    </button>
+                  </div>
+                </div>
+
+
+                <div class="row s-strip">
+                  <div class="col-md-4 border-right ">
+                    <p class="text-center f-18 text-muted-z"><i class="fa fa-key"></i>
+                      100% Secure Payments</p>
+
+                  </div>
+
+                  <div class="col-md-4 border-right">
+                    <p class="text-center f-18 text-muted-z"><i class="fa fa-shield"></i>
+                      100% Buyer Protection
+
+                    </p>
+
+                  </div>
+
+                  <div class="col-md-4 ">
+                    <p class="text-center f-18 text-muted-z">
+                      <i class="fa fa-refresh"></i>
+                      Buyer Friendly Refund Policy
+
+                    </p>
+
+                  </div>
+
+
+                </div>
+
+
+
+
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </div>
+    </div>
+  </div>
+
+  <div ng-hide="bookingLoading || isfailed==0" class="row">
     <div class="col-md-12 ">
-      <div class="card text-center">
-        <h2 class="f-24 text-danger">Apologies</h2>
-        <hr class="custom-hr">
-        <h3 class="w-500 f-18">Payment processing Failed due to some technical issue &nbsp;<i class="fa fa-exclamation-circle f-24"></i></h3>
+    <div class="card text-center">
+    <h2 class="f-24 text-danger">Apologies</h2>
+    <hr class="custom-hr">
+    <h3 class="w-500 f-18">Payment processing Failed due to some technical issue &nbsp;<i class="fa fa-exclamation-circle f-24"></i></h3>
 
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <button ng-disabled="gettingNewTid" class="btn btn-primary btn-transparent" ng-click="hideFailed()">Click Here To try Again</button>
-          </div>
-        </div>
+    <div class="row">
+    <div class="col-md-12 text-center">
+    <button class="btn btn-primary btn-transparent" ng-click="hideFailed()">Click Here To try Again</button>
+    </div>
+    </div>
 
-        <div class="row">
-          <div class="col-md-12 text-center m-b-10">
-            <strong>or</strong>
-          </div>
-        </div>
+    <div class="row">
+    <div class="col-md-12 text-center m-b-10">
+    <strong>or</strong>
+    </div>
+    </div>
 
+      <div class="row">
+      <div class="col-md-12 text-center">
+      <button class="btn btn-zolo btn-transparent">Go Back to zolo</button>
+      </div>
 
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <a ng-href="/" class="btn btn-zolo btn-transparent">Go Back to zolo</a>
-          </div>
-
-        </div>
 
       </div>
     </div>
+   </div>
 
   </div>
-  <div class="row" ng-if="isfailed!=1">
-
-    <div class="col-md-8 col-lg-8 col-sm-8">
-      <!-- HERE COMES YOUR CONTENT -->
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="card pulse animated p-t-0">
-            <div class="card-content p-t-10">
-
-              <p class="w-500 f-24 p-t-10" style="
-    text-align: -webkit-center;">
-                <strong>Summary of Order #{{booking.id}} </strong>
-              </p>
-
-              <hr class="custom-hr">
-
-              <div class="row">
-
-                <div class="col-md-4 zolo-center" >
-
-                  <img class=".img-md m-t-10" ng-src="{{booking.first_photo}}" style="height: auto;width:100%;" >
 
 
-
-                </div>
-
-                <div class="col-md-8 zolo-center" >
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                      <h3>{{booking.package_title| capitalizeFirst}}</h3>
-                    </div>
-                  </div>
-
-                  <div class="row m-t-10">
-                    <div class="col-md-4 col-xs-6">  Total amount :</div>
-                    <div class="col-md-8 w-500 col-xs-6"> &#8377; {{total_price}}</div>
-
-                  </div>
-
-                  <div class="row m-t-10">
-                    <div class="col-md-4 col-xs-6">  Delivery Time :</div>
-                    <div class="col-md-8 col-xs-6">{{booking.package_delivery_time}}&nbsp;{{booking.package_delivery_time_type}}</div>
-                  </div>
-
-                  <div class="row m-t-10">
-                    <div class="col-md-4 col-xs-6">  Seller :</div>
-                    <div class="col-md-8 col-xs-6"> {{booking.seller_profile.name}}</div>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-
-
-
-            </div>
-
-            <!-- <div class="card-action" style="text-align: -webkit-center;">
-                 <a href="#">Know More</a>
-                  <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-                 <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-             </div>-->
-
-          </div>
-
+  <div ng-show="bookingLoading" class="row">
+    <div class="col-md-12 card">
+      <div class="col-md-12 text-center m-t-60">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
         </div>
-
-
-      </div>
-
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="card pulse animated p-t-0">
-            <div class="card-content p-t-10">
-
-              <p class="w-500 f-20 p-t-10" style="
-    text-align: -webkit-center;">
-                <strong>You have selected</strong>
-              </p>
-              <hr class="custom-hr">
-
-              <div class="row">
-
-
-                <div class="col-md-10 col-md-offset-1 zolo-center" >
-
-                  <div class="row">
-
-                    <div class="col-md-9 col-sm-9 col-xs-6">
-                      <p class="f-16">Package Cost</p>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p class="f-14">&#8377; {{booking.deal_price}}</p>
-                    </div>
-                  </div>
-
-                  <div class="row m-t-10" ng-repeat="addon_local in booking.bookingPackagesAddons.data">
-                    <div class="col-md-9 col-sm-9 col-xs-6">
-                      <p class="f-16">+ {{addon_local.name}}</p>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p class="f-14 ">&#8377; {{addon_local.amount}}</p>
-                    </div>
-
-                  </div>
-
-
-                  <div class="row m-t-10">
-                    <div class="col-md-9 col-sm-9 col-xs-6" >
-                      <p style="text-align:right;">Total Amount :</p>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p class="w-500">&#8377; {{total_price}}</p>
-                    </div>
-
-                  </div>
-
-
-
-                </div>
-
-              </div>
-
-
-
-
-            </div>
-
-            <!-- <div class="card-action" style="text-align: -webkit-center;">
-                 <a href="#">Know More</a>
-                  <button type="button" class="btn btn-zolo btn-transparent">Back to Dashboard<div class="ripple-wrapper"></div></button>
-
-                 <button type="button" class="btn btn-zolo btn-success btn-transparent">See your package<div class="ripple-wrapper"></div></button>
-             </div>-->
-
-          </div>
-
-        </div>
-
-
       </div>
     </div>
-
-    <div class="col-md-4 col-sm-4">
-
-      <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="card pulse animated p-t-0">
-
-            <div class="card-content p-t-10">
-
-              <p class="w-500 f-20 p-t-10" style="text-align: -webkit-center;">
-                <strong>Payment Options</strong>
-              </p>
-
-              <hr class="custom-hr">
-
-              <form role="form" class="form-validation ng-valid" novalidate="novalidate">
+  </div>
 
 
-                <div class="row">
+
+  </div>
 
 
 
 
-
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-
-
-
-                    <div class="radio radio-success m-b-20">
-
-                      <label>
-
-                        <input type="radio" name="r-success" ng-model="by_medium" value="by_wallet" checked="" class="md-radio"><span class="circle"></span><span class="check"></span>
-
-                        <p class="f-18"> Pay using Wallet </p>
-
-                      </label>
-
-                      <p class="f-14 m-t-10 m-l-20"> ( Current Wallet balance:<span class="w-500">&#8377; {{wallet_amount.data}} )</span>
-                        <span></span>
-                        <span style="color:red;"><p ng-show="restAmount!=0&&(restAmount>0)" class="f-14 m-t-10 m-l-20"> ( Amount:<span class="w-500">&#8377; {{restAmount}} )</span> need more to do the transaction.
-                    </p></span>
-                    </div>
-
-
-
-                    <div class="radio radio-success m-t-20">
-
-                      <label>
-                        <input type="radio" ng-model="by_medium" name="r-success" value="by_payment_gateway" checked="" class="md-radio"><span class="circle"></span><span class="check"></span>
-
-                        <p class="f-18"> Pay using CC/Debit Card/NetBanking </p>
-
-                      </label>
-
-                    </div>
-
-                    <!--will be open later-->
-                    <!--<div class="radio radio-success m-t-20">
-
-                      <label>
-                        <input type="radio" ng-model="by_medium" name="r-success" value="by_paytm" checked="" class="md-radio"><span class="circle"></span><span class="check"></span>
-
-                        <p class="f-18"> Pay using Paytm Wallet/CC/Debit Card/Networking </p>
-
-                      </label>
-
-                    </div>-->
-
-                    <hr class="custom-hr">
-
-
-
-                  </div>
-
-
-                </div>
-
-                <div class="row">
-
-                  <div class="col-md-12 col-sm-12">
-
-
-                    <button ng-click="onSelectPaymentMethod()" style="width:100%;height:50px; padding-left: 10px;padding-right: 10px; padding-top: 10px;padding-bottom: 10px;" type="button" class="f-16 w-500 m-t-20 btn btn-lg btn-success btn-embossed m-10"><span ng-if="restAmount>0&&by_medium=='by_wallet'" >Add {{restAmount}} and pay</span>
-                      <span ng-if="!(restAmount>0&&by_medium=='by_wallet')">Pay Now</span>
-                    </button>
-
-                  </div>
-
-
-
-                </div>
-
-
-              </form>
-
-            </div>
-
-
-          </div>
-
-
-
-        </div>
-
-
-      </div>
-
-    </div>
-
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
   </div>
 </div>
+
+
+
+
+
+
+

@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container-fluid">
 
 <div class="row">
   <div class="col-md-2 ">
-    <div class="card">
+    <div class="card p-0">
       <div class="dashboard-seller-profile text-center">
-        <h5>Hi {{profile.name}}</h5>
-        <div class="zolo-dashboard-profile-complete">Your Profile is 70% complete</div>
-        <a ng-href="/profile/">Edit Profile</a>
+        <h5 class="w-600">Hi {{profile.name}}</h5>
+        <div class="zolo-dashboard-profile-complete">Your Profile is <br> <span class="text-success f-20 w-600">70%</span><br> Completed</div>
+        <a ng-href="/profile/" class="btn zolo-btn m-t-5">Edit</a>
       </div>
     </div>
     <div class="card">
@@ -24,32 +24,34 @@
       <div class="dashboard-a-summary">
         <div class="row">
           <div class="col-md-3 text-center account-summary-right-border">
-            <div class="dashboard-a-summary-heading">Earned</div>
+            <div class="dashboard-a-summary-heading w-600"><!-- Rupee Filled icon by Icons8 -->
+              <img class="icon icons8-Rupee-Filled" src="data:image/png;base64,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" width="32" height="32">&nbsp;&nbsp;Earned</div>
             <!--             <i class="fa fa-money fa-4x"></i>-->
 
             <!-- Rupee icon by Icons8 -->
-            <img class="icon icons8-Rupee" src="data:image/png;base64,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" width="52" height="52">
-            <div class="zolo-wallet-price">&#8377;{{completed_earning}}</div>
+
+            <div class="zolo-wallet-price m-t-20">&#8377;{{completed_earning}}</div>
             <!--<span>Withdraw</span>-->
           </div>
           <div class="col-md-3 text-center account-summary-right-border">
-            <div class="dashboard-a-summary-heading">Pending</div>
+            <div class="dashboard-a-summary-heading w-600">
+              <img class="icon icons8-Rupee-Filled" src="data:image/png;base64,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" width="32" height="32">&nbsp;&nbsp;Pending</div>
             <!--             <i class="fa fa-money fa-4x"></i>-->
 
-            <!-- Rupee icon by Icons8 -->
-            <img class="icon icons8-Rupee" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAHAUlEQVR4Xu2dvXIbNxDH/9BHk8KRx208kRoXSSGpTJFIKjMxafkJIj+BqSew9QSmn0DyE5ginUkXU2lcSmpcuIjkSePGY9NFGlFCZnFHfTDkHT5vcZfDDGekIe5w2B92F7sAcQJ1YZWAYG29bhw1AOZBUAOoATBLgLn5WgNqAMwSYG6+1oAaALMEmJuvNaAGkC0B2cUaZrAIicW05gqAhfRDf1M5AvA5/dDfgMApLnAqmjhglnFm89FpgHyJBczjAS6wDmATQgnbvkgFpoMZ9HGGffFQ/R9NiQKA/B2LGOIBkAo9rHg6APqYw774Gadhm8q/OysAJfgzPIHAVv6jBqghsYd57HCCYAGgzMwcHkOi5WxiXLmQiRJoY4jnHOapUABRCX4cHBOIwgDIHjYh8QzicjbjOnbDXC9xCoFt0QD5iuClEACyh8cA2sF747eBlmjgud9b/vduQQEokzOrRj2Pk3WVHjnpc2yH9A3BAKT2/jWAUbDkKg6u648wxEYoCEEAyN+wgnO8Zp/h+EJGDnoWG+IXFXF7Ld4BVE74I3EHguAVQGrzTyoz8idNVc+x5NMceQNQIZufZ2KORAOreZV0v/cHoIvd0s52dKV1ZY72RBOPTC+bVN8LAPkKLRVk/Z8KBWv33WMbZwAqwgVeWsv+vrS+1MuFr5xE8NA1YnZqPXW6h07phTIDoLTFOVZdnLIbgB6eAnjiNBLLDCDp+I5oKDlYFWsA3qacZQdA8YHD1NQegI/RT2Om7AActcAKQLqSRbbfbb22KgBIC+axarOyZgeghz0Av1oZPduLvloE7qwD32wBd9ay7/JuB3hnbZZtn/CFaJhnfY0BpAvoJ7ZP6eW6WyvA9+1sEH+uAl+8586yH38OS6ZaYA4gpqBreQ+4O0URP/aBNxteeGvfxCI4MwfQRQdCbSGJo2RB+GMJ+KfAnScS+6KpAlPtYgQgTbh90r67TsVqzIKuejrEbZPAzAxAF1sQ2NWRq3adqgEAjNITZgBCzH6qB8BoNmQGoItPXub+19WjagAkPosmbutaAG0Asqf2bdIiu99SNQCJdDZEA30dQekDCGH/6QmrCEDikWiqYDW36APwlfvJfSSLCveeAvcmJGU/HgBvSHELL9oZ0vIDmF8AfjwEKFUxXt5uA3+xbMgLAKCLPgRykjCFjzRgeRe4O2XjXdGB2Kj7BgGZvgbECCBL+HzmB5A4EE01ackt+gB6OIxmm6FKxj1LsqPTCkcy7upZtLeumADgXT1X6ei1NB2dM7h40tE3hoJo6B2Ewg/A9zT0y3Ey8znj/S1eCACUXF/ONWqmFXwCiET4AI5FQ29XuL4GhHLCvgB82AeOt9hHvhp/QZxwqHUAVwBnA+BtC/hbK/A01U+7+kGmoaEiYVsAJPiTdvJhtvcTKAUIxLgBkH0nQdM674cOQEuO8ZYAAEIl4346Am7l+Hba4UBTy/IU7UUZfSccKh1NuZzv2tMX10dCJxtPuZ34zM2kYeE/Ha2ce08ddPF1kIE4LaN5vTEyP7TTIW4IA9HQ37CmrQEpgLAbsiipRtown8GYhE8Qit7zoz/qgi5J+l+UH+8Y5Xl+6OdDIHMU09Tzqh/a9p8uMdOA5JANv9tSJo0s8gsEoYzOOeS2FGWGQgVk4yDK6JwNArBRd400QAEoemtimZxzIVsTk9Otit2cWxbnXMTm3EJmQ5P8QvzO2Wj2Y22CFIBECyg9HSYmmDbli9c5DzDEosmeUCcAqRa4/0BPf259VTNO56yd+xnvsrETHt0g3SlNe7+L1YLRA8TjnK1Hv3EcME5PhsqQ6mpGHM7ZevS7A0gCM/IF3+rKzHs9Xuf8XjTczsCzNkGXpsj1qAIfRPics1HaYVJXnQGwBGfT0hdFprUtgq5gANhig0k9KsY5W835wwJI/AGtE/rfuuLDTPm7h/aWE50mvZigaKamOj12q+M05QyqAZcQ6MTEC6UJPPGBm4Czrh5gBuu+T070qgEVhhBE+M5xQNZwSSPlKviEYwyxbpPn0VHGIBow5hPoJyrFHuyh03O9Ot5mO9OaCwrgEkTRizh6ws2u5Wmen/cohQBI4wQ6Q4G0gS9tkSeN5Pv3AOjk9OocXz9mklrUwQhnSQMaIC7nv+nxvVmrMA243mzqoGMBoQSPIdqhHG0WGBYAlxqRrKzRwg6Xk36BIVocgh/JgBXADRDn2FTvDgt9FpHEvnqn2Cw6pqdb2ZiYvGuiADDBPCUvcUs+rhE1mRhyqB0M0ecc7YWkIvKIm36vDgmh1xiOXv4j1W+vFtJTW0aJv2Mkb8yjV1IlB8UlL+M51T00w/S5fNWPTgN8daws96kBMJOqAdQAmCXA3HytATUAZgkwN19rQA2AWQLMzdcaUANglgBz8/8ClLJsf0kwNwMAAAAASUVORK5CYII=" width="52" height="52">
-            <div class="zolo-wallet-price">&#8377;{{pending_earning}}</div>
+
+            <div class="zolo-wallet-price m-t-20">&#8377;{{pending_earning}}</div>
             <!--<span>Withdraw</span>-->
           </div>
           <div class="col-md-6">
             <div class="dashboard-wallet text-center">
-              <div class="dashboard-a-summary-heading">Wallet Summary</div>
+              <div class="dashboard-a-summary-heading w-600">
+                <!-- Wallet icon by Icons8 -->
+                <img class="icon icons8-Wallet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAFP0lEQVR4Xu2d3XHbOBDH8cH35CqIrgKbI/A5dgWXVHC+CuJUcEkFcSo4p4JzOvA9EzLlCs4dnPJuATeroWYUDUUsCWgNScsZz3hGi93l/4cPEgRBKfjISgGZVTacjGAgmVUCBsJAMlMgs3S4hTCQzBTILB1uIQwkMwUGpNM0zfnz8/MbpdS59/5CCPEkhJgbY74OcNNryi2kQ56maV57789AdO/9RAgBfwCg8/Dez4uiuCzLchEL5uSBPDw8vHXOTaSUk7bWnwshXo8Q9s4Y835EuZ+KnAyQpmlA8DdtrYcuByCA+MkOrfWvZVlCNzb6OEogba3fFH1ndzNauY6C3vvLqqruY3weNJCtQRZqO/xBf/8ix8kAWQ+yzrlN0Ulq/RCyRwkEav1yuTxLMMgO0TKJ7UEDoRhkk6g8wMnBAOkYZMdeWg6Qh940OyC5DbKUSLz3/xRFcV2W5Twm7uirLOhylsvlbxtXNtkNsjHCtGUfvffru+/V5axSauGcW4leFMU8xd35Zp6DgVhr3wkhPvRNJSQQYp8ufsBUBwSQUs63BS+KYhFby2OSHwTEWvuXEOIqJuC+ykKX0Yq86BI89oZtX3lv+0UDeSEY5F0GlfC74qCAzGaza+/9l0TJZt1lJDrH0W5QQKy1/4amJI6lyxitZKKCQSDtIP73rngAoqqqY7zCSiTxMDdBIHVdf5JS/tnnNsW087C0j9c6CMRaeyuE+L1PgvaJ2fvYZwHHKzP+zIJA6rq+l1K+RbhcSClvlFLfX/I6HpFn1iYpgWyfKNzhRk0jZK1cT3Jtj/FtTMXcJ5BD1TNl3rda649DplcYSEr5u309aa1hfEX1Fgxk/0AgAkApMS2FgdAAgSjfjDHBeUAGQgdEaK1/CbUSBkIIREr5x3Q6hfu6nQcDIQTivf9cVdUnBkIoeiDUd2MMPODjFpIDE8xELHdZhKQYCKHYmFAMBKMSoQ0DIRQbE4qBYFQitGEghGJjQjEQjEqENgyEUGxMKAaCUYnQhoEQio0JxUAwKhHaMBBCsTGhGAhGJUIbBkIoNiYUA8GoRGjDQBKKDWIqpW6dc6utM5RSE+fcFXJV5yoTBpIIiJTy43Q6velyV9f1hZTyTgjxKhSOgYQUQvyOWZjQbnYAL4X2QmEgCMEDJqi1VOAD89oGA4kE0q42RC0Bhf1Ylsvlf30hGUgkEGNMcM3BZojQqxsMJAIIvFJQVVU5xAUDGaLWCNsRLaTp26WOW8gICJtFhmwmw2NIpNjI4vfGmEuMrbUW7lNgy5GdB7cQjJIBm76bwnXR2Wx25b2HbUd6DwYSUgj5u/f+piiKz12vElhroVV03sVvu2cgSMGRZrCpza2UEuay4P9zKSUsnEZvuslAkEpTmTEQKqWRcRgIUigqMwZCpTQyDgNBCkVlxkColEbGYSBIoajMGAiV0sg4DAQpFJUZA6FSGhmHgSCFojJjIFRKI+MwEKRQVGYMhEppZBwGghSKyoyBUCmNjJMEiLUW1q3Cd0L4iFcgyW5AwZ2t4/M8DQ9J9svCPsA/DUnjzhKzcDu4VLJdbwTPkYPL7ePSPfrSP7TWk+g9F0EmzMruo5cz8gQx3RWECLaQdR7WWlgFfhaZ16kWfzTGoD6EjAbSdl3wUgpDGVatHrXWF6Guau0SDWRdoO2+rnlMCVKBTzvdhHYh3fYyGAg4gNbinHvXfhgePpM95oPwwTM6NAMp5eoLcUqpJ6XUHbZVbJ7nKCCHJtQh5ctAMqPFQBhIZgpklg63EAaSmQKZpcMthIFkpkBm6fwPwPJ9kgCX/qkAAAAASUVORK5CYII=" width="32" height="32">&nbsp;&nbsp;Wallet Summary</div>
               <div class="row">
                 <div class="col-md-6 text-center">
                   <!-- Wallet icon by Icons8 -->
-                  <img class="icon icons8-Wallet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACL0lEQVRoQ+1ZS2sTURT+TlLNa9EsLC6bZciiRGyh7pQuuqylhUL7F9JNVyl1Wd0qKkgNKNg/ENouukihRCFVUpJAGtA+qEWRoNiieVhNMjIjVod2mEvnNJ0pd5Yz537nfI+Ze0kIDr/I4fNDEjhvB6UD0gGLCly8CD0Je0MNovsEJQqikEWBOJbnY6X6NSMgnQPa8C7KERDk6MyFESvVDZOie/A44ksCGOJqzIUjTOBRxLdvN/VVEYQJzPV4lV+Nf6Ys3x3kEpEFZ2k4eSxKuhsLA5eVvU/uo2aOI1CeIiWZ8uCvC72pVRblREESxWcoV8uG5aYOVO9AqdQIrwuX8PWAEF5Mi/ZmqUt/eIX0x5fWCLBMwghSaAVxr++mhijkAGNvNqix67clATY1TwMkHTiNapxrpAOcap6EdVgj7L3zoPbNhcMfLtN2t95Ujk4QuqOEupGZrmYuUIffWPOj8d8ZzKyFrQhs5rzY/9yBKzd6ERofQUfAj63EPL5ksoY8bEVgfSWAZpPQ//whvFe7tKEr27vITk47mMDOe2RjcWcQ0EVoYvRPhJ6+cE6E1Je4mPFrMRK9bPUOqENrn9G3HlS/u/DTaZ9REdXlTiyi0lnWSAfOUl0RbGEHKjM4IEKnCGg7a4QJVGeQBNnvp0VhAvU4Qk038nZzITBr/F/ese1PJdFy4wGAKAjd7YyKQa9CYBZRoznE928bMDlpBEngvI2RDkgHLCogI2RRQMvLfwMImPUxRxQGrAAAAABJRU5ErkJggg==" width="55" height="55">
 
-                  <div class="zolo-wallet-price">&#8377; {{profile.wallet.amount}}</div>
+                  <div class="zolo-wallet-price m-t-20">&#8377; {{profile.wallet.amount}}</div>
                 </div>
 
 
@@ -99,6 +101,7 @@
           <div class="panel table-res">
           <div class="panel-header md-panel-controls">
             <h3> <strong>Sales overview</strong> </h3>
+            <hr class="custom-hr">
           </div>
           <div ng-if="my_seles.length>0" class="panel-content">
             <table class="table table-striped">
@@ -131,7 +134,7 @@
 
           </div>
           <div ng-if="my_seles.length<=0" class="panel-content">
-            <p class="text-center f-18 w-400">You  don't have any sales !</p>
+            <p class="text-center f-18 w-600">You  don't have any sales !</p>
           </div>
         </div>
         <!--</div>-->
@@ -146,6 +149,7 @@
           <div class="panel table-res">
           <div class="panel-header md-panel-controls">
             <h3> <strong>Purchase overview</strong> </h3>
+            <hr class="custom-hr">
           </div>
           <div ng-if="my_purchases.data.length>0" class="panel-content">
             <table class="table table-striped">
