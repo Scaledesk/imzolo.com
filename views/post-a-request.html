@@ -8,18 +8,18 @@
   </div>
 
   <div class="row">
-    <form role="form" ng-submit="postARequest.doPost()" novalidate>
+    <form role="form" name="pq" ng-submit="postARequest.doPost()" novalidate>
     <div class="col-md-8 col-md-offset-2 col-md-offset-2">
 
       <div class="row m-t-20">
         <div class="col-md-4">
           <h4>Title of Request</h4>
-
         </div>
 
 
         <div class="col-md-6">
-          <input type="text" class="form-control" ng-model="postARequest.request.title" placeholder="Enter title">
+          <input type="text" name="title" id="title" class="form-control" ng-model="postARequest.request.title" placeholder="Enter title" required>
+          <p ng-show="pq.title.$error.required && postARequest.submitted" class="text-danger">Title is Required</p>
         </div>
 
 
@@ -34,12 +34,15 @@
 
 
         <div class="col-md-6 ">
-          <md-select ng-model="postARequest.request.package_type_id" id="package_type">
-            <md-option value="" ng-selected="-1">Select Package Type</md-option>
+          <md-input-container class="m-t-0">
+            <label>Package Type</label>
+          <md-select ng-model="postARequest.request.package_type_id" id="package_type" name="package_type" required>
             <md-option ng-repeat="pt in postARequest.package_types" value="{{pt.id}}">
               {{pt.name}}
             </md-option>
           </md-select>
+          <p ng-show="pq.package_type.$error.required && postARequest.submitted" class="text-danger">Select Package Type</p>
+           </md-input-container>
         </div>
       </div>
 
@@ -50,13 +53,16 @@
         </div>
 
         <div class="col-md-6">
-          <!--<label for="location">Location</label>-->
-          <md-select ng-model="postARequest.request.location" id="location">
-            <md-option value="" ng-selected="-1">Select Location</md-option>
+          <md-input-container class="m-t-0">
+          <label>Location</label>
+          <md-select ng-model="postARequest.request.location" id="location" name="location" required>
+            <!--<md-option value="" ng-selected="-1">Select Location</md-option>-->
             <md-option ng-repeat="l in postARequest.locations" value="{{l.text}}">
               {{l.text}}
             </md-option>
           </md-select>
+          <p ng-show="pq.location.$error.required && postARequest.submitted" class="text-danger">Select Location</p>
+          </md-input-container>
         </div>
       </div>
 
@@ -68,7 +74,8 @@
 
 
         <div class="col-md-6">
-          <input type="number" class="form-control" ng-model="postARequest.request.days" placeholder="Enter Days">
+          <input type="number" class="form-control" ng-model="postARequest.request.days" name="days" id="days" placeholder="Enter Days" required>
+          <p ng-show="pq.days.$error.required && postARequest.submitted" class="text-danger">Enter Days</p>
         </div>
 
 
@@ -84,7 +91,8 @@
         </div>
 
         <div class="col-md-6">
-          <input type="number" class="form-control" ng-model="postARequest.request.budget" placeholder="Enter Budget">
+          <input type="number" class="form-control" ng-model="postARequest.request.budget" name="budget" id="budget" placeholder="Enter Budget" required>
+          <p ng-show="pq.budget.$error.required && postARequest.submitted" class="text-danger">Enter Budget</p>
 
 
         </div>
@@ -101,10 +109,10 @@
 
         <div class="col-md-8">
           <div class="form-group m-b-30">
-            <!--<label>Description:</label>-->
-            <textarea class="form-control" ng-model="postARequest.request.description" placeholder="Enter Description.." rows="4" cols="50"></textarea>
+            <textarea class="form-control" ng-model="postARequest.request.description" placeholder="Enter Description.." name="description" id="description" rows="4" cols="50" minlength="20" required></textarea>
+            <p ng-show="pq.description.$error.required && postARequest.submitted" class="text-danger">Type Description | min 20 char</p>
+            <p ng-show="pq.description.$error.minlength && postARequest.submitted" class="text-danger">Minimum 20 character</p>
           </div>
-
         </div>
       </div>
 
@@ -117,8 +125,9 @@
 
         <div class="col-md-8">
           <div class="form-group m-b-30">
-            <md-select ng-model="postARequest.request.category_id" id="category" md-on-close="postARequest.getSubcategory()">
-              <md-option value="" ng-selected="-1">Select Category</md-option>
+            <md-input-container class="m-t-0">
+            <label>Category</label>
+            <md-select ng-model="postARequest.request.category_id" id="category" name="category" md-on-close="postARequest.getSubcategory()" required>
               <md-option ng-repeat="c in postARequest.category" value="{{c.id}}" ng-if="c.id!=13">
                 {{c.name}}
               </md-option>
@@ -126,8 +135,8 @@
                 {{"Others"}}
               </md-option>
             </md-select>
-
-
+            <p ng-show="pq.category.$error.required && postARequest.submitted" class="text-danger">Select Category</p>
+            </md-input-container>
           </div>
 
         </div>
@@ -140,26 +149,26 @@
           <h4>Select SubCategory</h4>
         </div>
 
+
         <div class="col-md-8">
           <div class="form-group m-b-30">
-            <md-select ng-model="postARequest.request.subcategory_id" id="subcategory">
-              <md-option value="" ng-selected="-1">Select SubCategory</md-option>
+            <md-input-container class="m-t-0">
+            <label>SubCategory</label>
+            <md-select ng-model="postARequest.request.subcategory_id" id="subcategory" name="subcategory" required>
               <md-option ng-repeat="c in postARequest.subcategory" value="{{c.id}}" ng-if="c.id!=13">
                 {{c.name}}
               </md-option>
             </md-select>
-
-
+            <p ng-show="pq.subcategory.$error.required && postARequest.submitted" class="text-danger">Select Sub Category</p>
+            </md-input-container>
           </div>
 
         </div>
       </div>
 
-<!--<div ng-bind="postARequest.result">
-</div>-->
-      <div class="row m-t-20">
-        <div class="col-md-8 col-md-offset-4 text-center">
-          <button type="submit" class="btn zolo-btn">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button type="submit" class="btn zolo-btn text-c">
           <span>Post Request</span>
             <span>
               <i ng-style="postARequest.myStyle" class="fa fa-spinner fa-spin"></i>
