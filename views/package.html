@@ -11,6 +11,32 @@
     margin-bottom: 0px !important;
   }
 
+  .corner-ribbon{
+    width: 200px;
+    background: #e43;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .corner-ribbon.top-left{
+    top: 25px;
+    left: -50px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .corner-ribbon.red{background: #c75757 !important;}
+
 
   /*img {*/
   /*!* Same as first example *!*/
@@ -126,7 +152,7 @@
       </div>
 
 
-      <div class="card">
+      <div class="card p-t-0">
 
         <div class="zolo-pdp-description">
 
@@ -135,7 +161,11 @@
               <slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"
                      slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true
                      data="package.photos.data" class="slider multiple-items">
-                <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><h3 style="margin:0;"><img preload-image default-image="../global/images/imageloader.gif" width="100%" height="358" ng-src="{{img.url}}"></h3></div>
+                <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
+                  <h3 style="margin:0;">
+                  <img preload-image default-image="../global/images/imageloader.gif" width="100%" height="358" ng-src="{{img.url}}">
+                    <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow" >Sold Out</div>
+                </h3></div>
               </slick>
               <!--preload-image default-image="../global/images/imageloader.gif"-->
             </div>
@@ -157,9 +187,10 @@
               <!--<slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"-->
               <!--slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true-->
               <!--data="package.photos.data" class="slider multiple-items">-->
-              <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><img class="img-responsive" preload-image
-                                                                                              default-image="../assets/images/abc.png" width="100%"
-                                                                                              ng-src="{{img.url}}"></div>
+              <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
+                <img class="img-responsive" preload-image default-image="../assets/images/abc.png" width="100%" ng-src="{{img.url}}">
+                <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow">Sold Out</div>
+              </div>
 
             </div>
           </div>
@@ -238,8 +269,9 @@
                 <li><a href="" ng-click="addAndDeleteWishlist(package)" class="hover-g"><i class="fa fa-heart f-24" style="color: #777;" ng-class="{'text-danger': package.wished_by_user=='yes'}" ></i> </a><md-tooltip md-direction="left">
                   Add to Wishlist
                 </md-tooltip></li>
-                <li>
 
+
+                <li class="m-l-20">
                   <a ng-if="!isLoggedIn()" ng-click="showTabDialog()" href="" class="hover-f"><i class="fa fa-tasks f-24"></i></a>
 
 
@@ -508,7 +540,7 @@
 
 
           <!--ng-hide="sameUser"-->
-          <p class="text-center text-warning" ng-show="packagePaused">Package paused by user</p>
+          <p class="text-center text-warning" ng-show="packagePaused">Package Sold Out</p>
           <!--<p class="text-center text-warning" ng-show="sameUser">Package paused by user</p>-->
           <div class="row">
             <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-2">

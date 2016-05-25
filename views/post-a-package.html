@@ -44,6 +44,11 @@
   }
 
 
+  .popover .arrow, .tooltip .arrow, .popover .tooltip-arrow, .tooltip .tooltip-arrow {
+    display: flex !important;
+  }
+
+
 
 </style>
 
@@ -62,14 +67,25 @@
                   <div class="col-lg-6 text-center ">
                     <div class="form-group">
                       <label for="title">Package Title</label>
-                      <input id="title" type="text" name="title" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 16px; !important;">
+                      <input id="title" type="text" name="title"  uib-popover="Give a package title for example: I will do seo for your web app." popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 16px; !important;">
+
+                      <!--uib-popover-template="'vvvvv.html'"-->
+                      <!--<script type="text/ng-template" id="vvvvv.html">
+                        <div>Package Title</div>
+                        <div class="form-group">
+                          Package Title maximum 90 char!
+                        </div>
+                      </script>-->
+
+
+
                       <div ng-show="validation_error.package_name" class="text-danger">Title is Required! || Min 20 charector | Max 100 charector</div>
                                             <span class="word-counter">
                                                 <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
                                             </span>
-                      <md-tooltip class="f-14 w-400" md-direction="right">
+                      <!--<md-tooltip class="f-14 w-400" md-direction="right">
                        Upto 100 characters
-                      </md-tooltip>
+                      </md-tooltip>-->
                     </div>
                   </div>
                 </div>
@@ -77,7 +93,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-3">
                     <label for="category">Category</label>
-                    <md-select ng-model="p_category" id="category" ng-change="subCategory()">
+                    <md-select ng-model="p_category" id="category" ng-change="subCategory()" uib-popover="Select Category for your package like, Events, Classes etc. !" popover-placement="top" popover-trigger="focus">
                       <md-option value="" ng-selected="-1">Select Category</md-option>
                       <md-option ng-repeat="c in category" value="{{c.id}}" ng-if="c.id!=13">
                         {{c.name}}
@@ -87,13 +103,13 @@
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>
-                    <md-tooltip class="f-14 w-400" md-direction="bottom">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
                       * Required Select category
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
                   <div class="col-md-3">
                     <label for="subcategory">Sub-Category</label>
-                    <md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">
+                    <md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory" uib-popover="Select sub category !" popover-placement="top" popover-trigger="focus">
                       <md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
                       <md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">
                         {{sub_c.name}}
@@ -106,54 +122,54 @@
 
 
                   <div class="col-md-4">
-                    <tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true">
+                    <tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true" uib-popover="Add tag list for your package like: computer science !" popover-placement="top" popover-trigger="focus">
                       <auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>
                     </tags-input>
                     <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * add tag
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
                 </div>
 
                 <div class="row user-post-a-package">
                   <div class="col-md-6 m-b-20">
                     <p>Location <span>(Your service is available at)</span></p>
-                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location">
+                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" uib-popover="Give a catchy introduction to your package !" popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_location=false">
                       <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
                     </tags-input>
                     <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
-                    <md-tooltip class="f-14 w-400" md-direction="bottom">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
                       * required add location
-                    </md-tooltip>
+                    </md-tooltip>-->
 
                   </div>
 
                   <div class="col-md-6 m-b-20">
 
                     <label for="package_type">Package Type</label>
-                    <md-select ng-model="package.packages_type" id="package_type" ng-change="validation_error.package_type=false">
+                    <md-select ng-model="package.packages_type" uib-popover="Give a catchy introduction to your package !" popover-placement="top" popover-trigger="focus" id="package_type" ng-change="validation_error.package_type=false">
                       <md-option value="" ng-selected="-1">Select Package Type</md-option>
                       <md-option ng-repeat="pt in packagesType" value="{{pt.id}}">
                         {{pt.name}}
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>
-                    <md-tooltip class="f-14 w-400" md-direction="bottom">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
                       * required select package type
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
                 </div>
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
 
                     <p class="w-400">Create a Catchy tagline for your package</p>
-                    <md-tooltip class="f-14 w-400" md-direction="top">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="top">
                       * Create a introduction for your Package
-                    </md-tooltip>
+                    </md-tooltip>-->
 
 
-                    <textarea class="form-control" id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>
+                    <textarea class="form-control" uib-popover="Give a catchy introduction to your package !" popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>
 
                   </div>
                 </div>
@@ -176,7 +192,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
                     <label>Describe your package</label>
-                    <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
+                    <textarea froala="froalaOptions" ng-model="package.description" uib-popover="Describe your package here !" popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
 
                     <!--<textarea cols="80" rows="10" class="cke-editor">
                         &lt;h2&gt;Technical details &lt;a id=&quot;tech-details&quot; name=&quot;tech-details&quot;&gt;&lt;/a&gt;&lt;/h2&gt; &lt;table align=&quot;right&quot; border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot;
@@ -201,9 +217,9 @@
 
 
                     <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
-                    <md-tooltip md-direction="right">
+                    <!--<md-tooltip md-direction="right">
                       * Required | Max 8000 character
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
                 </div>
 
@@ -211,20 +227,20 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-6">
                     <label>What does your package includes ? <span>(Deliverable)</span></label>
-                    <textarea ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
+                    <textarea ng-model="package.deliverable" class="form-control" uib-popover="Deliverarbles !" popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
                     <!--{{package.deliverable}}-->
-                    <md-tooltip md-direction="right">
+                    <!--<md-tooltip md-direction="right">
                       what does your package includes
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
 
 
                   <div class="col-md-6">
                     <label>How is your package different from Others ?</label>
-                    <textarea ng-model="package.different_from_others" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
-                    <md-tooltip md-direction="right">
+                    <textarea ng-model="package.different_from_others" uib-popover="Describe how your package different from others !" popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
+                    <!--<md-tooltip md-direction="right">
                       How your package different from other
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
 
 
@@ -234,19 +250,19 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-6">
                     <label>Facebook Link</label>
-                    <input type="url" ng-model="package.facebook_links" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
-                    <md-tooltip md-direction="right">
+                    <input type="url" ng-model="package.facebook_links" uib-popover="Add facebook links!" popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
+                    <!--<md-tooltip md-direction="right">
                       Facebook link Example: http://www.facebook.com
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
 
 
                   <div class="col-md-6">
                     <label>Youtube Link</label>
-                    <input type="url" ng-model="package.youtube_links" class="form-control"placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
-                    <md-tooltip md-direction="right">
+                    <input type="url" ng-model="package.youtube_links" uib-popover="Youtube links !" popover-placement="top" popover-trigger="focus" class="form-control"placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
+                    <!--<md-tooltip md-direction="right">
                       Youtube link Example: http://www.youtube.com
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
 
                 </div>
@@ -255,10 +271,10 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-6">
                     <label>Any Other Link</label>
-                    <input type="url" class="form-control" ng-model="package.any_other_links" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
-                    <md-tooltip md-direction="right">
+                    <input type="url" class="form-control" ng-model="package.any_other_links" uib-popover="Any other links !" popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
+                   <!-- <md-tooltip md-direction="right">
                       Any other link Example: http://www.other.com
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
 
 
@@ -293,21 +309,21 @@
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
                     <label for="actual_price">Actual Price</label>
-                    <input ng-model="package.price" id="actual_price" type="number" min="0" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.price" id="actual_price" type="number" uib-popover=" Enter package actual price!" popover-placement="top" popover-trigger="focus" min="0" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Required Actual Price
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
 
 
                   <div class="col-lg-6">
                     <label>Discounted Price</label>
-                    <input ng-model="package.deal_price" type="number" class="form-control" id="deal_price" min="0" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.deal_price" type="number" class="form-control" id="deal_price" uib-popover="Enter package deal price !" popover-placement="top" popover-trigger="focus" min="0" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_deal_price" class="text-danger">Deal Price is less than Actual price</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
+                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Deal price should be less than Actual Price
-                    </md-tooltip>
+                    </md-tooltip>-->
                   </div>
                 </div>
 
@@ -327,11 +343,11 @@
                         <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                         Days
                       </label>
-                      <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" ng-change="validation_error.delivery_time_days=''" type="number" min="1" max="300" class="form-control" placeholder="Days"/>
+                      <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" uib-popover="Enter package dilivery time !" popover-placement="top" popover-trigger="focus" id="delivery_time_days" ng-change="validation_error.delivery_time_days=''" type="number" min="1" max="300" class="form-control" placeholder="Days"/>
                       <div ng-show="validation_error.delivery_time_days" class="text-danger"> Required Delivery time | min 1 max 300</div>
-                      <md-tooltip class="f-14 w-400" md-direction="right">
+                      <!--<md-tooltip class="f-14 w-400" md-direction="right">
                         * Required Delivery Time
-                      </md-tooltip>
+                      </md-tooltip>-->
                     </div>
                   </div>
 
@@ -341,7 +357,7 @@
                         <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
                         Hours
                       </label>
-                      <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=''" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
+                      <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" uib-popover="Enter package dilivery time! " popover-placement="top" popover-trigger="focus" id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=''" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
                       <div ng-show="validation_error.delivery_time_hours" class="text-danger"> Required Delivery time | min 1 max 72</div>
                     </div>
                   </div>
@@ -517,7 +533,7 @@
                     <textarea class="form-control" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
                     <p>Terms And Conditions</p>
                     <!--<textarea ng-model="package.term_condition" class="form-control" placeholder="Please type here.." rows="4" id="term_condition"></textarea>-->
-                    <textarea froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
+                    <textarea froala="froalaOptions1" ng-model="package.term_condition" uib-popover="Enter Term and Condition! " popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
                   </div>
 
 

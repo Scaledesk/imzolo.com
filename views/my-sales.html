@@ -1,10 +1,13 @@
-<div class="row zolo-pdp-page">
-  <div class="card">
+
+<div class="container-fluid">
+
+<div class="row">
+  <div class="card card-5-15">
     <div class="dashboard-sellers">
       <div class="col-md-6 account-summary-right-border">
         <div class="dashboard-seller-main-heading">
           <h2 class="text-center">Sales Summary</h2>
-          <hr>
+          <hr class="custom-hr">
         </div>
 
         <div class="row ">
@@ -28,7 +31,7 @@
       <div class="col-md-6">
         <div class="dashboard-seller-main-heading">
           <h2 class="text-center">Payments</h2>
-          <hr>
+          <hr class="custom-hr">
         </div>
 
         <div class="row ">
@@ -50,11 +53,11 @@
 
 
 <div class="row">
-  <div class="card">
+  <div class="card card-5-15">
     <div class="row">
       <div class="col-md-12">
         <h2><strong>Manage Sales</strong></h2>
-        <hr>
+        <hr class="custom-hr">
         <ul class="nav nav-tabs nav-primary manage-sales">
           <li><a ng-click="my_seles = my_all_seles">Total Sales</a></li>
           <li><a ng-click="orderMySales('package_available_dates')">New</a></li>
@@ -98,7 +101,7 @@
           </table>
         </div>
         <div ng-if="my_seles.length<=0" class="panel-content">
-          <p >You don't have any sales !</p>
+          <p class="f-18 w-500 text-center">You don't have any sales !</p>
         </div>
       </div>
     </div>
@@ -109,4 +112,4 @@
 </div>
 
 
-
+</div>

@@ -1,85 +1,3 @@
-
-
-.zolo-login-google-plus {
-	background-color: #d34836 !important;
-	color: #fff !important;
-}
-
-.zolo-login-facebook i {
-	padding-right: 0 !important;
-
-}
-
-.zolo-login-google-plus i {
-	padding-right: 0 !important;
-
-}
-
-.zolo-login-submit_btn {
-	background-color: #78588C !important;
-	color: #fff !important;
-}
-
-.zolo-login-submit_btn {
-	width: 100% !important;
-}
-
-.zolo-pdp-search-btn {
-	margin: 40px !important;
-}
-
-.zolo-page-content-class {
-	padding: 5px !important;
-	top: 0 !important;
-}
-
-.zolo-about-user {
-	padding: 15px !important;
-}
-
-.background {
-	position: relative;
-	z-index: 1;
-}
-
-.background:before {
-	border-top: 2px solid #dfdfdf;
-	content: "";
-	margin: 0 auto;
-	/* this centers the line to the full width specified */
-	position: absolute;
-	/* positioning must be absolute here, and relative positioning must be applied to the parent */
-	top: 50%;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 95%;
-	z-index: -1;
-}
-
-.background span {
-	/* to hide the lines from behind the text, you have to set the background color the same as the container */
-	background: #fff;
-	padding: 0 15px;
-}
-
-.background {
-	margin-top: 30px;
-	text-align: center;
-}
-
-.zolo-custom-card {
-	padding: 20px !important;
-}
-
-.filter-main-heading {
-	font-size: 20px;
-	font-weight: 500;
-
-}
-
-
-
 .search-filter {
 	margin: 10px 0;
 }
@@ -294,88 +212,6 @@
 .user-info-add-package {
 	margin: 20px 0 !important;
 }
-
-
-
-.zolo-login-google-plus {
-	background-color: #d34836 !important;
-	color: #fff !important;
-}
-
-.zolo-login-facebook i {
-	padding-right: 0 !important;
-
-}
-
-.zolo-login-google-plus i {
-	padding-right: 0 !important;
-
-}
-
-.zolo-login-submit_btn {
-	background-color: #78588C !important;
-	color: #fff !important;
-}
-
-.zolo-login-submit_btn {
-	width: 100% !important;
-}
-
-.zolo-pdp-search-btn {
-	margin: 40px !important;
-}
-
-.zolo-page-content-class {
-	padding: 5px !important;
-	top: 0 !important;
-}
-
-.zolo-about-user {
-	padding: 15px !important;
-}
-
-.background {
-	position: relative;
-	z-index: 1;
-}
-
-.background:before {
-	border-top: 2px solid #dfdfdf;
-	content: "";
-	margin: 0 auto;
-	/* this centers the line to the full width specified */
-	position: absolute;
-	/* positioning must be absolute here, and relative positioning must be applied to the parent */
-	top: 50%;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 95%;
-	z-index: -1;
-}
-
-.background span {
-	/* to hide the lines from behind the text, you have to set the background color the same as the container */
-	background: #fff;
-	padding: 0 15px;
-}
-
-.background {
-	margin-top: 30px;
-	text-align: center;
-}
-
-.zolo-custom-card {
-	padding: 20px !important;
-}
-
-.filter-main-heading {
-	font-size: 20px;
-	font-weight: 500;
-
-}
-
-
 
 .redesigned-price-filter {
 	/*background-color: #fff;*/
@@ -1469,6 +1305,9 @@ figure.zolo-collection{
 
 .pdp-pkg-share{
     display: inline-flex;
+    display: -webkit-flex;
+
+
 
 }
 
@@ -2598,4 +2437,17 @@ end bootstrap off canvas
 
 .z-notify:hover{
   background-color: #f9f9f9;
+}
+
+
+.w-s-1{
+  word-spacing: 1px;
+}
+
+.l-s-n03{
+  letter-spacing: -0.3px;
+}
+
+.zolo-text-gc{
+  color: #565a5c ;
 }

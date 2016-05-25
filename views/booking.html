@@ -5,25 +5,19 @@
 
   }
 
-  .other-p-s  .slick-prev {
-    left: 0px;
-    z-index: 2;
+
+
+
+
+
+  @media screen and (max-width: 600px){
+    .payment-w-btn{
+      padding: 20px 10px!important;
+      font-size: 16px!important;
+    }
+
   }
 
-  .other-p-s  .slick-prev:before,.other-p-s  .slick-next:before {
-    font-family: "slick";
-    font-size: 45px;
-    line-height: 1;
-    color: #313131;
-    opacity: 0.9;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
-  }
-
-  .other-p-s  .slick-next {
-    right: 25px;
-    z-index: 2;
-  }
 
 </style>
 
@@ -41,19 +35,19 @@
               <md-content class="md-padding">
                 <div class="row">
                   <div class="col-md-8 p-0">
-                    <div class="card">
+                    <div class="card" style="box-shadow: none; border: 2px solid #ededed;">
                       <div class="row">
                         <div class="col-md-12">
-                          <p class="pull-right zolo-n-m"><span class="text-muted-z">Seller:</span><b class="w-500"> {{booking.seller_profile.name}}</b></p>
-                          <span class="pull-left f-18"><span class="text-muted-z">Order no</span> <b>#{{booking.id}}</b></span>
+                          <p class="pull-right zolo-n-m"><span class="text-muted-z w-500">Seller:</span><b class="w-500"> {{booking.seller_profile.name}}</b></p>
+                          <span class="pull-left f-18"><span class="text-muted-z w-500">Order no</span> <b>#{{booking.id}}</b></span>
                         </div>
                       </div>
                       <hr class="custom-hr m-t-5">
                       <div class="row">
-                        <div class="col-xs-2">
+                        <div class="col-md-2">
                           <img class=".img-md m-t-10" ng-src="{{booking.first_photo||'../global/images/Screen Shot 2016-05-20 at 4.02.00 PM.png'}}" style="height: auto;width:100%;" >
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-md-4">
                           <h4 class="w-500 text-c">{{booking.package_title}}</h4>
                           <div class="row">
                             <div class="col-md-3">
@@ -68,21 +62,21 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-md-2 col-xs-6">
                           <div class="m-t-10 text-center">
-                            <span class="text-muted-z f-12 ">Delivery time:</span>
+                            <span class="text-muted-z f-12 w-500">Delivery time:</span>
                             <span class="w-500">{{booking.package_delivery_time}}&nbsp;{{booking.package_delivery_time_type}}</span>
                           </div>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-md-2 col-xs-6">
                           <div class="m-t-10 text-center">
-                            <span class="text-muted-z f-12 ">Quantity</span><br/>
+                            <span class="text-muted-z f-12 w-500">Quantity</span><br/>
                             <span class="w-500">{{booking.quantity}}</span>
                           </div>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-md-2 col-xs-6">
                           <div class="m-t-10 text-center">
-                            <span class="text-muted-z f-12">Total Amount: <br></span>
+                            <span class="text-muted-z f-12 w-500">Total Amount: <br></span>
                             <span class="w-500"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</span>
                           </div>
                         </div>
@@ -101,7 +95,7 @@
 
 
                       <div ng-repeat="addon_local in booking.bookingPackagesAddons.data" class="row m-t-10 ">
-                        <div class="col-xs-10 col-md-offset-2  border-bottom">
+                        <div class="col-md-10 col-md-offset-2  border-bottom">
                           <p class="f-16  zolo-n-m pull-left"><i class="fa fa-check-circle text-success"></i>&nbsp;{{addon_local.name}}<!--Add-on {{$index}}-->
                             <!--<md-input-container class="zolo-n-m m-b-10">
                               <label>Quantity</label>
@@ -118,7 +112,7 @@
                       <hr ng-hide="booking.bookingPackagesAddons.data.length>0" class="custom-hr">
 
                       <div class="row m-t-20 ">
-                        <div class="col-xs-10 col-md-offset-2">
+                        <div class="col-md-10 col-md-offset-2">
                           <p class="zolo-n-m p-r-20 pull-right f-20">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price}}</span>
                           </p>
                         </div>
@@ -133,7 +127,7 @@
 
 
                   <div class="col-md-4">
-                    <div class="card">
+                    <div class="card" style="box-shadow: none; border: 2px solid #ededed;">
                       <div class="row">
                         <div class="col-xs-12">
                           <p class="zolo-n-m f-25 w-500"><i class="fa fa-credit-card f-17 zolo-c text-c"></i>&nbsp;&nbsp;Payment Summary</p>
@@ -154,8 +148,8 @@
                       <div class="row">
                         <div class="col-md-12">
                           <p class="w-500">Have a <span class="zolo-c">Promocode?</span>  Apply here!</p>
-                          </div>
                         </div>
+                      </div>
 
                       <div class="row">
                         <form role="form" name="promoCode" ng-submit="applyCode(code)" novalidate>
@@ -170,9 +164,6 @@
                             <span ng-show="applying"><i class="fa fa-spinner fa-spin" style="font-size: 16px"></i></span>
                           </button>
                         </div>
-                          <!--<div>
-                            {{code_message}}
-                          </div>-->
 
                         </form>
 
@@ -182,7 +173,7 @@
 
                       <div class="row">
                         <div class="col-md-12 text-center">
-                          <button class="btn btn-lg zolo-btn text-c btn-success" ng-click="selectedIndex = 1" style="width: 100%;">Proceed to pay &nbsp;<i class="fa fa-inr"></i>&nbsp;{{total_price}}</button>
+                          <button class="btn zolo-btn text-c btn-success" ng-click="selectedIndex = 1" style="width: 100%;">Proceed to pay &nbsp;<i class="fa fa-inr"></i>&nbsp;{{total_price}}</button>
 
 
                         </div>
@@ -190,12 +181,12 @@
 
                       <div class="row">
                         <div class="col-xs-12">
-                          <ul class="nav nav-tabs">
-                            <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/MasterCard.png" alt="" height="25"></li>
-                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/visa.png" alt="" height="25"></li>
-                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/maestro_10.jpg" alt="" height="25"></li>
+                          <ul class="nav nav-tabs m-l-20">
+                            <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/MasterCard.png" alt="" height="20"></li>
+                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/visa.png" alt="" height="20"></li>
+                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/maestro_10.jpg" alt="" height="20"></li>
                             <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/payumoney.png" alt="" height="20" class="m"></li>
-                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" height="25" class="m-l-5"></li>
+                            <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" height="20" class="m-l-5"></li>
                           </ul>
 
                         </div>
@@ -227,11 +218,11 @@
             </md-tab>
             <md-tab label="Confirm Address">
               <md-content class="md-padding">
-                <h2 class="">Confirm Address<span class="pull-right"><button ng-click="selectedIndex=2" class="btn zolo-btn m-t-0">Skip</button></span></h2>
+                <h2 class="">Confirm Address<span class="pull-right hidden-xs"><button ng-click="selectedIndex=2" class="btn zolo-btn m-t-0">Skip</button></span></h2>
                 <span class="text-muted-z f-13">We will deliver your order here</span>
                 <div ng-show="new_address" class="row">
-                <form role="form" ng-submit="saveAddress()">
-                  <div class="col-md-12">
+                  <form role="form" ng-submit="saveAddress()">
+                    <div class="col-md-12">
                       <div class="row m-t-20">
                         <div class="col-xs-6">
                           <label for="">Pincode</label>
@@ -298,13 +289,13 @@
                         </div>
                       </div>
                     </div>
-                </form>
+                  </form>
                 </div>
                 <div ng-hide="new_address" class="row">
                   <div class="col-md-12">
                     <div ng-repeat="addr in user_address" class="col-md-3">
                       <a href="" class="text-muted">
-                        <div class="card">
+                        <div class="card" style="box-shadow: none; border: 2px solid #ededed;">
                           <div ng-show="addr.is_default==1" class="address-strip text-center">
                             <span class="text-c">Default-Address</span>
                           </div>
@@ -421,32 +412,32 @@
 
   <div ng-hide="bookingLoading || isfailed==0" class="row">
     <div class="col-md-12 ">
-    <div class="card text-center">
-    <h2 class="f-24 text-danger">Apologies</h2>
-    <hr class="custom-hr">
-    <h3 class="w-500 f-18">Payment processing Failed due to some technical issue &nbsp;<i class="fa fa-exclamation-circle f-24"></i></h3>
+      <div class="card text-center">
+        <h2 class="f-24 text-danger">Apologies</h2>
+        <hr class="custom-hr">
+        <h3 class="w-500 f-18">Payment processing Failed due to some technical issue &nbsp;<i class="fa fa-exclamation-circle f-24"></i></h3>
 
-    <div class="row">
-    <div class="col-md-12 text-center">
-    <button class="btn btn-primary btn-transparent" ng-click="hideFailed()">Click Here To try Again</button>
-    </div>
-    </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-primary btn-transparent" ng-click="hideFailed()">Click Here To try Again</button>
+          </div>
+        </div>
 
-    <div class="row">
-    <div class="col-md-12 text-center m-b-10">
-    <strong>or</strong>
-    </div>
-    </div>
+        <div class="row">
+          <div class="col-md-12 text-center m-b-10">
+            <strong>or</strong>
+          </div>
+        </div>
 
-      <div class="row">
-      <div class="col-md-12 text-center">
-      <button class="btn btn-zolo btn-transparent">Go Back to zolo</button>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-zolo btn-transparent">Go Back to zolo</button>
+          </div>
+
+
+        </div>
       </div>
-
-
-      </div>
     </div>
-   </div>
 
   </div>
 
@@ -463,7 +454,7 @@
 
 
 
-  </div>
+</div>
 
 
 

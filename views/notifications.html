@@ -44,7 +44,7 @@
 
   .cbp_tmtimeline > li .cbp_tmtime span:first-child {
     font-size: 1.4em;
-    color: #765F89;
+    color: #565a5c;
     margin-bottom: 10px;
   }
 
@@ -62,7 +62,7 @@
     margin: 0 0 15px 25%;
     background-color: #f0f0f0;
     color: #565a5c;
-    padding: 1em;
+    padding: 0.5em;
     font-size: 1.2em;
     font-weight: 300;
     line-height: 1.4;
@@ -175,6 +175,10 @@
     background-color: #f5f5f5 !important;
   }
 
+  .noti-h:hover{
+    background-color: #f9f9f9!important;
+  }
+
 </style>
 
 
@@ -200,7 +204,7 @@
     </div>
     <hr class="custom-hr">
     <ul class="cbp_tmtimeline">
-      <li ng-repeat="n in notifications">
+      <li ng-repeat="n in notifications|orderBy:'-type'">
         <a ng-href="" ng-click="gotoNotification(n)" style="cursor: pointer;">
         <time class="cbp_tmtime"><span class="f-16">{{dt|date:'MMM dd, yyyy'}}</span> <span>{{dt|date:'shortTime'}}</span></time>
         <div class="cbp_tmicon cbp_tmicon-phone">
@@ -213,11 +217,11 @@
           <i ng-if="n.type==='ORDER_PLACED'" class="fa fa-cart-arrow-down" aria-hidden="true"></i>
           <i ng-if="n.type==='ORDER_COMPLETED'" class="fa fa-bell" aria-hidden="true"></i>
           <i ng-if="n.type==='ORDER_CANCELLED'" class="fa fa-bell" aria-hidden="true"></i>
-          <i ng-if="n.type==='ORDER_REVIEW'" class="fa fa-bell" aria-hidden="true"></i>
+          <i ng-if="n.type==='ORDER_REREVIEW'" class="fa fa-bell" aria-hidden="true"></i>
 
         </div>
-        <div class="cbp_tmlabel" ng-class="{'z_seen':n.seen==1}">
-          <h2 class="f-18">{{n.type.replace('_',' ') | capitalizeFirst}}</h2>
+        <div class="cbp_tmlabel noti-h" ng-class="{'z_seen':n.seen==1}">
+          <h2 class="f-16">{{n.type.replace('_',' ') | capitalizeFirst}}</h2>
           <p class="zolo-n-m f-15">{{n.text}}</p>
         </div>
           </a>
