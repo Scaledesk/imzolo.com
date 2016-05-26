@@ -204,9 +204,9 @@
     </div>
     <hr class="custom-hr">
     <ul class="cbp_tmtimeline">
-      <li ng-repeat="n in notifications|orderBy:'-type'">
+      <li ng-repeat="n in notifications|orderBy:'-timestamp.date'">
         <a ng-href="" ng-click="gotoNotification(n)" style="cursor: pointer;">
-        <time class="cbp_tmtime"><span class="f-16">{{dt|date:'MMM dd, yyyy'}}</span> <span>{{dt|date:'shortTime'}}</span></time>
+        <time class="cbp_tmtime"><span class="f-16">{{n.timestamp.date|myDateFormat}}</span> <span>{{n.timestamp.date|myTimeFormat}}</span></time>
         <div class="cbp_tmicon cbp_tmicon-phone">
           <i ng-if="n.type==='REFERRAL'" class="fa fa-user" aria-hidden="true"></i>
           <i ng-if="n.type==='WALLET_CREDIT'" class="fa fa-inr" aria-hidden="true"></i>

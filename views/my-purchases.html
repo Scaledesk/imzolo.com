@@ -85,9 +85,9 @@
               <td>{{$index+1}}</td>
               <td>{{purchase.seller_profile.name}}</td>
               <td><a ng-href="/orderSuccessful/{{purchase.id}}/">{{purchase.package_title}}</a></td>
-              <td>{{}}</td>
-              <td>{{}}</td>
-              <td>{{}}</td>
+              <td>{{purchase.order_date}}</td>
+              <td>{{purchase.order_time}}</td>
+              <td>{{purchase.delivery_date}}</td>
               <td>&#8377; {{purchase.deal_price}}</td>
             </tr>
             </tbody>

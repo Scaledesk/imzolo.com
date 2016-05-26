@@ -5,8 +5,10 @@
     <div class="card p-0">
       <div class="dashboard-seller-profile text-center">
         <h5 class="w-600">Hi {{profile.name}}</h5>
-        <div class="zolo-dashboard-profile-complete">Your Profile is <br> <span class="text-success f-20 w-600">70%</span><br> Completed</div>
-        <a ng-href="/profile/" class="btn zolo-btn m-t-5">Edit</a>
+        <div class="zolo-dashboard-profile-complete">Your Profile is <br>
+          <span ng-if="profile.step_number!=null||profile.step_number!=''" class="text-success f-20 w-600">{{profile.step_number*25}}%</span>
+          <span ng-if="profile.step_number==null||profile.step_number==''" class="text-success f-20 w-600">25%</span><br> Completed</div>
+        <a ng-href="/profile/?action=edit" class="btn zolo-btn m-t-5">Edit</a>
       </div>
     </div>
     <div class="card">
@@ -17,8 +19,6 @@
       </div>
     </div>
   </div>
-
-
   <div class="col-md-10">
     <div class="card">
       <div class="dashboard-a-summary">
@@ -126,7 +126,7 @@
                 <td>{{my_sale.order_time}}</td>
                 <td>{{my_sale.delivery_date}}</td>
                 <td>&#8377; {{my_sale.total_price}}</td>
-                <td>{{my_sale.booking_status}}</td>
+                <td>{{my_sale.booking_status.replace('_',' ')|capitalizeFirst}}</td>
               </tr>
               </tbody>
             </table>
@@ -173,7 +173,7 @@
                 <td>{{my_purchase.order_time}}</td>
                 <td>{{my_purchase.delivery_date}}</td>
                 <td>&#8377; {{my_purchase.deal_price}}</td>
-                <td>{{my_purchase.booking_status}}</td>
+                <td>{{my_purchase.booking_status.replace('_',' ')|capitalizeFirst}}</td>
               </tr>
               </tbody>
             </table>
