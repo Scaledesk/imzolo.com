@@ -2451,3 +2451,41 @@ end bootstrap off canvas
 .zolo-text-gc{
   color: #565a5c ;
 }
+
+
+/* ======== input fields look ======== */
+
+.zolo-input-darken::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #555 !important;
+}
+.zolo-input-darken:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #555 !important;
+  opacity:  1;
+}
+.zolo-input-darken::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #555 !important;
+  opacity:  1;
+}
+.zolo-input-darken:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    #555 !important;
+}
+
+.zolo-textarea::-webkit-input-placeholder , .zolo-textarea { /* WebKit, Blink, Edge */
+  color:    #555 !important;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+input.zolo-input-darken{
+  background-image: linear-gradient(#0097a7,#0097a7),linear-gradient(#6f6f6f,#6f6f6f) !important;
+}
+
+textarea.zolo-input-darken{
+  border-bottom: 1px solid #aaa !important;
+}
+
+/* ======== input fields look ======== */
+
+
+

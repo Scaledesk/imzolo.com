@@ -128,7 +128,7 @@
         <div ng-show="subCategoryList.length>0" class="col-md-12 card card-5-15 hidden-xs">
           <h3 class="m-t-5"><strong>Sub Category</strong></h3>
           <hr class="custom-hr">
-          <div ng-repeat="cat in subCategoryList">
+          <div ng-repeat="cat in subCategoryList | filter:{parent_id : category_id}:true">  <!-- Sanchit Edit for category fix -->
             <div class="checkbox">
               <label>
                 <!--checklist-change="category.packageResult()"-->

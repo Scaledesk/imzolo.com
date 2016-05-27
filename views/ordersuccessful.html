@@ -279,7 +279,7 @@
           <div class="row text-center" ng-if="booking.booking_status=='review'&&booking.review_counter%2!=0">
             <p class="f-18 ib m-l-30 m-r-20">Is the work Done as per your satisfaction ?  </p>
 
-            <button  ng-click="acceptWork()" type="button" class="btn btn-success btn-transparent ib m-l-20">Yes<div class="ripple-wrapper"></div></button>
+            <button ng-disabled="accepting" ng-click="acceptWork()" type="button" class="btn btn-success btn-transparent ib m-l-20">Yes<div class="ripple-wrapper"></div></button>
 
             <br>
 
