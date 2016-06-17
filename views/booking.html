@@ -153,13 +153,37 @@
 
                       <div class="row">
                         <form role="form" name="promoCode" ng-submit="applyCode(code)" novalidate>
-                        <div class="col-md-8">
-                          <input ng-disabled="c_applied_success" type="text" ng-model="code" name="code" id="code" class="form-control" placeholder="Enter Promo Code.."aria-required="true" required>
-                          <p ng-show="promoCode.code.$error.required&&submitted" class="text-danger">required</p>
-                        </div>
+                        <!--<div class="col-md-8">-->
+                          <!--<input ng-disabled="c_applied_success" type="text" ng-model="code" name="code" id="code" class="form-control" placeholder="Enter Promo Code.."aria-required="true" required>-->
+                          <!--<p ng-show="c_applied_success" >Coupan code applied  </p>-->
+                          <!--<p ng-show="promoCode.code.$error.required&&submitted" class="text-danger">required</p>-->
+                        <!--</div>-->
+
+
+                          <div class="col-md-8">
+                            <md-input-container class="md-block">
+                              <label>Enter Promo Code</label>
+
+                                <input ng-disabled="c_applied_success" name="code" type="text" ng-model="code" id="code" aria-required="true"  required >
+                              <div ng-messages="promoCode.code.$error" role="alert">
+                                <div ng-message-exp="['required']">Required</div>
+                              </div>
+                              <p ng-show="c_applied_success" class="text-success m-0" >Coupan code Applied.</p>
+
+                            </md-input-container>
+                          </div>
+
+
+
+
+
+
+
+
+
 
                         <div class="col-md-4 p-l-0">
-                          <button ng-disabled="c_applied_success" type="submit" class="btn zolo-btn m-0 text-c">
+                          <button  ng-disabled="c_applied_success" type="submit" class="btn zolo-btn m-0 text-c m-t-20">
                             <span ng-hide="applying">{{c_text}}</span>
                             <span ng-show="applying"><i class="fa fa-spinner fa-spin" style="font-size: 16px"></i></span>
                           </button>
@@ -168,6 +192,18 @@
                         </form>
 
                       </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -431,7 +467,7 @@
 
         <div class="row">
           <div class="col-md-12 text-center">
-            <button class="btn btn-zolo btn-transparent">Go Back to zolo</button>
+            <a href="/" class="btn btn-zolo btn-transparent">Go Back to zolo</a>
           </div>
 
 

@@ -3,7 +3,7 @@
     padding-left: 0px;
     padding-right: 0px;
     margin-top: 5px;
-    top:10px;
+    top:90px!important;
     padding-bottom: 20px;
 
   }
@@ -38,32 +38,74 @@
 
 </style>
 
-<div class="page-content zolo-login-form-main-content">
+<div class=" zolo-login-form-main-content">
   <div class="col-md-8  col-md-offset-2 portlets">
-    <div class="panel m-t-60">
-      <div class="panel-header md-panel-controls">
-        <h2 class="text-center"><strong style="color: #fff;">Login</strong></h2>
-        <hr class="custom-hr">
-      </div>
-      <div class="panel-content" style="padding: 10px;!important;">
+    <!--<div class="panel m-t-60">-->
+
+
+
+
+        <div class="row card">
+          <div class="panel-header md-panel-controls">
+            <h2 class="text-center"><strong style="color:black;">Login</strong></h2>
+            <hr class="custom-hr">
+          </div>
+
         <div class="row">
           <div class="col-md-6 col-sm-12">
-            <form role="form" class="form-validation">
-              <div class="form-group m-b-30">
-                <label class="control-label" style="color: #fff;">Email Address</label>
-                <div class="append-icon">
-                  <input type="email" name="email" ng-model="email" class="form-control" placeholder="Enter your email..." required  style="color: #fff; font-weight: 400;">
-                  <i class="icon-envelope"></i>
-                </div>
+            <form role="form" name="login" class="form-validation" novalidate>
+
+
+              <div class="form-group m-b-5">
+                <md-input-container class="md-block">
+                  <label>Email</label>
+                  <div class="append-icon">
+                    <input name="email" type="email" ng-model="email" maxlength="50" required ng-pattern="/^.+@.+\..+$/">
+                    <i class="icon-envelope"></i>
+                  </div>
+                  <div ng-messages="login.email.$error" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Enter valid email id</div>
+                    <!-- <div ng-show="md-maxlength">maximum 10 character</div>&ndash;&gt;-->
+                  </div>
+                </md-input-container>
               </div>
 
-              <div class="form-group m-b-30">
-                <label class="control-label"  style="color: #fff;">Password</label>
-                <div class="append-icon">
-                  <input type="password" ng-model="password" name="password" id="password" class="form-control" placeholder="Between 4 and 16 characters" minlength="6" maxlength="16" required style="color: #fff;font-weight: 400;">
-                  <i class="icon-lock"></i>
-                </div>
+
+
+
+              <!--<div class="form-group m-b-30">-->
+                <!--<label class="control-label" style="color: #fff;">Email Address</label>-->
+                <!--<div class="append-icon">-->
+                  <!--<input type="email" name="email" ng-model="email" class="form-control" placeholder="Enter your email..." required  style="color: #fff; font-weight: 400;">-->
+                  <!--<i class="icon-envelope"></i>-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <div class="form-group m-b-5">
+                <!-- <div class="form-control-wrapper append-icon"><input type="password" ng-change="validation.password=false" ng-model="password" class="form-control empty" required maxlength="10"><i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i><div class="floating-label">Password</div><span class="material-input"></span></div>
+                 <div ng-show="validation.password" class="text-danger">Password is required | Max 10 char</div>-->
+                <md-input-container class="md-block">
+                  <label>Password</label>
+                  <div class="append-icon">
+                    <input name="password" type="password" ng-model="password"  required>
+                    <i class="icon-lock"></i>
+                  </div>
+                  <div ng-messages="login.password.$error" role="alert">
+                    <div ng-message-exp="['required']">Please enter password</div>
+                    <!--    <div ng-show="md-maxlength">maximum 10 character</div>-->
+                  </div>
+                </md-input-container>
               </div>
+
+
+
+              <!--<div class="form-group m-b-30">-->
+                <!--<label class="control-label"  style="color: #fff;">Password</label>-->
+                <!--<div class="append-icon">-->
+                  <!--<input type="password" ng-model="password" name="password" id="password" class="form-control" placeholder="Between 4 and 16 characters" minlength="6" maxlength="16" required style="color: #fff;font-weight: 400;">-->
+                  <!--<i class="icon-lock"></i>-->
+                <!--</div>-->
+              <!--</div>-->
 
 
               <!--
@@ -77,8 +119,13 @@
               <div class="form-group m-b-10 text-center">
                 <!--<button type="submit" class="btn zolo-login-submit_btn" ng-click="login()">Login</button>-->
                 <!--<button type="submit" ng-click="zLogin()" class="btn zolo-login-submit_btn ladda-button" data-style="zoom-in"><span class="ladda-label">Login</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div></button>-->
-                <button ladda-button="disabled" type="submit" ng-click="zLogin()" class="btn zolo-login-submit_btn ladda-button" data-style="zoom-in"><span class="ladda-label">Login</span></button>
+                <button ladda-button="disabled" type="submit" ng-click="zLogin()" class="btn btn-lg zolo-btn ladda-button" style="width: 100%;" data-style="zoom-in"><span class="ladda-label">Login</span></button>
+                <!--<button type="submit" ng-click="zLogin()" ng-disabled="disabled" class="btn btn-lg zolo-btn" style="width: 100%;">Login&nbsp;&nbsp;<span><i class="fa fa-spin" ng-style="myStyle"></i> </span></button>-->
+
               </div>
+              <div class="f-10 text-t-n">By logging in you agree to our <span class="zolo-c"><a ng-href="/terms-of-use" target="_blank" class="f-15"> T&C</a></span> and <span class="zolo-c"><a ng-href="/privacy-policy" target="_blank" class="f-15">Privacy Policy.</a></span></div>
+
+
             </form>
 
 
@@ -103,7 +150,7 @@
               </div>
             </div>
 
-            <p class="text-center" style="color: #fff;">New User ? <a href="/sign-up/">Sign up Here</a></p>
+            <p class="text-center" style="color:black;">New User ? <a href="/sign-up/">Sign up Here</a></p>
 
 
           </div>
@@ -123,7 +170,8 @@
           <!--</div>-->
 
         </div>
-      </div>
+          </div>
+      <!--</div>-->
     </div>
   </div>
 </div>

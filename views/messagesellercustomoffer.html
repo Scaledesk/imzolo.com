@@ -17,8 +17,8 @@
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <label class="m-b-10">Offer Description:</label>
-        <textarea class="form-control" placeholder="Type Here" rows="3" cols="50" ng-model="modalmessage.body" ng-keydown="keyPressed()"></textarea>
+        <label class="m-b-10">Your Offer:</label>
+        <textarea class="form-control" placeholder="Offer Description" rows="3" cols="50" ng-model="modalmessage.body" ng-keydown="keyPressed()"></textarea>
       </div>
 
     </div>
@@ -28,13 +28,13 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-2">
-        <input class="form-control" ng-model="modalmessage.days"  ng-keydown="keyPressed()" placeholder="Enter Days." type="number"/>
+        <input class="form-control" ng-model="modalmessage.days"  ng-keydown="keyPressed()" placeholder="Offer Days." type="number"/>
       </div>
       <div class="col-md-4">
-        <input class="form-control" ng-model="modalmessage.title" ng-keydown="keyPressed()" placeholder="Enter title."/>
+        <input class="form-control" ng-model="modalmessage.title" ng-keydown="keyPressed()" placeholder="Offer Title."/>
       </div>
       <div class="col-md-2">
-        <input class="form-control"ng-model="modalmessage.price" ng-keydown="keyPressed()" placeholder="Enter price." type="number"/>
+        <input class="form-control"ng-model="modalmessage.price" ng-keydown="keyPressed()" placeholder="Offer Price." type="number"/>
       </div>
     </div>
     ​
@@ -54,7 +54,7 @@
 
     <div class="row">
       <div class="col-md-12 zolo-center">
-        <button class="btn zolo-btn" ng-click="sendMessageSeller(modalmessage);" type="button" data-dismiss="modal">Send Message</button>
+        <button class="btn zolo-btn" ng-click="sendMessageSeller(modalmessage);" type="button" data-dismiss="modal">Make an Offer</button>
       </div>
     </div>
     ​

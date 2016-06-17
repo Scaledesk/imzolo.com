@@ -29,7 +29,7 @@
   }
 
   .corner-ribbon.top-left{
-    top: 25px;
+    top: 40px;
     left: -50px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
@@ -163,8 +163,8 @@
                      data="package.photos.data" class="slider multiple-items">
                 <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
                   <h3 style="margin:0;">
-                  <img preload-image default-image="../global/images/imageloader.gif" width="100%" height="358" ng-src="{{img.url}}">
-                    <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow" >Sold Out</div>
+                  <img preload-image default-image="../global/images/ringImage.gif" width="100%" height="358" ng-src="{{img.url}}">
+                    <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow" >Not Available</div>
                 </h3></div>
               </slick>
               <!--preload-image default-image="../global/images/imageloader.gif"-->
@@ -174,7 +174,7 @@
                      focus-on-select="true" slides-to-show=3 slides-to-scroll=1 init-onload=true
                      data="package.photos.data" class="slider multiple-items">
                 <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;"><h3 style="margin:0;"><img preload-image
-                                                                                                                      default-image="../global/images/imageloader.gif"
+                                                                                                                      default-image="../global/images/ringImage.gif"
                                                                                                                       height="117" width="220"
                                                                                                                       ng-src="{{img.url}}"></h3></div>
               </slick>
@@ -189,7 +189,7 @@
               <!--data="package.photos.data" class="slider multiple-items">-->
               <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
                 <img class="img-responsive" preload-image default-image="../assets/images/abc.png" width="100%" ng-src="{{img.url}}">
-                <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow">Sold Out</div>
+                <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow">Not Available</div>
               </div>
 
             </div>
@@ -529,10 +529,12 @@
       <div class="card ">
         <div class="pdp-buy-sectiion text-center">
           <!--<button class="btn zolo-login-facebook">BUY</button>-->
-          <button ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn ladda-button" data-style="zoom-in">
+          <!--<button ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn ladda-button" data-style="zoom-in">
             <span class="ladda-label text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
+          </button>-->
+          <button ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">
+            <span class="text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
           </button>
-
           <!--<button ng-if="package.deal_price==null" ng-disabled="packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">Buy Now (&#8377;
               {{package.price + selected_addons_price}})
           </button>-->
@@ -540,7 +542,7 @@
 
 
           <!--ng-hide="sameUser"-->
-          <p class="text-center text-warning" ng-show="packagePaused">Package Sold Out</p>
+          <p class="text-center text-warning" ng-show="packagePaused">Package Not Available</p>
           <!--<p class="text-center text-warning" ng-show="sameUser">Package paused by user</p>-->
           <div class="row">
             <div class="col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-2">

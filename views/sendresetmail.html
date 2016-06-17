@@ -6,35 +6,35 @@
 
         <div class="col-md-8 col-md-offset-2">
           <div class="card">
+
+<form name="sendResetMail" ng-submit="Z_sendResetMail()" novalidate>
+
+
             <div class="card-content">
               <p class="w-300 f-20 pulse animated">
                 Please enter your registered email id to reset your Password
-
               </p>
               <hr>
-
               <div class="row">
-
                 <div class="col-md-12 col-xs-12 zolo-center">
                   <div class="form-group m-b-30">
-
-                    <div class="form-control-wrapper"><input type="email" ng-model="dt.email" class="form-control empty"><div class="floating-label">Your email Id</div><span class="material-input"></span></div>
+                    <div class="form-control-wrapper"><input type="email" name="email" id="email" ng-model="dt.email" class="form-control empty zolo-input-darken" required><div class="floating-label">Your email Id</div><span class="material-input"></span></div>
                     <div class="text-danger">{{msg}}</div>
                   </div>
-
                 </div>
-
               </div>
-
-
-
             </div>
             <div class="card-action" style="text-align: -webkit-center; border: none; padding: 0;">
               <!--<a href="#">Know More</a> -->
-              <button type="button" ng-disabled="loading" ng-click="Z_sendResetMail()" class="btn zolo-btn text-c">Send Reset Mail
+              <button type="submit" ng-disabled="loading" class="btn zolo-btn text-c">Send Reset Mail
                 <div class="ripple-wrapper"></div>
               </button>
             </div>
+
+</form>
+
+
+
           </div>
         </div>
 
@@ -57,3 +57,4 @@
       </p>
     </div>
   </div>
+</div>

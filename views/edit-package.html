@@ -43,6 +43,12 @@
 
   }
 
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
 
 
 </style>
@@ -59,6 +65,7 @@
           <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex" class="tabsdemoDynamicHeight md-content">
             <md-tab label="Start">
               <md-content class="md-padding">
+                <form name="start" ng-submit="updateFirstTabPackage(package.status)" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-lg-6 text-center ">
                     <div class="form-group">
@@ -172,16 +179,18 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <!--<button class="btn btn-primary active pull-right" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="updateFirstTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right">Save and Continue
+                    <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right">Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                   </div>
                 </div>
+                  </form>
               </md-content>
             </md-tab>
 
             <md-tab label="Description">
               <md-content class="md-padding">
+                <form name="Description" ng-submit="updateDescriptionTabPackage(package.status)" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
                     <label>Describe your package</label>
@@ -219,7 +228,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-6">
                     <label>Facebook Link</label>
-                    <input type="url" ng-model="package.facebook_links" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
+                    <input type="text" ng-model="package.facebook_links" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
                     <md-tooltip md-direction="right">
                       Facebook link Example: http://www.facebook.com
                     </md-tooltip>
@@ -228,7 +237,7 @@
 
                   <div class="col-md-6">
                     <label>Youtube Link</label>
-                    <input type="url" ng-model="package.youtube_links" class="form-control"placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
+                    <input type="text" ng-model="package.youtube_links" class="form-control"placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
                     <md-tooltip md-direction="right">
                       Youtube link Example: http://www.youtube.com
                     </md-tooltip>
@@ -240,7 +249,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-6">
                     <label>Any Other Link</label>
-                    <input type="url" class="form-control" ng-model="package.any_other_links" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
+                    <input type="text" class="form-control" ng-model="package.any_other_links" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
                     <md-tooltip md-direction="right">
                       Any other link Example: http://www.other.com
                     </md-tooltip>
@@ -256,19 +265,20 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-xs-6">
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="updateDescriptionTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20">
+                    <button ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
                       Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
                   </div>
                 </div>
+                  </form>
 
               </md-content>
 
@@ -276,10 +286,11 @@
 
             <md-tab label="Payment & Delivery">
               <md-content class="md-padding">
+                <form name="payment" ng-submit="updatePaymentTabPackage(package.status)" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
                     <label for="actual_price">Actual Price</label>
-                    <input ng-model="package.price" id="actual_price" type="number" min="0" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.price" id="actual_price" maxlength="8" ng-keypress="filterValue($event)"type="text" min="1" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
                       * Required Actual Price
@@ -289,8 +300,8 @@
 
                   <div class="col-lg-6">
                     <label>Discounted Price</label>
-                    <input ng-model="package.deal_price" type="number" class="form-control" id="deal_price" min="0" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
-                    <div ng-show="validation_error.package_deal_price" class="text-danger">Deal Price is less than Actual price</div>
+                    <input ng-model="package.deal_price" type="number" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted price must be less than Actual price</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
                       * Deal price should be less than Actual Price
                     </md-tooltip>
@@ -353,13 +364,13 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
 
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save()">Save and Continue</button>-->
-                    <button ng-click="updatePaymentTabPackage(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20">
+                    <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
                      Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
@@ -368,6 +379,7 @@
 
                   </div>
                 </div>
+                  </form>
 
 
 
@@ -376,10 +388,13 @@
 
             <md-tab label="Media">
               <md-content class="md-padding">
+                <form name="media" ng-submit="save(package.status)" novalidate>
+
                 <div class="row user-post-a-package">
                   <div class="col-md-12 text-center">
                     <script type="text/javascript">
-                      function uploadWidget(){
+                      function uploadWidget()
+                      {
                         cloudinary.openUploadWidget({ cloud_name: 'scaledesk', upload_preset: 'packages786',
                             cropping: 'server', 'folder': 'user_photos',cropping_aspect_ratio:'2.01',min_image_height:300,min_image_width: 600},
                           function(error, result) { console.log(error, result)
@@ -419,7 +434,7 @@
                     </script>
                     <h2 class="m-t-20">Upload Photos for Your Package...</h2>
 
-                    <button id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>
+                    <button type="button" id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>
                   </div>
                 </div>
 
@@ -444,24 +459,114 @@
                             refresh();
                         }
                     </script>-->
+                    <!--<script>-->
+                      <!--function refresh(){-->
+                        <!--document.getElementById('images_to_show').innerHTML='';-->
+                        <!--var i=0;-->
+                        <!--angular.forEach(photos,function(photo){-->
+                          <!--document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +-->
+                            <!--'<figcaption ' +-->
+                            <!--'style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}">' +-->
+                            <!--' <a onClick="deletePhoto('+i+')">' +-->
+                            <!--' <i class="fa fa-times-circle" style="padding-left: 10px;"></i>' +-->
+                            <!--'<small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a>' +-->
+                            <!--' <div class="radio radio-success">' +-->
+                            <!--' <label layout-align="left"><input type="radio" id="thumbnail" name="r-success"  onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio">' +-->
+                            <!--'<span class="circle"></span><span class="check"></span>Make Cover Image</label>' +-->
+                            <!--' </div></figcaption></figure>';-->
+                          <!--i++;-->
+<!--//                          if(photos.length==1)-->
+                            <!--$("#thumbnail").attr("checked","checked");-->
+
+
+                        <!--});-->
+                      <!--}-->
+                      <!--function makeThumbnail(photo_local_id){-->
+                        <!--thumbnail = photos[photo_local_id];-->
+                      <!--}-->
+                      <!--function deletePhoto(id){-->
+
+                        <!--var r = confirm("Are you sure you want to delete ??");-->
+                        <!--if (r == true) {-->
+                          <!--photos.splice(id,1);-->
+                          <!--refresh();-->
+
+                        <!--} else {-->
+                        <!--}-->
+
+                      <!--}-->
+                      <!--refresh();-->
+                    <!--</script>-->
+
+
                     <script>
                       function refresh(){
                         document.getElementById('images_to_show').innerHTML='';
                         var i=0;
                         angular.forEach(photos,function(photo){
-                          document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
-                            '<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';
-                          i++;
-                        });
+
+                            document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
+                              '<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';
+                            i++;
+//                          if(photos.length==1)
+                            $("#thumbnail").attr("checked","checked");
+
+                          }
+
+
+                        );
                       }
+
                       function makeThumbnail(photo_local_id){
                         thumbnail = photos[photo_local_id];
                       }
+
                       function deletePhoto(id){
-                        photos.splice(id,1);
-                        refresh();
+
+
+                        var r = confirm("Are you sure you want to delete ??");
+                        if (r == true) {
+                          photos.splice(id,1);
+                          refresh();
+
+                        } else {
+                        }
+
+
                       }
                     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   </div>
                 </div>
 
@@ -472,7 +577,7 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
 
 
 
@@ -482,7 +587,7 @@
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-click="save(package.status)" ng-disabled="saving" type="button" class="btn btn-primary active pull-right m-l-20">
+                    <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
                       Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
@@ -490,12 +595,14 @@
 
                   </div>
                 </div>
+                  </form>
 
               </md-content>
             </md-tab>
 
             <md-tab label="More info">
               <md-content class="md-padding">
+                <form name="moreinfo"  novalidate>
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-12  m-b-20">
@@ -547,7 +654,7 @@
 
                     <div class="row btn-align-xs-l">
                       <div class="col-md-3 col-xs-12">
-                        <button class="btn btn-default " ng-click="backTab()" style="margin-right: 10px;">Back</button>
+                        <button type="button" class="btn btn-default " ng-click="backTab()" style="margin-right: 10px;">Back</button>
                       </div>
 
                       <div class="col-md-3 col-xs-12">
@@ -575,7 +682,7 @@
                       <div class="col-md-3 col-xs-12 pull-right">
                         <!--<button class="btn btn-zolo  pull-right" ng-click="save('DRAFT')" style="margin-right: 10px;">Save as Draft
                             </button>-->
-                        <button ng-click="save('DRAFT')" type="button" class="btn btn-zolo active pull-right">
+                        <button ng-click="save('DRAFT')"  class="btn btn-zolo active pull-right">
                           Save as Draft<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                         </button>
 
@@ -588,13 +695,14 @@
 
 
 
-
+</form>
 
               </md-content>
             </md-tab>
 
             <md-tab label="Add-ons">
               <md-content class="md-padding">
+
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-12">
@@ -606,19 +714,25 @@
 
                 </div>
 
-                <button ng-click="addNewAddon()" class="btn">Add more addon</button>
+                <form name="formadd" ng-submit="savePackageAddons(addons)" novalidate>
+
+                <button type="button" ng-click="addNewAddon()" class="btn">Add more addon</button>
 
                 <div data-ng-repeat="addon in addons">
+                  <ng-form name="repeatForm">
 
                   <div class="row user-post-a-package">
                     <div class="col-md-6">
                       <label>Add-ons Name</label>
-                      <input ng-model="addon.name" type="text" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                      <input ng-model="addon.name" name="name" required type="text" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                    <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required">Name required</span>
                     </div>
 
                     <div class="col-md-6">
                       <label>Add-ons Price</label>
-                      <input ng-model="addon.amount" type="number" number-converter min="1" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="addon.amount" name="amount" required type="number" number-converter min="1" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                      <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required ">Price Required</span>
+
                     </div>
 
 
@@ -632,7 +746,8 @@
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon_time_type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
                         </label>
-                        <input ng-show="addon.delivery_time_type=='days'" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Days"/>
+                        <input ng-show="addon.delivery_time_type=='days'" required name="dayss" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Days"/>
+                      <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days' ">days required</span>
                       </div>
                     </div>
                     {{addon.delivery_time_type}}
@@ -642,14 +757,16 @@
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
-                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
+                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" required name="hourss" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
+                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours' ">hours Required</span>
+
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
 
                       <div class="radio radio-primary custom-radio">
                         <label>
-                          <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=0" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=1" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Instant Delivery
                         </label>
                       </div>
@@ -676,24 +793,25 @@
                           <input type="text" ng-model="addon.terms" class="form-control" placeholder="type here.."/>
                       </div>
                   </div>-->
-                  <button ng-click="removeAddon($index)" class="btn">Remove Addon</button>
+                  <button type="button" ng-click="removeAddon($index)" class="btn">Remove Addon</button>
                 </div>
 
                 <hr>
 
                 <div class="row btn-align-xs">
                   <div class="col-md-6 text-center">
-                    <button class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
                   </div>
 
                   <div class="col-md-6">
                     <a ng-href="/dashboard/my-packages/" class="btn btn-primary active pull-right">Skip</a>
                     <!--<button class="btn btn-primary active pull-right" ng-click="savePackageAddons(addons)">Save Addon</button>-->
-                    <button ng-click="savePackageAddons(addons)" type="button" class="btn btn-primary active pull-right">
+                    <button type="submit" class="btn btn-primary active pull-right">
                       Save Addons<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                     </button>
                   </div>
                 </div>
+                  </form>
               </md-content>
             </md-tab>
 

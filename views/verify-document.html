@@ -1,0 +1,192 @@
+<style>
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>
+
+
+
+
+<div class="container-fluid">
+  <div class="card">
+
+    <div class="row">
+      <div class="col-md-12" style="padding: 0px 50px;">
+        <h2 class="text-center f-32 m-t-10" style="color: #8f5fac;"><strong>Verify Your Documents</strong></h2>
+        <!--<p class="f-18 text-center">If you have any Queries, Suggestions or Complaints regarding Zolo, feel free to contact us...</p>-->
+        <hr class="custom-hr">
+      </div>
+    </div>
+
+    <div class="row m-t-40 ">
+      <div class="col-md-2">
+
+      </div>
+      <div ng-hide="saving" class="col-md-8 card m-b-20" style="padding: 0 50px;">
+        <form name="myform" ng-submit="submitDetails()" novalidate>
+            <div class="col-md-12">
+              <div class="service-tax-space">Are You Registered Sales Tax Payer ?</div>
+            </div>
+            <div class="col-md-6">
+              <div class="radio radio-primary custom-radio">
+                <label>
+                  <input ng-model="seller.is_registered_tax_payer" id="is_registered_tax_payer" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="radio radio-primary custom-radio">
+                <label>
+                  <input ng-model="seller.is_registered_tax_payer" type="radio" name="r-primary" value="0" checked class="md-radio"><span class="circle"></span><span class="check"></span>
+                  No
+                </label>
+              </div>
+            </div>
+
+
+          <div ng-show="seller.is_registered_tax_payer==1">
+            <label for="seller.st_number" class="m-t-20">Sales Tax Number</label>
+            <input type="number" id="seller.st_number" ng-model="seller.st_number" ng-maxlength="25" ng-change="validation.seller.st_number =false"  class="form-control " placeholder="Sales Tax Number"/>
+
+            <div ng-show="validation.seller.st_number" class="text-danger">Sales Tax number is required | invalid </div>
+
+
+
+
+            <label  class="m-t-20">Upload Registration Certificate</label>
+            <!--<input type="email" id="email"  class="form-control" ng-model="contact.email" placeholder="Email" required/>-->
+
+            <!--<input type="file" id="registration_file" name="file" class="form-control" value="upload">-->
+            <button class="btn" name="file1" id="file1" ngf-select ngf-max-size="5MB" ngf-accept="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ng-model="regCertDoc" ng-change="validation.regCertDoc=false">select file</button>
+            {{regCertDoc.name}}
+            <div class="alert" ng-show="myform.file1.$error === 'pattern'">file type is not accepted. Acceptable files: {{myform.file1.$errorParam}}</div>
+            <b ng-show="myform.file1.$error.maxSize" class="text-danger">File too large |Max size 5MB</b>
+
+            <div ng-show="validation.regCertDoc" class="text-danger">registration certificate is required</div>
+            <div  class="col-md-12 ">
+              <p  class="f-10" >* Max size 5MB | Accepted Formats .PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF</p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <!--<textarea name="" id="vat_id" cols="14" rows="6" class="form-control" ng-model="contact.message" placeholder="Type your message here..." required></textarea>-->
+          </div>
+
+
+          <label for="pan_number" class="m-t-20">PAN Number</label>
+          <input type="text" id="pan_number" class="form-control" ng-change="validation.seller.pan_number=false; pan=false"  ng-model="seller.pan_number" placeholder="PAN Number"/>
+
+        <div ng-show="validation.seller.pan_number" class="text-danger">PAN number is required </div>
+
+          <div ng-show="pan" class="text-danger">invalid PAN Number </div>
+
+
+        <label for="vat_id" class="m-t-20">VAT ID</label>
+          <input type="text" id="vat_id" class="form-control" ng-model="seller.vat_id" ng-change="validation.seller.vat_id=false;vat=false" placeholder="VAT ID"/>
+
+        <div ng-show="validation.seller.vat_id" class="text-danger">VAT ID is required </div>
+          <div ng-show="vat" class="text-danger">invalid VAT ID </div>
+
+
+
+
+        <label  class="m-t-20">Upload Address Verification Document</label>
+
+          <!--<input type="file" id="add_doc" class="form-control" />-->
+          <button class="btn" name="file2" id="file2" ngf-select ngf-max-size="5MB" ngf-accept="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ng-model="addressDoc" ng-change="validation.addressDoc=false">select file</button>{{addressDoc.name}}
+          <div class="alert" ng-show="myform.file2.$error === 'pattern'">file type is not accepted. Acceptable files: {{myform.file2.$errorParam}}</div>
+          <b ng-show="myform.file2.$error.maxSize" class="text-danger">File too large |Max size 5MB</b>
+
+          <div  class="col-md-12 ">
+            <p  class="f-10" >* Max size 5MB | Accepted Formats .PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF</p>
+          </div>
+
+          <div ng-show="validation.addressDoc" class="text-danger">Address verification doc is required</div>
+
+
+          </br>
+          <!--<input ng-model="seller.termsaccepted" type="checkbox" name="termsaccepted" ng-change="$scope.validation.seller.termsaccepted=false "value="1">Accepting terms and condition<br>-->
+          <!--<div ng-show="validation.seller.termsaccepted" class="text-danger">Please accept terms and conditions</div>-->
+
+          <div  class="col-md-12 tandc m-t-10 m-b-10 p-l-10 p-r-10">
+           <p  class="tandc"><span class="w-500">Disclaimer :</span>&nbsp; The Company will not be liable for any false, inaccurate, inappropriate or incomplete information presented by the vendor with respect to non chargeability of service tax. Any liability arising  out of chargeability of service tax will be borne by the vendor on its own and Company  will not be liable or  for the same.</p>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input ng-model="seller.termsaccepted"  type="checkbox" ng-change="validation.seller.termsaccepted=false "  class="md-checkbox">
+              Accepting terms and condition
+            </label>
+          </div>
+          <div ng-show="validation.seller.termsaccepted" class="text-danger">Please accept terms and conditions</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <button type="submit" ng-disabled="saving" class="btn btn-lg zolo-btn"><i class="fa fa-send-o"></i>&nbsp;&nbsp;Submit</button>
+        </form>
+      </div>
+
+      <div ng-show="saving" class="col-md-8 card m-b-20" style="padding: 0 50px;">
+      <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+      </div>
+     </div>
+
+
+
+
+      <div class="col-md-2">
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
+  </div>
+</div>
+
+
+
+

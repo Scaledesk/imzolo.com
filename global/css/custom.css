@@ -2,6 +2,27 @@
 	margin: 10px 0;
 }
 
+.brightness img
+{
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  -moz-filter: brightness(50%);
+  -o-filter: brightness(50%);
+}
+
+.brightness img:hover
+{
+
+  filter: brightness(90%);
+  -webkit-filter: brightness(90%);
+  -moz-filter: brightness(90%);
+  -o-filter: brightness(90%);
+  -webkit-transition: filter 0.5s;
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
+}
 
 
 .zolo-card-hover-efect {
@@ -14,14 +35,21 @@
 }
 
 
-.zolo-pdp-page {
-	margin-top: 100px;
-}
+/*.zolo-pdp-page {*/
+	/*margin-top: 100px;*/
+/*}*/
 
 
 .zolo-pdp-description h3 {
 	margin-right: 15px;
 	margin-left: 15px;
+}
+
+.tandc{
+  background-color: whitesmoke;
+  text-align:justify;
+
+
 }
 
 .zolo-pdp-location {
@@ -53,9 +81,9 @@
 	padding-top: 20px !important;
 	font-size: 20px !important;
 	text-align: center;
-	color: #78588C !important;
+	color: #673ab7 !important;
 	background-color: #fff !important;
-	border: 1px solid #78588C !important;
+	border: 1px solid #673ab7 !important;
 }
 
 .zolo-pdp-buy-btn2 {
@@ -64,9 +92,9 @@
 	padding-top: 20px !important;
 	font-size: 20px !important;
 	text-align: center;
-	color: #78588C !important;
+	color: #673ab7 !important;
 	background-color: #fff !important;
-	/*border: 1px solid #78588C !important;*/
+	/*border: 1px solid #673ab7; !important;*/
 }
 
 .zolo-pdp-more-info-user {
@@ -76,7 +104,7 @@
 
 /*////////Material Checkbox Custom edit//////*/
 .check {
-	color: #78588C !important;
+	color: #673ab7 !important;
 
 }
 
@@ -134,7 +162,7 @@
 
 .zolo-add-money {
 	margin: 15px 0 !important;
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	color: #fff !important;
 }
 
@@ -199,13 +227,13 @@
 }
 
 .zolo-password-btn {
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	color: #fff !important;
 	margin: 15px 0 !important;
 }
 
 .zolo-btn {
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	color: #fff !important;
 }
 
@@ -236,14 +264,14 @@
 }
 
 
-.zolo-pdp-page {
-	margin-top: 100px;
-}
+/*.zolo-pdp-page {*/
+	/*margin-top: 100px;*/
+/*}*/
 
 
-.zolo-pdp-page {
-	margin-top: 100px;
-}
+/*.zolo-pdp-page {*/
+	/*margin-top: 100px;*/
+/*}*/
 
 .zolo-pdp-description h3 {
 	margin-right: 15px;
@@ -278,9 +306,9 @@
 	padding-top: 20px !important;
 	font-size: 20px !important;
 	text-align: center;
-	color: #78588C !important;
+	color: #673ab7; !important;
 	background-color: #fff !important;
-	border: 1px solid #78588C !important;
+	border: 1px solid #673ab7; !important;
 }
 
 .zolo-pdp-more-info-user {
@@ -292,7 +320,7 @@
 
 /*////////Material Checkbox Custom edit//////*/
 .check {
-	color: #78588C !important;
+	color: #673ab7; !important;
 
 }
 
@@ -350,7 +378,7 @@
 
 .zolo-add-money {
 	margin: 15px 0 !important;
-	background-color: #78588C !important;
+	background-color: #673ab7; !important;
 	color: #fff !important;
 }
 
@@ -421,7 +449,7 @@
 .card-price {
 	margin-left: 10px;
 	font-weight: 500;
-	color: #78588C;
+	color: #673ab7;
 	font-size: 16px;
 }
 
@@ -443,7 +471,7 @@
 }
 
 .zolo-login-submit_btn {
-	background-color: #78588C !important;
+	background-color: #673ab7; !important;
 	color: #fff !important;
 }
 
@@ -545,13 +573,10 @@
 
 
 
-.zolo-pdp-page {
-	margin-top: 100px;
-}
+/*.zolo-pdp-page {*/
+	/*margin-top: 100px;*/
+/*}*/
 
-.zolo-product-description {
-
-}
 
 
 
@@ -601,9 +626,9 @@
 	padding-top: 15px !important;
 	font-size: 20px !important;
 	text-align: center;
-	color: #78588C !important;
+	color: #673ab7; !important;
 	background-color: #fff !important;
-	border: 1px solid #78588C !important;
+	border: 1px solid #673ab7; !important;
 }
 
 .zolo-pdp-buy-btn2 {
@@ -614,7 +639,7 @@
 	text-align: center;
 	color: #fff !important;
   background-color: #5bb75b !important;
-	/*border: 1px solid #78588C !important;*/
+	/*border: 1px solid #673ab7; !important;*/
   letter-spacing: .5px;
 
 }
@@ -627,7 +652,7 @@
 
 /*////////Material Checkbox Custom edit//////*/
 .check {
-	color: #78588C !important;
+	color: #673ab7; !important;
 
 }
 
@@ -685,7 +710,7 @@
 
 .zolo-add-money {
 	margin: 15px 0 !important;
-	background-color: #78588C !important;
+	background-color: #673ab7; !important;
 	color: #fff !important;
 }
 
@@ -749,13 +774,13 @@
 }
 
 .zolo-password-btn {
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	color: #fff !important;
 	margin: 15px 0 !important;
 }
 
 .zolo-btn {
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	color: #fff !important;
 	margin: 20px 0 !important;
 }
@@ -770,7 +795,7 @@
 
 
 .zolo-btn-wallet{
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	color: #fff !important;
 	width: 60% !important;
 	margin-top: 20px !important;
@@ -867,7 +892,7 @@
 
 
 .zolo-logopanel{
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	height: 55px !important;
 }
 
@@ -876,7 +901,7 @@
 }
 
 .zolo-topbar{
-	background-color: #78588C !important;
+	background-color: #673ab7 !important;
 	height: 55px; !important;
     box-shadow: none !important;
 }
@@ -929,9 +954,9 @@
 /*sanchit custom css start*/
 .btn-zolo{
 
-	border:1px solid #78588c!important;
+	border:1px solid #673ab7;!important;
 	/*    color:#b066ff !important;*/
-	color: #78588c !important;
+	color: #673ab7; !important;
 	font-weight: 700 !important;
 	transition: all 2s ease-in-out;
 
@@ -939,14 +964,14 @@
 }
 
 .btn.btn-zolo.btn-transparent:hover{
-	background-color:#78588C!important;
+	background-color:#673ab7!important;
 	border:1px solid #000!important;
 	color:#fff !important;
 }
 
 .bg-zolo{
 
-	background-color:#78588c!important;
+	background-color:#673ab7!important;
 	padding: 0.8em;
 
 }
@@ -990,7 +1015,7 @@
 }
 
 .quickview p{
-	color: #78588c  !important;
+	color: #673ab7  !important;
 }
 
 .user-img-rsb{
@@ -1070,7 +1095,7 @@
 }
 /*secondary menu*/
 .theme-sdtl.color-default .sidebar .sidebar-inner .sidebar-footer{
-	background: #78588c !important ;
+	background: #673ab7 !important ;
 	color: #fff;
 	text-align: center;
 }
@@ -1093,7 +1118,7 @@
 
 .sidebar-top .nav-sidebar > li.nav-hover > a {
 	/*    background: #202226 !important;*/
-	background: #78588c !important;
+	background: #673ab7; !important;
 }
 
 .theme-sdtl.color-default .sidebar .sidebar-inner{
@@ -1220,7 +1245,7 @@ i.btn-over-zolo:hover{
 }
 
 .slick-prev:before, .slick-next:before{
-	color: #78588c !important;
+	color: #673ab7 !important;
 }
 
 .page-profil .profil-right{
@@ -1241,7 +1266,7 @@ i.btn-over-zolo:hover{
 }
 
 .text-zolo{
-	color: #78588c !important;
+	color: #673ab7 !important;
 }
 
 .sidebar-top .db-zolo > li.nav-hover > a > span , .sidebar-top .db-zolo > li.nav-hover > a >i {
@@ -1258,7 +1283,7 @@ i.btn-over-zolo:hover{
 }
 
 figure.zolo-collection{
-    background: #78588c !important;
+    background: #673ab7 !important;
     width: 100% !important ;
 }
 
@@ -1587,7 +1612,7 @@ figure.zolo-collection{
 }
 
 .zolo-bg .main-title strong {
-	color: #78588C;
+	color: #673ab7;
 }
 
 .zolo-bg .main-title p {
@@ -1838,8 +1863,8 @@ figure.effect-steve:hover p {
 }
 
 .home-s-btn{
-  margin-top: 2px!important;
-  background-color: #78588C !important;
+  /*margin-top: 2px!important;*/
+  background-color: #673ab7 !important;
   color: #fff!important;
 
 
@@ -1858,7 +1883,7 @@ figure.effect-steve:hover p {
 
 /*.about-zolo:first-letter{*/
   /*font-size: 2em;*/
-  /*color: #78588c;*/
+  /*color: #673ab7;*/
   /*font-weight: 900;*/
 /*}*/
 
@@ -1866,7 +1891,7 @@ figure.effect-steve:hover p {
 @media screen and (max-width: 600px){
 
   .home-page-search {
-    width: 90%;
+    width: 80%;
     border-radius: 1px;
     padding: 10px 17px;
     border: none;
@@ -1877,7 +1902,7 @@ figure.effect-steve:hover p {
 
 
 .zolo-c{
-  color: #8f5fac !important;
+  color: #673ab7 !important;
 }
 
 /*star rating*/
@@ -2046,9 +2071,9 @@ figure.effect-steve:hover p {
         padding: 0;
     }
 
-    .page-profil .profil-content{
-        padding: 0;
-    }
+    /*.page-profil .profil-content{*/
+        /*padding: 0;*/
+    /*}*/
 
     .cover-img{
         background: url('/global/images/m-cover.jpg') center no-repeat !important;
@@ -2222,7 +2247,7 @@ end bootstrap off canvas
 .b-s-img{
   margin-right: auto;
   margin-left: auto;
-  border: 3px solid #765f89;
+  border-radius: 3px solid rgba(103, 58, 183, 0.49);
 }
 
 
@@ -2287,12 +2312,12 @@ end bootstrap off canvas
 }
 
 .pdp-s-img{
-  border: 3px solid #765f89;
+  border: 3px solid #673ab7;
 }
 
 
 .zolo-pdp-seller-name:hover{
-  color: #78588c!important;
+  color: #673ab7!important;
 
 }
 
@@ -2306,7 +2331,7 @@ end bootstrap off canvas
 }
 
 .home-s-btn-a{
-  background-color: #78588c!important;
+  background-color: #673ab7!important;
   color: #fff!important;
 
 }
@@ -2317,6 +2342,7 @@ end bootstrap off canvas
   padding: 10px 17px;
   border: none;
   font-size: 14px !important;
+
 }
 
 @media screen and (max-width: 600px){
@@ -2328,7 +2354,7 @@ end bootstrap off canvas
 
   .home-s-btn-a{
     margin: 15px 5px 5px 5px!important;
-    background-color: #78588c!important;
+    background-color: #673ab7!important;
     color: #fff!important;
     display: none;
   }
@@ -2339,7 +2365,7 @@ end bootstrap off canvas
 
   .home-page-search-a{
     margin-bottom: 20px;
-    width: 90%;
+    width: 77%;
     border-radius: 1px;
     padding: 10px 17px;
     border: none;
@@ -2397,7 +2423,7 @@ end bootstrap off canvas
 
 
 .address-strip{
-  background-color: #765f89;
+  background-color: #673ab7;
   margin-right: -20px;
   margin-left: -20px;
   color: #fff;
@@ -2417,7 +2443,7 @@ end bootstrap off canvas
 /*orp custome css neeraj*/
 
 .address-strip{
-  background-color: #765f89;
+  background-color: #673ab7;
   margin-right: -20px;
   margin-left: -20px;
   color: #fff;
@@ -2456,23 +2482,23 @@ end bootstrap off canvas
 /* ======== input fields look ======== */
 
 .zolo-input-darken::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color:    #555 !important;
+  color:    #6b6c6d !important;
 }
 .zolo-input-darken:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color:    #555 !important;
+  color:    #6b6c6d !important;
   opacity:  1;
 }
 .zolo-input-darken::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    #555 !important;
+  color:    #6b6c6d !important;
   opacity:  1;
 }
 .zolo-input-darken:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color:    #555 !important;
+  color:    #6b6c6d !important;
 }
 
-.zolo-textarea::-webkit-input-placeholder , .zolo-textarea { /* WebKit, Blink, Edge */
-  color:    #555 !important;
-  font-size: 15px;
+.zolo-textarea::-webkit-input-placeholder, .zolo-textarea { /* WebKit, Blink, Edge */
+  color:    #6b6c6d !important;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -2489,3 +2515,84 @@ textarea.zolo-input-darken{
 
 
 
+/*toaster close css*/
+
+:not(.no-enter)#toast-container > div.ng-enter,
+:not(.no-leave)#toast-container > div.ng-leave
+{
+  -webkit-transition: 1ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all !important;
+  -moz-transition: 1ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all !important;
+  -ms-transition: 1ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all !important;
+  -o-transition: 1ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all !important;
+  transition: 1ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all !important;
+}
+
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+  color: #673ab7 !important;
+  background-color:#673ab7 !important;
+}
+
+
+.footer-links li{
+  list-style-type: none;
+}
+
+
+.footer-links li a{
+  color: #565a5c;
+  margin-top: 10px;
+}
+
+.footer-links-s li {
+  display: inline-block;
+  margin-right: 20px;
+  color: #565a5c;
+}
+
+.footer-links-s li i{
+  color: #565a5c;
+}
+
+.f-hover{
+  color: #3B5998!important;
+}
+
+.g-hover{
+  color: #d34836!important;
+
+}
+
+.i-hover{
+  color: #125688!important;
+}
+
+.l-hover{
+  color: #007bb5!important;
+}
+
+
+.font-color{
+  color: #565a5c!important;
+}
+
+
+.bg{
+  background-color: #673ab7!important;
+  color: #fff!important;
+}
+
+
+@media screen and (min-width: 1600px) {
+  .dropdown-menu li a {
+    font-weight: 400 !important;
+
+  }
+
+
+}
+
+/*custome header col-xs-2 width*/
+.header-col-xs-2{
+  width: 15% !important;
+}

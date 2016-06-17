@@ -16,7 +16,7 @@
       <div class="col-md-3">
         <div class="card">
           <ul class="navbar nav">
-            <li><a class="border-bottom" ng-click="_message.active_placeholder=placeholder;_message.updateMessageList();_message.go_to_message=false;" ng-class="{'row has-to-click active-local':placeholder.id==_message.active_placeholder.id, 'row has-to-click':placeholder.id!=_message.active_placeholder.id}"  ng-repeat="placeholder in _message.placeholders"  ng-bind="placeholder.title.replace('_',' ')|uppercase"></a>
+            <li><a class="border-bottom" ng-click="_message.active_placeholder=placeholder;_message.updateMessageList();_message.go_to_message=false;" ng-class="{'row has-to-click active-local':placeholder.id==_message.active_placeholder.id, 'row has-to-click':placeholder.id!=_message.active_placeholder.id}"  ng-repeat="placeholder in _message.placeholders">{{placeholder.title.replace('_',' ')|uppercase}}&nbsp;<span class="badge badge-danger">{{placeholder.total_messages_number}}</span></a>
             </li>
           </ul>
         </div>
@@ -109,8 +109,8 @@
         </div>
         <div class="row" ng-repeat="local_message in _message.current_messages_thread track by $index">
           <div class="col-md-12" style="padding-left: 3.5%"><p>
-            <span ng-if="_message.active_placeholder.id==local_message.receiver_placeholder_id"> <strong>from: </strong><span style="font-weight: bold" ng-bind="local_message.sender.name"><!--sender name--> </span> to <span style="font-weight: bold">Me</span> </span>
-            <span ng-if="_message.active_placeholder.id!=local_message.receiver_placeholder_id"><strong>by: </strong><span style="font-weight: bold">Me</span> to <span style="font-weight: bold" ng-bind="local_message.sender.name"><!--sender name--> </span> </span>
+            <span ng-if="_message.active_placeholder.id==local_message.receiver_placeholder_id"><strong>from: </strong><span style="font-weight: bold" ng-bind="local_message.sender.name"><!--sender name--> </span> to <span style="font-weight: bold">Me</span> </span>
+            <span ng-if="_message.active_placeholder.id!=local_message.receiver_placeholder_id"><strong>by: </strong><span style="font-weight: bold">Me</span> to <span style="font-weight: bold" ng-bind="local_message.receiver.data.name"><!--sender name--> </span> </span>
             <span style="padding-left: 2%"><i class="fa fa-clock-o" aria-hidden="true"></i>:<span style="font-weight: bold" ng-bind="local_message.timestamp"><!--date--></span></span></p></div>
           <div class="col-md-12" style="padding-left: 3.5%;text-align: justify" ng-bind="local_message.body">
           </div>
@@ -124,23 +124,23 @@
         </div>
         <div class="row" ng-bind="_message.error" style="color: red">
         </div>
-        <div class="row" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0">
+        <div class="row" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
           <div class="col-md-12">
             <hr color="grey">
             <h3>This is the custom offer a user wants. Kindly send your quotation for the offer.</h3>
           </div>
-          <div class="col-md-12" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0">
+          <div class="col-md-12" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
             <div class="col-md-6">Enter Days to Complete: <input ng-model="_message.myreply.days" placeholder="Enter Days" type="number" min="1"/></div>
             <div class="col-md-6">Enter Price: <input ng-model="_message.myreply.price" placeholder="Enter price" type="number" min="1"/></div>
           </div>
         </div>
-        <div class="row" ng-if="_message.current_message.has_buy_action==0">
+        <div class="row" ng-if="_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
           <div class="col-md-8"><textarea rows="10" style="margin-top: 3%;margin-left: 1%;padding: 2%;width: 95%" ng-model="_message.myreply.body" ng-keypress="_message.success='';_message.error=''"></textarea></div>
           <div class="col-md-4" style="margin-top: 1.4%;">
             <md-button ng-click="_message.mysendMessage()" style="background-color: #78588C;color: white"> Reply</md-button>
           </div>
         </div>
-        <div class="row" ng-if="_message.current_message.has_buy_action==1" style="margin-left: 2%;min-height: 100px;">
+        <div class="row" ng-if="_message.current_message.has_buy_action==1&&_message  .active_placeholder.id!=2" style="margin-left: 2%;min-height: 100px;">
           <br/>
           <p><strong>Days in which the work will complete: </strong><span>{{_message.current_message.days}}</span></p><br/>
           <md-button style="background-color: #78588C;color: #FFFFFF;" ng-click="_message.book()">Buy(&#8377; {{_message.current_message.price}})</md-button>

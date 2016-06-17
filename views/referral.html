@@ -18,35 +18,29 @@
 
     <div class="row">
       <div class="col-md-3"></div>
+
+
+
+
+
+      <form name="referralForm" ng-submit="doReferral(referred_user_email)" novalidate>
+
       <div class="col-md-6">
-
-
-        <div class="form-control-wrapper refer-friend-form"><input type="text" ng-model="refer.referred_user_email" class="form-control empty"><div class="floating-label">Email</div><span class="material-input"></span></div>
-
+        <div class="form-control-wrapper refer-friend-form"><input type="email" id="referral_email" ng-model="referred_user_email" ng-change="checkUser(referred_user_email)" class="form-control empty" required><div class="floating-label">Email</div><span class="material-input"></span></div>
+        <span class="text-danger" ng-show="referralForm.$error.required && submitted"> Please enter valid email ! </span>
+        <span class="text-danger" ng-show="sameEmail && submitted"> User can not refer himself ! </span>
         <div class="row">
           <div class="col-md-4">
-
-
           </div>
-
           <div class="col-md-4">
-            <button ng-click="doReferral(refer)" class="btn zolo-btn">Submit</button>
-
+            <button ng-disabled="submitReferral" type="submit" class="btn zolo-btn">Submit</button>
           </div>
-
-
           <div class="col-md-4">
-
-
           </div>
-
-
-
         </div>
-
-
-
       </div>
+
+      </form>
 
 
 

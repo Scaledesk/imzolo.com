@@ -1,0 +1,94 @@
+<style>
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+
+
+<div class="container-fluid">
+  <div class="card">
+
+    <div class="row">
+      <div class="col-md-12" style="padding: 0px 50px;">
+        <h2 class="text-center f-32 m-t-10" style="color: #8f5fac;"><strong>Bank Details</strong></h2>
+        <!--<p class="f-18 text-center">If you have any Queries, Suggestions or Complaints regarding Zolo, feel free to contact us...</p>-->
+        <hr class="custom-hr">
+      </div>
+    </div>
+
+    <div class="row m-t-40 ">
+      <div class="col-md-2">
+
+      </div>
+      <div ng-hide="saving" class="col-md-8 border-right m-b-20" style="padding: 0 50px;">
+        <form ng-submit="submitDetails()" novalidate>
+
+          <label for="bank_name" class="m-t-20">Name</label>
+          <input type="text" id="bank_name" class="form-control" ng-model="seller.name" ng-change="validation.seller.name=false" placeholder="User Name"/>
+
+          <div ng-show="validation.seller.name" class="text-danger">Name is required </div>
+
+
+          <label for="branch" class="m-t-20">Enter Bank Name and Branch</label>
+          <input type="text" id="branch" class="form-control" ng-model="seller.branch" ng-change="validation.seller.branch=false" placeholder="Bank Name and Branch"/>
+          <div ng-show="validation.seller.branch" class="text-danger">Branch is required </div>
+
+
+
+
+          <label for="account_number" class="m-t-20">Account Number</label>
+          <input type="number" id="account_number" class="form-control" ng-model="seller.acc_number"ng-change="validation.seller.acc_number=false" placeholder="Account Number"/>
+          <div ng-show="validation.seller.acc_number" class="text-danger">Account number is required </div>
+
+          <label for="ifsc_code" class="m-t-20">IFSC Code</label>
+          <input type="text" id="ifsc_code" class="form-control" ng-model="seller.ifsc" ng-change="validation.seller.ifsc=false" placeholder="IFSC Code"/>
+
+          <div ng-show="validation.seller.ifsc" class="text-danger">IFSC code is required </div>
+
+
+          <button type="submit" ng-disabled="saving" class="btn btn-lg zolo-btn"><i class="fa fa-send-o"></i>&nbsp;&nbsp;Submit</button>
+        </form>
+      </div>
+
+      <div ng-show="saving" class="col-md-8 border-right m-b-20" style="padding: 0 50px;">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
+  </div>
+</div>
+
+
+
+
+

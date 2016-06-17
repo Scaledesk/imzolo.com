@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div ng-hide="Loading_wallet" class="row">
     <div class="col-lg-3 tex-center">
       <div class="card text-center">
         <h4 class="text-center"><strong>Wallet Balance</strong></h4>
@@ -28,13 +28,15 @@
         </div>
 
 
+<form name="addmoney" ng-submit="addToWallet(money)" novalidate>
 
 
-
-        <div class="row">
+        <div ng-hide="Loading_wallet" class="row">
           <div class="col-md-4">
-            <input type="text" ng-model="money" class="form-control" placeholder="Enter Amount to be Added in Wallet "/>
-
+            <input type="number" id="add_money" ng-model="money" class="form-control" placeholder="Enter Amount to be Added in Wallet" min="1" max="10000" required/>
+            <span ng-show="addmoney.$error.required && submitted" class="text-danger">Please enter valid amount</span>
+            <span ng-show="addmoney.$error.min && submitted" class="text-danger">Amount must be greater than 0</span>
+            <span ng-show="addmoney.$error.max && submitted" class="text-danger">Maximum 10000 allowed</span>
           </div>
 
 
@@ -43,19 +45,19 @@
 
             <div class="row">
               <div class="col-lg-3">
-                <button ng-click="change_add_amount(1000)" class="btn">+ &#8377;1000</button>
+                <a ng-click="money=1000" class="btn">+ &#8377;1000</a>
               </div>
 
               <div class="col-lg-3">
-                <button ng-click="change_add_amount(2000)" class="btn">+ &#8377;2000</button>
+                <a ng-click="money=2000" class="btn">+ &#8377;2000</a>
               </div>
 
               <div class="col-lg-3">
-                <button ng-click="change_add_amount(5000)" class="btn">+ &#8377;5000</button>
+                <a ng-click="money=5000" class="btn">+ &#8377;5000</a>
               </div>
 
               <div class="col-lg-3">
-                <button ng-click="change_add_amount(10000)" class="btn">+ &#8377;10000</button>
+                <a ng-click="money=10000" class="btn">+ &#8377;10000</a>
               </div>
 
 
@@ -70,10 +72,10 @@
 
 
         <div class="col-md-12 text-center">
-          <button ng-click="addToWallet(money)" class="btn zolo-btn-wallet">Add Money</button>
+          <button type="submit" class="btn zolo-btn-wallet">Add Money</button>
         </div>
 
-
+</form>
 
 
       </div>
@@ -86,8 +88,12 @@
   </div>
 
 
+<div>
 
-  <div class="row">
+  <!--<div class="row">
+    {{transactions}}
+  </div>-->
+  <div ng-hide="Loading_wallet" class="row" >
     <div class="col-md-12">
       <div class="card">
         <div class="panel-header md-panel-controls">
@@ -98,33 +104,43 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>transaction id</th>
+                <!--<th>transaction id</th>-->
+                <th>Description</th>
                 <th>Date</th>
                 <th>Amount</th>
+                <th>Status</th>
                 <th>Type</th>
               </tr>
               </thead>
               <tbody>
               <tr ng-repeat="transaction in transactions">
-                <td>{{$index}}</td>
-                <td>{{transaction.id}}</td>
+                <td>{{$index+1}}</td>
+                <!--<td>{{transaction.id}}</td>-->
+                <td>{{transaction.description|capitalizeFirst}}</td>
                 <td>{{transaction.timestamp}}</td>
                 <td>&#8377;{{transaction.amount}}</td>
-                <td>{{transaction.type}}</td>
+                <td><span ng-if="transaction.status=='failure'">Failed</span><span ng-if="transaction.status!='failure'">{{transaction.status.replace('_',' ')| capitalizeFirst}}</span></td>
+                <td>{{transaction.type|capitalizeFirst}}</td>
               </tr>
               </tbody>
             </table>
           </div>
         </div>
-
-
       </div>
     </div>
 
-
-
-
   </div>
+
+  <div ng-show="Loading_wallet" class="row p-20 text-center card">
+    <div class="col-md-12 text-center m-t-60">
+      <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+      </div>
+    </div>
+  </div>
+
+</div>
+
   </div>
 
   <div class="footer">

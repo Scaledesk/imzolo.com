@@ -6,8 +6,11 @@
           <hr>
           <div class="row">
             <div class="col-md-12 col-xs-12">
-              <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==0" ng-click="pausedAll()" class="btn pull-right">Pause All</button>
-              <button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==1" ng-click="activeAll()" class="btn pull-right">Resume All</button>
+              <button ng-show="user_packages.data.length>0" class="btn pull-right" >
+                <span ng-click="pausedAll()" ng-if="profile.packages_paused==0">Pause All</span>
+                <span ng-click="activeAll()" ng-if="profile.packages_paused==1">Resume All</span>
+              </button>
+              <!--<button ng-show="user_packages.data.length>0" ng-if="profile.packages_paused==1" ng-click="activeAll()" class="btn pull-right" >Resume All</button>-->
             </div>
           </div>
 
@@ -88,7 +91,7 @@
               <div class="col-md-12 text-center col-xs-12">
                 <p class="text-center  large-size">You have not listed any packages !</p>
                 <p class="text-center  large-size">START Monetizing your Talent now!</p>
-                <a ng-href="/post-a-package/" class="btn btn-lg btn-success">Post Your First Package</a>
+                <a ng-href="/post-a-package/" class="btn btn-lg btn-success">Post a Package</a>
               </div>
             </div>
           </div>

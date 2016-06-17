@@ -50,13 +50,21 @@
   }
 
 
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+
 
 </style>
 
 
 
 <div class="container m-b-60">
-  <div class="card">
+  <div class="card p-t-0">
     <div class="row">
       <div ng-hide="loadingPackage" class="col-md-12 text-center">
         <!--<form name="postForm" novalidate>-->
@@ -64,11 +72,14 @@
           <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex" class="tabsdemoDynamicHeight md-content">
             <md-tab label="Start">
               <md-content class="md-padding">
+              <form name="start" ng-submit="checkValidationFirst('DRAFT')" novalidate>
                 <div class="row user-post-a-package">
-                  <div class="col-lg-6 text-center ">
+                  <div class="col-md-12 text-center p-l-0">
                     <div class="form-group">
-                      <label for="title">Package Title</label>
-                      <input id="title" type="text" name="title" popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm zolo-input-darken" placeholder="Enter package title" style="font-size: 16px; !important;">
+                      <label for="title" class="p-l-0">Package Title </label>
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+                      <input id="title" type="text" name="title" uib-popover-html="titlePopover" popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm zolo-input-darken" placeholder="Enter package title" style="font-size: 16px !important; padding: 0!important;">
 
                       <!--uib-popover-template="'vvvvv.html'"-->
                       <!--<script type="text/ng-template" id="vvvvv.html">
@@ -80,7 +91,7 @@
 
 
 
-                      <div ng-show="validation_error.package_name" class="text-danger">Title is Required! || Min 20 charector | Max 100 charector</div>
+                      <div ng-show="validation_error.package_name" class="text-danger">Title is Required! || Min 20 character | Max 100 character</div>
                                             <span class="word-counter">
                                                 <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
                                             </span>
@@ -91,10 +102,12 @@
                   </div>
                 </div>
                 <!--ng-if="c.id==10 || c.id==14 || c.id==90 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77"-->
-                <div class="row user-post-a-package">
-                  <div class="col-md-3">
+                <div class="row user-post-a-package m-b-0">
+                  <div class="col-md-3 p-l-0">
                     <label for="category">Category</label>
-                    <md-select ng-model="p_category" id="category" ng-change="subCategory()"  popover-placement="top" popover-trigger="focus">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+                    <md-select class="m-10 m-l-0" ng-model="p_category" id="category" ng-change="subCategory()"  popover-placement="top" popover-trigger="focus">
                       <md-option value="" ng-selected="-1">Select Category</md-option>
                       <md-option ng-repeat="c in category" value="{{c.id}}" ng-if="c.id!=13">
                         {{c.name}}
@@ -110,46 +123,21 @@
                   </div>
                   <div class="col-md-3">
                     <label for="subcategory">Sub-Category</label>
-                    <md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory"  popover-placement="top" popover-trigger="focus">
+
+                    <md-select class="m-10 m-l-0" ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory"  popover-placement="top" popover-trigger="focus">
                       <md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
                       <md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">
                         {{sub_c.name}}
                       </md-option>
                     </md-select>
                   </div>
-                  <div class="col-md-1">
-                    <label class="pull-right" style="margin: 10px;">Tags</label>
-                  </div>
-
-
-                  <div class="col-md-4">
-                    <tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true"  popover-placement="top" popover-trigger="focus">
-                      <auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>
-                    </tags-input>
-                    <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
-                      * add tag
-                    </md-tooltip>-->
-                  </div>
-                </div>
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-6 m-b-20">
-                    <p>Location <span>(Your service is available at)</span></p>
-                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_location=false">
-                      <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
-                    </tags-input>
-                    <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
-                      * required add location
-                    </md-tooltip>-->
-
-                  </div>
 
                   <div class="col-md-6 m-b-20">
 
                     <label for="package_type">Package Type</label>
-                    <md-select ng-model="package.packages_type"  popover-placement="top" popover-trigger="focus" id="package_type" ng-change="validation_error.package_type=false">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+                    <md-select class="m-10 m-l-0" ng-model="package.packages_type"  popover-placement="top" popover-trigger="focus" id="package_type" ng-change="validation_error.package_type=false">
                       <md-option value="" ng-selected="-1">Select Package Type</md-option>
                       <md-option ng-repeat="pt in packagesType" value="{{pt.id}}">
                         {{pt.name}}
@@ -160,17 +148,77 @@
                       * required select package type
                     </md-tooltip>-->
                   </div>
+
+                  <!--<div class="col-md-1">-->
+                    <!--<label class="pull-right" style="margin: 10px;">Tags</label>-->
+                  <!--</div>-->
+
+
+                  <!--<div class="col-md-4">-->
+                    <!--<tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true"  popover-placement="top" popover-trigger="focus">-->
+                      <!--<auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>-->
+                    <!--</tags-input>-->
+                    <!--<div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>-->
+                    <!--&lt;!&ndash;<md-tooltip class="f-14 w-400" md-direction="right">-->
+                      <!--* add tag-->
+                    <!--</md-tooltip>&ndash;&gt;-->
+                  <!--</div>-->
                 </div>
-                <div class="row user-post-a-package">
+                <div class="row user-post-a-package ">
+                  <div class="col-md-6 m-b-20 p-l-0">
+                    <p class="m-10 w-600">Location <span>(Your service is available at)</span></p>
+                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_location=false">
+                      <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
+                    </tags-input>
+                    <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
+                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
+                      * required add location
+                    </md-tooltip>-->
+
+                  </div>
+
+                  <!--<div class="col-md-1">-->
+                    <!--<label class="pull-right" style="margin: 10px;">Tags</label>-->
+                  <!--</div>-->
+
+
+                  <div class="col-md-6">
+                    <p class="m-10 w-600">Tags</p>
+                    <tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true"  popover-placement="top" popover-trigger="focus">
+                      <auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>
+                    </tags-input>
+                    <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
+                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
+                      * add tag
+                    </md-tooltip>-->
+                  </div>
+
+                  <!--<div class="col-md-6 m-b-20">-->
+
+                    <!--<label for="package_type">Package Type</label>-->
+                    <!--<md-select ng-model="package.packages_type"  popover-placement="top" popover-trigger="focus" id="package_type" ng-change="validation_error.package_type=false">-->
+                      <!--<md-option value="" ng-selected="-1">Select Package Type</md-option>-->
+                      <!--<md-option ng-repeat="pt in packagesType" value="{{pt.id}}">-->
+                        <!--{{pt.name}}-->
+                      <!--</md-option>-->
+                    <!--</md-select>-->
+                    <!--<div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>-->
+                    <!--&lt;!&ndash;<md-tooltip class="f-14 w-400" md-direction="bottom">-->
+                      <!--* required select package type-->
+                    <!--</md-tooltip>&ndash;&gt;-->
+                  <!--</div>-->
+                </div>
+                <div class="row">
                   <div class="col-md-12">
 
-                    <p class="w-400">Create a Catchy tagline for your package</p>
+                    <p class="w-600 ">Create a Catchy tagline for your package</p>
                     <!--<md-tooltip class="f-14 w-400" md-direction="top">
                       * Create a introduction for your Package
                     </md-tooltip>-->
 
 
-                    <textarea class="form-control zolo-input-darken"  popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here.." rows="3"></textarea>
+                    <textarea class="form-control zolo-input-darken f-16" uib-popover-html="catchyTitlePopover" popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here.." rows="3"></textarea>
+                    <!--<textarea class="form-control  zolo-textarea"  popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here.." rows="3"></textarea>-->
 
                   </div>
                 </div>
@@ -180,20 +228,23 @@
                     <!--<button class="btn btn-zolo">Preview</button>-->
                   </div>
                   <div class="col-lg-6 col-md-6 col-xs-12">
-                    <button class="btn btn-primary active pull-right" ng-disabled="!completed_first || saving"  ng-click="checkValidationFirst('DRAFT')">Save and Continue
+                    <button type="submit" class="btn btn-primary active pull-right" ng-disabled="saving">Save and Continue
                       <span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></button>
                     <!--<button class="btn btn-primary active pull-right" ng-click="checkValidationFirst()">Save and Continue</button>-->
                   </div>
                 </div>
+              </form>
               </md-content>
             </md-tab>
 
             <md-tab ng-disabled="completed_first" label="Description">
               <md-content class="md-padding">
+                <form name="Description" ng-submit="checkValidationSecond()" novalidate>
+
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
                     <label>Describe your package</label>
-                    <textarea froala="froalaOptions" ng-model="package.description"  popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
+                    <textarea froala="froalaOptions" ng-model="package.description" uib-popover-html="descriptionPopover"  popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
 
                     <!--<textarea cols="80" rows="10" class="cke-editor">
                         &lt;h2&gt;Technical details &lt;a id=&quot;tech-details&quot; name=&quot;tech-details&quot;&gt;&lt;/a&gt;&lt;/h2&gt; &lt;table align=&quot;right&quot; border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot;
@@ -225,7 +276,7 @@
                 </div>
 
 
-                <div class="row user-post-a-package">
+                <div class="row m-t-40">
                   <div class="col-md-6">
                     <label>What does your package includes ? <span>(Deliverable)</span></label>
                     <textarea ng-model="package.deliverable" class="form-control zolo-input-darken"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
@@ -248,10 +299,15 @@
                 </div>
 
 
-                <div class="row user-post-a-package">
+                <div class="row m-t-40">
                   <div class="col-md-6">
-                    <label>Facebook Link</label>
-                    <input type="url" ng-model="package.facebook_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
+                    <div class="prepend-icon">
+                      <input type="text" ng-model="package.facebook_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Facebook Link" style="font-size: 16px; font-weight: 400;"/>
+                      <i class="fa fa-facebook-square f-24"></i>
+
+                    </div>
+                    <!--<label>Facebook Link</label>-->
+
                     <!--<md-tooltip md-direction="right">
                       Facebook link Example: http://www.facebook.com
                     </md-tooltip>-->
@@ -259,8 +315,14 @@
 
 
                   <div class="col-md-6">
-                    <label>Youtube Link</label>
-                    <input type="url" ng-model="package.youtube_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
+                    <div class="prepend-icon">
+                      <input type="text" ng-model="package.youtube_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Youtube Link" style="font-size: 16px; font-weight: 400;"/>
+
+                      <i class="fa fa-youtube-square f-24"></i>
+
+                    </div>
+                    <!--<label>Youtube Link</label>-->
+
                     <!--<md-tooltip md-direction="right">
                       Youtube link Example: http://www.youtube.com
                     </md-tooltip>-->
@@ -269,13 +331,13 @@
                 </div>
 
 
-                <div class="row user-post-a-package">
+                <div class="row m-t-40">
                   <div class="col-md-6">
                     <label>Any Other Link</label>
-                    <input type="url" class="form-control zolo-input-darken" ng-model="package.any_other_links"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
-                   <!-- <md-tooltip md-direction="right">
-                      Any other link Example: http://www.other.com
-                    </md-tooltip>-->
+                    <input type="text" class="form-control zolo-input-darken" ng-model="package.any_other_links"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
+                    <!-- <md-tooltip md-direction="right">
+                       Any other link Example: http://www.other.com
+                     </md-tooltip>-->
                   </div>
 
 
@@ -288,18 +350,19 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-xs-6">
 
 
-                    <button class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" ng-click="checkValidationSecond()">Save and Continue
+                    <button type="submit" class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i></span></button>
 
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
                   </div>
                 </div>
+                  </form>
 
               </md-content>
 
@@ -307,10 +370,11 @@
 
             <md-tab ng-disabled="completed_second" label="Payment & Delivery">
               <md-content class="md-padding">
+                <form name="payment" ng-submit="checkValidationThird()" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
                     <label for="actual_price">Actual Price</label>
-                    <input ng-model="package.price" id="actual_price" type="number" popover-placement="top" popover-trigger="focus" min="0" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.price" id="actual_price" ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
                     <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Required Actual Price
@@ -320,8 +384,8 @@
 
                   <div class="col-lg-6">
                     <label>Discounted Price</label>
-                    <input ng-model="package.deal_price" type="number" class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="0" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
-                    <div ng-show="validation_error.package_deal_price" class="text-danger">Deal Price is less than Actual price</div>
+                    <input ng-model="package.deal_price" type="number" class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
                     <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Deal price should be less than Actual Price
                     </md-tooltip>-->
@@ -384,12 +448,12 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
 
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-xs-12">
-                    <button class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" ng-click="checkValidationThird()">Save and Continue
+                    <button type="submit" class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
 
@@ -400,13 +464,14 @@
                   </div>
                 </div>
 
-
+               </form>
 
               </md-content>
             </md-tab>
 
             <md-tab ng-disabled="completed_third" label="Media">
               <md-content class="md-padding">
+                <form name="media" ng-submit="checkValidationFourth()" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-md-12 text-center">
                     <script type="text/javascript">
@@ -450,7 +515,7 @@
                     </script>
                     <h2 class="m-t-20">Upload Photos for Your Package...</h2>
 
-                    <button id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>
+                    <button type="button" id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>
                   </div>
                 </div>
 
@@ -480,19 +545,80 @@
                         document.getElementById('images_to_show').innerHTML='';
                         var i=0;
                         angular.forEach(photos,function(photo){
+
                           document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
                             '<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';
                           i++;
-                        });
+//                          if(photos.length==1)
+                            $("#thumbnail").attr("checked","checked");
+
+                          }
+
+
+                        );
                       }
+
                       function makeThumbnail(photo_local_id){
                         thumbnail = photos[photo_local_id];
                       }
+
                       function deletePhoto(id){
-                        photos.splice(id,1);
-                        refresh();
+
+
+                        var r = confirm("Are you sure you want to delete ??");
+                        if (r == true) {
+                          photos.splice(id,1);
+                          refresh();
+
+                        } else {
+                        }
+
+
                       }
                     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   </div>
                 </div>
 
@@ -503,7 +629,7 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
 
 
 
@@ -512,7 +638,7 @@
                   <div class="col-lg-6 col-md-6 col-xs-12">
 
 
-                    <button class="btn btn-primary active pull-right m-l-20" ng-click="checkValidationFourth()">Save and Continue
+                    <button type="submit" class="btn btn-primary active pull-right m-l-20" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
                     <!--<button class="btn btn-zolo pull-right">Preview</button>-->
@@ -520,19 +646,21 @@
 
                   </div>
                 </div>
-
+</form>
               </md-content>
             </md-tab>
 
             <md-tab ng-disabled="completed_fourth" label="More info">
               <md-content class="md-padding">
+                <form name="moreinfo"  novalidate>
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-12  m-b-20">
 
-                    <p>Instructions for Buyer</p>
-                    <textarea class="form-control" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
-                    <p>Terms And Conditions</p>
+                    <p class="w-600">Instructions for Buyer  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </p>
+                    <textarea class="form-control zolo-input-darken" ng-model="package.instructions" placeholder="Type here.." rows="4"></textarea>
+                    <p class="w-600">Terms And Conditions</p>
                     <!--<textarea ng-model="package.term_condition" class="form-control" placeholder="Please type here.." rows="4" id="term_condition"></textarea>-->
                     <textarea froala="froalaOptions1" ng-model="package.term_condition" popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
                   </div>
@@ -580,7 +708,7 @@
 
                     <div class="row btn-align-xs-l">
                       <div class="col-md-3 col-xs-12">
-                        <button class="btn btn-default " ng-click="backTab()" style="margin-right: 10px;">Back</button>
+                        <button type="button" class="btn btn-default " ng-click="backTab()" style="margin-right: 10px;">Back</button>
                       </div>
 
                       <div class="col-md-3 col-xs-12">
@@ -598,7 +726,7 @@
 
                     <div class="row btn-align-xs">
                       <div class="col-md-3 col-xs-12 pull-right">
-                        <button ng-disabled="!completed_package" class="btn btn-success pull-right m-l-20" ng-click="checkValidationFifth('ACTIVE')">Publish
+                        <button type="button" ng-disabled="!completed_package" class="btn btn-success pull-right m-l-20" ng-click="checkValidationFifth('ACTIVE')">Publish
                           <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
                       </div>
 
@@ -615,13 +743,15 @@
 
 
 
-
+</form>
 
               </md-content>
             </md-tab>
 
             <md-tab ng-disabled="completed_package" label="Add-ons">
               <md-content class="md-padding">
+
+
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-12">
@@ -632,20 +762,26 @@
 
 
                 </div>
+                <form name="formadd" ng-submit="savePackageAddons(addons)" novalidate>
 
-                <button ng-click="addNewAddon()" class="btn">Add more addon</button>
+                <button type="button" ng-click="addNewAddon()" class="btn">Add more addon</button>
 
                 <div data-ng-repeat="addon in addons">
+                  <ng-form name="repeatForm">
 
                   <div class="row user-post-a-package">
                     <div class="col-md-6">
                       <label>Add-ons Name</label>
-                      <input ng-model="addon.name" type="text" class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                      <input ng-model="addon.name" name="name" type="text" required class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                     <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitted">Name Required</span>
+
                     </div>
 
                     <div class="col-md-6">
                       <label>Add-ons Price</label>
-                      <input ng-model="addon.amount" type="number" number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="addon.amount" name="amount" type="number" required number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                    <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitted">Price Required</span>
+
                     </div>
 
 
@@ -656,11 +792,16 @@
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label>
-                          <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="addon.delivery_time_type"  type="radio" name="addon-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
+
                         </label>
-                        <input ng-show="addon.delivery_time_type=='days'" number-converter ng-model="addon.days" min="1" type="number" class="form-control" placeholder="Days"/>
+                        <input ng-show="addon.delivery_time_type=='days'" required name="dayss" number-converter ng-model="addon.days" min="1" type="number" class="form-control" placeholder="Days"/>
+                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days'&& submitted ">days Required</span>
+
                       </div>
+
+
                     </div>
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
@@ -668,18 +809,22 @@
                           <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
-                        <input ng-show="addon.delivery_time_type=='hours'" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
+                        <input ng-show="addon.delivery_time_type=='hours'" required  name="hourss" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
+                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours'&& submitted ">hours Required</span>
+
                       </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
 
                       <div class="radio radio-primary custom-radio">
                         <label>
-                          <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=0" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=1" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Instant Delivery
                         </label>
                       </div>
                     </div>
+
+
                   </div>
                   <!--<div class="row user-post-a-package">
                       <div class="col-md-6">
@@ -705,25 +850,27 @@
 
                   </div>-->
 
-                  <button ng-click="removeAddon($index)" class="btn">Remove Addon</button>
+                  <button type="button" ng-click="removeAddon($index)" class="btn">Remove Addon</button>
+                    </ng-form >
                 </div>
 
                 <hr>
 
                 <div class="row btn-align-xs">
                   <div class="col-md-6 text-center">
-                    <button class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
                   </div>
 
                   <div class="col-md-6">
                     <a ng-href="/dashboard/my-packages/" class="btn btn-primary active pull-right">Skip</a>
-                    <button class="btn btn-primary active pull-right" ng-click="savePackageAddons(addons)">Save Addon
+                    <button type="submit" class="btn btn-primary active pull-right" >Save Addon
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
                   </div>
 
 
                 </div>
+                  </form>
 
 
               </md-content>

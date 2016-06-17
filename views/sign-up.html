@@ -1,5 +1,11 @@
 <style>
 
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .main-content .page-content{
     padding-left: 0px;
     padding-right: 0px;
@@ -21,9 +27,9 @@
 
   }
 
-  .main-content .page-content .panel{
-    background: rgba(16, 16, 16, 0.57);
-  }
+  /*.main-content .page-content .panel{*/
+    /*background: rgba(16, 16, 16, 0.57);*/
+  /*}*/
 
 
   .zolo-login-form-main-content a{
@@ -39,55 +45,143 @@
 </style>
 
 
-<div class="page-content zolo-login-form-main-content">
+<div class="page-content zolo-login-form-main-content" >
   <!--    <img src="../../../global/images/fashion-designer.jpg">-->
   <div class="col-md-8  col-md-offset-2 portlets">
-    <div class="panel">
-      <div class="panel-header md-panel-controls">
-        <h2 class="text-center"><strong style="color: #fff;">Sign up</strong></h2>
-        <hr class="custom-hr">
+    <!--<div class="panel">-->
 
-      </div>
-      <div class="panel-content" style="padding: 10px;!important;">
-        <div class="row">
+
+
+      <div ng-hide="sign_up_successful" class="panel-content" style="padding: 10px;!important;">
+        <!--<md-content layout-padding>-->
+
+        <div class="row card">
+
+          <div class="panel-header md-panel-controls">
+            <h2 class="text-center"><strong style="color:black;">Sign up</strong></h2>
+            <hr class="custom-hr">
+
+          </div>
+
           <div class="col-md-6 col-sm-12">
 
-            <form role="form" ng-submit="userRegistration()" class="form-validation" novalidate>
-              <div class="form-group">
-                <label class="control-label" style="color: #fff;">First Name</label>
-                <div class="append-icon">
-                  <input type="text" name="name" ng-model="registration.name" class="form-control" minlength="3" placeholder="Minimum 3 characters..." required  style="color: #fff;font-weight: 400;">
-                  <i class="icon-user"></i>
-                </div>
+
+            <form role="form" name="signup" ng-submit="userRegistration()" class="form-validation" novalidate>
+
+
+
+
+              <!--<div class="form-group">-->
+                <!--<label class="control-label" style="color: #fff;">First Name</label>-->
+                <!--<div class="append-icon">-->
+                  <!--<input type="text" name="name" ng-model="registration.name" class="form-control" minlength="3" placeholder="Minimum 3 characters..." required  style="color: #fff;font-weight: 400;">-->
+                  <!--<i class="icon-user"></i>-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <div class="form-group m-b-4">
+
+                <md-input-container class="md-block">
+                  <label>Name</label>
+                  <div class="append-icon">
+                    <input name="name" type="text" ng-model="registration.name" ng-change="validation.name=false" minlength="2" maxlength="50" required ng-pattern="/^[a-zA-Z\s]+$/">
+                    <i class="icon-user"></i>
+                  </div>
+                  <div ng-messages="signup.name.$error" role="alert">
+                    <div ng-message-exp="['required','maxlength','minlength']">Name is required</div>
+                    <div ng-message-exp="['pattern']">Enter only characters(a-z)</div>
+                    <!--    <div ng-show="md-maxlength">maximum 10 character</div>-->
+                  </div>
+                </md-input-container>
               </div>
 
-              <div class="form-group">
-                <label class="control-label" style="color: #fff;">Email Address</label>
-                <div class="append-icon">
-                  <input type="email" name="email" ng-model="registration.email" class="form-control" placeholder="Enter your email..." required  style="color: #fff;font-weight: 400;">
-                  <i class="icon-envelope"></i>
-                </div>
+
+
+
+
+
+              <div class="form-group m-b-4">
+                <md-input-container class="md-block">
+                  <label>Email</label>
+                  <div class="append-icon">
+                    <input name="email" type="email" ng-change="validation.email=false" ng-model="registration.email" maxlength="50" required ng-pattern="/^.+@.+\..+$/">
+                    <i class="icon-envelope"></i>
+                  </div>
+                  <div ng-messages="signup.email.$error" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Enter valid email id</div>
+                    <!-- <div ng-show="md-maxlength">maximum 10 character</div>&ndash;&gt;-->
+                  </div>
+                </md-input-container>
               </div>
 
-              <div class="form-group m-b-30">
-                <label class="control-label" style="color: #fff;">Password</label>
-                <div class="append-icon">
-                  <input type="{{showpassword ? 'text' : 'password'}}" name="password" id="password" ng-model="registration.password" class="form-control" placeholder="Between 6 and 16 characters" minlength="6" maxlength="16" required style="color: #fff;font-weight: 400;">
-                  <i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i>
-                </div>
+
+
+              <!--<div class="form-group">-->
+                <!--<label class="control-label" style="color: #fff;">Email Address</label>-->
+                <!--<div class="append-icon">-->
+                  <!--<input type="email" name="email" ng-model="registration.email" class="form-control" placeholder="Enter your email..." required  style="color: #fff;font-weight: 400;">-->
+                  <!--<i class="icon-envelope"></i>-->
+                <!--</div>-->
+              <!--</div>-->
+
+
+              <div class="form-group m-b-4">
+
+                <md-input-container class="md-block">
+                  <label>Password</label>
+                  <div class="append-icon">
+                    <input name="password" type="{{showpassword?'text':'password'}}" ng-model="registration.password" minlength="6" maxlength="16" ng-change="validation.password=false"  required>
+                    <i class="fa fa-eye" ng-click="showpassword = !showpassword" style="cursor: pointer;"></i>
+                  </div>
+                  <div ng-messages="signup.password.$error" role="alert">
+                    <div ng-message-exp="['required','minlength','maxlength']">Password length range 6-16</div>
+                    <!--    <div ng-show="md-maxlength">maximum 10 character</div>-->
+                  </div>
+                </md-input-container>
               </div>
 
+
+
+
+              <!--<div class="form-group m-b-30">-->
+                <!--<label class="control-label" style="color: #fff;">Password</label>-->
+                <!--<div class="append-icon">-->
+                  <!--<input type="{{showpassword ? 'text' : 'password'}}" name="password" id="password" ng-model="registration.password" class="form-control" placeholder="Between 6 and 16 characters" minlength="6" maxlength="16" required style="color: #fff;font-weight: 400;">-->
+                  <!--<i class="mdi-action-visibility show-password" ng-click="showpassword = !showpassword"></i>-->
+                <!--</div>-->
+              <!--</div>-->
+
+
+
               <div class="form-group">
-                <label class="control-label" style="color: #fff;">Mobile Number</label>
-                <div class="append-icon">
-                  <input type="number" name="mobile" ng-model="registration.mobile" class="form-control" placeholder="Mobile Number..." minlength="10" required  style="color: #fff;font-weight: 400;">
-                  <i class="icon-screen-smartphone"></i>
-                </div>
+                <md-input-container class="md-block" style="margin-bottom: 0px!important;">
+                  <label>Mobile Number</label>
+                  <div class="append-icon">
+                    <input name="mobile" type="number" ng-model="registration.mobile" ng-change="validation.mobile=false" ng-pattern="/(1|2|3|4|5|6|7|8|9)\d{9}/" maxlength="10" minlength="10" required>
+                    <i class="icon-screen-smartphone"></i>
+                  </div>
+                  <div ng-messages="signup.mobile.$error" role="alert">
+                    <div ng-message-exp="['required','maxlength','minlength','pattern']">Enter valid 10 digit mobile number</div>
+                    <!--    <div ng-show="md-maxlength">maximum 10 character</div>-->
+                  </div>
+                </md-input-container>
               </div>
+
+
+
+              <!--<div class="form-group">-->
+                <!--<label class="control-label" style="color: #fff;">Mobile Number</label>-->
+                <!--<div class="append-icon">-->
+                  <!--<input type="number" name="mobile" ng-model="registration.mobile" class="form-control" placeholder="Mobile Number..." minlength="10" required  style="color: #fff;font-weight: 400;">-->
+                  <!--<i class="icon-screen-smartphone"></i>-->
+                <!--</div>-->
+              <!--</div>-->
 
               <div class="form-group m-b-30 text-center">
                 <!--<button type="submit" class="btn zolo-login-submit_btn" >Sign up</button>-->
-                <button type="submit" class="btn zolo-login-submit_btn ladda-button" data-style="zoom-in"><span class="ladda-label">Sign Up</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div></button>
+                <button type="submit" class="btn btn-lg zolo-btn ladda-button" style="width: 100%; margin-bottom: 5px!important;" data-style="zoom-in"><span class="ladda-label">Sign Up</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div></button>
+                <!--<button ng-disabled="disabled" class="btn btn-lg zolo-btn" type="submit" style="width: 100%; margin-bottom: 5px!important;">Signup&nbsp;&nbsp;<span><i ng-style="myStyle"></i> </span></button>-->
+
               </div>
             </form>
             <!--ng-disabled="registration.name.$invalid && registration.name.$dirty || registration.email.$invalid && registration.email.$dirty ||-->
@@ -95,7 +189,7 @@
 
             <!--<h2 class="background"><span>or</span></h2>-->
 
-
+            <!--</md-content>-->
 
           </div>
 
@@ -117,7 +211,7 @@
             <div class="form-group m-b-30 ">
               <div class="row">
                 <div class="col-md-12 ">
-                  <p class="text-center" style="color: #fff;">Already a Member ? <a href="/login">Login Here</a></p>
+                  <p class="text-center" style="color:black;">Already a Member ? <a href="/login">Login Here</a></p>
                 </div>
               </div>
 
@@ -133,10 +227,24 @@
 
 
 
+<!--</md-content>-->
+</div>
+        </div>
 
+      <div ng-show="sign_up_successful" class="row card">
+        <div class="col-md-12 text-center m-t-60">
+          <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular> </div>
+          <div class="row text-center">
+            <p class="text-center"> Sign Up successful . Loggin you in !</p>
+            <p class="f-18 text-zolo text-center"> Welcome to Zolo </p>
+          </div>
 
         </div>
       </div>
+
+
+      <!--</div>-->
     </div>
   </div>
 </div>

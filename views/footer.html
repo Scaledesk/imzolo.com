@@ -1,15 +1,194 @@
-<div class="footer">
-  <div class="copyright">
-    <p class="pull-left sm-pull-reset">
-      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-      <span>Zolo Technologies Pvt. Ltd.</span>
-      <span>All rights reserved. </span>
-    </p>
-    <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
-    </p>
-  </div>
-</div>
+<!--&lt;!&ndash;<div class="footer">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="copyright">&ndash;&gt;-->
+<!--&lt;!&ndash;<p class="pull-left sm-pull-reset">&ndash;&gt;-->
+<!--&lt;!&ndash;<span>Copyright <span class="copyright">&copy;</span> 2016 </span>&ndash;&gt;-->
+<!--&lt;!&ndash;<span>Zolo Technologies Pvt. Ltd.</span>&ndash;&gt;-->
+<!--&lt;!&ndash;<span>All rights reserved. </span>&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<p class="pull-right sm-pull-reset">&ndash;&gt;-->
+<!--&lt;!&ndash;<span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 
-<!--<footer>This is footer</footer>-->
+<!--&lt;!&ndash;&lt;!&ndash;<footer>This is footer</footer>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<style>&ndash;&gt;-->
+<!--&lt;!&ndash;.main-content{&ndash;&gt;-->
+<!--&lt;!&ndash;margin-bottom: 40px!important;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<footer class="nav-down">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="container-fluid">&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="pull-left">&ndash;&gt;-->
+<!--&lt;!&ndash;<p class="f-13" style="margin-top: 15px;">Copyright © 2016 Zolo Technologies Pvt. Ltd.. All rights reserved</p>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<li><img src="../global/images/Zolo-Logo-c.png" alt="" width="120"></li>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="pull-right">&ndash;&gt;-->
+<!--&lt;!&ndash;<ul class="footer-h-nav">&ndash;&gt;-->
+<!--&lt;!&ndash;<li><a href="">About Us</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><a href="">Contact us</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><a href="">Terms of use</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><a href="">Privacy Policy</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><a href="">Cancellation</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><a href="">Refunds</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;<li><a href="">Terms of use</a></li>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</footer>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;// Hide Header on on scroll down&ndash;&gt;-->
+<!--&lt;!&ndash;var didScroll;&ndash;&gt;-->
+<!--&lt;!&ndash;var lastScrollTop = 0;&ndash;&gt;-->
+<!--&lt;!&ndash;var delta = 5;&ndash;&gt;-->
+<!--&lt;!&ndash;var navbarHeight = $('footer').outerHeight();&ndash;&gt;-->
+
+<!--&lt;!&ndash;$(window).scroll(function(event){&ndash;&gt;-->
+<!--&lt;!&ndash;didScroll = true;&ndash;&gt;-->
+<!--&lt;!&ndash;});&ndash;&gt;-->
+
+<!--&lt;!&ndash;setInterval(function() {&ndash;&gt;-->
+<!--&lt;!&ndash;if (didScroll) {&ndash;&gt;-->
+<!--&lt;!&ndash;hasScrolled();&ndash;&gt;-->
+<!--&lt;!&ndash;didScroll = false;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;}, 250);&ndash;&gt;-->
+
+<!--&lt;!&ndash;function hasScrolled() {&ndash;&gt;-->
+<!--&lt;!&ndash;var st = $(this).scrollTop();&ndash;&gt;-->
+
+<!--&lt;!&ndash;// Make sure they scroll more than delta&ndash;&gt;-->
+<!--&lt;!&ndash;if(Math.abs(lastScrollTop - st) <= delta)&ndash;&gt;-->
+<!--&lt;!&ndash;return;&ndash;&gt;-->
+
+<!--&lt;!&ndash;// If they scrolled down and are past the navbar, add class .nav-up.&ndash;&gt;-->
+<!--&lt;!&ndash;// This is necessary so you never see what is "behind" the navbar.&ndash;&gt;-->
+<!--&lt;!&ndash;if (st > lastScrollTop && st > navbarHeight){&ndash;&gt;-->
+<!--&lt;!&ndash;// Scroll Down&ndash;&gt;-->
+<!--&lt;!&ndash;$('footer').removeClass('nav-down').addClass('nav-up');&ndash;&gt;-->
+<!--&lt;!&ndash;} else {&ndash;&gt;-->
+<!--&lt;!&ndash;// Scroll Up&ndash;&gt;-->
+<!--&lt;!&ndash;if(st + $(window).height() < $(document).height()) {&ndash;&gt;-->
+<!--&lt;!&ndash;$('footer').removeClass('nav-up').addClass('nav-down');&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;lastScrollTop = st;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+
+
+
+
+<!--&lt;!&ndash;Footer 2 starts here&ndash;&gt;-->
+
+
+
+
+<!--<div class="card m-t-60" style="padding: 10px 40px!important; margin-top: 16px!important; background-color: #f5f5f5;">-->
+  <!--<div class="row ">-->
+
+
+    <!--<div class="col-md-3">-->
+      <!--<h3 class="m-b-20">Download Our App</h3>-->
+      <!--<ul class="footer-links">-->
+        <!--<li ><a href=""><img src="../global/images/google-play-badge.png" width="150" alt=""/></a></li>-->
+        <!--<li class="m-t-10"><a href=""><img src="../global/images/app-store.png" width="150" alt=""/></a></li>-->
+      <!--</ul>-->
+
+    <!--</div>-->
+
+
+    <!--<div class="col-md-3">-->
+      <!--<h3 class="w-500 f-18 m-b-20">Zolo Technologies</h3>-->
+      <!--&lt;!&ndash;<hr class="custom-hr">&ndash;&gt;-->
+      <!--&lt;!&ndash;<ul class="footer-links">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Refunds</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">About Us</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Contact us</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Terms Of Use</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Cancellation</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Privacy Policy</a></li>&ndash;&gt;-->
+
+
+
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+    <!--<span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10 font-color" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10 font-color">Contact Us</a><br>  <a ng-href="/terms-of-use" class="font-color m-r-10">Terms of Use</a>|-->
+      <!--<a ng-href="/privacy-policy" class=" font-color">Privacy Policy</a><br>  <a ng-href="/order-cancellation-policy" class=" font-color">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10 font-color">Refunds</a>  </span>-->
+
+    <!--</div>-->
+
+
+
+
+
+    <!--<div class="col-md-3 ">-->
+      <!--<h3 class="m-b-20">Connect with Us</h3>-->
+      <!--<ul class="footer-links-s ">-->
+        <!--<li><a href=""><i class="fa fa-facebook fa-2x f-hover"></i></a></li>-->
+        <!--<li><a href=""><i class="fa fa-google-plus fa-2x g-hover"></i></a></li>-->
+        <!--<li><a href=""><i class="fa fa-linkedin fa-2x l-hover"></i></a></li>-->
+        <!--<li><a href=""><i class="fa fa-instagram fa-2x i-hover"></i></a></li>-->
+
+
+      <!--</ul>-->
+
+      <!--&lt;!&ndash;<ul class="footer-links">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/maestro_10.jpg" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/visa.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/MasterCard.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/payumoney.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/Paytm.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+    <!--</div>-->
+
+    <!--<div class="col-md-3">-->
+
+
+
+      <!--<ul class="nav nav-tabs m-t-20">-->
+        <!--<li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/MasterCard.png" alt="" height="20"></li> <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/visa.png" alt="" height="20"></li>-->
+        <!--<li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/maestro_10.jpg" alt="" height="20"></li> <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/payumoney.png" alt="" height="20" class="m"></li> <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" height="20" class="m-l-5"></li> </ul>-->
+
+    <!--</div>-->
+
+
+
+
+
+
+  <!--</div>-->
+
+  <!--<div class="row s-strip">-->
+    <!--<div class="col-md-4 border-right">-->
+      <!--<p class="text-center text-muted-z">-->
+        <!--<i class="fa fa-key"></i> 100% Secure Payments</p>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-4 border-right">-->
+      <!--<p class="text-center text-muted-z">-->
+        <!--<i class="fa fa-shield"></i> 100% Buyer Protection </p>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-4">-->
+      <!--<p class="text-center text-muted-z">-->
+        <!--<i class="fa fa-refresh"></i> Buyer Friendly Refund Policy </p>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+
+
+<!--</div>-->

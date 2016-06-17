@@ -23,7 +23,7 @@
         <form role="form" ng-submit="myalgolia.newSearch()">
           <div class="col-md-9" style="padding-right: 0;">
             <input class=" f-18 home-page-search-a"  type="search" ng-keydown="myalgolia.newSearchOnBackspace($event)" ng-model="myalgolia.searchQuery" placeholder="What are you looking for Today ?"  >
-            <i ng-click="myalgolia.newSearch()" class="fa fa-search header-search-icon-a"></i>
+            <i ng-click="myalgolia.newSearch()" class="fa fa-search header-search-icon-a hidden-lg visible-xs"></i>
 </div>
 
 
@@ -277,7 +277,7 @@
         </div>
       </div>
         <div ng-if="myalgolia.current_page!=myalgolia.total_page" class="col-md-12 text-center" ng-click="myalgolia.loadNextPage()">
-          <button ng-disabled="myalgolia.loading_more" class="btn btn-lg btn-zolo m-t-20">
+          <button ng-disabled="myalgolia.loading_more" class="btn btn-lg btn-zolo m-t-20 bg w-300">
             Load More Packages... <span><i ng-if="myalgolia.loading_more" class="fa fa-spinner fa-spin"></i> </span>
           </button>
         </div>
