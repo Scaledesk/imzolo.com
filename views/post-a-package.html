@@ -374,7 +374,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
                     <label for="actual_price">Actual Price</label>
-                    <input ng-model="package.price" id="actual_price" ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.price" id="actual_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
                     <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Required Actual Price
@@ -384,7 +384,7 @@
 
                   <div class="col-lg-6">
                     <label>Discounted Price</label>
-                    <input ng-model="package.deal_price" type="number" class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.deal_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
                     <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Deal price should be less than Actual Price
@@ -772,14 +772,14 @@
                   <div class="row user-post-a-package">
                     <div class="col-md-6">
                       <label>Add-ons Name</label>
-                      <input ng-model="addon.name" name="name" type="text" required class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                      <input ng-model="addon.name" name="name" type="text" maxlength="50" required class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
                      <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitted">Name Required</span>
 
                     </div>
 
                     <div class="col-md-6">
                       <label>Add-ons Price</label>
-                      <input ng-model="addon.amount" name="amount" type="number" required number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="addon.amount" name="amount" ng-keypress="filterValue($event)" type="text" maxlength="8" required number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
                     <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitted">Price Required</span>
 
                     </div>
@@ -787,12 +787,18 @@
 
                   </div>
 
+
+                    <div class="text-danger" ng-show="repeatForm.dayss.$error.required && repeatForm.hourss.$error.required && submitted ">
+                      Please select a delivery time type
+
+                    </div>
+
                   <div class="row user-post-a-package">
 
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label>
-                          <input ng-model="addon.delivery_time_type"  type="radio" name="addon-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="addon.delivery_time_type"  type="radio" name="{{$index}}addon-time-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
 
                         </label>
@@ -806,7 +812,7 @@
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label>
-                          <input ng-model="addon.delivery_time_type" type="radio" name="addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="addon.delivery_time_type" type="radio" name="{{$index}}addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
                         <input ng-show="addon.delivery_time_type=='hours'" required  name="hourss" ng-model="addon.days" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>

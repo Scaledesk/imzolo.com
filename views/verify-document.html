@@ -86,7 +86,7 @@
 
 
           <label for="pan_number" class="m-t-20">PAN Number</label>
-          <input type="text" id="pan_number" class="form-control" ng-change="validation.seller.pan_number=false; pan=false"  ng-model="seller.pan_number" placeholder="PAN Number"/>
+          <input type="text" id="pan_number" class="form-control" maxlength="10" ng-change="validation.seller.pan_number=false; pan=false"  ng-model="seller.pan_number" placeholder="PAN Number"/>
 
         <div ng-show="validation.seller.pan_number" class="text-danger">PAN number is required </div>
 
@@ -94,7 +94,7 @@
 
 
         <label for="vat_id" class="m-t-20">VAT ID</label>
-          <input type="text" id="vat_id" class="form-control" ng-model="seller.vat_id" ng-change="validation.seller.vat_id=false;vat=false" placeholder="VAT ID"/>
+          <input type="text" id="vat_id" class="form-control" maxlength="12" ng-model="seller.vat_id" ng-change="validation.seller.vat_id=false;vat=false" placeholder="VAT ID"/>
 
         <div ng-show="validation.seller.vat_id" class="text-danger">VAT ID is required </div>
           <div ng-show="vat" class="text-danger">invalid VAT ID </div>
