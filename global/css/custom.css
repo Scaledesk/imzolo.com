@@ -2596,3 +2596,40 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
 .header-col-xs-2{
   width: 15% !important;
 }
+
+.wed-cat figure{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.wed-cat figure img{
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+  -moz-filter: brightness(50%);
+  cursor: pointer;
+}
+
+.wed-cat figure img:hover{
+  background-color: #00AC7F;
+
+}
+
+.wed-cat figure figcaption{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #fff;
+  font-weight: 400;
+  align:center;
+  justify-content: center;
+
+}
+
+
+@media screen and (max-width: 600px){
+  .wed-cat figure figcaption {
+    font-size: 23px;
+  }
