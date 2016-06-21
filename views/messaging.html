@@ -12,9 +12,9 @@
 
 
 
-    <div class="row">
-      <div class="col-md-3">
-        <div class="card">
+    <div class="row" ng-hide="messageloading" >
+      <div class="col-md-3" >
+        <div class="card" >
           <ul class="navbar nav">
             <li><a class="border-bottom" ng-click="_message.active_placeholder=placeholder;_message.updateMessageList();_message.go_to_message=false;" ng-class="{'row has-to-click active-local':placeholder.id==_message.active_placeholder.id, 'row has-to-click':placeholder.id!=_message.active_placeholder.id}"  ng-repeat="placeholder in _message.placeholders">{{placeholder.title.replace('_',' ')|uppercase}}&nbsp;<span class="badge badge-danger">{{placeholder.total_messages_number}}</span></a>
             </li>
@@ -28,7 +28,7 @@
       <!--Show the listing of the message-->
       <div class="col-md-9" ng-if="_message.go_to_message==false">
         <div class="card">
-          <div class="row m-b-40 ">
+          <div class="row m-b-5 ">
             <ul class="nav tabs">
               <li class="col-md-4">
                 <a href="" >
@@ -51,7 +51,7 @@
 
             </ul>
           </div>
-          <hr>
+          <hr style="margin-top:5px !important;">
 
 
           <a ng-if="_message.messages.length>0">
@@ -92,7 +92,7 @@
             </div>
           </a>
 <div class="row" ng-if="_message.messages.length==0">
-  <p class="text-center large-size">No Message Found</p>
+  <p class="text-center large-size f-20 m-b-100 m-t-100 ">No Message Found</p>
 </div>
 
           <!--</div>-->
@@ -153,6 +153,28 @@
   </div>
 </div>
 </div>
+
+<div ng-show="messageloading" class="card">
+  <div class="col-md-12 text-center m-t-60">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="#contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="#terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="#privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="#order-cancellation-policy" class="m-l-10">Cancellation Policy</a> | <a ng-href="#returns-refunds" class="m-l-10">Refunds Policy</a>  </span>
+    </p>
+  </div>
+</div>
+
 
 
 

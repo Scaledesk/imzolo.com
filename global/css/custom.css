@@ -2633,3 +2633,31 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
   .wed-cat figure figcaption {
     font-size: 23px;
   }
+
+
+
+
+  }
+
+@media only screen /*for ipad header */
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+
+  .header-col-xs-2{
+    width: 16.6667% !important;
+  }
+
+}
+
+@media only screen /*for ipad header */
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 1) {
+
+  .header-col-xs-2{
+    width: 16.6667% !important;
+  }
+
+}

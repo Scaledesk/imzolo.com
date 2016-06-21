@@ -8,10 +8,10 @@
       </div>
       <div class="panel-content">
         <div class="row">
+
+          <form name="referral" ng-submit="doSignUp(registration)">
+
           <div class="col-md-12">
-
-
-
             <div class="form-group">
               <label class="control-label">Firstname</label>
               <div class="append-icon">
@@ -31,34 +31,27 @@
             <div class="form-group">
               <label class="control-label">Mobile Number</label>
               <div class="append-icon">
-                <input type="text" name="mobile" ng-model="registration.mobile" class="form-control" placeholder="Mobile Number..." minlength="10" required>
+                <input type="text" name="mobile" ng-keypress="filterValue($event)" ng-model="registration.mobile" class="form-control" placeholder="Mobile Number..." minlength="10" maxlength="10" required>
                 <i class="icon-screen-smartphone"></i>
               </div>
             </div>
 
             <div class="form-group m-b-30 text-center">
-              <button ng-click="doSignUp(registration)" class="btn zolo-login-submit_btn">Sign up</button>
+              <button type="submit" class="btn btn-lg zolo-btn" style="width: 100%;">Sign up&nbsp;&nbsp;<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
             </div>
 
-
-
-
-
             <h2 class="background"><span>or</span></h2>
-
-
-
             <div class="form-group m-b-30 ">
               <div class="row">
                 <div class="col-md-12 ">
                   <p class="text-center">Already Member ? <a href="">Login Here</a></p>
                 </div>
               </div>
-
             </div>
-
-
           </div>
+
+          </form>
+
         </div>
       </div>
     </div>

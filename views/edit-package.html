@@ -129,8 +129,8 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-6 m-b-20">
                     <p>Location <span>(Your service is available at)</span></p>
-                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location">
-                      <auto-complete source="loadLocations($query)"></auto-complete>
+                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location=false">
+                      <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
                     </tags-input>
                     <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
@@ -138,6 +138,21 @@
                     </md-tooltip>
 
                   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                   <div class="col-md-6 m-b-20">
 
@@ -325,7 +340,7 @@
                         Days
                       </label>
                       <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>
-                      <div ng-show="validation_error.delivery_time_days" class="text-danger"> Required Delivery time | min 1 max 300</div>
+                      <div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days' " class="text-danger"> Required Delivery time | min 1 max 300</div>
                       <md-tooltip class="f-14 w-400" md-direction="right">
                         * Required Delivery Time
                       </md-tooltip>
@@ -339,7 +354,7 @@
                         Hours
                       </label>
                       <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=false" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
-                      <div ng-show="validation_error.delivery_time_hours" class="text-danger"> Required Delivery time | min 1 max 72</div>
+                      <div ng-show="validation_error.delivery_time_hours && package.delivery_time_type=='hours'" class="text-danger"> Required Delivery time | min 1 max 72</div>
                     </div>
                   </div>
 
@@ -733,6 +748,8 @@
                       <label>Add-ons Price</label>
                       <input ng-model="addon.amount" name="amount" required ng-keypress="filterValue($event)" type="text" maxlength="8" number-converter min="1" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
                       <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitt">Price Required</span>
+                      <!--<span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitt">min 1</span>-->
+
 
                     </div>
 
@@ -751,8 +768,10 @@
                           <input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon_time_type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
                         </label>
-                        <input ng-show="addons[$index].delivery_time_type=='days'" required name="dayss" ng-model="addons[$index].days" type="number" number-converter min="1" class="form-control" placeholder="Days"/>
-                      <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days' ">days required</span>
+                        <input ng-show="addons[$index].delivery_time_type=='days'" required name="dayss" ng-model="addons[$index].days" type="number" number-converter min="1" max="300" class="form-control" placeholder="Days"/>
+                      <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days' ">Days required</span>
+                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$invalid && addon.delivery_time_type=='days' ">Max 300 days</span>
+
                       </div>
                     </div>
                     <!--{{addon.delivery_time_type}}-->
@@ -762,8 +781,10 @@
                           <input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
-                        <input ng-show="addons[$index].delivery_time_type=='hours'" ng-model="addons[$index].days" required name="hourss" type="number" number-converter min="1" class="form-control" placeholder="Hours"/>
-                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours' ">hours Required</span>
+                        <input ng-show="addons[$index].delivery_time_type=='hours'" ng-model="addons[$index].days" required name="hourss" type="number" number-converter min="1" max="72" class="form-control" placeholder="Hours"/>
+                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours' ">Hours Required</span>
+                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$invalid && addon.delivery_time_type=='hours' ">Max 72 hours</span>
+
 
                       </div>
                     </div>
