@@ -14,7 +14,7 @@
 
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row" ng-hide="myalgolia.loading_more">
     <div class="col-md-12 ">
       <div class="new-search-a m-b-10">
 
@@ -44,7 +44,7 @@
   </div>
 
 
-  <div class="row">
+  <div class="row" ng-hide="myalgolia.loading_more">
     <div class="col-md-3">
       <div class="col-md-12 card hidden-xs">
         <h3><strong>Package Types</strong></h3>
@@ -288,6 +288,17 @@
   <!--<div infinite-scroll="myalgolia.loadNextPage()" infinite-scroll-distance="1" class="text-center text-c f-18"></div>-->
 </div>
 </div>
+
+  <div ng-show="myalgolia.loading_more" class="row p-20 text-center card">
+    <div class="col-md-12 text-center m-t-60">
+      <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>
 
 

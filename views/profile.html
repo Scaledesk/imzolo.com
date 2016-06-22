@@ -19,10 +19,10 @@
 
 
 <div class="container-fluid">
-  <div ng-hide="loadingProfile" class="row">
+  <div ng-hide="loadingProfile" class="row ">
 
 
-    <div ng-hide="loadingCoverImage" class="col-md-12">
+    <div ng-hide="loadingCoverImage" class="col-md-12 ">
       <div class="cover-img" style="background: url('{{profile.banner || '../global/images/bg.jpg'}}') center no-repeat; background-size:cover; "></div>
       <div class="edit-btn-bg">
         <button ng-if="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Change Cover</button>
@@ -311,7 +311,8 @@
 
                         <!--<div class="form-control-wrapper">-->
                           <p class="f-16 m-t-20">Description</p>
-                          <textarea ng-model="portfolio.description" id="portfolio_description" class="form-control empty" placeholder="Describe your portfolio" style="height:50px;"></textarea>
+                          <textarea ng-model="portfolio.description" id="portfolio_description" class="form-control empty" ng-change="portfolio.descriptionBlank=false;" placeholder="Describe your portfolio" style="height:50px;"></textarea>
+                        <div ng-show="portfolio.descriptionBlank" class="text-danger">Description is required</div>
                           <!--                                <div class="floating-label">textarea label</div>-->
                           <span class="material-input"></span>
 
@@ -320,7 +321,9 @@
                       <div class="col-md-12">
                         <p class="f-16 m-t-20">Type</p>
 
-                          <input ng-model="portfolio.type" id="portfolio_type" type="text" class="form-control">
+                          <input ng-model="portfolio.type" id="portfolio_type" ng-change="portfolio.typeBlank=false;" type="text" class="form-control">
+                        <div ng-show="portfolio.typeBlank" class="text-danger">Type is required</div>
+
 
                       </div>
                         <!--<p class="f-16 m-t-20">select file</p>-->
@@ -328,7 +331,9 @@
                           <!--<input  ng-model="portfolioFile" type="file" class="form-control">-->
 
 
-                          <button class="btn" ngf-select ng-model="port.picFile">select file</button>{{port.picFile.name}}
+                          <button class="btn" ngf-select ng-change="portfolio.fileBlank=false;" ng-model="port.picFile">select file</button>{{port.picFile.name}}
+                          <div ng-show="portfolio.fileBlank" class="text-danger">Please select file</div>
+
 
 
                         </div>
@@ -634,7 +639,7 @@
         </div></div>
 
       <div class="row">
-        <div class="col-md-12 p-r-0">
+        <div class="col-md-12 p-r-0 m-l-20">
           <div class="card">
             <h2 class="text-c m-t-5">About {{profile.name}}</h2>
             <hr class="custom-hr">
@@ -650,7 +655,7 @@
 
 
       <div class="row">
-        <div class="col-md-12 p-r-0">
+        <div class="col-md-12 p-r-0 m-l-20">
           <div class="card">
             <h2 class="text-c m-t-5">{{profile.name}} Packages</h2>
             <hr class="custom-hr">
@@ -723,8 +728,8 @@
 
       <!--ng-repeat="package in user_packages.data"-->
 
-      <div ng-if="portfolios.length>0" class="row">
-        <div ng-hide="portfolio_selected" class="col-md-12">
+      <div ng-if="portfolios.length>0" class="row ">
+        <div ng-hide="portfolio_selected" class="col-md-12 m-l-20">
           <div class="card">
             <h2 class="m-t-5">My Portfolio</h2>
             <hr class="custom-hr">
@@ -831,8 +836,8 @@
     <!--</div>-->
 
 
-    <div class="col-md-4">
-      <div class="card p-b-0 p-t-0">
+    <div class="col-md-4" style="padding-left: 0!important">
+      <div class="card p-b-0 p-t-0 m-l-10">
         <div class="row border-bottom">
           <div class="col-xs-6 p-r-0">
             <p class="f-16 text-muted-z w-500"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>

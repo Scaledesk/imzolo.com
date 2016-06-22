@@ -171,12 +171,12 @@
                     <md-input-container class="md-block">
                       <label>Name</label>
                       <div class="append-icon">
-                        <input name="name" type="text" ng-model="registration.name" ng-change="validation.name=false" minlength="2" maxlength="50" required ng-pattern="/^[a-zA-Z\s]+$/">
+                        <input name="name" type="text" ng-model="registration.name" ng-change="validation.name=false" minlength="2" maxlength="50" required  ng-pattern="/^[a-zA-Z-&/\\.\s]+$/">
                         <i class="icon-user"></i>
                       </div>
                       <div ng-messages="signup.name.$error" role="alert">
                         <div ng-message-exp="['required','maxlength','minlength']">Name is required</div>
-                        <div ng-message-exp="['pattern']">Enter only characters(a-z)</div>
+                        <div ng-message-exp="['pattern']">Enter only characters(A to Z and . / \ - &)</div>
                         <!--    <div ng-show="md-maxlength">maximum 10 character</div>-->
                       </div>
                     </md-input-container>

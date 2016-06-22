@@ -254,7 +254,8 @@
             </md-tab>
             <md-tab label="Confirm Address">
               <md-content class="md-padding">
-                <h2 class="">Confirm Address<span class="pull-right hidden-xs"><button ng-click="selectedIndex=2" class="btn zolo-btn m-t-0">Skip</button></span></h2>
+                <h2 class="">Confirm Address<span class="pull-right hidden-xs"><button ng-show="new_address && user_address.length!=0" ng-click="new_address=false" class="btn zolo-btn m-t-0">Back</button>&nbsp;</span></h2>
+
                 <span class="text-muted-z f-13">We will deliver your order here</span>
                 <div ng-show="new_address" class="row">
                   <form role="form" ng-submit="saveAddress()">
@@ -341,7 +342,20 @@
                           <p class="zolo-n-m">{{addr.city+' '+addr.state+' '+addr.pincode}}</p>
                           <p class="zolo-n-m text-muted-z">Phone <span class="w-500">{{addr.phone_number}}</span></p>
                           <button ng-click="add_address(addr.id)" ng-disabled="savingAddress" class="btn zolo-btn text-c btn-lg" style="width: 100%;">Continue</button>
-                          <a href="" ng-click="deleteAddress(addr.id)" class="text-muted-z"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</a>&nbsp;&nbsp;
+                          <a href="" ng-click="deleteAddressConfirm(addr.id)" class="text-muted-z"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</a>&nbsp;&nbsp;
+
+                          <!--ng-click="deleteCollection1(collection.id)"-->
+                          <!--deleteAddress(addr.id)-->
+
+
+
+
+
+
+
+
+
+
                           <a href="" ng-click="editAddress(addr)" class="text-muted-z"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</a>
                         </div>
                       </a>
@@ -349,7 +363,10 @@
                   </div>
                   <div class="col-md-12">
                     <div class="col-md-3">
-                      <button ng-click="newAddress()" class="btn zolo-btn text-c btn-lg" style="width: 100%;">New Address</button>
+                     <button ng-click="newAddress()" class="btn zolo-btn text-c btn-lg" style="width: 100%;">New Address</button>
+                    </div>
+                    <div class="col-md-9">
+                      <button ng-show="!new_address" class="btn zolo-btn btn-success pull-right " ng-click="selectedIndex=2">Skip</button>
                     </div>
                   </div>
                 </div>

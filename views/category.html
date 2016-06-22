@@ -200,6 +200,14 @@
                     {{categoryName}}
                   </p>
                 </div>
+
+
+                <!--<div class="col-md-5 m-t-10 text-center ">-->
+                  <!--<button class="btn btn-rounded btn-transparent pull-right" style="text-align:left!important;width:150px" ><i class="icon-close f-20" style="color:red"></i></button>-->
+                <!--</div>-->
+
+
+
                 <div class="col-md-3 col-md-offset-4">
                   <md-input-container class="md-block zolo-n-m">
                     <label>Sort by Price</label>
@@ -213,12 +221,14 @@
               <hr class="custom-hr">
 
 
-              <div ng-if="packages.length<=0" class="row">
+              <div ng-if="packages.length<=0 || package_rows.length<=0" class="row">
                 <img class="img-responsive p-10" src="images/not_found_package.png" height="auto" width="100%">
               </div>
-              <div ng-if="package_rows.length<=0" class="row">
+             <!-- <div ng-if="package_rows.length<=0" class="row">
                 <img class="img-responsive p-10" src="images/not_found_package.png" height="auto" width="100%">
-              </div>
+              </div>-->
+
+
               <div ng-if="packages.length>0" class="row">
                 <div ng-repeat="row in package_rows" class="col-md-12">
                   <div ng-repeat="package in row" class="col-xs-12 col-sm-6  col-md-4  col-lg-4">

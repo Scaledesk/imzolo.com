@@ -302,7 +302,7 @@
                 <div class="row m-t-40">
                   <div class="col-md-6">
                     <div class="prepend-icon">
-                      <input type="text" ng-model="package.facebook_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Facebook Link" style="font-size: 16px; font-weight: 400;"/>
+                      <input type="text" maxlength="500" ng-model="package.facebook_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Facebook Link" style="font-size: 16px; font-weight: 400;"/>
                       <i class="fa fa-facebook-square f-24"></i>
 
                     </div>
@@ -316,7 +316,7 @@
 
                   <div class="col-md-6">
                     <div class="prepend-icon">
-                      <input type="text" ng-model="package.youtube_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Youtube Link" style="font-size: 16px; font-weight: 400;"/>
+                      <input type="text" maxlength="500" ng-model="package.youtube_links"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Youtube Link" style="font-size: 16px; font-weight: 400;"/>
 
                       <i class="fa fa-youtube-square f-24"></i>
 
@@ -334,7 +334,7 @@
                 <div class="row m-t-40">
                   <div class="col-md-6">
                     <label>Any Other Link</label>
-                    <input type="text" class="form-control zolo-input-darken" ng-model="package.any_other_links"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
+                    <input type="text" maxlength="500" class="form-control zolo-input-darken" ng-model="package.any_other_links"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
                     <!-- <md-tooltip md-direction="right">
                        Any other link Example: http://www.other.com
                      </md-tooltip>-->
@@ -659,7 +659,7 @@
 
                     <p class="w-600">Instructions for Buyer  <i class="fa fa-question-circle" aria-hidden="true"></i>
                     </p>
-                    <textarea class="form-control zolo-input-darken" ng-model="package.instructions" placeholder="Type here.." rows="4"></textarea>
+                    <textarea class="form-control zolo-input-darken" maxlength="1000" ng-model="package.instructions" placeholder="Type here.." rows="4"></textarea>
                     <p class="w-600">Terms And Conditions</p>
                     <!--<textarea ng-model="package.term_condition" class="form-control" placeholder="Please type here.." rows="4" id="term_condition"></textarea>-->
                     <textarea froala="froalaOptions1" ng-model="package.term_condition" popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
@@ -727,7 +727,7 @@
                     <div class="row btn-align-xs">
                       <div class="col-md-3 col-xs-12 pull-right">
                         <button type="button" ng-disabled="!completed_package" class="btn btn-success pull-right m-l-20" ng-click="checkValidationFifth('ACTIVE')">Publish
-                          <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
+                          <span><i ng-style="myStyle1" class="fa fa-spinner fa-spin"></i> </span></button>
                       </div>
 
                       <div class="col-md-3 col-xs-12 pull-right">
@@ -772,15 +772,17 @@
                   <div class="row user-post-a-package">
                     <div class="col-md-6">
                       <label>Add-ons Name</label>
-                      <input ng-model="addon.name" name="name" type="text" maxlength="50" required class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
-                     <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitted">Name Required</span>
-
+                      <input ng-model="addon.name" name="name" type="text" maxlength="90" required class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                     <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitted">Name Required |</span>
+                     <span class="validation-message text-danger" ng-show="repeatForm.name.$error.maxlength && submitted"> Max 90 Character</span>
                     </div>
 
                     <div class="col-md-6">
                       <label>Add-ons Price</label>
-                      <input ng-model="addon.amount" name="amount" ng-keypress="filterValue($event)" type="text" maxlength="8" required number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
-                    <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitted">Price Required</span>
+                      <input ng-model="addon.amount" name="amount"  type="number" maxlength="8" max="10000000" required number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                    <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitted">Price Required |</span>
+                      <span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitted">Min 1 | Max 10000000</span>
+
 
                     </div>
 
@@ -803,8 +805,8 @@
 
                         </label>
                         <input ng-show="addon.delivery_time_type=='days'" required name="dayss" number-converter ng-model="addon.days" min="1" type="number" max="300" class="form-control" placeholder="Days"/>
-                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days'&& submitted ">Days Required</span>
-                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$invalid && addon.delivery_time_type=='days' ">Max 300 days</span>
+                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days'&& submitted ">Days Required |</span>
+                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$invalid && addon.delivery_time_type=='days' "> Max 300 days</span>
 
 
                       </div>
@@ -818,8 +820,8 @@
                           Hours
                         </label>
                         <input ng-show="addon.delivery_time_type=='hours'" required  name="hourss" ng-model="addon.days" type="number" number-converter min="1" max="72" class="form-control" placeholder="Hours"/>
-                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours'&& submitted ">Hours Required</span>
-                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$invalid && addon.delivery_time_type=='hours' ">Max 72 hours</span>
+                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours'&& submitted ">Hours Required |</span>
+                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$invalid && addon.delivery_time_type=='hours' "> Max 72 hours</span>
 
                       </div>
                     </div>
