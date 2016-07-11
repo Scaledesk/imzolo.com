@@ -11,22 +11,21 @@
     margin: 0;
   }
 
-
 </style>
 
 
 
 
 
-<div class="container-fluid">
-  <div ng-hide="loadingProfile" class="row ">
+<div class="container-fluid"  >
+  <div ng-hide="loadingProfile" class="row">
 
 
-    <div ng-hide="loadingCoverImage" class="col-md-12 ">
+    <div ng-hide="loadingCoverImage" class="col-md-12">
       <div class="cover-img" style="background: url('{{profile.banner || '../global/images/bg.jpg'}}') center no-repeat; background-size:cover; "></div>
       <div class="edit-btn-bg">
-        <button ng-if="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Change Cover</button>
-        <div ng-if="profile.short_description!=null" class="user-name">{{profile.short_description}}</div>
+        <button ng-show="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Change Cover</button>
+        <div ng-show="profile.short_description!=null" class="user-name">{{profile.short_description}}</div>
       </div>
     </div>
 
@@ -48,10 +47,10 @@
           <div class="row">
             <div class="col-md-2 col-sm-6 col-xs-12 text-center">
               <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
-              <button ng-click="openProfilePicModal()" class="btn edit-profile">edit <i class="fa fa-pencil"></i></button>
+              <button ng-click="openProfilePicModal()" class="btn edit-profile" style="left:60px;" >edit <i class="fa fa-pencil"></i></button>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <p class="w-600 f-20">{{profile.name}} </p>
+              <p class="w-600 f-20" id="scrollmedownn" >{{profile.name}} </p>
               <p class="text-muted-z f-14 zolo-n-m w-500">{{profile.short_description}}</p>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
@@ -65,37 +64,62 @@
 
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
-              <!--<p>Date Of Birth</p>-->
-              <!--<strong ng-if="profile.birth_date==null || profile.birth_date ==''">NA</strong>-->
-              <!--<strong ng-if="profile.birth_date!=null || profile.birth_date !=''">{{profile.birth_date | date : 'dd MMM yyyy'}}</strong>-->
+              <p class="zolo-n-m f-18 pdp-share">
+                <a href=""
+                   socialshare
+                   socialshare-url="http://imzolo.com/profile/{{profile.user_id}}"
+                   socialshare-provider="facebook"
+                   socialshare-text="{{profile.name}}"
+                   socialshare-media="{{profile.image}}"
+                   socialshare-via="953913041345816"
+                   socialshare-description="{{profile.description}}"
+                   socialshare-type="feed"
+                   class="hover-f">Share &nbsp;<i class="fa fa-share-alt"></i></a>
+              </p>
+              <p></p>
+              <p>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12 ng-cloak">
-              <!--<button ng-hide="edit_profile" ng-click="edit_profile=true" class="btn e-profile-btn zolo-btn">Edit Profile</button>-->
+              <button ng-click="edit_profile=true" class="btn e-profile-btn zolo-btn"><span ng-hide="edit_profile">Edit Profile</span><span ng-show="edit_profile">Editing......</span></button>
 
               <!--<button ng-if="edit_profile" ng-click="saveProfile()" class="btn e-profile-btn zolo-btn ">Save</button>-->
               <!--<button ladda-button="disabled" type="submit" class="btn e-profile-btn zolo-btn ladda-button" style="width: 100%;" data-style="zoom-in"  >-->
-              <button class="btn e-profile-btn zolo-btn"  >
-                <span  ng-click="edit_profile=true" ng-hide="edit_profile">Edit Profile</span>
-                <span ng-click="saveProfile()" ng-if="edit_profile">Save</span>
-              </button>
+             <!---->
+
+
+
+              <!--<button class="btn e-profile-btn zolo-btn"  >-->
+                <!--<span ng-hide="edit_profile"  ng-click="edit_profile=true;goToTop()" >Edit Profile</span>-->
+                <!--<span ng-show="edit_profile" ng-click="saveProfile()" >Save</span>-->
+              <!--</button>-->
+
+
+
 
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+     </div>
+
   <div ng-hide="loadingProfile" class="row">
+
     <div class="col-md-8">
+
       <div class="row">
-        <div ng-if="edit_profile" class="col-md-12">
+        <div ng-show="edit_profile" class="col-md-12">
           <div class="card">
-            <h2>Edit Profile</h2>
+
+            <h2 id="scrollme" class="m-0">Edit Profile<button class="btn btn-success btn-transparent text-c m-l-20 m-0" ng-click="saveProfile()">
+              Close</button>  </h2>
+
+
             <div id="edit" class="row">
               <!--<form name="myProfile">-->
               <md-content class="md-padding">
                 <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex">
-                  <md-tab label="Basic info">
+                  <md-tab label="Basic info" ng-click="selectedIndex=0" >
                     <md-content class="md-padding">
                       <form name="basicinfo" novalidate>
                       <p class="f-16 m-t-20">Name</p>
@@ -131,12 +155,7 @@
 
                       <div class="row">
                         <div class="col-md-4">
-                        <!--  <p class="f-16 m-t-20">Select State</p>
-                          <md-select ng-model="profile.state" placeholder="select state">
-                             <md-option ng-repeat="record in city_states" value="{{record.state}}">
-                               {{record.state}}
-                             </md-option>
-                          </md-select>-->
+
                             <p class="f-16 m-t-20">State</p>
                           <input ng-model="profile.state" type="text" class="form-control" id="state" name="state" ng-change="validateState()" maxlength="30" placeholder="Enter your state">
 
@@ -144,12 +163,7 @@
 
                         </div>
                         <div class="col-md-4">
-                        <!--  <p class="f-16 m-t-20">Select City</p>
-                          <md-select ng-model="profile.city" placeholder="Select City">
-                             <md-option ng-repeat="record in city_states" value="{{record.name}}" ng-if="record.state==profile.state">
-                               {{pt.name}}
-                             </md-option>
-                          </md-select>-->
+
                             <p class="f-16 m-t-20">City</p>
                           <input ng-model="profile.city" type="text" id="city" name="city" ng-change="validateCity()" maxlength="30" class="form-control" placeholder="Enter your city">
                           <div ng-show="validation.city" class="text-danger">Only character are allowed | Max 30 char</div>
@@ -177,23 +191,14 @@
                       </div>
                       <br>
                       <hr class="custom-hr">
-                      <md-button type="submit" class="md-raised md-primary zolo-btn" ng-click="updateFirstTab()">Save</md-button>
-                      <md-button ng-show="profile.is_seller == 1 && profile.step_number!=null" class="md-raised md-primary zolo-btn"ng-click="nextTab()">next</md-button>
+                      <md-button type="submit" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" ng-click="updateFirstTab()">Next <span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></md-button>
+                      <!--<md-button ng-show="profile.is_seller == 1 && profile.step_number!=null" class="md-raised md-primary btn-default"ng-click="nextTab()">next</md-button>-->
                    </form>
                     </md-content>
                   </md-tab>
 
 
-
-
-
-
-
-
-
-
-
-                  <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="About Yourself">
+                  <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="About Yourself" ng-click="selectedIndex=1">
                     <md-content class="md-padding">
                       <form ng-submit="saveAndNext()" name="aboutyour" novalidate>
                       <div class="col-md-12">
@@ -293,9 +298,9 @@
                         </div>
                       <!--</div>-->
                       <div class="col-md-12">
-                      <md-button type="button" class="md-raised md-primary zolo-btn" ng-click="backTab()">Back</md-button>
-                      <md-button type="submit" class="md-raised md-primary zolo-btn" >Save</md-button>
-                      <md-button type="button" class="md-raised md-primary zolo-btn" ng-click="nextTab()">Next</md-button>
+                      <md-button type="button" class="md-raised md-primary btn-default" ng-click="backTab()">Back</md-button>
+                      <md-button type="submit" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" >Next<span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></md-button>
+                      <!--<md-button type="button" class="md-raised md-primary btn-default" ng-click="nextTab()">Next</md-button>-->
                    </div>
                         </form>
                     </md-content>
@@ -304,47 +309,53 @@
 
 
 
-                  <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="Portfolio">
-                    <md-content class="md-padding">
+                  <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="Portfolio" ng-click="selectedIndex=2">
+                    <md-button ng-hide="portfolioshowing" ng-click="showportfolio()" class="md-raised md-primary zolo-btn">Add New Portfolio</md-button>
+
+
+                    <md-content ng-show="portfolioshowing" class="md-padding">
+                      <form ng-submit="" name="myform1" novalidate>
                       <div class="form-group col-md-12">
                         <p class="f-20 w-200">Add Portfolio</p>
-
-                        <!--<div class="form-control-wrapper">-->
                           <p class="f-16 m-t-20">Description</p>
-                          <textarea ng-model="portfolio.description" id="portfolio_description" class="form-control empty" ng-change="portfolio.descriptionBlank=false;" placeholder="Describe your portfolio" style="height:50px;"></textarea>
-                        <div ng-show="portfolio.descriptionBlank" class="text-danger">Description is required</div>
-                          <!--                                <div class="floating-label">textarea label</div>-->
+                          <textarea ng-model="portfolio.description" name="portfolio_description" id="portfolio_description" class="form-control empty" placeholder="Describe your portfolio" style="height:50px;" required></textarea>
+                          <div ng-show="myform1.portfolio_description.$error.required && submitPortfolio" class="text-danger">Description is required</div>
                           <span class="material-input"></span>
-
-                        <!--</div>-->
                       </div>
-                      <div class="col-md-12">
+                      <!--<div class="col-md-12">
                         <p class="f-16 m-t-20">Type</p>
-
-                          <input ng-model="portfolio.type" id="portfolio_type" ng-change="portfolio.typeBlank=false;" type="text" class="form-control">
-                        <div ng-show="portfolio.typeBlank" class="text-danger">Type is required</div>
-
-
-                      </div>
-                        <!--<p class="f-16 m-t-20">select file</p>-->
+                          <input ng-model="portfolio.type" name="portfolio_type" id="portfolio_type" type="text" class="form-control" required>
+                        <div ng-show="myform1.portfolio_type.$error.required&&submitPortfolio" class="text-danger">Type is required</div>
+                      </div>-->
                         <div class="col-md-10 col-sm-12 m-b-20 m-t-10">
-                          <!--<input  ng-model="portfolioFile" type="file" class="form-control">-->
-
-
-                          <button class="btn" ngf-select ng-change="portfolio.fileBlank=false;" ng-model="port.picFile">select file</button>{{port.picFile.name}}
-                          <div ng-show="portfolio.fileBlank" class="text-danger">Please select file</div>
-
-
-
+                          <button class="btn" name="file1" ngf-select="uploadPortfolio(port.picFiles)"  ngf-accept="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-multiple="true"  ng-model="port.picFiles" required>select file</button>
+                          <div ng-show="myform1.file1.$error.required && submitPortfolio" class="text-danger">Please select file</div>
+                          <b ng-show="myform1.file1.$error.pattern" class="text-danger">File type is not accepted.</b>
+                          <!--<b ng-show="myform1.file1.$error.maxSize" class="text-danger">File too large |Max size 10MB</b>-->
+                          <!--ngf-max-size="10MB"-->
                         </div>
 
-                      <!--<button ng-click="uploadPortfolio(portfolio.picFile,portfolio)" class="btn">add</button>-->
+                        <div  class="col-md-12">
+                          <p class="f-10 m-0" >* Max size 10MB | Accepted Formats .PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF</p>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4" ng-repeat="file in port.picFiles">
+                              <img ngf-src="!file.$error && file" style="width: 100%; height: 100px;">
+                              <md-progress-linear md-mode="determinate" value="{{file.progress}}"></md-progress-linear>
+                            </div>
+                          </div>
+                        </div>
+
                       <div class="col-md-12">
-                      <md-button class="md-raised md-primary zolo-btn" ng-click="backTab()">Back</md-button>
-                      <md-button ng-click="uploadPortfolio(port.picFile)" class="md-raised md-primary zolo-btn">Save</md-button>
-                      <md-button ng-click="nextTab()" class="md-raised md-primary zolo-btn">Next</md-button>
+                      <md-button type="button" class="md-raised md-primary btn-default" ng-click="backTab()">Back</md-button>
+                        <md-button type="button" ng-click="nextTab()" class="md-raised md-primary btn-default pull-right" ng-disabled="saving"> Next</md-button>
+                        <md-button type="submit" ng-click="savePortfolio(port.picFiles)" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" >Save<span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></md-button>
                         </div>
+                        </form>
                     </md-content>
+
+
                   </md-tab>
 
 
@@ -353,7 +364,7 @@
 
 
 
-                  <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="Document">
+                  <md-tab ng-disabled="profile.is_seller != 1 || profile.step_number==null" label="Verification" ng-click="selectedIndex=3">
                     <md-content class="md-padding">
 
                       <!--<h6 class="md-display-2">Add Document</h6>-->
@@ -404,7 +415,7 @@
                             <p class="f-20 w-200 m-b-20">Add Documents</p>
 
                             <form name="myform" ng-submit="submitDetails()" novalidate>
-                            <p class="f-20 w-200">Add Document</p>
+                            <!--<p class="f-20 w-200">Add Document</p>-->
                             <div class="col-md-12 border-right m-b-20">
                               <form name="myform" ng-submit="submitDetails()" novalidate>
 
@@ -445,7 +456,8 @@
                                   <!--<input type="file" id="registration_file" name="file" class="form-control" value="upload">-->
                                   <button class="btn" id="file1" name="file1" ngf-select ngf-max-size="5MB" ngf-accept="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ng-model="regCertDoc" ng-change="validation.regCertDoc=false">select file</button>
                                   {{regCertDoc.name}}
-                                  <div class="alert" ng-show="myform.file1.$error === 'pattern'">file type is not accepted. Acceptable files: {{myform.file1.$errorParam}}</div>
+                                  <b ng-show="myform.file1.$error.pattern" class="text-danger">File type is not accepted.</b>
+
                                   <b ng-show="myform.file1.$error.maxSize" class="text-danger">File too large |Max size 5MB</b>
 
 
@@ -490,8 +502,9 @@
                                 <button class="btn" id="file2" name="file2" ngf-select ngf-max-size="5MB" ngf-accept="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ng-model="addressDoc" ng-change="validation.addressDoc=false">select file</button>{{addressDoc.name}}
 
                                 <b ng-show="myform.file2.$error.maxSize" class="text-danger">File too large |Max size 5MB</b>
+                                <b ng-show="myform.file2.$error.pattern" class="text-danger">File type is not accepted.</b>
 
-                                  <div class="alert" ng-show="myform.file2.$error === 'pattern'">file type is not accepted. Acceptable files: {{myform.file2.$errorParam}}</div>
+
                                 <div ng-show="validation.addressDoc" class="text-danger">Address verification doc is required</div>
                                 <div  class="col-md-12 ">
                                   <p  class="f-10" >* Max size 5MB | Accepted Formats .PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF</p>
@@ -517,7 +530,7 @@
 
 
                                 <!--<button type="submit" ng-disabled="saving" class="btn btn-lg zolo-btn"><i class="fa fa-send-o"></i>&nbsp;&nbsp;Submit</button>-->
-                                <md-button type="button" class="md-raised md-primary zolo-btn" ng-click="backTab()">Back</md-button>
+                                <md-button type="button" class="md-raised md-primary btn-default" ng-click="backTab()">Back</md-button>
                                 <md-button type="submit" class="md-raised md-primary zolo-btn">Save</md-button>
 
                               </form>
@@ -526,10 +539,7 @@
                           </div>
 
 
-
-
-
-                        <div ng-show="documentadded" >
+                            <div ng-show="documentadded" >
                           <p  class="w-300 f-20 text-center">Added Document Detail</p>
                           <hr class="custom-hr">
                <div class="row">
@@ -609,26 +619,15 @@
                  <div class="col-md-1">
                    </div>
                  <div class="col-md-11">
-                   <md-button type="button" class="md-raised md-primary zolo-btn" ng-click="backTab()">Back</md-button>
+                   <md-button type="button" class="md-raised md-primary btn-default" ng-click="backTab()">Back</md-button>
                  </div>
                               </div>
-
-
                         </div>
 
-                                        </div>
+                          </div>
 
                     </md-content>
                   </md-tab>
-
-
-
-
-
-
-
-
-
 
 
                 </md-tabs>
@@ -637,9 +636,10 @@
             </div>
           </div>
         </div></div>
+    </div>
 
       <div class="row">
-        <div class="col-md-12 p-r-0 m-l-20">
+        <div class="col-md-12">
           <div class="card">
             <h2 class="text-c m-t-5">About {{profile.name}}</h2>
             <hr class="custom-hr">
@@ -650,17 +650,15 @@
       </div>
 
 
-
-
-
-
       <div class="row">
-        <div class="col-md-12 p-r-0 m-l-20">
+        <div class="col-md-12">
           <div class="card">
             <h2 class="text-c m-t-5">{{profile.name}} Packages</h2>
             <hr class="custom-hr">
             <div class="row">
-              <div ng-if="user_packages.data.length>0" class="col-md-12">
+
+              <div  ng-if="(user_packages.data.length - DraftPackage.length) >0" class="col-md-12">
+
 
                 <div class="widget widget_slider">
 
@@ -669,11 +667,17 @@
                   <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
                          focus-on-select="true" slides-to-show=3 slides-to-scroll=1 init-onload=true
                          data="user_packages.data" class="slider multiple-items">
-                    <div ng-repeat="package in user_packages.data">
+
+
+                    <div ng-repeat="package in user_packages.data" ng-if="package.isCompleted==1">
                       <!-- <h3 class="bg-primary">1</h3> -->
-                      <div package-card package="package" master-collections="collections">
+
+                      <div   package-card package="package" master-collections="collections">
                       </div>
                     </div>
+
+                    <!--<p class="f-20" ng-hide="user_packages.data.isCompleted==1" > No published packages</p>-->
+
                   </slick>
                 </div>
 
@@ -685,11 +689,13 @@
                   <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-3" as-nav-for="#main-slider"
                          focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
                          data="user_packages.data" class="slider multiple-items">
-                    <div ng-repeat="package in user_packages.data">
+                    <div ng-repeat="package in user_packages.data" ng-if="package.isCompleted==1">
                       <!-- <h3 class="bg-primary">1</h3> -->
                       <div package-card package="package" master-collections="collections">
                       </div>
                     </div>
+                    <p class="f-20" ng-hide="package.is_completed==1" > No published packages</p>
+
                   </slick>
                 </div>
 
@@ -698,11 +704,12 @@
                   <slick arrows="true" vertical="false" draggable="false" touch-move="false" id="slider-4" as-nav-for="#main-slider"
                          focus-on-select="true" slides-to-show=1 slides-to-scroll=1 init-onload=true
                          data="user_packages.data" class="slider multiple-items">
-                    <div ng-repeat="package in user_packages.data">
+                    <div ng-repeat="package in user_packages.data" ng-if="package.isCompleted==1">
                       <!-- <h3 class="bg-primary">1</h3> -->
                       <div package-card package="package" master-collections="collections">
                       </div>
                     </div>
+                    <p class="f-20" ng-hide="package.isCompleted==1" > No published packages</p>
                   </slick>
                 </div>
 
@@ -715,12 +722,18 @@
               </div>
 
             <div class="row">
-              <div ng-if="user_packages.data.length<=0" class="col-md-12">
+              <div ng-if="(user_packages.data.length - DraftPackage.length)<=0" class="col-md-12">
                 <p>You haven't posted any package yet, to start selling click the button below</p>
 
                 <p class="text-center"><a ng-href="/post-a-package/" class="btn btn-lg btn-success">Post a package</a> </p>
               </div>
             </div>
+
+
+
+
+
+
 
           </div>
         </div>
@@ -729,28 +742,55 @@
       <!--ng-repeat="package in user_packages.data"-->
 
       <div ng-if="portfolios.length>0" class="row ">
-        <div ng-hide="portfolio_selected" class="col-md-12 m-l-20">
-          <div class="card">
+        <div ng-hide="portfolio_selected" class="col-md-12">
+          <div class="card" ng-hide="deleting">
             <h2 class="m-t-5">My Portfolio</h2>
             <hr class="custom-hr">
             <div class="row">
-              <div ng-repeat="portfolio in portfolios" class="col-md-4">
+
+              <div ng-repeat="portfolio in portfolios" class="col-md-4 ng-scope" >
                 <div class="panel panel-transparent">
                   <div class="panel-content">
                     <div class="portfolioContainer grid">
                       <figure ng-click="selectPortfolio(portfolio)" class="effect-sarah my-portfolio">
                         <img src="../global/images/gallery/13.jpg" alt="img13"/>
                         <figcaption>
-                          <h2>{{portfolio.type}} <span></span></h2>
-                          <p>{{portfolio.description}}</p>
+                          <p class="ng-binding">{{portfolio.description}}</p>
                         </figcaption>
                       </figure>
                     </div>
+                  </div>
+
+                  <div class="row zolo-center">
+                    <button ng-click="deletePortfolio1(portfolio.id)" class="btn btn-transparent btn-warning zolo-center m-r-0">Delete portfolio</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+
+          <div ng-show="deleting" class="row card">
+            <div class="col-md-12 text-center m-t-60">
+              <div layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
 
           <div class="row">
@@ -758,33 +798,40 @@
         <div ng-show="portfolio_selected" class="col-md-12">
           <div class="card">
             <div class="row">
-              <div class="col-md-8">
+              <!--<div class="col-md-8">
                 <p class="text-center f-18 w-400"> {{selected_portfolio.type}}</p>
-              </div>
-              <div class="col-md-4">
+              </div>-->
+              <div class="col-md-12">
                 <a ng-click="backtoportfolio()" class="pull-right btn" style="cursor: pointer">Back</a>
               </div>
             </div>
             <hr class="custom-hr">
 
             <div class="row">
-              <div class="col-md-6">
-                <img class="img-responsive" src="{{selected_portfolio.file}}">
-              </div>
-              <div class="col-md-2">
-                <p class="f-16">{{selected_portfolio.type}}</p>
-              </div>
-
-              <div class="col-md-3">
+              <div class="col-md-12">
                 <p class="f-16">{{selected_portfolio.description}}</p>
               </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-4" ng-repeat="file in selected_portfolio.files.data">
+                    <a ng-href="{{file.url}}" target="_blank">
+                    <img class="img-responsive" src="{{file.url}}">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!--<div class="col-md-2">
+                <p class="f-16">{{selected_portfolio.type}}</p>
+              </div>
+-->
 
             </div>
           </div>
         </div>
       </div>
     </div>
-        </div>
+
+
 
 
 
@@ -834,37 +881,39 @@
       <!--</div>-->
 
     <!--</div>-->
+  </div>
+
+    <div class="col-md-4">
+      <div class="card p-t-0">
+        <!--<div class="row border-bottom">-->
+          <!--<div class="col-xs-6 p-r-0">-->
+            <!--<p class="f-16 text-muted-z w-500" id="scrollmedown"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>-->
+
+          <!--</div>-->
+
+          <!--<div class="col-xs-6">-->
+            <!--<p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>-->
+            <!--<p class="pull-right w-500 f-18" ng-if="user_packages.data.length<=0" >0</p>-->
 
 
-    <div class="col-md-4" style="padding-left: 0!important">
-      <div class="card p-b-0 p-t-0 m-l-10">
+          <!--</div>-->
+
+
+        <!--</div>-->
+
+
+
+
         <div class="row border-bottom">
           <div class="col-xs-6 p-r-0">
-            <p class="f-16 text-muted-z w-500"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>
+            <p class="f-16 text-muted-z w-500"  ><i class="fa fa-map-marker"></i>&nbsp;Location</p>
 
           </div>
 
           <div class="col-xs-6">
-            <p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>
-            <p class="pull-right w-500 f-18" ng-if="user_packages.data.length<=0" >0</p>
+            <p class="pull-right w-500 f-18" ng-if="profile.city=='' ">N/A</p>
+            <p ng-hide="profile.city==''" class="text-center pull-right"><strong>{{profile.city}}</strong></p>
 
-
-          </div>
-
-
-        </div>
-
-
-
-
-        <div class="row border-bottom">
-          <div class="col-xs-6 p-r-0">
-            <p class="f-16 text-muted-z w-500"><i class="fa fa-map-marker"></i>&nbsp;Location</p>
-
-          </div>
-
-          <div class="col-xs-6">
-            <p class="pull-right w-500 f-18">N/A</p>
 
           </div>
 
@@ -896,7 +945,7 @@
 
           <div class="col-xs-6">
             <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
-            <p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
+            <p ng-if="profile.skills.length>0"  class="text-center pull-right"><strong ng-repeat="s in profile.skills"> <span ng-if="$index!=0">,</span> {{s.text}}</strong></p>
             <!--<p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>-->
 
           </div>
@@ -909,21 +958,13 @@
       </div>
     </div>
 
-
-
-
-
-  </div>
-
-  <div ng-show="loadingProfile" class="row card">
-    <div class="col-md-12 text-center m-t-60">
-      <div layout="row" layout-sm="column" layout-align="space-around">
-        <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
-      </div>
+</div>
+<div  class="row card" ng-show="loadingProfile">
+  <div class="col-md-12 text-center m-t-60">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
     </div>
   </div>
-
-
 </div>
 
   <div class="footer">

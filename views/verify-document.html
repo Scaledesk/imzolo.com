@@ -63,7 +63,9 @@
             <!--<input type="file" id="registration_file" name="file" class="form-control" value="upload">-->
             <button class="btn" name="file1" id="file1" ngf-select ngf-max-size="5MB" ngf-accept="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ng-model="regCertDoc" ng-change="validation.regCertDoc=false">select file</button>
             {{regCertDoc.name}}
-            <div class="alert" ng-show="myform.file1.$error === 'pattern'">file type is not accepted. Acceptable files: {{myform.file1.$errorParam}}</div>
+
+            <b ng-show="myform.file1.$error.pattern" class="text-danger">file type is not accepted.</b>
+
             <b ng-show="myform.file1.$error.maxSize" class="text-danger">File too large |Max size 5MB</b>
 
             <div ng-show="validation.regCertDoc" class="text-danger">registration certificate is required</div>
@@ -106,7 +108,9 @@
 
           <!--<input type="file" id="add_doc" class="form-control" />-->
           <button class="btn" name="file2" id="file2" ngf-select ngf-max-size="5MB" ngf-accept="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.ppt,.png,.jpg,.jpeg,.gif'" ng-model="addressDoc" ng-change="validation.addressDoc=false">select file</button>{{addressDoc.name}}
-          <div class="alert" ng-show="myform.file2.$error === 'pattern'">file type is not accepted. Acceptable files: {{myform.file2.$errorParam}}</div>
+
+          <b ng-show="myform.file2.$error.pattern" class="text-danger">file type is not accepted.</b>
+
           <b ng-show="myform.file2.$error.maxSize" class="text-danger">File too large |Max size 5MB</b>
 
           <div  class="col-md-12 ">

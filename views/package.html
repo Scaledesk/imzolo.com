@@ -4,11 +4,19 @@
     margin-left: 0px !important;
     margin-right: 0px !important;
   }
-.s_top {
-  top:'71px !important'
-}
+  .s_top {
+    top:'71px !important'
+  }
   .slick-slider{
     margin-bottom: 0px !important;
+  }
+
+  .fa-heart{
+    color:#777 !important;
+  }
+
+  .heart-liked{
+    color:#c9625f !important;
   }
 
   .corner-ribbon{
@@ -163,9 +171,9 @@
                      data="package.photos.data" class="slider multiple-items">
                 <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
                   <h3 style="margin:0;">
-                  <img preload-image default-image="../global/images/newloader.gif" width="100%" height="358" ng-src="{{img.url}}">
+                    <img preload-image default-image="../global/images/newloader.gif" width="100%" height="358" ng-src="{{img.url}}">
                     <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow" >Not Available</div>
-                </h3></div>
+                  </h3></div>
               </slick>
               <!--preload-image default-image="../global/images/imageloader.gif"-->
             </div>
@@ -188,7 +196,7 @@
               <!--slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true-->
               <!--data="package.photos.data" class="slider multiple-items">-->
               <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
-                <img class="img-responsive" preload-image default-image="../assets/images/abc.png" width="100%" ng-src="{{img.url}}">
+                <img class="img-responsive" preload-image default-image="../global/images/newloader.gif" width="100%" ng-src="{{img.url}}">
                 <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow">Not Available</div>
               </div>
 
@@ -210,17 +218,17 @@
 
 
           <div class="row">
-            <div class="col-md-3 col-xs-5">
-              <p class="zolo-n-m f-18 pdp-share">Share &nbsp;<i class="fa fa-share-alt"></i></p>
+            <div class="col-md-3 col-xs-3 p-l-5 p-r-5 pdp-share-ipad">
+              <p class="zolo-n-m pdp-share">Share &nbsp;<i class="fa fa-share-alt"></i></p>
 
 
             </div>
-            <div class="col-md-6 col-xs-7 ">
+            <div class="col-md-6 col-xs-4 ">
 
               <div class="pdp-pkg-share">
                 <p><a href=""
                       socialshare
-                      socialshare-url="http://imzolo.com/#/package/{{package.slug}}"
+                      socialshare-url="http://imzolo.com/package/{{package.slug}}"
                       socialshare-provider="facebook"
                       socialshare-text="{{package.name}}"
                       socialshare-media="{{package.photos.data[0].url}}"
@@ -228,50 +236,54 @@
                       socialshare-description="{{package.description | htmlToPlaintext}}"
                       socialshare-type="feed"
                       class="hover-f"><i class="fa fa-facebook f-24 "></i></a></p>
-                <p><a href=""
-                      socialshare
-                      socialshare-provider="google+"
-                      socialshare-url="http://imzolo.com/#/package/{{package.slug}}"
-                      class="hover-g"><i class="fa fa-google-plus f-24 "></i> </a></p>
+                <p class="hidden-sm hidden-xs"><a href=""
+                                                  socialshare
+                                                  socialshare-provider="google+"
+                                                  socialshare-url="http://imzolo.com/package/{{package.slug}}"
+                                                  class="hover-g"><i class="fa fa-google-plus f-24 "></i> </a></p>
+
+                <!--<p class="visible-xs">-->
+                <!--<a href="whatsapp://send?text=The text to share!: http://www.imzolo.com/package/{{package.slug}}/" data-action="share/whatsapp/share" data-text="Take a look at this awesome website:wwww.imzolo.com" data-href=""><i class="fa fa-whatsapp f-24"></i></a>-->
+                <!--</p>-->
+
                 <p><a href=""
                       socialshare
                       socialshare-provider="twitter"
                       socialshare-text="{{package.name}}"
                       socialshare-via=""
-                      socialshare-url="http://imzolo.com/#/package/{{package.slug}}"
+                      socialshare-url="http://imzolo.com/package/{{package.slug}}"
                       class="hover-t"><i class="fa fa-twitter f-24"></i></a></p>
-                <p><a href=""
-                      socialshare
-                      socialshare-url="http://imzolo.com/#/package/{{package.slug}}"
-                      socialshare-provider="linkedin"
-                      socialshare-text="{{package.name}}"
-                      socialshare-popup-height="300"
-                      socialshare-popup-width="400"
-                      socialshare-source="http://imzolo.com/"
-                      socialshare-description="{{package.description}}"
-                      class="hover-l"><i class="fa fa-linkedin f-24"></i></a></p>
+                <p class="hidden-sm hidden-xs"><a href=""
+                                                  socialshare
+                                                  socialshare-url="http://imzolo.com/package/{{package.slug}}"
+                                                  socialshare-provider="linkedin"
+                                                  socialshare-text="{{package.name}}"
+                                                  socialshare-popup-height="300"
+                                                  socialshare-popup-width="400"
+                                                  socialshare-source="http://imzolo.com/"
+                                                  socialshare-description="{{package.description}}"
+                                                  class="hover-l"><i class="fa fa-linkedin f-24"></i></a></p>
               </div>
               <!--</div>-->
 
             </div>
-
-
 
             <!-- facebook-->
 
 
             <!-- facebook-feed-share data-description="{{package.description | htmlToPlaintext}}" data-name="{{package.name}}" data-url='http://discover.gozolo.in/#/package/{{package.slug}}' data-picture="{{package.photos.data[0].url}}" >-->
 
-            <hr class="visible-xs">
-            <div class="col-md-3 col-xs-12 m-t-10 ">
+            <!--<hr class="visible-xs">-->
+
+            <div class="col-md-3 col-xs-5 m-t-10 ">
               <!--<div class=">-->
               <ul class="nav nav-tabs pdp-pkg-share pull-right">
-                <li><a href="" ng-click="addAndDeleteWishlist(package)" class="hover-g"><i class="fa fa-heart f-24" style="color: #777;" ng-class="{'text-danger': package.wished_by_user=='yes'}" ></i> </a><md-tooltip md-direction="left">
+                <li><a class="p-l-r-0" href="" ng-click="addAndDeleteWishlist(package)" class="hover-g"><i class="fa fa-heart f-24" ng-class="{'heart-liked': wished_by_user=='yes'}" ></i> </a><md-tooltip md-direction="left">
                   Add to Wishlist
                 </md-tooltip></li>
 
 
-                <li class="m-l-20">
+                <li class="">
                   <a ng-if="!isLoggedIn()" ng-click="showTabDialog()" href="" class="hover-f"><i class="fa fa-tasks f-24"></i></a>
 
 
@@ -332,6 +344,8 @@
 
           <div class="zolo-pdp-review-header m-t-20">Description</div>
           <hr class="custom-hr">
+
+
           <div class="col-md-12 desc-zolo-pdp" style="padding:15px;margin-left:-5px;margin-top:-20px;">
 
             <!-- catchy title-->
@@ -388,28 +402,28 @@
 
 
 
-            <div class="col-md-12">
-              <div class="row" ng-repeat="addon in package.Addons.data">
-                <div class="col-md-9 col-xs-9 checkbox-p p-r-0 col-sm-9 ">
-                  <div class="checkbox">
-                    <label class="text-indent">
-                      <!--<input type="checkbox" class="md-checkbox">-->
-                      <input checklist-model="selectedaddons[$index].id;" checklist-value="addon.id"
-                             ng-change="setIndex($index,checked)"
-                             type="checkbox" class="md-checkbox">
-                      <span class="checkbox-material"><span class="check"></span></span>
-                      {{addon.name}}
-                    </label>
-                  </div>
-                </div>
-
-                <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
-                  <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
-                    <md-option ng-repeat="n in a" value='{{n}}'>{{n}}(&#8377;{{addon.amount*n}})</md-option>
-                  </md-select>
+          <div class="col-md-12">
+            <div class="row" ng-repeat="addon in package.Addons.data">
+              <div class="col-md-9 col-xs-9 checkbox-p p-r-0 col-sm-9 ">
+                <div class="checkbox">
+                  <label class="text-indent">
+                    <!--<input type="checkbox" class="md-checkbox">-->
+                    <input checklist-model="selectedaddons[$index].id;" checklist-value="addon.id"
+                           ng-change="setIndex($index,checked)"
+                           type="checkbox" class="md-checkbox">
+                    <span class="checkbox-material"><span class="check"></span></span>
+                    {{addon.name}}
+                  </label>
                 </div>
               </div>
+
+              <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+                <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
+                  <md-option ng-repeat="n in a" value='{{n}}'>{{n}}(&#8377;{{addon.amount*n}})</md-option>
+                </md-select>
+              </div>
             </div>
+          </div>
         </div>
 
         <hr>
@@ -444,7 +458,6 @@
               <hr>
             </div>
           </div>
-
           <div class="row">
             <div class="col-md-9">
               <div class="m-b-10">
@@ -533,8 +546,34 @@
             <span class="ladda-label text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
           </button>-->
           <button ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">
-            <span class="text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+            <span ng-hide="package.installment_available==1"  class="text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span ng-show="package.installment_available==1" class="text-c">Book Now @ {{amount_to_show*0.4 | currency:"&#8377 ":0}}</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
           </button>
+
+          <!--<button ng-show="amount_to_show>50000 && package.installment_available==1" ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">-->
+          <!--<span class="text-c">Book Now @ {{amount_to_show*0.4 | currency:"&#8377 ":0}}</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+          <!--</button>-->
+
+
+
+
+
+          <div ng-show="package.installment_available==1" class="text-success " style="text-align: center" >
+           <!--<span><a href="" ng-click="showTermsandConditions()" >With Easy Installment Policy*</a></span>-->
+            <span>With Easy Installment Policy*</span>
+
+
+          </div>
+
+          <div ng-show="package.installment_available==1" class="f-20 m-t-10" style="text-align: center" >
+            Package Cost {{amount_to_show | currency:"&#8377 ":0}}
+
+          </div>
+
+
+
+
+
+
           <!--<button ng-if="package.deal_price==null" ng-disabled="packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">Buy Now (&#8377;
               {{package.price + selected_addons_price}})
           </button>-->
@@ -551,7 +590,7 @@
 
             <div class="col-md-2 hidden-xs m-l-10" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
               <md-select id="Quantity" ng-model="book.quantity"  placeholder="Quantity" md-on-close="setIndex(-1,true);removeFix()" md-on-open="fixPosition()">
-                    <md-option ng-repeat="n in a" value='{{n}}'>{{n}}</md-option>
+                <md-option ng-repeat="n in a" value='{{n}}'>{{n}}</md-option>
               </md-select>
             </div>
 
@@ -644,18 +683,11 @@
 
 
               </div>
-              <div class="col-xs-6" >
-                <p class="text-muted zolo-n-m text-center"> <i class="fa fa-list-ol f-14"></i>&nbsp;&nbsp;No. Of Sales:</p>
-                <p class="text-center zolo-n-m"><b>{{package.sales_count}}</b></p>
+              <!--<div class="col-xs-6" >-->
+                <!--<p class="text-muted zolo-n-m text-center"> <i class="fa fa-list-ol f-14"></i>&nbsp;&nbsp;No. Of Sales:</p>-->
+                <!--<p class="text-center zolo-n-m"><b>{{package.sales_count}}</b></p>-->
 
-              </div>
-
-
-            </div>
-
-
-            <div class="row m-t-20">
-              <!--zolo-pdp-more-info-user"  ng-hide="package.meeting_availability==0"-->
+              <!--</div>-->
               <div class="col-xs-6">
                 <p class="f-14 text-center zolo-n-m text-muted">
                   <i class="fa fa-truck"></i>&nbsp;&nbsp;Delivery:</p>
@@ -664,6 +696,14 @@
                 <p class="zolo-n-m  text-center"><b ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time}}</b>&nbsp;<b ng-if="package.delivery_time_type!='instant_delivery'">{{package.delivery_time_type}}</b><b ng-if="package.delivery_time_type=='instant_delivery'">Instant Delivery</b></p>
               </div>
 
+
+            </div>
+
+
+            <div class="row m-t-20">
+              <!--zolo-pdp-more-info-user"  ng-hide="package.meeting_availability==0"-->
+
+
               <div class="col-xs-6">
                 <p class="f-14 text-center zolo-n-m text-muted">
                   <i class="fa fa-file f-14"></i>&nbsp;&nbsp;Package Type:
@@ -671,17 +711,19 @@
                 <p class="text-center zolo-n-m"> <b>{{package.PackagesTypes.data.name}}</b></p>
               </div>
 
-            </div>
-
-            <hr class="custom-hr">
-
-
-            <div class="row">
-              <div class="col-md-12 ">
-                <p class="text-center zolo-n-m ">Package ID: <b>#{{package.id}}</b></p>
+              <div class="col-xs-6">
+                <p class="f-14 text-center zolo-n-m text-muted">
+                  <b>#</b>&nbsp;&nbsp;Package ID:
+                </p>
+                <p class="text-center zolo-n-m"> <b>#{{package.id}}</b></p>
               </div>
-            </div>
 
+
+            </div>
+            <div class="row m-t-10 m-b-10">
+              <hr class="custom-hr ">
+
+            </div>
 
           </div>
 
@@ -799,7 +841,9 @@
   </div>
 
 
-  <div ng-hide="loading" class="card card-5-15" ng-if="sellerOtherPackages.length>1">
+  <div ng-hide="loading" class="card card-5-15" ng-if="(sellerOtherPackages.length - DraftPackage.length) >1" >
+
+
     <div class="row ">
       <div class="col-md-12 text-center">
         <h2 class="f-24 m-t-10 m-b-10 l-s-0">More packages by <a class="zolo-c" ng-href="/profile/{{package.seller_profile.user_id}}/"> {{package.seller_name}}  </a></h2>
@@ -814,7 +858,7 @@
           <slick arrows="true" vertical="false" touch-move="false" id="slider-2" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=3 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
-            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug" ng-init="package1.shareTab=false">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug && package1.status!='DRAFT'" ng-init="package1.shareTab=false">
               <!-- <h3 class="bg-primary">1</h3> -->
               <div package-card package="package1" master-collections="Collections">
 
@@ -829,7 +873,7 @@
           <slick arrows="true" vertical="false" touch-move="false" id="slider-3" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=1 slides-to-scroll=1 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
-            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug" ng-init="package1.shareTab=false">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug && package1.status!='DRAFT'" ng-init="package1.shareTab=false">
               <!-- <h3 class="bg-primary">1</h3> -->
               <div package-card package="package1" master-collections="Collections">
 
@@ -845,7 +889,7 @@
           <slick arrows="true" vertical="false" touch-move="false" id="slider-4" as-nav-for="#main-slider"
                  focus-on-select="true" slides-to-show=2 slides-to-scroll=1 init-onload=true
                  data="sellerOtherPackages" class="slider multiple-items">
-            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug" ng-init="package1.shareTab=false">
+            <div ng-repeat="package1 in sellerOtherPackages" ng-if="package1.slug!=package.slug && package1.status!='DRAFT'" ng-init="package1.shareTab=false">
               <!-- <h3 class="bg-primary">1</h3> -->
               <div package-card package="package1" master-collections="Collections">
 

@@ -126,7 +126,7 @@
     <div ng-hide="loading" class="row">
       <div class="col-md-3 ">
         <div ng-show="subCategoryList.length>0" class="col-md-12 card card-5-15 hidden-xs">
-          <h3 class="m-t-5"><strong>Sub Category</strong></h3>
+          <h3 class="m-t-10"><strong>Sub Category</strong></h3>
           <hr class="custom-hr">
           <div ng-repeat="cat in subCategoryList | filter:{parent_id : category_id}:true">  <!-- Sanchit Edit for category fix -->
             <div class="checkbox">
@@ -142,7 +142,7 @@
 
 
         <div class="col-md-12 card card-5-15 hidden-xs">
-          <h3><strong>Price</strong></h3>
+          <h3 class="m-t-10"><strong>Price</strong></h3>
           <hr class="custom-hr">
           <div class="primary m-b-0">
             <div class="radio radio-primary">
@@ -209,11 +209,13 @@
 
 
                 <div class="col-md-3 col-md-offset-4">
-                  <md-input-container class="md-block zolo-n-m">
-                    <label>Sort by Price</label>
-                    <md-select name="myModel" ng-model="sortBy" ng-change="category.sortingPackageByPrice(sortBy)" md-on-close="category.removeFix()" md-on-open="category.fixPosition()">
-                      <md-option value="high">High to Low</md-option>
-                      <md-option value="low">Low to High</md-option>
+                  <md-input-container class="md-block zolo-n-m" >
+                    <!--<label>Sort by Price</label>-->
+                    <md-select name="myModel" ng-model="sortBy"  ng-change="category.sortingPackageByPrice(sortBy)" md-on-close="category.removeFix()" md-on-open="category.fixPosition()">
+                      <md-option class="md_selected" value="none" id="first" selected="true">Sort by Price</md-option>
+
+                      <md-option value="high" id="second" >High to Low</md-option>
+                      <md-option value="low" id="third">Low to High</md-option>
                     </md-select>
                   </md-input-container>
                 </div>

@@ -68,7 +68,12 @@
 
         <div class="row m-t-10">
           <div class="col-md-6">
-            <p class="zolo-n-m f-16">Order Status : <span class="w-500">&nbsp;{{booking.booking_status.replace('_',' ')| capitalizeFirst}}</span>
+            <p ng-show="booking.bookingPackagesInstallments.data.length==0 " class="zolo-n-m f-16">Order Status : <span class="w-500 text-success">&nbsp;{{booking.booking_status.replace('_',' ')| capitalizeFirst}}</span></p>
+            <p ng-hide="booking.bookingPackagesInstallments.data.length==0 " class="zolo-n-m f-16">Order Status : <span ng-show="remaining_amount==0" class="w-500 text-success">&nbsp; Payment Done</span>
+
+              <span ng-hide="remaining_amount==0" class="w-500 text-danger">&nbsp;Pending</span>
+            </p>
+
           </div>
           <div class="col-md-6 col-xs-10">
             <p class="zolo-n-m p-r-20 pull-right f-16">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price}}</span>
@@ -78,6 +83,90 @@
       </div>
     </div>
   </div>
+
+
+
+
+  <div class="row" ng-hide="booking.bookingPackagesInstallments.data.length==0 ">
+    <div class="col-md-12 portlets ui-sortable p-0" ng-hide="Loading_order">
+      <!--<div class="table-res">-->
+
+      <div class="panel table-res">
+        <div class="panel-header md-panel-controls">
+          <h3> <strong>Installment Overview</strong> </h3>
+          <hr class="custom-hr">
+        </div>
+
+        <div class="panel-content p-t-0">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th class="insttables" >Sr. No.</th>
+              <th  class="insttablel">Description</th>
+              <th  class="insttablel">Amount</th>
+              <th  class="insttablem" >Date</th>
+              <th  class="insttablem">Status</th>
+              <th  class="insttablem">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="installment in booking.bookingPackagesInstallments.data">
+              <td class="insttables">{{$index+1}}</td>
+              <!--<td  class="insttablel">Installment {{installment.installment_number}}</td>-->
+
+              <td  class="insttablel"> <span ng-if="$index==0">Booking Amount</span>
+                <span ng-if="$index!=0">Installment {{$index}}</span></td>
+              <td class="insttablel"><i class="fa fa-inr text-success"></i>&nbsp;{{installment.installment_amount}}</td>
+              <td class="insttablem">{{booking.order_date}}</td>
+              <td class="insttablem">
+                <span ng-if="installment.is_paid==1">Payment Done</span>
+                <span ng-if="installment.is_paid!=1">Pending</span>
+              </td>
+              <td class="insttablem">
+                <button ng-show="installment.is_paid!=1" ng-disabled="paynowbutton" ng-click="getInstallmentTxn(installment.id)" class="btn zolo-btn m-0">Pay Now</button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div ng-hide="Loading_order" class="row">
 
     <div class="col-md-12 p-0">
@@ -272,7 +361,7 @@
         <div class="card-content p-t-10">
 
           <p class="w-500 f-24 p-t-10 text-center" style=" color:#4caf50;">
-            Congratulations!! The task has been completed by <span>Seller Name</span>
+            Congratulations!! The task has been completed by <span>{{booking.seller_profile.name}}</span>
           </p>
           <hr class="custom-hr" style="border-top:1px solid #bdbdbd;">
 

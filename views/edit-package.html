@@ -51,6 +51,24 @@
 
 
 
+
+
+  .pulse.ng-hide-add, .pulse.ng-hide-remove
+  {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  }
+
+  .animated.ng-hide-add, .animated.ng-hide-remove {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+
+
+
+
 </style>
 
 
@@ -69,9 +87,9 @@
                 <div class="row user-post-a-package">
                   <div class="col-lg-6 text-center ">
                     <div class="form-group">
-                      <label for="title">Package Title</label>
+                      <label for="title">Package Title*</label>
                       <input id="title" type="text" name="title" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 16px; !important;">
-                      <div ng-show="validation_error.package_name" class="text-danger">Title is required! || Min 20 charector | Max 100 charector</div>
+                      <div ng-show="validation_error.package_name" class="text-danger">Title is required! || Min 20 character | Max 100 character</div>
                                             <span class="word-counter">
                                                 <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
                                             </span>
@@ -84,7 +102,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-md-3">
-                    <label for="category">Category</label>
+                    <label for="category">Category*</label>
                     <md-select ng-model="p_category" id="category" ng-change="subCategory()">
                       <md-option value="" ng-selected="-1">Select Category</md-option>
                       <md-option ng-repeat="c in category" ng-if="c.id!=13" value="{{c.id}}">
@@ -128,7 +146,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-md-6 m-b-20">
-                    <p>Location <span>(Your service is available at)</span></p>
+                    <p>Location* <span>(Your service is available at)</span></p>
                     <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location=false">
                       <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
                     </tags-input>
@@ -156,7 +174,7 @@
 
                   <div class="col-md-6 m-b-20">
 
-                    <label for="package_type">Package Type</label>
+                    <label for="package_type">Package Type*</label>
                     <md-select ng-model="package.packages_type" id="package_type" ng-change="validation_error.package_type=false">
                       <md-option value="" ng-selected="-1">Select Package Type</md-option>
                       <md-option ng-repeat="pt in packagesType" value="{{pt.id}}">
@@ -208,7 +226,7 @@
                 <form name="Description" ng-submit="updateDescriptionTabPackage(package.status)" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
-                    <label>Describe your package</label>
+                    <label>Describe your package*</label>
                     <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
                     <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
                     <md-tooltip md-direction="right">
@@ -283,7 +301,7 @@
                     <button type="button" class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
                   </div>
 
-                  <div class="col-lg-6 col-md-6 col-xs-6">
+                  <div class="col-lg-6 col-md-6 col-xs-12">
 
 
                     <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
@@ -304,7 +322,7 @@
                 <form name="payment" ng-submit="updatePaymentTabPackage(package.status)" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
-                    <label for="actual_price">Actual Price</label>
+                    <label for="actual_price">Actual Price*</label>
                     <input ng-model="package.price" id="actual_price" maxlength="8" ng-keypress="filterValue($event)"type="text" min="1" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
                     <md-tooltip class="f-14 w-400" md-direction="right">
@@ -314,9 +332,11 @@
 
 
                   <div class="col-lg-6">
-                    <label>Discounted Price</label>
-                    <input ng-model="package.deal_price" maxlength="8" ng-keypress="filterValue($event)"type="text" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <label>Discounted Price*</label>
+                    <input ng-model="package.deal_price" maxlength="8" ng-keypress="filterValue($event)"type="text" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted price must be less than Actual price</div>
+                    <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
+
                     <md-tooltip class="f-14 w-400" md-direction="right">
                       * Deal price should be less than Actual Price
                     </md-tooltip>
@@ -325,7 +345,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
-                    <p><strong>Delivery time</strong></p>
+                    <p><strong>Delivery time*</strong></p>
                   </div>
                 </div>
 
@@ -369,6 +389,33 @@
                   </div>
                 </div>
 
+
+
+
+
+                  <div class="row tandc pulse animated" ng-show="package.deal_price>=50000">
+
+                    <div  class="col-md-6 ">
+                      <p class="m-10 p-l-5">Do you want to activate Installment Payment for this Package ? </p>
+                    </div>
+
+                    <div class="radio radio-primary custom-radio col-md-6">
+                      <label>
+                        <input ng-model="package.installment_available" id="" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>
+                        Yes
+                      </label>
+
+                      <label>
+                        <input ng-model="package.installment_available" type="radio"  name="r-primary" value="0"  class="md-radio"><span class="circle"></span><span class="check" ></span>
+                        No
+                      </label>
+
+
+                    </div>
+
+                  </div>
+
+
                 <div class="row user-post-a-package">
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <p><strong>Service Tax: Applicable</strong></p>
@@ -379,7 +426,7 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active pull-left m-l-10 " ng-click="backTab()">Back</button>
 
                   </div>
 
@@ -631,7 +678,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-3">
-                    <div class="service-tax-space">Client Meeting</div>
+                    <div class="service-tax-space">Client Meeting*</div>
                   </div>
 
                   <div class="col-lg-4 col-md-4">
@@ -669,7 +716,7 @@
 
                     <div class="row btn-align-xs-l">
                       <div class="col-md-3 col-xs-12">
-                        <button type="button" class="btn btn-default " ng-click="backTab()" style="margin-right: 10px;">Back</button>
+                        <button type="button" class="btn btn-default backmobile " ng-click="backTab()" style="margin-right: 10px;">Back</button>
                       </div>
 
                       <div class="col-md-3 col-xs-12">
@@ -697,7 +744,7 @@
                       <div class="col-md-3 col-xs-12 pull-right">
                         <!--<button class="btn btn-zolo  pull-right" ng-click="save('DRAFT')" style="margin-right: 10px;">Save as Draft
                             </button>-->
-                        <button ng-click="save('DRAFT')"  class="btn btn-zolo active pull-right">
+                        <button ng-click="save('DRAFT')"  class="btn btn-zolo active pull-right draftmobile">
                           Save as Draft<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
                         </button>
 
@@ -738,7 +785,7 @@
 
                   <div class="row user-post-a-package">
                     <div class="col-md-6">
-                      <label>Add-ons Name</label>
+                      <label>Add-ons Name*</label>
 
                       <input ng-model="addon.name" name="name" maxlength="90" required type="text" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
                     <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitt">Name required | </span>
@@ -746,7 +793,7 @@
                     </div>
 
                     <div class="col-md-6">
-                      <label>Add-ons Price</label>
+                      <label>Add-ons Price*</label>
                       <input ng-model="addon.amount" name="amount" required  type="number" maxlength="8" number-converter min="1" max="10000000" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
                       <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitt">Price Required |</span>
                       <span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitt">Min 1 | Max 10000000</span>

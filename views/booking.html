@@ -18,6 +18,12 @@
 
   }
 
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
 
 </style>
 
@@ -111,19 +117,31 @@
                       </div>
                       <hr ng-hide="booking.bookingPackagesAddons.data.length>0" class="custom-hr">
 
-                      <div class="row m-t-20 ">
+                      <div class="row m-t-20 " ng-hide="booking.bookingPackagesInstallments.data.length > 0">
                         <div class="col-md-10 col-md-offset-2">
                           <p class="zolo-n-m p-r-20 pull-right f-20">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price}}</span>
                           </p>
                         </div>
+                        </div>
+
+                      <div class="row m-t-20 " ng-show="booking.bookingPackagesInstallments.data.length > 0">
+                        <div class="col-md-10 col-md-offset-2">
+                          <!--<p class="zolo-n-m p-r-20 pull-right f-15">Booking Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{booking.bookingPackagesInstallments.data[installment_count-1].installment_amount}}</span>-->
+                          <p class="zolo-n-m p-r-20 pull-right f-15">Booking Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{booking.bookingPackagesInstallments.data[0].installment_amount}}&nbsp;<i class="icon-check text-success w-500"></i></span>
+
+                          </p>
+                        </div>
+                        <div ng-show="booking.bookingPackagesInstallments.data.length>1" class="col-md-10 col-md-offset-2">
+                          <p class="zolo-n-m p-r-20 pull-right f-15">Total Paid Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_installments - booking.bookingPackagesInstallments.data[installment_count-1].installment_amount}}&nbsp;<i class="icon-check text-success w-500"></i></span>
+                          </p>
+                        </div>
+                        <div class="col-md-10 col-md-offset-2 p-t-10">
+                          <p class="zolo-n-m p-r-20 pull-right f-15">Remaining Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price-total_installment_paid}}&nbsp;</span>
+                          </p>
+                        </div>
                       </div>
-
-
                     </div>
                   </div>
-
-
-
 
 
                   <div class="col-md-4">
@@ -139,19 +157,31 @@
                           <hr class="custom-hr m-t-10">
 
                           <p class="f-14 w-500 pull-left zolo-n-m">Order Total</p>
-                          <p class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</p>
+                          <p ng-hide="booking.bookingPackagesInstallments.data.length > 0" class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</p>
+
+                          <p ng-show="booking.bookingPackagesInstallments.data.length > 0" class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success"></i>&nbsp;{{booking.bookingPackagesInstallments.data[installment_count-1].installment_amount}}</p>
 
                         </div>
                       </div>
                       <hr class="custom-hr m-t-5">
+                      <div ng-show="booking.bookingPackagesInstallments.data.length > 0" class="text-success f-10 pull-right " style="text-align: center" >
+                        With Easy Installment Policy*
 
-                      <div class="row">
+                      </div>
+
+
+
+
+
+
+
+                      <div ng-hide="booking.bookingPackagesInstallments.data.length>1" class="row">
                         <div class="col-md-12">
                           <p class="w-500">Have a <span class="zolo-c">Promocode?</span>  Apply here!</p>
                         </div>
                       </div>
 
-                      <div class="row">
+                      <div ng-hide="booking.bookingPackagesInstallments.data.length>1" class="row">
                         <form role="form" name="promoCode" ng-submit="applyCode(code)" novalidate>
                         <!--<div class="col-md-8">-->
                           <!--<input ng-disabled="c_applied_success" type="text" ng-model="code" name="code" id="code" class="form-control" placeholder="Enter Promo Code.."aria-required="true" required>-->
@@ -172,15 +202,6 @@
 
                             </md-input-container>
                           </div>
-
-
-
-
-
-
-
-
-
 
                         <div class="col-md-4 p-l-0">
                           <button  ng-disabled="c_applied_success" type="submit" class="btn zolo-btn m-0 text-c m-t-20">
@@ -209,7 +230,9 @@
 
                       <div class="row">
                         <div class="col-md-12 text-center">
-                          <button class="btn zolo-btn text-c btn-success" ng-click="selectedIndex = 1" style="width: 100%;">Proceed to pay &nbsp;<i class="fa fa-inr"></i>&nbsp;{{total_price}}</button>
+
+                          <button class="btn zolo-btn text-c btn-success" ng-click="selectedIndex = 1" style="width: 100%;">Proceed to pay &nbsp;<i class="fa fa-inr"></i>&nbsp;<span ng-hide="booking.bookingPackagesInstallments.data.length > 0" >{{total_price}}</span><span ng-show="booking.bookingPackagesInstallments.data.length > 0"  >{{booking.bookingPackagesInstallments.data[installment_count-1].installment_amount}}
+</span></button>
 
 
                         </div>
@@ -258,32 +281,47 @@
 
                 <span class="text-muted-z f-13">We will deliver your order here</span>
                 <div ng-show="new_address" class="row">
-                  <form role="form" ng-submit="saveAddress()">
+                  <form role="form" ng-submit="saveAddress()" novalidate>
                     <div class="col-md-12">
                       <div class="row m-t-20">
+
                         <div class="col-xs-6">
                           <label for="">Pincode</label>
-                          <input type="number" ng-model="adr.pincode" number-converter placeholder="Pincode" class="form-control" min="0" required/>
+                          <input type="number" ng-model="adr.pincode" id="pin" number-converter placeholder="Pincode" ng-change="checkPin();pinError=false;" class="form-control" min="0" required/>
+                          <p ng-show="pinError" class="text-danger">Pincode must be 6 digit</p>
                         </div>
                         <div class="col-xs-6">
                           <label for="">Name</label>
-                          <input type="text" placeholder="Name" ng-model="adr.name" class="form-control" required/>
+                          <input type="text" placeholder="Name" id="name" maxlength="100" ng-model="adr.name" ng-change="nameError=false;nametypeError=false" class="form-control" required/>
+                          <p ng-show="nameError" class="text-danger">Name is required</p>
+                          <p ng-show="nametypeError" class="text-danger">Enter only characters(A to Z and . / \ - &)</p>
+
+
+
                         </div>
                       </div>
                       <div class="row m-t-20">
                         <div class="col-xs-6">
                           <label for="">Address</label>
-                          <textarea rows="3" type="text" placeholder="Address" ng-model="adr.street_address" class="form-control" required></textarea>
+                          <textarea rows="3" type="text" placeholder="Address" maxlength="300" ng-change="addError=false;" ng-model="adr.street_address" class="form-control" required></textarea>
+                          <p ng-show="addError" class="text-danger">Address is required</p>
+
+
                         </div>
                         <div class="col-xs-6">
                           <label for="">Landmark</label>
-                          <textarea rows="3" type="text" placeholder="Landmark" ng-model="adr.landmark" class="form-control" required></textarea>
+                          <textarea rows="3" type="text" placeholder="Landmark" maxlength="300" ng-model="adr.landmark" ng-change="landmarkError=false;" class="form-control" required></textarea>
+                          <p ng-show="landmarkError" class="text-danger">Landmark is required</p>
                         </div>
                       </div>
                       <div class="row m-t-20">
                         <div class="col-xs-6">
                           <label for="">City</label>
-                          <input type="text" placeholder="Landmark" ng-model="adr.city" class="form-control" required/>
+                          <input type="text" placeholder="city" id="city" name="city" ng-model="adr.city" maxlength="300" ng-change="cityError=false;citytypeError=false;" class="form-control" required/>
+                          <p ng-show="cityError" class="text-danger">City is required</p>
+                          <p ng-show="citytypeError" class="text-danger">Enter only characters(A to Z)</p>
+
+
                         </div>
                         <div class="col-xs-6">
                           <label for="">State</label>
@@ -298,7 +336,7 @@
                         <div class="col-xs-6">
                           <label for="">Mobile Number</label>
                           <input type="Number" id="mobile" number-converter placeholder="Mobile Number" min="0" ng-change="checkMobile()" ng-model="adr.phone_number" class="form-control" required/>
-                          <p ng-show="mobileError" class="text-danger">mobile number must be 10 digit</p>
+                          <p ng-show="mobileError" class="text-danger">Enter Valid 10 digit mobile number</p>
                         </div>
                         <div class="col-xs-6">
                           <div class="col-xs-12 text-center">
@@ -418,9 +456,21 @@
                 <div class="row">
                   <div class="col-md-12 text-center m-t-30 m-b-20">
                     <!--<button class="btn btn-lg text-c btn-success w-100 f-20">Proceed to Payment</button>-->
-                    <button ng-click="onSelectPaymentMethod()" type="button" class="btn btn-lg text-c btn-success w-100 f-20"><span ng-if="restAmount>0&&by_medium=='by_wallet'" >Add <i class="fa fa-inr"></i>{{restAmount}} and Proceed to Payment</span>
+                    <button ng-click="onSelectPaymentMethod()" type="button" class="btn btn-lg text-c btn-success w-100 f-20"><span ng-if="restAmount>0&&by_medium=='by_wallet'" >Add <i class="fa fa-inr"></i>&nbsp;{{restAmount}} and Proceed to Payment</span>
                       <span ng-if="!(restAmount>0&&by_medium=='by_wallet')">Proceed to Payment</span>
                     </button>
+                    <div class="text-success f-10 " style="text-align: center" >
+                      By proceeding ,you agree to our Cancellation & Refund Policy*
+
+                    </div>
+
+
+
+
+
+
+
+
                   </div>
                 </div>
 

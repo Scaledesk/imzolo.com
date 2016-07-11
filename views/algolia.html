@@ -14,7 +14,7 @@
 
 
 <div class="container-fluid">
-  <div class="row" ng-hide="myalgolia.loading_more">
+  <div class="row" ng-hide="myalgolia.loading_page">
     <div class="col-md-12 ">
       <div class="new-search-a m-b-10">
 
@@ -44,20 +44,64 @@
   </div>
 
 
-  <div class="row" ng-hide="myalgolia.loading_more">
+  <div class="row" ng-hide="myalgolia.loading_page">
     <div class="col-md-3">
-      <div class="col-md-12 card hidden-xs">
-        <h3><strong>Package Types</strong></h3>
-        <hr class="custom-hr">
-        <div ng-repeat="package_type in myalgolia.package_types">
-          <div class="checkbox">
-            <label>
-              <!--<input type="checkbox" class="md-checkbox">-->
-              <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
-              <span class="checkbox-material"><span class="check"></span></span>
-              {{package_type.name}}
-            </label>
+      <div class="col-md-12 card hidden-xs p-l-0">
+
+
+
+
+
+
+        <!--<h3 class="m-t-5"><strong>Package Types</strong></h3>-->
+        <!--<hr class="custom-hr">-->
+        <!--<div ng-repeat="package_type in myalgolia.package_types">-->
+          <!--<div class="checkbox">-->
+            <!--<label>-->
+              <!--&lt;!&ndash;<input type="checkbox" class="md-checkbox">&ndash;&gt;-->
+              <!--<input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">-->
+              <!--<span class="checkbox-material"><span class="check"></span></span>-->
+              <!--{{package_type.name}}-->
+            <!--</label>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <div  class="col-md-12">
+          <h3 class="m-t-5" style="display: inline;"><strong>Package Types <a ng-click="myalgolia.packall=!myalgolia.packall"><h3 ng-hide="myalgolia.packall" class="zolo-c text-c  f-12  pull-right packageToggle"><span>View All </span><i class="fa fa-angle-down " aria-hidden="true"></i></h3><h3 ng-show="myalgolia.packall" class="zolo-c text-c  f-12  pull-right packageToggle"><span>View Less </span><i class="fa fa-angle-up " aria-hidden="true"></i></h3></a>
+          </strong></h3>
+          <hr class="custom-hr">
+
+
+          <div ng-hide="myalgolia.packall" >
+            <div   ng-repeat="package_type in myalgolia.package_typesbreak">
+              <div class="checkbox">
+                <label>
+                  <!--<input type="checkbox" class="md-checkbox">-->
+                  <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
+                  <span class="checkbox-material"><span class="check"></span></span>
+                  {{package_type.name}}
+                </label>
+              </div>
+            </div>
+            <hr class="custom-hr">
           </div>
+
+          <div ng-show="myalgolia.packall">
+            <div   ng-repeat="package_type in myalgolia.package_types">
+              <div class="checkbox">
+                <label>
+                  <!--<input type="checkbox" class="md-checkbox">-->
+                  <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
+                  <span class="checkbox-material"><span class="check"></span></span>
+                  {{package_type.name}}
+                </label>
+              </div>
+            </div>
+            <hr class="custom-hr">
+          </div>
+
+
         </div>
       </div>
       <!--remove the category-->
@@ -77,8 +121,8 @@
         </div>
         </div>-->
 
-      <div class="col-md-12 card hidden-xs">
-        <h3><strong>Price</strong></h3>
+      <div class="col-md-12 card hidden-xs ">
+        <h3 class="m-t-0"><strong>Price</strong></h3>
         <hr class="custom-hr">
         <div class="primary m-b-0">
           <div class="radio radio-primary">
@@ -182,10 +226,33 @@
         <!--<hr class="custom-hr">-->
 
         <div class="row">
+
+
+
+
+          <!--<div id="packageType-f-content" class="col-md-12">-->
+            <!--<h3><strong>Package Types</strong></h3>-->
+            <!--<hr class="custom-hr">-->
+            <!--<div ng-repeat="package_type in myalgolia.package_types">-->
+              <!--<div class="checkbox">-->
+                <!--<label>-->
+                  <!--&lt;!&ndash;<input type="checkbox" class="md-checkbox">&ndash;&gt;-->
+                  <!--<input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">-->
+                  <!--<span class="checkbox-material"><span class="check"></span></span>-->
+                  <!--{{package_type.name}}-->
+                <!--</label>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+
           <div id="packageType-f-content" class="col-md-12">
-            <h3><strong>Package Types</strong></h3>
+            <h3 class="m-t-5"><strong>Package Types</strong><i class="fa fa-filter pull-right" aria-hidden="true"></i></h3>
             <hr class="custom-hr">
-            <div ng-repeat="package_type in myalgolia.package_types">
+
+
+         <div ng-hide="myalgolia.packall" >
+            <div   ng-repeat="package_type in myalgolia.package_typesbreak">
               <div class="checkbox">
                 <label>
                   <!--<input type="checkbox" class="md-checkbox">-->
@@ -195,9 +262,46 @@
                 </label>
               </div>
             </div>
+            <a ng-click="myalgolia.packall=!myalgolia.packall"><h3 class="zolo-c text-c p-10" style="background-color: #f5f5f5"><strong>View All</strong><i class="fa fa-plus pull-right" aria-hidden="true"></i></h3></a>
+           <hr class="custom-hr">
+         </div>
+
+           <div ng-show="myalgolia.packall">
+            <div   ng-repeat="package_type in myalgolia.package_types">
+              <div class="checkbox">
+                <label>
+                  <!--<input type="checkbox" class="md-checkbox">-->
+                  <input type="checkbox" checklist-change="myalgolia.clearFacetAndMake()" checklist-model="myalgolia.SelectedPackageTypes" checklist-value="package_type.name"  class="md-checkbox">
+                  <span class="checkbox-material"><span class="check"></span></span>
+                  {{package_type.name}}
+                </label>
+              </div>
+            </div>
+            <a ng-click="myalgolia.packall=!myalgolia.packall;myalgolia.goToTop()"><h3 class="zolo-c text-c p-10" style="background-color: #f5f5f5"><strong>View Less</strong><i class="fa fa-minus pull-right" aria-hidden="true"></i></h3></a>
+             <hr class="custom-hr">
+           </div>
 
 
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           <div id="packageTime-f-content" class="col-md-12">
             <h3><strong>Price</strong></h3>
@@ -270,13 +374,15 @@
         </md-select>
 
       </div>
-      <div ng-repeat="row in myalgolia.package_rows" class="col-md-12">
+        <!--<p> <span class="text-success text-center f-20">{{myalgolia.searchResult.nbHits}}</span> Packages Found</p>-->
+        <div ng-repeat="row in myalgolia.package_rows" class="col-md-12">
         <div ng-repeat="package in row" style="padding-left: 0; padding-right: 0;" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
           <div package-card package="package" master-collections="collections" ng-init="package.shareTab=false">
           </div>
         </div>
       </div>
-        <div ng-if="myalgolia.current_page!=myalgolia.total_page" class="col-md-12 text-center" ng-click="myalgolia.loadNextPage()">
+
+        <div ng-if="myalgolia.current_page+1!=myalgolia.total_page && myalgolia.total_page!=0 || myalgolia.loading_more" class="col-md-12 text-center" ng-click="myalgolia.loadNextPage()">
           <button ng-disabled="myalgolia.loading_more" class="btn btn-lg btn-zolo m-t-20 bg w-300">
             Load More Packages... <span><i ng-if="myalgolia.loading_more" class="fa fa-spinner fa-spin"></i> </span>
           </button>
@@ -289,7 +395,7 @@
 </div>
 </div>
 
-  <div ng-show="myalgolia.loading_more" class="row p-20 text-center card">
+  <div ng-show="myalgolia.loading_page" class="row p-20 text-center card">
     <div class="col-md-12 text-center m-t-60">
       <div layout="row" layout-sm="column" layout-align="space-around">
         <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>

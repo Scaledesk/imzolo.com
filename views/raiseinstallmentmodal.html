@@ -1,0 +1,132 @@
+<style>
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+  md-toolbar:not(.md-menu-toolbar) {
+    background-color: #673ab7!important;
+  }
+
+
+
+</style>
+
+<md-dialog aria-label="Raise Installment" style="width:600px;height: 500px;  overflow-y:scroll;">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Raise Installment</h2>
+      <span flex></span>
+    </div>
+  </md-toolbar>
+  <md-dialog-content style=" overflow-x:hidden;" >
+
+
+    <div class="p-10">
+      <b class="f-20">&nbsp;&nbsp;Previous Installments </b>
+      <hr>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+          <p ng-repeat="installment in booking.bookingPackagesInstallments.data">&nbsp;&nbsp;
+            <span ng-if="$index==0">Booking Amount</span>
+            <span ng-if="$index!=0">Installment {{$index}}</span>
+
+            :&nbsp;<i class="fa fa-inr text-success"></i>&nbsp;{{installment.installment_amount}}&nbsp;<i class="icon-check text-success w-500"></i></p>
+        </div>
+
+        <div class="col-md-6">
+         <p>Remaining Amount :&nbsp;<i class="fa fa-inr text-success"></i>&nbsp;{{remaining_amount}}</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+
+    <div class="row p-t-10" ng-hide="submitting">
+
+        <form name="invoiceform" ng-submit="postInvoiceamount();" novalidate>
+
+
+          <div class="col-md-12 text-center">
+
+
+            <div class="row">
+
+              <div class="col-md-6 p-r-0">
+
+                <b class="f-15 pull-right m-r-0 p-r-0">&nbsp;&nbsp;Raised Installment Amount :&nbsp;<i class="fa fa-inr text-success"></i>&nbsp;
+                </b>
+
+              </div>
+              <div class="col-md-6 p-l-0" >
+
+                <input class="pull-left " style="width:150px;" name="raisedAmount" id="raisedAmount" ng-model="raisedAmount"  type="number" min="{{min_raise_amount}}" max="{{remaining_amount}}" ng-change="submitted=true" required>
+                <p ng-show="invoiceform.raisedAmount.$error.required&&submitted" class="text-danger  pull-left" >
+                  Raised invoice amount is required
+                </p>
+                <p ng-show="invoiceform.raisedAmount.$error.min&&submitted" class="text-danger pull-left" >
+                  Minimum amount {{min_raise_amount}}
+                </p>
+                <p ng-show="invoiceform.raisedAmount.$error.max&&submitted" class="text-danger  pull-left" >
+                  Maximum amount {{remaining_amount}}
+                </p>
+
+
+              </div>
+
+
+            </div>
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div class="col-md-12 text-center">
+              <button ng-disabled="submitting" class="btn zolo-btn m-l-10" type="submit" >Submit
+                &nbsp;<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i></span>
+              </button>
+            <p ng-show="remaining_amount<=min_raise_amounttest" class="text-success text-center m-5" >
+              As Remaining amount is now less than 10% hence you have to raise full remaining amount&nbsp;<i class="fa fa-inr text-success"></i>&nbsp;{{remaining_amount}}
+            </p>
+
+          </div>
+
+        </form>
+
+    </div>
+
+
+
+    <div ng-show="submitting" class="row p-20 text-center">
+      <div class="col-md-12 text-center m-t-60">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </md-dialog-content>
+
+</md-dialog>
+

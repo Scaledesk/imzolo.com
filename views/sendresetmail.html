@@ -5,7 +5,7 @@
       <div class="row">
 
         <div class="col-md-8 col-md-offset-2">
-          <div class="card">
+          <div class="card" ng-hide="loading">
 
 <form name="sendResetMail" ng-submit="Z_sendResetMail()" novalidate>
 
@@ -26,7 +26,7 @@
             </div>
             <div class="card-action" style="text-align: -webkit-center; border: none; padding: 0;">
               <!--<a href="#">Know More</a> -->
-              <button type="submit" ng-disabled="loading" class="btn zolo-btn text-c">Send Reset Mail
+              <button type="submit" ng-show="resetbuttonshow" ng-disabled="loading" class="btn zolo-btn text-c">Send Reset Mail
                 <div class="ripple-wrapper"></div>
               </button>
             </div>
@@ -36,6 +36,19 @@
 
 
           </div>
+
+          <div ng-show="loading" class="row p-20 text-center card" style="height:294px;" >
+            <div class="col-md-12 text-center m-t-60">
+              <div layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate" md-diameter="96"  ></md-progress-circular>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
         </div>
 
 

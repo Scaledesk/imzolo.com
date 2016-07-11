@@ -1,1 +1,133 @@
-  <p>This is the withdrawal view.</p>
+<style>
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>
+
+
+<div class="container-fluid" ng-controller="WithdrawalCtrl as withdrawal">
+  <div ng-hide="withdrawal.loadingDetails" class="card">
+    <div class="row">
+      <div class="col-md-12" style="padding: 0px 50px;">
+        <h2 class="text-center f-32 m-t-10" style="color: #8f5fac;"><strong>Bank Details</strong></h2>
+        <!--<p class="f-18 text-center">If you have any Queries, Suggestions or Complaints regarding Zolo, feel free to contact us...</p>-->
+        <hr class="custom-hr">
+      </div>
+    </div>
+
+
+    <div ng-hide="withdrawal.edit_record" class="row">
+      <div ng-repeat="bankDetail in withdrawal.allBankDetails" class="border col-md-5 m-10">
+     <div class="row">
+        <div class="col-md-4 col-xs-4">
+          <p class="m-5">Bank </p>
+          <p class="m-5">A/C No. </p>
+          <p class="m-5">Branch </p>
+          <p class="m-5">ISFC </p>
+
+        </div>
+
+        <div class="col-md-7 col-xs-7">
+          <p class=" m-5">: {{bankDetail.name}} </p>
+          <p class="m-5">: {{bankDetail.acc_number}} </p>
+          <p class=" m-5">: {{bankDetail.branch}} </p>
+          <p class="m-5">: {{bankDetail.ifsc}} </p>
+        </div>
+       <div class="col-md-1 col-xs-12 text-center m-t-20">
+         <div class="row text-center">
+
+           <div ng-click="withdrawal.deleteRecord(bankDetail)" class="col-md-6 col-xs-6 text-center">
+           <a style="cursor: pointer;"><i class="fa fa-close f-16 m-b-20 text-danger"></i></a>
+           </div>
+
+
+
+         <div ng-click="withdrawal.editRecord(bankDetail)" class="col-md-6 col-xs-6 text-center">
+           <a style="cursor: pointer;"><i class="fa fa-pencil-square-o f-16 m-b-20 text-c"></i></a>
+         </div>
+
+         </div>
+
+
+
+       </div>
+     </div>
+
+
+        <!--<h2 class="text-center f-32 m-t-10" style="color: #8f5fac;"><strong>Bank Details</strong></h2>-->
+        <!--<p class="f-18 text-center">If you have any Queries, Suggestions or Complaints regarding Zolo, feel free to contact us...</p>-->
+
+      </div>
+
+    </div>
+    <hr ng-hide="withdrawal.edit_record" class="custom-hr">
+    <div ng-show="withdrawal.allBankDetails.length>0 && !withdrawal.edit_record" class="row" id="bankForm">
+      <button ng-click="withdrawal.addMoreBankDetails()"  class="btn btn-lg zolo-btn">
+        Add More Bank Details
+      </button>
+    </div>
+
+    <div ng-show="withdrawal.showBankDetailForm" class="row m-t-40">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-8 border-right m-b-20" style="padding: 0 50px;">
+        <form name="withdrawal.bankDetailsForm" role="form" ng-submit="withdrawal.submitBankDetails()" novalidate>
+
+          <label for="name" class="m-t-20">Enter Bank Name</label>
+          <input type="text" id="name" name="name" class="form-control" ng-model="withdrawal.seller.name" placeholder="User Name" required/>
+          <div ng-show="withdrawal.bankDetailsForm.name.$error.required && withdrawal.submitted" class="text-danger">Name is required </div>
+
+
+          <label for="branch" class="m-t-20">Enter Branch Name</label>
+          <input type="text" id="branch" name="branch" class="form-control" ng-model="withdrawal.seller.branch" placeholder="Bank Name" required/>
+          <div ng-show="withdrawal.bankDetailsForm.branch.$error.required && withdrawal.submitted" class="text-danger">Bank Name is required </div>
+
+
+          <label for="account_number" class="m-t-20">Account Number</label>
+          <input type="number" id="account_number" name="account_number" number-converter class="form-control" ng-model="withdrawal.seller.acc_number" placeholder="Account Number" required/>
+          <div ng-show="withdrawal.bankDetailsForm.account_number.$error.required && withdrawal.submitted" class="text-danger">Account number is required </div>
+
+          <label for="ifsc_code" class="m-t-20">IFSC Code</label>
+          <input type="text" id="ifsc_code" name="ifsc_code" class="form-control" ng-model="withdrawal.seller.ifsc" placeholder="IFSC Code" required/>
+          <div ng-show="withdrawal.bankDetailsForm.ifsc_code.$error.required && withdrawal.submitted" class="text-danger">IFSC code is required </div>
+
+
+          <button type="submit" ng-disabled="withdrawal.saving" class="btn btn-lg zolo-btn">Submit&nbsp;&nbsp;
+            <span><i ng-style="withdrawal.myStyle" class="fa fa-spinner fa-spin"></i> </span>
+          </button>
+
+          <button type="button" ng-click="withdrawal.cancelForm()" class="btn btn-lg zolo-btn">Cancel
+          </button>
+        </form>
+      </div>
+
+      <!--<div ng-show="withdrawal.saving" class="col-md-8 border-right m-b-20" style="padding: 0 50px;">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+        </div>
+      </div>-->
+      <div class="col-md-2">
+      </div>
+    </div>
+
+
+  </div>
+
+  <div ng-show="withdrawal.loadingDetails" class="card">
+    <div class="row">
+      <div class="col-md-12 text-center m-t-60">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

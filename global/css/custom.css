@@ -45,6 +45,11 @@
 	margin-left: 15px;
 }
 
+.md_selected {
+  color: #979996!important;
+  background: #f5f5f5!important;
+}
+
 .tandc{
   background-color: whitesmoke;
   text-align:justify;
@@ -891,6 +896,23 @@
 }
 
 
+@media only screen and (min-width:320px) and (max-width:720px) {
+
+
+  .backmobile {
+    margin-left: 35% !important
+  }
+
+  .draftmobile
+  {
+    margin-left: 15% !important
+  }
+
+
+
+}
+
+
 .zolo-logopanel{
 	background-color: #673ab7 !important;
 	height: 55px !important;
@@ -954,7 +976,7 @@
 /*sanchit custom css start*/
 .btn-zolo{
 
-	border:1px solid #673ab7;!important;
+	border:1px solid #673ab7 !important;
 	/*    color:#b066ff !important;*/
 	color: #673ab7; !important;
 	font-weight: 700 !important;
@@ -1341,6 +1363,26 @@ figure.zolo-collection{
   color: #777;
 
 }
+
+.insttablem{
+  width: 200px;
+  text-align:center;
+}
+
+.insttablel{
+  width: 300px;
+  text-align:center;
+
+}
+
+.insttables {
+  width: 100px;
+  text-align:center;
+
+}
+
+
+
 
 
 
@@ -1975,6 +2017,15 @@ figure.effect-steve:hover p {
     width: 100% !important;
   }
 
+}
+
+
+
+
+.packageToggle {
+  display: inline;
+  cursor: pointer;
+  margin-top: 4px !important;
 }
 
 
@@ -2673,6 +2724,12 @@ and (-webkit-min-device-pixel-ratio: 1) {
     width: 16.6667% !important;
   }
 
+  .footer {
+    display:inline;
+
+
+
+
 
 }
 
@@ -2686,6 +2743,8 @@ and (-webkit-min-device-pixel-ratio: 1) {
   .header-col-xs-2{
     width: 16.6667% !important;
   }
+  .footer {
+    display:inline;
 
 
 }
@@ -2704,6 +2763,8 @@ and (-webkit-min-device-pixel-ratio: 1) {
   .header-col-xs-2{
     width: 16.6667% !important;
   }
+  .footer {
+    display:inline;
 
 
 }
@@ -2745,6 +2806,10 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
   .header-col-xs-2{
     width: 16.6667% !important;
+  }
+
+  .pdp-share-ipad{
+    margin-top: 0px !important;
   }
 
 
@@ -2789,8 +2854,40 @@ and (-webkit-min-device-pixel-ratio: 2) {
     width: 16.6667% !important;
   }
 
+  .pdp-share-ipad{
+    margin-top: 0px !important;
+  }
+
 
 }
+
+
+.pdp-share{
+  font-size: 18px;
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 768px)
+ {
+  .p-l-r-0{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .pdp-share{
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 0px;
+  }
+  }
+
+
+
+
+
 
 
 

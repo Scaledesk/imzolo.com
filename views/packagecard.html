@@ -10,6 +10,22 @@
             <div class="row">
               <div class="col-md-12 text-center">
 
+               &nbsp;&nbsp;
+
+
+              </div>
+
+            </div>
+
+            <div class="zolo-card-user-location">
+              <div ng-if="package.location[0].text=='Any-where-in-India'" class="location pull-left zolo-card-location"><i class="icon-pointer"></i>Any-where</div>
+              <div ng-if="package.location[0].text!='Any-where-in-India'" class="location pull-left zolo-card-location"><i class="icon-pointer"></i>{{package.location[0].text}}</div>
+
+
+
+
+              <div class="pull-right">
+
                 <i ng-if="package.average_rating>0" class="fa fa-star"></i>
                 <i ng-if="package.average_rating<=0" class="fa fa-star-o"></i>
                 <i ng-if="package.average_rating>1" class="fa fa-star"></i>
@@ -20,15 +36,14 @@
                 <i ng-if="package.average_rating<=3" class="fa fa-star-o"></i>
                 <i ng-if="package.average_rating>4" class="fa fa-star"></i>
                 <i ng-if="package.average_rating<=4" class="fa fa-star-o"></i>
+                &nbsp;
 
 
               </div>
-            </div>
 
-            <div class="zolo-card-user-location">
-              <div ng-if="package.location[0].text=='Any-where-in-India'" class="location pull-left zolo-card-location"><i class="icon-pointer"></i>Any-where</div>
-              <div ng-if="package.location[0].text!='Any-where-in-India'" class="location pull-left zolo-card-location"><i class="icon-pointer"></i>{{package.location[0].text}}</div>
-              <div class="date pull-right zolo-card-date"><i class="icon-calendar"></i>{{package.timestamp|date:'dd MMM yyyy'}}</div>
+
+
+              <!--<div class="date pull-right zolo-card-date"><i class="icon-calendar"></i>{{package.timestamp|date:'dd MMM yyyy'}}</div>-->
             </div>
           </div>
         </div>
@@ -113,7 +128,7 @@
 
           <a href=""
              socialshare
-             socialshare-url="http://imzolo.com/#/package/{{package.slug}}"
+             socialshare-url="http://imzolo.com/package/{{package.slug}}"
              socialshare-provider="facebook"
              socialshare-text="{{package.name}}"
              socialshare-media="{{package.first_photo}}"
@@ -130,7 +145,7 @@
              socialshare-provider="twitter"
              socialshare-text="{{package.name}}"
              socialshare-via=""
-             socialshare-url="http://imzolo.com/#/package/{{package.slug}}">
+             socialshare-url="http://imzolo.com/package/{{package.slug}}">
             <div class="share-twitter">
               <i class="fa fa-twitter"></i>
             </div>
@@ -139,7 +154,7 @@
           <a href=""
              socialshare
              socialshare-provider="google+"
-             socialshare-url="http://imzolo.com/#/package/{{package.slug}}"
+             socialshare-url="http://imzolo.com/package/{{package.slug}}"
              socialshare-popup-height="300"
              socialshare-media="{{package.photos.data[0].url}}"
              socialshare-popup-width="400"

@@ -26,11 +26,11 @@
               <p class="w-600 f-20">{{profile.name}} </p>
               <p class="text-muted-z f-14 zolo-n-m w-500">{{profile.short_description}}</p>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-12">
-              <p class="w-600 f-20 text-center">{{profile.completed_orders || 'None'}}</p>
-              <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Projects Completed</p>
+            <!--<div class="col-md-2 col-sm-6 col-xs-12">-->
+              <!--<p class="w-600 f-20 text-center">{{profile.completed_orders || 'None'}}</p>-->
+              <!--<p class="zolo-n-m text-muted-z f-14 w-500 text-center">Projects Completed</p>-->
 
-            </div>
+            <!--</div>-->
             <div class="col-md-2 col-sm-6 col-xs-12">
               <p class=" w-600 f-20 text-center" ng-if="profile.is_contact_number_verified !=0">{{profile.mobile}}</p>
               <p class="w-600 f-20 text-center" ng-if="profile.is_contact_number_verified ==0">NA</p>
@@ -82,7 +82,7 @@
                     <slick arrows="true" vertical="false" id="slider-2" as-nav-for="#main-slider"
                            focus-on-select="true" slides-to-show=3 slides-to-scroll=3 init-onload=true
                            data="other_user_packages.data" class="slider multiple-items m-b-0">
-                      <div ng-repeat="package in other_user_packages.data">
+                      <div ng-repeat="package in other_user_packages.data" ng-if="package.status!='DRAFT'">
                         <!-- <h3 class="bg-primary">1</h3> -->
                         <div package-card package="package" master-collections="collections">
                         </div>
@@ -222,19 +222,19 @@
 
     <div class="col-md-4">
       <div class="card p-b-0 p-t-0">
-        <div class="row border-bottom">
-          <div class="col-xs-6 p-r-0">
-            <p class="f-16 text-muted-z w-500"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>
+        <!--<div class="row border-bottom">-->
+          <!--<div class="col-xs-6 p-r-0">-->
+            <!--<p class="f-16 text-muted-z w-500"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>-->
 
-          </div>
+          <!--</div>-->
 
-          <div class="col-xs-6">
-            <p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>
+          <!--<div class="col-xs-6">-->
+            <!--<p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>-->
 
-          </div>
+          <!--</div>-->
 
 
-        </div>
+        <!--</div>-->
 
 
 
@@ -246,8 +246,8 @@
           </div>
 
           <div class="col-xs-6">
-            <p class="pull-right w-500 f-18">N/A</p>
-
+            <p class="pull-right w-500 f-18" ng-if="profile.city=='' ">N/A</p>
+            <p ng-hide="profile.city==''" class="text-center pull-right"><strong>{{profile.city}}</strong></p>
           </div>
 
 
@@ -278,8 +278,7 @@
 
           <div class="col-xs-6">
             <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
-            <p ng-if="profile.skills.length>0" class="text-center"><strong ng-repeat="s in profile.skills">{{s.text}},</strong></p>
-            <p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>
+            <p ng-if="profile.skills.length>0" class="text-center pull-right"><strong ng-repeat="s in profile.skills"><span ng-if="$index!=0">,</span>{{s.text}}</strong></p>
 
           </div>
 

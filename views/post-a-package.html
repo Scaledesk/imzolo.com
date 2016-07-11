@@ -42,7 +42,23 @@
 
 
 
+
   }
+
+
+  @media only screen and (min-width:360px) and (max-width:720px) {
+
+
+    .backmobile {
+      margin-left: 35% !important
+    }
+
+
+  }
+
+
+
+
 
 
   .popover .arrow, .tooltip .arrow, .popover .tooltip-arrow, .tooltip .tooltip-arrow {
@@ -56,6 +72,21 @@
     margin: 0;
   }
 
+
+
+
+  .pulse.ng-hide-add, .pulse.ng-hide-remove
+  {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+  }
+
+  .animated.ng-hide-add, .animated.ng-hide-remove {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
 
 
 
@@ -76,7 +107,7 @@
                 <div class="row user-post-a-package">
                   <div class="col-md-12 text-center p-l-0">
                     <div class="form-group">
-                      <label for="title" class="p-l-0">Package Title </label>
+                      <label for="title" class="p-l-0">Package Title* </label>
                       <i class="fa fa-question-circle" aria-hidden="true"></i>
 
                       <input id="title" type="text" name="title" uib-popover-html="titlePopover" popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm zolo-input-darken" placeholder="Enter package title" style="font-size: 16px !important; padding: 0!important;">
@@ -104,7 +135,7 @@
                 <!--ng-if="c.id==10 || c.id==14 || c.id==90 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77"-->
                 <div class="row user-post-a-package m-b-0">
                   <div class="col-md-3 p-l-0">
-                    <label for="category">Category</label>
+                    <label for="category">Category*</label>
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
 
                     <md-select class="m-10 m-l-0" ng-model="p_category" id="category" ng-change="subCategory()"  popover-placement="top" popover-trigger="focus">
@@ -134,7 +165,7 @@
 
                   <div class="col-md-6 m-b-20">
 
-                    <label for="package_type">Package Type</label>
+                    <label for="package_type">Package Type*</label>
                     <i class="fa fa-question-circle" aria-hidden="true"></i>
 
                     <md-select class="m-10 m-l-0" ng-model="package.packages_type"  popover-placement="top" popover-trigger="focus" id="package_type" ng-change="validation_error.package_type=false">
@@ -166,7 +197,7 @@
                 </div>
                 <div class="row user-post-a-package ">
                   <div class="col-md-6 m-b-20 p-l-0">
-                    <p class="m-10 w-600">Location <span>(Your service is available at)</span></p>
+                    <p class="m-10 w-600">Location*<span>(Your service is available at)</span></p>
                     <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_location=false">
                       <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
                     </tags-input>
@@ -228,7 +259,7 @@
                     <!--<button class="btn btn-zolo">Preview</button>-->
                   </div>
                   <div class="col-lg-6 col-md-6 col-xs-12">
-                    <button type="submit" class="btn btn-primary active pull-right" ng-disabled="saving">Save and Continue
+                    <button type="submit" class="btn btn-primary active pull-right"  ng-disabled="saving">Save and Continue
                       <span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></button>
                     <!--<button class="btn btn-primary active pull-right" ng-click="checkValidationFirst()">Save and Continue</button>-->
                   </div>
@@ -243,7 +274,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
-                    <label>Describe your package</label>
+                    <label>Describe your package*</label>
                     <textarea froala="froalaOptions" ng-model="package.description" uib-popover-html="descriptionPopover"  popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
 
                     <!--<textarea cols="80" rows="10" class="cke-editor">
@@ -350,10 +381,10 @@
 
                 <div class="row btn-align-xs">
                   <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button type="button" class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
+                    <button type="button" class="btn btn-default active m-l-10 " ng-click="backTab()">Back</button>
                   </div>
 
-                  <div class="col-lg-6 col-md-6 col-xs-6">
+                  <div class="col-lg-6 col-md-6 col-xs-12">
 
 
                     <button type="submit" class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" >Save and Continue
@@ -373,7 +404,7 @@
                 <form name="payment" ng-submit="checkValidationThird()" novalidate>
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
-                    <label for="actual_price">Actual Price</label>
+                    <label for="actual_price">Actual Price*</label>
                     <input ng-model="package.price" id="actual_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
                     <!--<md-tooltip class="f-14 w-400" md-direction="right">
@@ -383,9 +414,13 @@
 
 
                   <div class="col-lg-6">
-                    <label>Discounted Price</label>
-                    <input ng-model="package.deal_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <label>Discounted Price*</label>
+                    <input ng-model="package.deal_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
+                    <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
+
+
+
                     <!--<md-tooltip class="f-14 w-400" md-direction="right">
                       * Deal price should be less than Actual Price
                     </md-tooltip>-->
@@ -394,7 +429,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-md-12">
-                    <p><strong>Delivery time</strong></p>
+                    <p><strong>Delivery time*</strong></p>
                   </div>
                 </div>
 
@@ -438,6 +473,49 @@
                   </div>
                 </div>
 
+
+
+
+                  <div class="row tandc pulse animated" ng-show="package.deal_price>=50000">
+
+                    <div  class="col-md-6 ">
+                      <p class="m-10 p-l-5">Do you want to activate Installment Payment for this Package ? </p>
+                    </div>
+
+                    <div class="radio radio-primary custom-radio col-md-6">
+                      <label>
+                        <input ng-model="package.installment_available" id="" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>
+                        Yes
+                      </label>
+
+                      <label>
+                        <input ng-model="package.installment_available" type="radio" name="r-primary" value="0" checked class="md-radio"><span class="circle"></span><span class="check"></span>
+                        No
+                      </label>
+
+                    </div>
+
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="row user-post-a-package">
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <p><strong>Service Tax: Applicable</strong></p>
@@ -453,7 +531,7 @@
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-xs-12">
-                    <button type="submit" class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" >Save and Continue
+                    <button type="submit" class="btn btn-primary active pull-right m-l-20"   ng-disabled="saving" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
 
@@ -670,7 +748,7 @@
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-3">
-                    <div class="service-tax-space">Client Meeting</div>
+                    <div class="service-tax-space">Client Meeting*</div>
                   </div>
 
                   <div class="col-lg-4 col-md-4">
@@ -708,7 +786,7 @@
 
                     <div class="row btn-align-xs-l">
                       <div class="col-md-3 col-xs-12">
-                        <button type="button" class="btn btn-default " ng-click="backTab()" style="margin-right: 10px;">Back</button>
+                        <button type="button" class="btn btn-default backmobile " ng-click="backTab()" style="margin-right: 10px;">Back</button>
                       </div>
 
                       <div class="col-md-3 col-xs-12">
@@ -731,7 +809,7 @@
                       </div>
 
                       <div class="col-md-3 col-xs-12 pull-right">
-                        <button ng-disabled="!completed_package" class="btn btn-zolo  pull-right" ng-click="checkValidationFifth('DRAFT')" style="margin-right: 10px;">Save as Draft
+                        <button ng-disabled="!completed_package" class="btn btn-zolo  pull-right draftmobile" ng-click="checkValidationFifth('DRAFT')" style="margin-right: 10px;">Save as Draft
                           <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
                       </div>
@@ -771,14 +849,14 @@
 
                   <div class="row user-post-a-package">
                     <div class="col-md-6">
-                      <label>Add-ons Name</label>
+                      <label>Add-ons Name*</label>
                       <input ng-model="addon.name" name="name" type="text" maxlength="90" required class="form-control zolo-input-darken" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
                      <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitted">Name Required |</span>
                      <span class="validation-message text-danger" ng-show="repeatForm.name.$error.maxlength && submitted"> Max 90 Character</span>
                     </div>
 
                     <div class="col-md-6">
-                      <label>Add-ons Price</label>
+                      <label>Add-ons Price*</label>
                       <input ng-model="addon.amount" name="amount"  type="number" maxlength="8" max="10000000" required number-converter class="form-control zolo-input-darken" min="1" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
                     <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitted">Price Required |</span>
                       <span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitted">Min 1 | Max 10000000</span>
