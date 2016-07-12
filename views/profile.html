@@ -315,18 +315,20 @@
 
                     <md-content ng-show="portfolioshowing" class="md-padding">
                       <form ng-submit="" name="myform1" novalidate>
-                      <div class="form-group col-md-12">
+
+                        <div class="form-group col-md-12">
+                          <p class="f-16 m-t-20">Name</p>
+                          <input ng-model="portfolio.name" name="portfolio_name" id="portfolio_name" type="text" class="form-control" required>
+                          <div ng-show="myform1.portfolio_name.$error.required&&submitPortfolio" class="text-danger">Name is required</div>
+                        </div>
+
+                        <div class="form-group col-md-12">
                         <p class="f-20 w-200">Add Portfolio</p>
                           <p class="f-16 m-t-20">Description</p>
                           <textarea ng-model="portfolio.description" name="portfolio_description" id="portfolio_description" class="form-control empty" placeholder="Describe your portfolio" style="height:50px;" required></textarea>
                           <div ng-show="myform1.portfolio_description.$error.required && submitPortfolio" class="text-danger">Description is required</div>
                           <span class="material-input"></span>
-                      </div>
-                      <!--<div class="col-md-12">
-                        <p class="f-16 m-t-20">Type</p>
-                          <input ng-model="portfolio.type" name="portfolio_type" id="portfolio_type" type="text" class="form-control" required>
-                        <div ng-show="myform1.portfolio_type.$error.required&&submitPortfolio" class="text-danger">Type is required</div>
-                      </div>-->
+                        </div>
                         <div class="col-md-10 col-sm-12 m-b-20 m-t-10">
                           <button class="btn" name="file1" ngf-select="uploadPortfolio(port.picFiles)"  ngf-accept="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-multiple="true"  ng-model="port.picFiles" required>select file</button>
                           <div ng-show="myform1.file1.$error.required && submitPortfolio" class="text-danger">Please select file</div>
@@ -728,13 +730,6 @@
                 <p class="text-center"><a ng-href="/post-a-package/" class="btn btn-lg btn-success">Post a package</a> </p>
               </div>
             </div>
-
-
-
-
-
-
-
           </div>
         </div>
       </div>
@@ -752,17 +747,21 @@
                 <div class="panel panel-transparent">
                   <div class="panel-content">
                     <div class="portfolioContainer grid">
-                      <figure ng-click="selectPortfolio(portfolio)" class="effect-sarah my-portfolio">
-                        <img src="../global/images/gallery/13.jpg" alt="img13"/>
+                      <a ng-href="" ng-click="selectPortfolio(portfolio)">
+                      <figure class="effect-sarah my-portfolio">
+                        <img ng-src="{{portfolio.files.data[0].fileurl}}" width="100%" alt="img13"/>
                         <figcaption>
-                          <p class="ng-binding">{{portfolio.description}}</p>
+                          <!--<p class="ng-binding">{{portfolio.description}}</p>-->
                         </figcaption>
                       </figure>
+                      </a>
                     </div>
                   </div>
-
+                  <!--/portfolio/{{portfolio.id}}-->
+                  <!--ng-click="selectPortfolio(portfolio)"-->
                   <div class="row zolo-center">
-                    <button ng-click="deletePortfolio1(portfolio.id)" class="btn btn-transparent btn-warning zolo-center m-r-0">Delete portfolio</button>
+                    <button class="btn btn-transparent btn-warning zolo-center m-r-0">{{portfolio.name}}</button>
+                    <span ng-click="deletePortfolio1(portfolio.id)"><i class="fa fa-trash f-20 text-danger"></i></span>
                   </div>
                 </div>
               </div>
@@ -809,14 +808,16 @@
 
             <div class="row">
               <div class="col-md-12">
+                <p class="f-16">{{selected_portfolio.name}}</p>
                 <p class="f-16">{{selected_portfolio.description}}</p>
               </div>
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-4" ng-repeat="file in selected_portfolio.files.data">
-                    <a ng-href="{{file.url}}" target="_blank">
-                    <img class="img-responsive" src="{{file.url}}">
+                    <a ng-href="{{file.fileurl}}" target="_blank">
+                    <img class="img-responsive" src="{{file.fileurl}}">
                     </a>
+                    <button ng-click="deletePortfolioImage(selected_portfolio, $index)" class="btn">Delete File</button>
                   </div>
                 </div>
               </div>
