@@ -17,7 +17,7 @@
 
 
 
-<div class="container-fluid"  >
+<div class="container-fluid" >
   <div ng-hide="loadingProfile" class="row">
 
 
@@ -317,16 +317,16 @@
                       <form ng-submit="" name="myform1" novalidate>
 
                         <div class="form-group col-md-12">
+                          <p class="f-20 w-200">Add Portfolio</p>
                           <p class="f-16 m-t-20">Name</p>
                           <input ng-model="portfolio.name" name="portfolio_name" id="portfolio_name" type="text" class="form-control" required>
                           <div ng-show="myform1.portfolio_name.$error.required&&submitPortfolio" class="text-danger">Name is required</div>
                         </div>
 
                         <div class="form-group col-md-12">
-                        <p class="f-20 w-200">Add Portfolio</p>
                           <p class="f-16 m-t-20">Description</p>
-                          <textarea ng-model="portfolio.description" name="portfolio_description" id="portfolio_description" class="form-control empty" placeholder="Describe your portfolio" style="height:50px;" required></textarea>
-                          <div ng-show="myform1.portfolio_description.$error.required && submitPortfolio" class="text-danger">Description is required</div>
+                          <textarea ng-model="portfolio.description" name="portfolio_description" id="portfolio_description" class="form-control empty" placeholder="Describe your portfolio" style="height:50px;" ></textarea>
+
                           <span class="material-input"></span>
                         </div>
                         <div class="col-md-10 col-sm-12 m-b-20 m-t-10">
@@ -744,14 +744,14 @@
             <div class="row">
 
               <div ng-repeat="portfolio in portfolios" class="col-md-4 ng-scope" >
-                <div class="panel panel-transparent">
+                <div class="panel panel-transparent my-effect">
                   <div class="panel-content">
                     <div class="portfolioContainer grid">
-                      <a ng-href="" ng-click="selectPortfolio(portfolio)">
-                      <figure class="effect-sarah my-portfolio">
+                      <a ng-href="/portfolio/{{portfolio.id}}">
+                      <figure class="effect-sarah my-portfolio ">
                         <img ng-src="{{portfolio.files.data[0].fileurl}}" width="100%" alt="img13"/>
                         <figcaption>
-                          <!--<p class="ng-binding">{{portfolio.description}}</p>-->
+                          <p class="ng-binding">{{portfolio.name}}</p>
                         </figcaption>
                       </figure>
                       </a>
@@ -760,8 +760,42 @@
                   <!--/portfolio/{{portfolio.id}}-->
                   <!--ng-click="selectPortfolio(portfolio)"-->
                   <div class="row zolo-center">
-                    <button class="btn btn-transparent btn-warning zolo-center m-r-0">{{portfolio.name}}</button>
-                    <span ng-click="deletePortfolio1(portfolio.id)"><i class="fa fa-trash f-20 text-danger"></i></span>
+                    <div class="col-xs-8">
+                      <a href="" class="text-muted f-16 w-400">{{portfolio.name}}</a>
+
+                    </div>
+
+                    <div class="col-xs-4">
+                      <span>
+                    <a href=""
+                       socialshare
+                       socialshare-url="http://imzolo.com/portfolio/{{portfolio.id}}"
+                       socialshare-provider="facebook"
+                       socialshare-text="{{portfolio.name}}"
+                       socialshare-media="{{portfolio.files.data[0].fileurl}}"
+                       socialshare-via="953913041345816"
+                       socialshare-description="{{portfolio.description}}"
+                       socialshare-type="feed"
+                       class="hover-f"><i class="fa fa-share f-20 "></i></a>
+                    </span>
+                      <span class="pull-right" ng-click="deletePortfolio1(portfolio.id)"><i class="fa fa-trash f-20 text-danger"></i></span>
+                    </div>
+
+
+                    <!--<a href="" class="">{{portfolio.name}}</a>-->
+                    <!--<span>-->
+                    <!--<a href=""-->
+                       <!--socialshare-->
+                       <!--socialshare-url="http://imzolo.com/portfolio/{{portfolio.id}}"-->
+                       <!--socialshare-provider="facebook"-->
+                       <!--socialshare-text="{{portfolio.name}}"-->
+                       <!--socialshare-media="{{portfolio.files.data[0].fileurl}}"-->
+                       <!--socialshare-via="953913041345816"-->
+                       <!--socialshare-description="{{portfolio.description}}"-->
+                       <!--socialshare-type="feed"-->
+                       <!--class="hover-f"><i class="fa fa-facebook f-24 "></i></a>-->
+                    <!--</span>-->
+                    <!--<span ng-click="deletePortfolio1(portfolio.id)"><i class="fa fa-trash f-20 text-danger"></i></span>-->
                   </div>
                 </div>
               </div>
@@ -776,13 +810,6 @@
               </div>
             </div>
           </div>
-
-
-
-
-
-
-
 
 
 
@@ -884,82 +911,85 @@
     <!--</div>-->
   </div>
 
-    <div class="col-md-4">
-      <div class="card p-t-0">
-        <!--<div class="row border-bottom">-->
-          <!--<div class="col-xs-6 p-r-0">-->
-            <!--<p class="f-16 text-muted-z w-500" id="scrollmedown"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>-->
+  <div class="col-md-4">
+    <div class="card p-t-0">
+      <!--<div class="row border-bottom">-->
+      <!--<div class="col-xs-6 p-r-0">-->
+      <!--<p class="f-16 text-muted-z w-500" id="scrollmedown"><i class="fa fa-briefcase"></i>&nbsp;Projects Completed</p>-->
 
-          <!--</div>-->
+      <!--</div>-->
 
-          <!--<div class="col-xs-6">-->
-            <!--<p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>-->
-            <!--<p class="pull-right w-500 f-18" ng-if="user_packages.data.length<=0" >0</p>-->
-
-
-          <!--</div>-->
+      <!--<div class="col-xs-6">-->
+      <!--<p class="pull-right w-500 f-18">{{other_user_packages.data.length}}</p>-->
+      <!--<p class="pull-right w-500 f-18" ng-if="user_packages.data.length<=0" >0</p>-->
 
 
-        <!--</div>-->
+      <!--</div>-->
+
+
+      <!--</div>-->
 
 
 
 
-        <div class="row border-bottom">
-          <div class="col-xs-6 p-r-0">
-            <p class="f-16 text-muted-z w-500"  ><i class="fa fa-map-marker"></i>&nbsp;Location</p>
-
-          </div>
-
-          <div class="col-xs-6">
-            <p class="pull-right w-500 f-18" ng-if="profile.city=='' ">N/A</p>
-            <p ng-hide="profile.city==''" class="text-center pull-right"><strong>{{profile.city}}</strong></p>
-
-
-          </div>
-
+      <div class="row border-bottom">
+        <div class="col-xs-6 p-r-0">
+          <p class="f-16 text-muted-z w-500"  ><i class="fa fa-map-marker"></i>&nbsp;Location</p>
 
         </div>
 
-
-
-        <div class="row border-bottom">
-          <div class="col-xs-6 p-r-0">
-            <p class="f-16 text-muted-z w-500"><i class="fa fa-star"></i>&nbsp;Ratings</p>
-
-          </div>
-
-          <div class="col-xs-6">
-            <p class="pull-right w-500 f-18">No Ratings</p>
-
-          </div>
+        <div class="col-xs-6">
+          <p class="pull-right w-500 f-18" ng-if="profile.city=='' ">N/A</p>
+          <p ng-hide="profile.city==''" class="text-center pull-right"><strong>{{profile.city}}</strong></p>
 
 
         </div>
-
-
-        <div class="row border-bottom">
-          <div class="col-xs-6 p-r-0">
-            <p class="f-16 text-muted-z w-500"><i class="fa fa-signal"></i>&nbsp;Skills</p>
-
-          </div>
-
-          <div class="col-xs-6">
-            <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
-            <p ng-if="profile.skills.length>0"  class="text-center pull-right"><strong ng-repeat="s in profile.skills"> <span ng-if="$index!=0">,</span> {{s.text}}</strong></p>
-            <!--<p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>-->
-
-          </div>
-
-
-        </div>
-
 
 
       </div>
+
+
+
+      <div class="row border-bottom">
+        <div class="col-xs-6 p-r-0">
+          <p class="f-16 text-muted-z w-500"><i class="fa fa-star"></i>&nbsp;Ratings</p>
+
+        </div>
+
+        <div class="col-xs-6">
+          <p class="pull-right w-500 f-18">No Ratings</p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="row border-bottom">
+        <div class="col-xs-6 p-r-0">
+          <p class="f-16 text-muted-z w-500"><i class="fa fa-signal"></i>&nbsp;Skills</p>
+
+        </div>
+
+        <div class="col-xs-6">
+          <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
+          <p ng-if="profile.skills.length>0"  class="text-center pull-right"><strong ng-repeat="s in profile.skills"> <span ng-if="$index!=0">,</span> {{s.text}}</strong></p>
+          <!--<p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>-->
+
+        </div>
+
+
+      </div>
+
+
+
     </div>
+  </div>
+
+
 
 </div>
+
 <div  class="row card" ng-show="loadingProfile">
   <div class="col-md-12 text-center m-t-60">
     <div layout="row" layout-sm="column" layout-align="space-around">

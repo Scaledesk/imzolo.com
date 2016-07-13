@@ -19,6 +19,12 @@
     color:#c9625f !important;
   }
 
+  .desc-zolo-pdp p img{
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
   .corner-ribbon{
     width: 200px;
     background: #e43;
@@ -166,12 +172,13 @@
 
           <div ng-if="package.photos.data.length > 1" class="row ">
             <div class="col-md-12 other-p-s m-b-5" style="padding: 0px; margin-bottom: 20px;">
-              <slick autoplay="true" arrows="true" id="main-slider" as-nav-for="#slider-1"
+              <slick autoplay="false" arrows="true" id="main-slider" as-nav-for="#slider-1"
                      slides-to-show=1 slides-to-scroll=1 fade="true" init-onload=true
                      data="package.photos.data" class="slider multiple-items">
                 <div ng-repeat="img in package.photos.data" style="margin: 0; padding: 0;">
                   <h3 style="margin:0;">
-                    <img preload-image default-image="../global/images/newloader.gif" width="100%" height="358" ng-src="{{img.url}}">
+
+                    <img preload-image default-image="../global/images/preloadergif.gif" width="100%" height="358" ng-src="{{img.url}}">
                     <div ng-show="packagePaused" class="corner-ribbon top-left sticky red shadow" >Not Available</div>
                   </h3></div>
               </slick>
@@ -388,7 +395,7 @@
 
 
             <div ng-if="package.Addons.data.length>0" class="row">
-              <div class="col-md-12 p-l-40">
+              <div class="col-md-12 p-l-40 p-r-40">
                 <h4 class="f-20 text-muted">Enhance Your Package & Buy (Total Add-On's: {{package.Addons.data.length}})</h4>
                 <hr class="custom-hr">
 
@@ -402,7 +409,7 @@
 
 
 
-          <div class="col-md-12">
+          <div class="col-md-12 p-l-30">
             <div class="row" ng-repeat="addon in package.Addons.data">
               <div class="col-md-9 col-xs-9 checkbox-p p-r-0 col-sm-9 ">
                 <div class="checkbox">
@@ -417,9 +424,9 @@
                 </div>
               </div>
 
-              <div class="col-md-3 col-xs-3 p-r-0 col-sm-3 p-l-0" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+              <div class="col-md-3 col-xs-3  col-sm-3 p-r-40" ng-init="a=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
                 <md-select id="Addon_Quantity" class="m-t-5" ng-model="selectedaddons[$index].quantity" placeholder="Quantity" ng-change="setIndex($index)" md-on-close="checkAddon($index)">
-                  <md-option ng-repeat="n in a" value='{{n}}'>{{n}}(&#8377;{{addon.amount*n}})</md-option>
+                  <md-option ng-repeat="n in a" value='{{n}}'> {{n}} (&#8377;{{addon.amount*n}})</md-option>
                 </md-select>
               </div>
             </div>

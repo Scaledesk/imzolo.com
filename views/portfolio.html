@@ -1,0 +1,170 @@
+<style>
+  .page-content {
+    top: 40px!important;
+  }
+/*.deletebutton {*/
+  /*position: absolute !important*/
+/*}*/
+
+</style>
+
+
+<div class="row m-t-0 " >
+  <div class="col-md-12" ng-hide="Loading_page">
+    <div class="card p-t-0" style="margin-top: 0px!important;">
+      <div class="row">
+      </div>
+      <!--<hr class="custom-hr">-->
+
+      <div class="row">
+        <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-7">
+          <p class="f-30  w-300">{{portfolio.myPortfolio.username}}'s Portfolio </p>
+          </div>
+
+          <div class="col-md-5 p-t-20">
+            <div class="pull-right">
+              <a class="text-muted" href="" ng-hide="show_edit || user_profile.user_id !=portfolio.myPortfolio.user_id"  ng-click="showedit();"> <i class="fa fa-edit"></i> Edit Portfolio &nbsp; | &nbsp; </a>
+              <a class="text-muted" href=""
+                 socialshare
+                 socialshare-url="http://imzolo.com/portfolio/{{portfolio.myPortfolio.id}}"
+                 socialshare-provider="facebook"
+                 socialshare-text="{{portfolio.myPortfolio.name}}"
+                 socialshare-media="{{portfolio.myPortfolio.files.data[0].fileurl}}"
+                 socialshare-via="953913041345816"
+                 socialshare-description="{{portfolio.myPortfolio.description}}"
+                 socialshare-type="feed"
+                 class="hover-f ">
+                <i class="icon-share-alt"></i>Share on Facebook
+
+
+
+
+              </a>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+          <hr class="custom-hr">
+
+
+          <div ng-hide="show_edit" >
+            <p class="f-20 text-center zolo-c">{{portfolio.myPortfolio.name}}</p>
+            <p class="f-16 text-center text-muted">{{portfolio.myPortfolio.description}}</p>
+          </div>
+
+
+          <div class="row" ng-show="show_edit">
+            <div class="col-md-8 col-md-offset-2" >
+              <form name="myform1" novalidate>
+
+
+                <div class="form-group col-md-12">
+                  <p class="f-16 m-t-20">Name</p>
+                  <input ng-model="portfolio.myPortfolio.name" name="portfolio_name"  id="portfolio_name" type="text" class="form-control" required>
+                  <div ng-show="myform1.portfolio_name.$error.required" class="text-danger">Name is required</div>
+
+                </div>
+
+                <div class="form-group col-md-12">
+                  <p class="f-16 m-t-20">Description</p>
+                  <textarea ng-model="portfolio.myPortfolio.description" name="portfolio_description" id="portfolio_description" class="form-control empty"  style="height:50px;" ></textarea>
+                  <!--<div class="text-danger">Description is required</div>-->
+
+
+                </div>
+
+                <button type="button" class="btn" name="file1" ng-model="port.picFiles" ngf-select="uploadPortfolio(port.picFiles)"  ngf-accept="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-multiple="true" >Add more files</button>
+<br/>
+                <button class="btn zolo-btn pull-right" ng-click="updatenewPortfolio(port.picFiles)" style="margin:0px!important;">Save</button>
+
+                <button class="btn zolo-btn" ng-click="closeedit();" style="margin: 0 !important;">Close</button>
+
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-4 m-t-10" ng-repeat="file in port.picFiles">
+                      <img ngf-src="!file.$error && file" style="width: 100%; height: 100px;">
+                      <md-progress-linear md-mode="determinate" value="{{file.progress}}"></md-progress-linear>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+
+
+
+            </div>
+
+          </div>
+
+
+          <hr class="custom-hr">
+
+        </div>
+        <div ng-hide="show_edit"  class="col-md-12">
+          <div class="row">
+            <div class="col-md-4 m-t-10" ng-hide="Loading_delete" ng-repeat="file in portfolio.images">
+              <div class="my-effect-img">
+                <figure>
+                  <a ng-click="openLightboxModal($index)">
+                    <img class="img-responsive" src="{{file.url}}">
+                  </a>
+                  <figcaption>
+                    <span  ng-show="user_profile.user_id===portfolio.myPortfolio.user_id" ng-click="deletePortfolioImage(portfolio.myPortfolio, $index)" class="text-center ">Delete&nbsp;<i class="fa fa-trash f-20 text-danger"></i></span>
+                  </figcaption>
+
+                </figure>
+
+              </div>
+            </div>
+
+            <div ng-show="Loading_delete" class="row p-20 text-center ">
+              <div class="col-md-12 text-center m-t-60">
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                  <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div ng-show="Loading_page" class="row p-20 text-center card">
+  <div class="col-md-12 text-center m-t-60">
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
+  </div>
+</div>
+

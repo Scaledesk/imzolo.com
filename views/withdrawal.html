@@ -63,7 +63,7 @@
       </div>
 
     </div>
-    <hr ng-hide="withdrawal.edit_record" class="custom-hr">
+    <hr ng-show="withdrawal.edit_record" class="custom-hr">
     <div ng-show="withdrawal.allBankDetails.length>0 && !withdrawal.edit_record" class="row" id="bankForm">
       <button ng-click="withdrawal.addMoreBankDetails()"  class="btn btn-lg zolo-btn">
         Add More Bank Details
@@ -74,7 +74,7 @@
       <div class="col-md-2">
 
       </div>
-      <div class="col-md-8 border-right m-b-20" style="padding: 0 50px;">
+      <div class="col-md-8 m-b-20" style="padding: 0 50px;">
         <form name="withdrawal.bankDetailsForm" role="form" ng-submit="withdrawal.submitBankDetails()" novalidate>
 
           <label for="name" class="m-t-20">Enter Bank Name</label>
