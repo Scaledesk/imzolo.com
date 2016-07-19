@@ -88,7 +88,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="my_sale in my_seles">
+            <tr ng-repeat="my_sale in my_seles| orderBy :'-order_date' ">
               <td>{{$index+1}}</td>
               <td>{{my_sale.buyer_name}}</td>
               <td><a ng-href="/orderSummary/{{my_sale.id}}/">{{my_sale.package_title}}</a></td>

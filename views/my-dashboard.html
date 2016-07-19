@@ -119,8 +119,6 @@ and (max-device-width: 1024px)
                   </a>
                 </div>
 
-
-
               </div>
 
 
@@ -172,7 +170,7 @@ and (max-device-width: 1024px)
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="my_sale in my_seles | limitTo:5">
+              <tr ng-repeat="my_sale in my_seles | orderBy :'-order_date' | limitTo:5 ">
                 <td>{{$index+1}}</td>
                 <td>{{my_sale.buyer_name}}</td>
                 <td><a ng-href="/orderSummary/{{my_sale.id}}/">{{my_sale.package_title}}</a></td>
@@ -220,7 +218,7 @@ and (max-device-width: 1024px)
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="my_purchase in my_purchases.data | limitTo:5">
+              <tr ng-repeat="my_purchase in my_purchases.data | orderBy :'-order_date'| limitTo:5">
                 <td>{{$index+1}}</td>
                 <td><a ng-href="/orderSuccessful/{{my_purchase.id}}/">{{my_purchase.package_title}}</a></td>
                 <td>{{my_purchase.order_date}}</td>

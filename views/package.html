@@ -553,7 +553,7 @@
             <span class="ladda-label text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span class="ladda-spinner"></span><div class="ripple-wrapper"></div>
           </button>-->
           <button ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">
-            <span ng-hide="package.installment_available==1"  class="text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span ng-show="package.installment_available==1" class="text-c">Book Now @ {{amount_to_show*0.4 | currency:"&#8377 ":0}}</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+            <span ng-hide="package.installment_available==1"  class="text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span ng-show="package.installment_available==1" class="text-c">Book Now @ {{amount_to_show*0.25 | currency:"&#8377 ":0}}</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
           </button>
 
           <!--<button ng-show="amount_to_show>50000 && package.installment_available==1" ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">-->

@@ -1,6 +1,4 @@
 
-
-
 <script>
   var photos=[];
   var thumbnail;
@@ -40,24 +38,16 @@
       text-align: center !important;
     }
 
-
-
-
   }
 
 
   @media only screen and (min-width:360px) and (max-width:720px) {
 
-
     .backmobile {
       margin-left: 35% !important
     }
 
-
   }
-
-
-
 
 
 
@@ -92,8 +82,6 @@
 
 </style>
 
-
-
 <div class="container m-b-60">
   <div class="card p-t-0">
     <div class="row">
@@ -112,27 +100,15 @@
 
                       <input id="title" type="text" name="title" uib-popover-html="titlePopover" popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm zolo-input-darken" placeholder="Enter package title" style="font-size: 16px !important; padding: 0!important;">
 
-                      <!--uib-popover-template="'vvvvv.html'"-->
-                      <!--<script type="text/ng-template" id="vvvvv.html">
-                        <div>Package Title</div>
-                        <div class="form-group">
-                          Package Title maximum 90 char!
-                        </div>
-                      </script>-->
-
-
-
                       <div ng-show="validation_error.package_name" class="text-danger">Title is Required! || Min 20 character | Max 100 character</div>
                                             <span class="word-counter">
                                                 <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
                                             </span>
-                      <!--<md-tooltip class="f-14 w-400" md-direction="right">
-                       Upto 100 characters
-                      </md-tooltip>-->
+
                     </div>
                   </div>
                 </div>
-                <!--ng-if="c.id==10 || c.id==14 || c.id==90 || c.id==15 || c.id==32 || c.id==44 || c.id==63 || c.id==77"-->
+
                 <div class="row user-post-a-package m-b-0">
                   <div class="col-md-3 p-l-0">
                     <label for="category">Category*</label>
@@ -148,9 +124,7 @@
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
-                      * Required Select category
-                    </md-tooltip>-->
+
                   </div>
                   <div class="col-md-3">
                     <label for="subcategory">Sub-Category</label>
@@ -175,25 +149,10 @@
                       </md-option>
                     </md-select>
                     <div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
-                      * required select package type
-                    </md-tooltip>-->
+
                   </div>
 
-                  <!--<div class="col-md-1">-->
-                    <!--<label class="pull-right" style="margin: 10px;">Tags</label>-->
-                  <!--</div>-->
 
-
-                  <!--<div class="col-md-4">-->
-                    <!--<tags-input ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true"  popover-placement="top" popover-trigger="focus">-->
-                      <!--<auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>-->
-                    <!--</tags-input>-->
-                    <!--<div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>-->
-                    <!--&lt;!&ndash;<md-tooltip class="f-14 w-400" md-direction="right">-->
-                      <!--* add tag-->
-                    <!--</md-tooltip>&ndash;&gt;-->
-                  <!--</div>-->
                 </div>
                 <div class="row user-post-a-package ">
                   <div class="col-md-6 m-b-20 p-l-0">
@@ -202,16 +161,9 @@
                       <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
                     </tags-input>
                     <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="bottom">
-                      * required add location
-                    </md-tooltip>-->
+
 
                   </div>
-
-                  <!--<div class="col-md-1">-->
-                    <!--<label class="pull-right" style="margin: 10px;">Tags</label>-->
-                  <!--</div>-->
-
 
                   <div class="col-md-6">
                     <p class="m-10 w-600">Tags</p>
@@ -219,34 +171,14 @@
                       <auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>
                     </tags-input>
                     <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
-                      * add tag
-                    </md-tooltip>-->
+
                   </div>
 
-                  <!--<div class="col-md-6 m-b-20">-->
-
-                    <!--<label for="package_type">Package Type</label>-->
-                    <!--<md-select ng-model="package.packages_type"  popover-placement="top" popover-trigger="focus" id="package_type" ng-change="validation_error.package_type=false">-->
-                      <!--<md-option value="" ng-selected="-1">Select Package Type</md-option>-->
-                      <!--<md-option ng-repeat="pt in packagesType" value="{{pt.id}}">-->
-                        <!--{{pt.name}}-->
-                      <!--</md-option>-->
-                    <!--</md-select>-->
-                    <!--<div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>-->
-                    <!--&lt;!&ndash;<md-tooltip class="f-14 w-400" md-direction="bottom">-->
-                      <!--* required select package type-->
-                    <!--</md-tooltip>&ndash;&gt;-->
-                  <!--</div>-->
                 </div>
                 <div class="row">
                   <div class="col-md-12">
 
                     <p class="w-600 ">Create a Catchy tagline for your package</p>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="top">
-                      * Create a introduction for your Package
-                    </md-tooltip>-->
-
 
                     <textarea class="form-control zolo-input-darken f-16" uib-popover-html="catchyTitlePopover" popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here.." rows="3"></textarea>
                     <!--<textarea class="form-control  zolo-textarea"  popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here.." rows="3"></textarea>-->
@@ -261,7 +193,7 @@
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <button type="submit" class="btn btn-primary active pull-right"  ng-disabled="saving">Save and Continue
                       <span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></button>
-                    <!--<button class="btn btn-primary active pull-right" ng-click="checkValidationFirst()">Save and Continue</button>-->
+
                   </div>
                 </div>
               </form>
@@ -277,32 +209,8 @@
                     <label>Describe your package*</label>
                     <textarea froala="froalaOptions" ng-model="package.description" uib-popover-html="descriptionPopover"  popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
 
-                    <!--<textarea cols="80" rows="10" class="cke-editor">
-                        &lt;h2&gt;Technical details &lt;a id=&quot;tech-details&quot; name=&quot;tech-details&quot;&gt;&lt;/a&gt;&lt;/h2&gt; &lt;table align=&quot;right&quot; border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot;
-                        style=&quot;border-collapse:collapse;margin:10px 0 10px 15px;&quot;&gt; &lt;caption&gt;&lt;strong&gt;Mission crew&lt;/strong&gt;&lt;/caption&gt; &lt;thead&gt; &lt;tr&gt; &lt;th scope=&quot;col&quot;&gt;Position&lt;/th&gt;
-                        &lt;th scope=&quot;col&quot;&gt;Astronaut&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;Commander&lt;/td&gt; &lt;td&gt;Neil A. Armstrong&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Command
-                        Module Pilot&lt;/td&gt; &lt;td&gt;Michael Collins&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Lunar Module Pilot&lt;/td&gt; &lt;td&gt;Edwin &amp;quot;Buzz&amp;quot; E. Aldrin, Jr.&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt;
-                        &lt;/table&gt; &lt;p&gt;Launched by a &lt;strong&gt;Saturn V&lt;/strong&gt; rocket from &lt;a href=&quot;http://en.wikipedia.org/wiki/Kennedy_Space_Center&quot; title=&quot;Kennedy Space Center&quot;&gt;Kennedy
-                        Space Center&lt;/a&gt; in Merritt Island, Florida on July 16, Apollo 11 was the fifth manned mission of &lt;a href=&quot;http://en.wikipedia.org/wiki/NASA&quot; title=&quot;NASA&quot;&gt;NASA&lt;/a&gt;&amp;#39;s
-                        Apollo program. The Apollo spacecraft had three parts:&lt;/p&gt; &lt;ol&gt; &lt;li&gt;&lt;strong&gt;Command Module&lt;/strong&gt; with a cabin for the three astronauts which was the only part which landed back on
-                        Earth&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Service Module&lt;/strong&gt; which supported the Command Module with propulsion, electrical power, oxygen and water&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Lunar Module&lt;/strong&gt;
-                        for landing on the Moon.&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;After being sent to the Moon by the Saturn V&amp;#39;s upper stage, the astronauts separated the spacecraft from it and travelled for three days until they
-                        entered into lunar orbit. Armstrong and Aldrin then moved into the Lunar Module and landed in the &lt;a href=&quot;http://en.wikipedia.org/wiki/Mare_Tranquillitatis&quot; title=&quot;Mare Tranquillitatis&quot;&gt;Sea
-                        of Tranquility&lt;/a&gt;. They stayed a total of about 21 and a half hours on the lunar surface. After lifting off in the upper part of the Lunar Module and rejoining Collins in the Command Module, they returned
-                        to Earth and landed in the &lt;a href=&quot;http://en.wikipedia.org/wiki/Pacific_Ocean&quot; title=&quot;Pacific Ocean&quot;&gt;Pacific Ocean&lt;/a&gt; on July 24.&lt;/p&gt; &lt;hr/&gt; &lt;p style=&quot;text-align:
-                        right;&quot;&gt;&lt;small&gt;Source: &lt;a href=&quot;http://en.wikipedia.org/wiki/Apollo_11&quot;&gt;Wikipedia.org&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
-                    </textarea>-->
-
-
-
-
-                    <!--<div class="summernote"></div>-->
-
-
                     <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
-                    <!--<md-tooltip md-direction="right">
-                      * Required | Max 8000 character
-                    </md-tooltip>-->
+
                   </div>
                 </div>
 
@@ -311,19 +219,13 @@
                   <div class="col-md-6">
                     <label>What does your package includes ? <span>(Deliverable)</span></label>
                     <textarea ng-model="package.deliverable" class="form-control zolo-input-darken"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
-                    <!--{{package.deliverable}}-->
-                    <!--<md-tooltip md-direction="right">
-                      what does your package includes
-                    </md-tooltip>-->
+
                   </div>
 
 
                   <div class="col-md-6">
                     <label>How is your package different from Others ?</label>
                     <textarea ng-model="package.different_from_others"  popover-placement="top" popover-trigger="focus" class="form-control zolo-input-darken" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
-                    <!--<md-tooltip md-direction="right">
-                      How your package different from other
-                    </md-tooltip>-->
                   </div>
 
 
@@ -337,11 +239,6 @@
                       <i class="fa fa-facebook-square f-24"></i>
 
                     </div>
-                    <!--<label>Facebook Link</label>-->
-
-                    <!--<md-tooltip md-direction="right">
-                      Facebook link Example: http://www.facebook.com
-                    </md-tooltip>-->
                   </div>
 
 
@@ -352,11 +249,7 @@
                       <i class="fa fa-youtube-square f-24"></i>
 
                     </div>
-                    <!--<label>Youtube Link</label>-->
 
-                    <!--<md-tooltip md-direction="right">
-                      Youtube link Example: http://www.youtube.com
-                    </md-tooltip>-->
                   </div>
 
                 </div>
@@ -366,9 +259,7 @@
                   <div class="col-md-6">
                     <label>Any Other Link</label>
                     <input type="text" maxlength="500" class="form-control zolo-input-darken" ng-model="package.any_other_links"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
-                    <!-- <md-tooltip md-direction="right">
-                       Any other link Example: http://www.other.com
-                     </md-tooltip>-->
+
                   </div>
 
 
@@ -390,7 +281,7 @@
                     <button type="submit" class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i></span></button>
 
-                    <!--<button class="btn btn-zolo pull-right">Preview</button>-->
+
                   </div>
                 </div>
                   </form>
@@ -407,9 +298,7 @@
                     <label for="actual_price">Actual Price*</label>
                     <input ng-model="package.price" id="actual_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
-                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
-                      * Required Actual Price
-                    </md-tooltip>-->
+
                   </div>
 
 
@@ -419,11 +308,6 @@
                     <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
                     <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
 
-
-
-                    <!--<md-tooltip class="f-14 w-400" md-direction="right">
-                      * Deal price should be less than Actual Price
-                    </md-tooltip>-->
                   </div>
                 </div>
 
@@ -445,9 +329,7 @@
                       </label>
                       <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" popover-placement="top" popover-trigger="focus" id="delivery_time_days" ng-change="validation_error.delivery_time_days=''" type="number" min="1" max="300" class="form-control zolo-input-darken" placeholder="Days"/>
                       <div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days'" class="text-danger"> Required Delivery time | min 1 max 300</div>
-                      <!--<md-tooltip class="f-14 w-400" md-direction="right">
-                        * Required Delivery Time
-                      </md-tooltip>-->
+
                     </div>
                   </div>
 
@@ -497,25 +379,6 @@
 
                   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div class="row user-post-a-package">
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <p><strong>Service Tax: Applicable</strong></p>
@@ -533,10 +396,6 @@
                   <div class="col-lg-6 col-md-6 col-xs-12">
                     <button type="submit" class="btn btn-primary active pull-right m-l-20"   ng-disabled="saving" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
-
-
-                    <!--<button class="btn btn-zolo pull-right">Preview</button>-->
-
 
 
                   </div>
@@ -603,21 +462,7 @@
                     <div id="images_to_show">
 
                     </div>
-                    <!--<script>
-                        function refresh(){
-                            document.getElementById('images_to_show').innerHTML='';
-                            var i=0;
-                            angular.forEach(photos,function(photo){
-                                document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
-                                        '<figcaption style="cursor: pointer;"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle"></i><small class="text-danger">Delete Image</small></a></figcaption></figure> ';
-                                i++;
-                            });
-                        }
-                        function deletePhoto(id){
-                            photos.splice(id,1);
-                            refresh();
-                        }
-                    </script>-->
+
                     <script>
                       function refresh(){
                         document.getElementById('images_to_show').innerHTML='';
@@ -627,7 +472,7 @@
                           document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
                             '<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';
                           i++;
-//                          if(photos.length==1)
+
                             $("#thumbnail").attr("checked","checked");
 
                           }
@@ -656,47 +501,6 @@
                     </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                   </div>
                 </div>
 
@@ -718,8 +522,6 @@
 
                     <button type="submit" class="btn btn-primary active pull-right m-l-20" >Save and Continue
                       <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
-
-                    <!--<button class="btn btn-zolo pull-right">Preview</button>-->
 
 
                   </div>
@@ -790,7 +592,6 @@
                       </div>
 
                       <div class="col-md-3 col-xs-12">
-                        <!--<button class="btn btn-zolo ">Preview</button>-->
 
                       </div>
 
@@ -915,29 +716,7 @@
 
 
                   </div>
-                  <!--<div class="row user-post-a-package">
-                      <div class="col-md-6">
-                          <label>Add-ons Description</label>
-                          <input type="text" ng-model="addon.description" class="form-control" placeholder="type here.." style="font-size: 16px; font-weight: 400;"/>
 
-                      </div>
-
-                      <div class="col-md-6">
-                          <label>Add-ons days</label>
-                          <input ng-model="addon.days" type="number" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
-                      </div>
-
-
-                  </div>
-
-                  <div class="row user-post-a-package">
-                      <div class="col-md-6">
-                          <label>Add-ons Terms and Condition</label>
-                          <input type="text" ng-model="addon.terms" class="form-control" placeholder="type here.."/>
-                      </div>
-
-
-                  </div>-->
 
                   <button type="button" ng-click="removeAddon($index)" class="btn">Remove Addon</button>
                     </ng-form >
@@ -981,7 +760,6 @@
   </div>
 
 </div>
-
 
 
 

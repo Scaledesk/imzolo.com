@@ -2,9 +2,21 @@
   .page-content {
     top: 40px!important;
   }
-/*.deletebutton {*/
+  /*.deletebutton {*/
   /*position: absolute !important*/
-/*}*/
+  /*}*/
+
+
+
+  .mfp-image-holder .mfp-content{
+    max-height: 75%;
+    max-width: 70%;
+  }
+
+  .mfp-bottom-bar{
+    margin-top: 80px;
+  }
+
 
 </style>
 
@@ -18,37 +30,37 @@
 
       <div class="row">
         <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-7">
-          <p class="f-30  w-300">{{portfolio.myPortfolio.username}}'s Portfolio </p>
-          </div>
-
-          <div class="col-md-5 p-t-20">
-            <div class="pull-right">
-              <a class="text-muted" href="" ng-hide="show_edit || user_profile.user_id !=portfolio.myPortfolio.user_id"  ng-click="showedit();"> <i class="fa fa-edit"></i> Edit Portfolio &nbsp; | &nbsp; </a>
-              <a class="text-muted" href=""
-                 socialshare
-                 socialshare-url="http://imzolo.com/portfolio/{{portfolio.myPortfolio.id}}"
-                 socialshare-provider="facebook"
-                 socialshare-text="{{portfolio.myPortfolio.name}}"
-                 socialshare-media="{{portfolio.myPortfolio.files.data[0].fileurl}}"
-                 socialshare-via="953913041345816"
-                 socialshare-description="{{portfolio.myPortfolio.description}}"
-                 socialshare-type="feed"
-                 class="hover-f ">
-                <i class="icon-share-alt"></i>Share on Facebook
-
-
-
-
-              </a>
+          <div class="row">
+            <div class="col-md-7">
+              <p class="f-30  w-300">{{portfolio.myPortfolio.username}}'s Portfolio </p>
             </div>
 
+            <div class="col-md-5 p-t-20">
+              <div class="pull-right">
+                <a class="text-muted" href="" ng-hide="show_edit || user_profile.user_id !=portfolio.myPortfolio.user_id"  ng-click="showedit();"> <i class="fa fa-edit"></i> Edit Portfolio &nbsp; | &nbsp; </a>
+                <a class="text-muted" href=""
+                   socialshare
+                   socialshare-url="http://imzolo.com/portfolio/{{portfolio.myPortfolio.id}}"
+                   socialshare-provider="facebook"
+                   socialshare-text="{{portfolio.myPortfolio.name}}"
+                   socialshare-media="{{portfolio.myPortfolio.files.data[0].fileurl}}"
+                   socialshare-via="953913041345816"
+                   socialshare-description="{{portfolio.myPortfolio.description}}"
+                   socialshare-type="feed"
+                   class="hover-f ">
+                  <i class="icon-share-alt"></i>Share on Facebook
 
+
+
+
+                </a>
+              </div>
+
+
+
+            </div>
 
           </div>
-
-        </div>
 
           <hr class="custom-hr">
 
@@ -66,24 +78,28 @@
 
                 <div class="form-group col-md-12">
                   <p class="f-16 m-t-20">Name</p>
-                  <input ng-model="portfolio.myPortfolio.name" name="portfolio_name"  id="portfolio_name" type="text" class="form-control" required>
+                  <input ng-model="portfolio.myPortfolio.name" name="portfolio_name"  id="portfolio_name" type="text" maxlength="50" class="form-control" required>
                   <div ng-show="myform1.portfolio_name.$error.required" class="text-danger">Name is required</div>
 
                 </div>
 
                 <div class="form-group col-md-12">
                   <p class="f-16 m-t-20">Description</p>
-                  <textarea ng-model="portfolio.myPortfolio.description" name="portfolio_description" id="portfolio_description" class="form-control empty"  style="height:50px;" ></textarea>
+                  <textarea ng-model="portfolio.myPortfolio.description" name="portfolio_description" id="portfolio_description" maxlength="800" class="form-control empty"  style="height:50px;" ></textarea>
                   <!--<div class="text-danger">Description is required</div>-->
 
 
                 </div>
 
-                <button type="button" class="btn" name="file1" ng-model="port.picFiles" ngf-select="uploadPortfolio(port.picFiles)"  ngf-accept="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PNG,.JPG,.JPEG,.GIF,.pdf,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-multiple="true" >Add more files</button>
-<br/>
+                <button type="button" class="btn" name="file1" ng-model="port.picFiles" ngf-select="uploadPortfolio(port.picFiles)"  ngf-accept="'.PDF,.DOC,.DOCX,.PNG,.PPT,.JPG,.JPEG,.GIF,.pdf,.ppt,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-pattern="'.PDF,.DOC,.DOCX,.PNG,.PPT,.JPG,.JPEG,.GIF,.pdf,.ppt,.doc,.docx,.png,.jpg,.jpeg,.gif'" ngf-multiple="true" >Select more files</button>
+                <br/>
+
+                <p  class="f-10 m-t-0" >* Max size 10MB | Accepted Formats .PDF,.DOC,.DOCX,.PPT,.PNG,.JPG,.JPEG,.GIF</p>
+
+
                 <button class="btn zolo-btn pull-right" ng-click="updatenewPortfolio(port.picFiles)" style="margin:0px!important;">Save</button>
 
-                <button class="btn zolo-btn" ng-click="closeedit();" style="margin: 0 !important;">Close</button>
+                <button type="button" class="btn zolo-btn" ng-click="closeedit();" style="margin: 0 !important;">Close</button>
 
                 <div class="col-md-12">
                   <div class="row">
@@ -100,19 +116,18 @@
 
             </div>
 
-          </div>
+            <!--<hr class="custom-hr">-->
 
 
-          <hr class="custom-hr">
-
-        </div>
-        <div ng-hide="show_edit"  class="col-md-12">
-          <div class="row">
-            <div class="col-md-4 m-t-10" ng-hide="Loading_delete" ng-repeat="file in portfolio.images">
+            <div class="col-md-4 m-t-20" ng-hide="Loading_delete" ng-repeat="file in portfolio.images">
               <div class="my-effect-img">
                 <figure>
-                  <a ng-click="openLightboxModal($index)">
-                    <img class="img-responsive" src="{{file.url}}">
+                  <a href="{{file.url}}" target="_blank">
+                    <img ng-if="file.fileformat=='pdf'" class="img-responsive" src="../global/images/Pdfimage.png">
+                    <img ng-if="file.fileformat=='doc'||file.fileformat=='docx'" class="img-responsive" src="../global/images/docimage.png">
+                    <img ng-if="file.fileformat=='ppt'" class="img-responsive" src="../global/images/pptimage.png">
+                    <img ng-if="file.fileformat=='png'||file.fileformat=='jpg'||file.fileformat=='jpeg'||file.fileformat=='gif'||file.fileformat=='bitmap'" class="img-responsive" src="{{file.url}}">
+
                   </a>
                   <figcaption>
                     <span  ng-show="user_profile.user_id===portfolio.myPortfolio.user_id" ng-click="deletePortfolioImage(portfolio.myPortfolio, $index)" class="text-center ">Delete&nbsp;<i class="fa fa-trash f-20 text-danger"></i></span>
@@ -123,6 +138,7 @@
               </div>
             </div>
 
+
             <div ng-show="Loading_delete" class="row p-20 text-center ">
               <div class="col-md-12 text-center m-t-60">
                 <div layout="row" layout-sm="column" layout-align="space-around">
@@ -130,6 +146,118 @@
                 </div>
               </div>
             </div>
+
+
+
+          </div>
+
+
+          <hr class="custom-hr">
+
+
+
+
+          <!--<div class="col-md-4 m-t-10" ng-hide="Loading_delete || Loading_edit" ng-repeat="file in portfolio.imagesonly" >-->
+          <!--<div class="my-effect-img">-->
+          <!--<figure>-->
+          <!--<div class="popup-gallery">-->
+
+          <!--<a ng-click="openLightboxModal($index)">-->
+          <!--<img class="img-responsive" src="{{file.url}}">-->
+          <!--</a>-->
+
+          <!--</div>-->
+
+          <!--<figcaption>-->
+          <!--<span  ng-show="user_profile.user_id===portfolio.myPortfolio.user_id" ng-click="deletePortfolioImage(portfolio.myPortfolio, $index)" class="text-center ">Delete&nbsp;<i class="fa fa-trash f-20 text-danger"></i></span>-->
+          <!--</figcaption>-->
+
+          <!--</figure>-->
+
+          <!--</div>-->
+          <!--</div>-->
+
+
+
+        </div>
+        <div ng-hide="show_edit"  class="col-md-12">
+          <div class="row">
+
+            <!--old code of delete-->
+
+            <!--<div class="col-md-4 m-t-10" ng-hide="Loading_delete || Loading_edit" ng-repeat="file in portfolio.imagesonly" >-->
+            <!--<div class="my-effect-img">-->
+            <!--<figure>-->
+            <!--<div class="popup-gallery">-->
+
+            <!--<a ng-click="openLightboxModal($index)">-->
+            <!--<img class="img-responsive" src="{{file.url}}">-->
+            <!--</a>-->
+
+            <!--</div>-->
+
+            <!--<figcaption>-->
+            <!--<span  ng-show="user_profile.user_id===portfolio.myPortfolio.user_id" ng-click="deletePortfolioImage(portfolio.myPortfolio, $index)" class="text-center ">Delete&nbsp;<i class="fa fa-trash f-20 text-danger"></i></span>-->
+            <!--</figcaption>-->
+
+            <!--</figure>-->
+
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--old code of delete-->
+
+
+
+
+            <div ng-hide="Loading_delete || Loading_edit"  class="popup-gallery  masonry">
+              <!--<div class="masonry">-->
+                <!--<div class="item-my">-->
+                <span class="item-my" ng-repeat="filenew in portfolio.imagesonly">
+                      <a href="{{filenew.url}}" title="Images" >
+                      <img class="img-responsive"  src="{{filenew.url}}">
+                        <!--<img src="../global/images/freelance.png" alt="">-->
+                    </a>
+                </span>
+                <!--</div>-->
+              <!--</div>-->
+
+              <!--<figcaption>-->
+              <!--<span  ng-show="user_profile.user_id===portfolio.myPortfolio.user_id" ng-click="deletePortfolioImage(portfolio.myPortfolio, $index);" class="text-center ">Delete&nbsp;<i class="fa fa-trash f-20 text-danger"></i></span>-->
+              <!--</figcaption>-->
+            </div>
+
+            <hr class="custom-hr">
+
+
+
+            <div class="col-md-2 m-t-10" ng-hide="Loading_delete || Loading_edit" ng-repeat="file in portfolio.images" ng-if="file.fileformat=='pdf' ||file.fileformat=='docx'||file.fileformat=='doc'||file.fileformat=='ppt' ">
+              <div >
+
+                  <a class="border bd-3 p-10 p-l-15 p-r-15 zolo-c " href="{{file.url}}" target="_blank">
+
+                    <i ng-if="file.fileformat=='pdf'" class="fa fa-file-pdf-o "  aria-hidden="true"></i><p  ng-if="file.fileformat=='pdf'" class="ib">&nbsp;PDF</p>
+                    <i ng-if="file.fileformat=='doc'||file.fileformat=='docx'" class="fa fa-file-text" aria-hidden="true"></i><p ng-if="file.fileformat=='doc'||file.fileformat=='docx'" class="ib">&nbsp;DOC</p>
+                    <i  ng-if="file.fileformat=='ppt'"  class="fa fa-file " aria-hidden="true"></i><p  ng-if="file.fileformat=='ppt'" class="ib">&nbsp;PPT</p>
+
+                  </a>
+
+
+              </div>
+            </div>
+
+
+
+            <div ng-show="Loading_edit" class="row p-20 text-center ">
+              <div class="col-md-12 text-center m-t-60">
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                  <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+                </div>
+              </div>
+            </div>
+
+
+
 
           </div>
         </div>

@@ -78,21 +78,21 @@
         <form name="withdrawal.bankDetailsForm" role="form" ng-submit="withdrawal.submitBankDetails()" novalidate>
 
           <label for="name" class="m-t-20">Enter Bank Name</label>
-          <input type="text" id="name" name="name" class="form-control" ng-model="withdrawal.seller.name" placeholder="User Name" required/>
+          <input type="text" id="name" name="name" class="form-control" maxlength="50" ng-model="withdrawal.seller.name" placeholder="User Name" required/>
           <div ng-show="withdrawal.bankDetailsForm.name.$error.required && withdrawal.submitted" class="text-danger">Name is required </div>
 
 
           <label for="branch" class="m-t-20">Enter Branch Name</label>
-          <input type="text" id="branch" name="branch" class="form-control" ng-model="withdrawal.seller.branch" placeholder="Bank Name" required/>
+          <input type="text" id="branch" name="branch" class="form-control" maxlength="50" ng-model="withdrawal.seller.branch" placeholder="Bank Name" required/>
           <div ng-show="withdrawal.bankDetailsForm.branch.$error.required && withdrawal.submitted" class="text-danger">Bank Name is required </div>
 
 
           <label for="account_number" class="m-t-20">Account Number</label>
-          <input type="number" id="account_number" name="account_number" number-converter class="form-control" ng-model="withdrawal.seller.acc_number" placeholder="Account Number" required/>
+          <input type="text" id="account_number" name="account_number" ng-keypress="filterValue($event)" maxlength="50"  number-converter class="form-control" ng-model="withdrawal.seller.acc_number" placeholder="Account Number" required/>
           <div ng-show="withdrawal.bankDetailsForm.account_number.$error.required && withdrawal.submitted" class="text-danger">Account number is required </div>
 
           <label for="ifsc_code" class="m-t-20">IFSC Code</label>
-          <input type="text" id="ifsc_code" name="ifsc_code" class="form-control" ng-model="withdrawal.seller.ifsc" placeholder="IFSC Code" required/>
+          <input type="text" id="ifsc_code" name="ifsc_code" class="form-control" maxlength="50" ng-model="withdrawal.seller.ifsc" placeholder="IFSC Code" required/>
           <div ng-show="withdrawal.bankDetailsForm.ifsc_code.$error.required && withdrawal.submitted" class="text-danger">IFSC code is required </div>
 
 
