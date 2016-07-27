@@ -41,7 +41,7 @@
           <div class="col-xs-2">
             <div class="m-t-10 text-center pull-right">
               <span class="text-muted-z f-12">Total Amount: <br></span>
-              <span class="w-600"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</span>
+              <span class="w-600"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price*booking.quantity}}</span>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
 
           </div>
           <div class="col-md-6 col-xs-10">
-            <p class="zolo-n-m p-r-20 pull-right f-16">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price}}</span>
+            <p class="zolo-n-m p-r-20 pull-right f-16">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price*booking.quantity}}</span>
             </p>
           </div>
         </div>

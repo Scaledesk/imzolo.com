@@ -53,12 +53,14 @@
         <h2><strong>Manage Purchases</strong></h2>
         <hr class="custom-hr">
         <ul class="nav nav-tabs nav-primary manage-sales">
-          <li><a href="">New</a></li>
-          <li><a href="">Active</a></li>
-          <li><a href="">Late</a></li>
-          <li><a href="">Deliver</a></li>
-          <li><a href="">Completed</a></li>
-          <li><a href="">Cancelled</a></li>
+          <li><a ng-click="MyallPurchase()">All purchases</a></li>
+
+          <!--<li><a href="">New</a></li>-->
+          <li><a ng-click="filterMyPurchase('payment_done')">In process</a></li>
+          <!--<li><a href="">Late</a></li>-->
+          <!--<li><a href="">Deliver</a></li>-->
+          <li><a ng-click="filterMyPurchase('completed')">Completed</a></li>
+          <li><a ng-click="filterMyPurchase('cancelled')">Cancelled</a></li>
         </ul>
       </div>
     </div>
@@ -67,7 +69,7 @@
         <div class="panel-header md-panel-controls">
 
         </div>
-        <div ng-if="my_purchases.data.length>0" class="panel-content">
+        <div ng-if="my_purchases.length>0" class="panel-content">
           <table class="table table-striped">
             <thead>
             <tr>
@@ -81,20 +83,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="purchase in my_purchases.data | orderBy :'-order_date'">
+            <tr ng-repeat="purchase in my_purchases | orderBy :'-order_date'">
               <td>{{$index+1}}</td>
               <td>{{purchase.seller_profile.name}}</td>
               <td><a ng-href="/orderSuccessful/{{purchase.id}}/">{{purchase.package_title}}</a></td>
               <td>{{purchase.order_date}}</td>
               <td>{{purchase.order_time}}</td>
               <td>{{purchase.delivery_date}}</td>
-              <td>&#8377; {{purchase.deal_price}}</td>
+              <td>&#8377; {{purchase.total_price}}</td>
             </tr>
             </tbody>
           </table>
         </div>
-        <div ng-if="my_purchases.data.length<=0" class="panel-content">
-          <p>You have not any purchases</p>
+        <div ng-if="my_purchases.length<=0" class="panel-content">
+          <p class="f-18 w-500 text-center">You have not any purchases!</p>
+
         </div>
       </div>
     </div>

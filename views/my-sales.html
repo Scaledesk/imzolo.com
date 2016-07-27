@@ -59,12 +59,12 @@
         <h2><strong>Manage Sales</strong></h2>
         <hr class="custom-hr">
         <ul class="nav nav-tabs nav-primary manage-sales">
-          <li><a ng-click="my_seles = my_all_seles">Total Sales</a></li>
-          <li><a ng-click="orderMySales('package_available_dates')">New</a></li>
-          <li><a ng-click="filterMySales('payment_done')">In Process</a></li>
+          <li><a ng-click="MyallSales()">All sales</a></li>
+          <!--<li><a ng-click="orderMySales('package_available_dates')">New</a></li>-->
+          <li><a ng-click="filterMySales('payment_done')">In process</a></li>
           <!--<li><a ng-click="filterMySales('payment_done')">Late</a></li>-->
           <li><a ng-click="filterMySales('completed')">Delivered</a></li>
-          <li><a ng-click="filterMySales('completed')">Transaction Completed</a></li>
+          <!--<li><a ng-click="filterMySales('completed')">Transaction Completed</a></li>-->
           <li><a ng-click="filterMySales('cancelled')">Cancelled</a></li>
         </ul>
       </div>

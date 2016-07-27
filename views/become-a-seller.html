@@ -1,18 +1,214 @@
 <style>
   .main-content .page-content{
     padding: 0!important;
+    top: 45px!important;
+    background-color: #ecf0f1!important;
+
+  }
+
+  .team-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.66)),  url(../global/images/BACK.jpg) no-repeat;
+    width: 100%;
+    height: 600px;
+    margin-bottom: -2px;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .border-box{
+    color: #fff;
+  }
+
+  .border-box-txt {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: 3px solid #fff;
+    padding: 20px;
 
   }
 
 
+  .bg-icon{
+    display: block;
+    position: absolute;
+    bottom: -46px;
+    left: -41px;
+    opacity: .06;
+    font-size: 23em;
+
+  }
+
+
+  .why-us-bg{
+    position: relative;
+    overflow: hidden;
+    padding: 30px 60px 100px 60px;
+  }
+
+  .fa-truck{
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+
+  .b-seller:hover{
+    transform: scale(1.11) rotate(360deg);
+    transition: all .5s;
+  }
+
+  .bg-icon:hover{
+    transform: scale(1.1);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important;
+    transition: all .5s;
+  }
+
+  .bg-icon:nth-child(2):hover{
+    -moz-transform: scaley(-1);
+    -webkit-transform: scaley(-1);
+    transform: scaley(-1);
+
+  }
+
+  .service-box{
+    padding: 10px;
+  }
+
+  .service-h{
+    text-align: center;
+  }
+
+  .service-h:hover{
+    margin: -3px;
+    transition: all .3s ease-in-out;
+
+  }
+
+  .service-h img{
+    transition: all .3s ease-in-out;
+  }
+
+  .service-h img:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: -3px;
+    transition: all .3s ease-in-out;
+
+  }
+
+  .service-h:hover .service-box{
+    transition: all .3s ease-in-out;
+    background-color: #673ab7;
+    color: #ffffff;
+    padding: 10px;
+
+  }
+
+
+
+
+
+
 </style>
 
+
+
+<div class="team-bg">
+  <!--<div class="row">-->
+    <!--<img src="../global/images/s-w2.jpg" alt="" class="bg-primary" width="100%">-->
+    <!--<img src="../global/images/s-m2.jpg" alt="" class="bg-primary hidden-md hidden-sm hidden-lg" width="100%">-->
+
+    <!--<div class="bg-img top">-->
+      <div class="border-box">
+        <div class="border-box-txt">
+          <h2 class="f-36">Build A Career Around Your Passion</h2>
+          <p class="f-18 hidden-xs text-center"> Love what you do? Got a Talent? Monetize Anything on Zolo! </p>
+        </div>
+
+      <!--</div>-->
+
+    </div>
+
+  </div>
+
+
+  <div class="img-over-txt hidden-xs">
+    <div class="row">
+
+      <div class="col-xs-3 border-right">
+        <h3 class="text-center w-700">Work From Home</h3>
+        <p class="text-center w-500" style="margin-top: -6px;">The supporting line goeshere for the customers</p>
+      </div>
+
+
+      <div class="col-xs-3 border-right">
+        <h3 class="text-center w-700">Freelancing Projects</h3>
+        <p class="text-center w-500" style="margin-top: -6px;">The supporting line goeshere for the customers</p>
+      </div>
+
+
+      <div class="col-xs-3 border-right">
+        <h3 class="text-center w-700">Part-Time Projects</h3>
+        <p class="text-center w-500" style="margin-top: -6px;">The supporting line goeshere for the customers</p>
+      </div>
+
+
+      <div class="col-xs-3 border-right">
+        <h3 class="text-center w-700">Monetize Hobbies</h3>
+        <p class="text-center w-500" style="margin-top: -6px;">The supporting line goeshere for the customers</p>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+<div class="img-over-txt visible-xs p-10">
+  <div class="row">
+
+    <div class="col-md-3">
+      <h3 class="text-center">Work From Home</h3>
+      <p class="text-center">The supporting line goeshere for the customers</p>
+    </div>
+
+
+    <div class="col-md-3">
+      <h3 class="text-center">Freelancing Projects</h3>
+      <p class="text-center">The supporting line goeshere for the customers</p>
+    </div>
+
+
+    <div class="col-md-3 ">
+      <h3 class="text-center">Part-Time Projects</h3>
+      <p class="text-center">The supporting line goeshere for the customers</p>
+    </div>
+
+
+    <div class="col-md-3">
+      <h3 class="text-center">Monetize Hobbies</h3>
+      <p class="text-center">The supporting line goeshere for the customers</p>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
 <div class="container-fluid">
-
-  <div class="card">
+  <div class="card" style="box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important;">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center w-100 ">Zolo is an ideal platform for</h2>
+        <h2 class="text-center w-600 ">Sell A Wide Range of Services &amp; Digital Products on Zolo</h2>
+        <p class="text-center">Zolo is a platform where you can showcase your Talent &amp; Monetize it</p>
         <hr>
       </div>
     </div>
@@ -20,23 +216,37 @@
 
 
     <div class="row">
-      <div class="col-md-4">
-        <img src="../global/images/artist.png" alt="" class="img-responsive img-circle b-s-img">
-        <p class="text-center f-16 text-muted-z">Designer, Musicians, Artists & Creative Professionals</p>
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+          <img src="../global/images/GRAPHIC-DESIGN.jpg" alt="" class="img-circle b-s-img" width="210">
+          <p class="text-center f-16 w-700 service-box">Web &amp;  Graphic Designing</p>
+        </div>
+
 
       </div>
 
 
-      <div class="col-md-4">
-        <img src="../global/images/counselor.png" alt="" class="img-responsive img-circle b-s-img">
-        <p class="text-center f-16 text-muted-z">Consultants, Advisors and Counselors</p>
-
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/WEB-DESIGNING.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Web &amp; App Development</p>
+</div>
       </div>
 
 
-      <div class="col-md-4">
-        <img src="../global/images/freelance.png" alt="" class="img-responsive img-circle b-s-img">
-        <p class="text-center f-16 text-muted-z">Freelancers & Work At Home Professionals</p>
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/WRITING.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Blog &amp; Copy Writing</p>
+          </div>
+
+      </div>
+
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/TRANSLATE.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Language Translation</p>
+          </div>
 
       </div>
 
@@ -45,28 +255,91 @@
     </div>
 
 
-    <div class="row">
-      <div class="col-md-4">
-        <img src="../global/images/teacher.png" alt="" class="img-responsive img-circle b-s-img">
-        <p class="text-center f-16 text-muted-z">Teachers, Coaches and Trainers</p>
+    <div class="row m-t-60">
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="https://cp10eng.wikispaces.com/file/view/globe-puzzle.jpg/121922087/globe-puzzle.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Research Projects</p>
+          </div>
+
+      </div>
+
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/zolo_homepage_vendors/freelancer.jpg" alt="" class=" img-circle b-s-img">
+        <p class="text-center f-16 w-700 service-box">Data Entry</p>
+          </div>
 
       </div>
 
 
-      <div class="col-md-4">
-        <img src="../global/images/student.png" alt="" class="img-responsive img-circle b-s-img">
-        <p class="text-center f-16 text-muted-z">Students, Part Time Workers, Retired People & Home Makers</p>
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/PHOTOGRAPHY.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Photography &amp; Videography</p>
+          </div>
 
       </div>
 
-      <div class="col-md-4">
-        <img src="../global/images/industry-experts.png" alt="" class="img-responsive img-circle b-s-img">
-        <p class="text-center f-16 text-muted-z">Industry Experts & Other Service Providers</p>
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/DATA%20ENTRT%202.jpg" alt="" class=" img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Skype Consultation</p>
+          </div>
 
       </div>
 
 
 
+    </div>
+
+
+
+    <div class="row m-t-60">
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/RECIPE.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Recipe Classes</p>
+          </div>
+
+      </div>
+
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/WELLNESS.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Wellness Classes</p>
+          </div>
+
+      </div>
+
+
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/DANCE.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Dance &amp; Aerobic Classes</p>
+          </div>
+
+      </div>
+
+      <div class="col-md-3 text-center">
+        <div class="service-h">
+        <img src="../global/images/TUTION.jpg" alt="" class="img-circle b-s-img" width="210">
+        <p class="text-center f-16 w-700 service-box">Tuition Classes</p>
+          </div>
+
+      </div>
+
+
+
+    </div>
+
+    <hr>
+
+
+    <div class="row ">
+      <div class="col-md-12">
+        <h2 class="text-center">Let us help you create a package! Call <a href="tel:08880091091">8880091091</a></h2>
+      </div>
     </div>
 
 
@@ -79,156 +352,51 @@
 
 
 
-  <div class="card">
-    <div class="row m-t-10">
-      <div class="col-md-2 text-center col-md-offset-1 col-sm-3">
-        <img class="icon icons8-Gift" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADD0lEQVRoQ+1YTVIaURD+mrEKdvEI5ATqCZKcIOMigazEEwTL4ScrcZVBsCQnEFcZkoWTG+AJ1BtwBLOTKodONTDlSGbeeyUSU9ZjZUm/7vn6+/rreRBeyIdMcHz51N1hRgXA23n8CMAQcA79YE/+XvpT+3C06Ti5z/MaxXnCIRH6X797Z7oCWiDNcvcUmILI+FDLD/YPdYVU3zfLxwcAtxQxfT/wdlU5lEDqpU41R3TCzL+JctXb21zYC/dumuWTInBXAehAkjPjW3vgVR8DplHq9oggTEimQ2CtLyxX3ZP1QmHiMk96RPRqwrx3NKj1MtupKt4odS6JaBOgXT/Y7y/G1j923VwO57P/p8domKgALIwLiHd+UBsuxjfLx9MYZr5qD2pbjwLSLHdZDvqBl8ncfSHcEDlbpjMjrDJHl0RY1zXB5DmU0jJJIEAbpU5IRO+ZEbYH3raJxBql7jkRXGb+1R7UXDVz+oZqgHSGAL2ZTLB99MMLs4qJnvP5u5FoOUsiybOxJGX2xuO1osxdVu57+fKFH9Ri1/wrXAekJQNt0unYGACM/MB7rQJdKESXAIq6AZ6xPWNOF6sEkuy0LtG86BURNlQuFrsUM67bA29TJamka+qY0+6RpDMJM+Oxs5slhflSk24jTY6xMcj3UTTZ6vysX6UBmTUwOhUmVI6WPKsFIsEChoj7MgPM4k4ImTkkWrtedKmExGS/VMdjZ7qV8/lohwjTPZDG7szF7jaIyGWGK24mM8RMFdV8xmCMgEjwbAlGsn13TFzpCWLOAKdlaudTILHNPkHxZ0khe+5lAlFtcJNWmy5Q0zhdzWSeB4xYIPPWmXbaNM4yYqVlpZV9z9HNR3L/rWyP6CT61Av45QGJaVzWFk3Pm8ZlySvt/IOXxlUUSHuYVdSxQJbptGVEsa+stKy0EjdS3eK09rsKN1lGgpYRy8g/vo/Ydy2TS87iRUd1ZhUStpt9GVu1jNiXRtMpt/b7uJ+D7B4xVZipG5nGLf3SaPrgzx2XvM+kLsTnfkDT+plATBP8j3F/AJurPmBZzDW6AAAAAElFTkSuQmCC" width="50" height="50">
-
-        <p class="text-center w-500 text-muted-z">Easy to Sell</p>
-
-
-      </div>
-
-
-      <div class="col-md-2 text-center col-sm-3">
-        <img class="icon icons8-Rupee" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACoklEQVR4Xu2ZzXHbMBCF3/KQq91BlJnYyS1KBXE6MKUCDHcQVRB1YHVgpACZ6iDqIPbNlg5WOlCuOnAzYMwMTSkRSVBYeAgdKfwsPrx9WIKEjv+o4+tHABAU0HECIQU6LoBggiEFQgpYEnh3o9hyCKvuDwNtpWKrzibyACAooOMpUCWB3yeqlwJ9MM4JuNjVJ2VcLodaVxmvzTbWHlA3mAwGY7wLhAQE5wByYG8TdRalmBHhKH/GwDoifLyP9aou2KbtxQCYgE8S1acU8xKEb4uBVk0XVLefKIDsGJ2qLyBcFQMnwhtXKhAH8ARhBcLrvxAYo4ehntTdzSbtrQGEQigUQh0vhDqfAk2Mp9zHHIcR40ehHrhbDHS/jbH3jWFtgvsmqPJ/+ShkwFkt4AeAG/UIoPcij8EqO/y/Nlu7z/i1idBbxXptO3aV/qIKyEphxncCjgv570z+Zk4xAKeJOgfj+tniHe++CIBeoo5fpbgiwtYLDxPiRaxnVaTbVhsnCvhzB0CfwHy2a+FmMRJ3Aa0ooI1CSGrx4gAYuGOCWsb6ti1J1x3HOgUaKYDxMwXGEneAZUBOAJidJmDNjDlHmEnuuBMAzNCbCCNXxUxd2T+7fbLpbPqeTJWKCNflcRi4jQixq6utpuuwToEMwo7LTfPc3PIy4bNPkm89BfIBswKHMSfgQ3kSyWNunzJaUUAJwuQfHz0my6Ee7QvI9f+tAsiDP52qMRG+bvkCY7aJcOmTOR4EQG6OBEyKHz2efMErczwYgJdijgcFYCD4bo4HB1CA4KU5OgHgszk6BeCjOToH4Js5igDwyRzFAPhijqIAfDBHLwBImqM3AKTM0SsArt8EzXwBgAR1n+YMCvBpNyRiCQqQoO7TnEEBPu2GRCydV8Bv445CUIRM9iYAAAAASUVORK5CYII=" width="50" height="50">
-
-        <p class="text-center w-500 text-muted-z">Get Paid Upfront</p>
-
-
-
-      </div>
-
-
-      <div class="col-md-2 text-center col-sm-3">
-        <img class="icon icons8-Checked-User" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEn0lEQVRoQ+1aTXLaWBDuFvZiaiRGcIGQE8RzgsEnGOcEhhqR7eAThJwgznbQFOQExieAnMDOCUIugGREahbBr6dafwhirPejKliElY3f69df//8YoaLPfyO39X0Nr9CyzrZIopjZCJ+xG4YVPfUkGTQlvvLdSyLsA+I2gAJhAgotpCv7r3Bs+t6++9pAaOS6qzVOMwAE9BUAZ0gwJxT3/CASa4fagPhHwgBNEGhie+HHqgFpASmCYAAW0uA5aUfD5gAQ3ubME93bJ3RepblpAdkwRp/tGrVlGGIfWq+tDgH1EfE3AJo5XnBelWaUgcRO/Yh3COgCiXOnF85UmFn9454JxBmDQRTdqvxGGcjqX7dDZI2A6NbpBRcqILKzuUaJPjm9oK1DY/eOMpCl3xwjwCWSuLJ74bUOE9HQbQNaU77reAtlHp56U5lINGzM4iikYVZFBiK/Sfz7SU28/KUbznUEUrxzcCCmAsnAHBwICvG7/SaM847J5yBAOHKRZd0d1EdyZzcInZmzE9FDvRe4JpowMK08S39wvEVfh4mjCL956DTIAZvIB++c3mKgIwzjPJIlRK5o617Q0GEiC70mucgYSBXSPArTWvqNOQK+MIn/ubMDfa17QUtHq5VpxKTgK9Rrh6u1ij6i0/XxfUH4nqvng/pI3FQ94gwAX+kktMzRAeR7GRnTU87sTDQBYwWqRV/cXD1aX/ieXRMNmYZMBgSf0QLCF7PopWIeq6HbJ7Teg0EO2gdMG0jGFAHN617wUkZyS7/xBQFbKuBl6BpphM0rWuM87b8njhe8fu7RyG/cAOAF11fOCbWqNCsjIHx56bsXCNaNjNNnTk4gXte9cCIradlz2qaVPZAxWNayyp6TZdw4Ie4SkGVQ9txPILoS4HsqnV5e8VbU2lZmWvGgzcIbDqdA5X1FoeK9R6JuFX16EYyysyeTRustAnQSQnKlxm5pQwDj05p4V8UoSCn8Lofun4jY4VxQkIRyuxv5TR7q/b2hQRMiGtd74a2qmafj2ylr+FmNsBS/PcKlAOzHJsTyJ3oAxMlpTQx0pZlqdQBEF0lCBeAKARHHtiU+yCbLaNi4i9caRLd7gXCyA8BRPKxOTQiJxr+ewFj2oTIJx4JaQ0dgLKgXKaAQgLplSXPpN0eJeaemvftYasuj3ISIPgHQQHXqXgbih3zE82DAQbYUYh9yauLqKaHlPRHRg0XU5sDxg0YydSUmRJ0yyagyXHY+brwEXu/boRRDfrFL3QKSOSJvoU5r1Nb1gTJmd/+edI0QZkIr7lCKoT0uVJPdDPvrVqDJgRSbnqrmsTKA9kk4/77Qu0R+YwqAbfYLxwu2lq85kCxhEcDHurdIc4QMK+Zn8oYr8fZrp7e44h854Dg1mLGf5Naypw0oAKlm76ELK5+sxFi2Hb3YLuyzlhzI0m8Em1Cry47OPZrYNeqy1Ld9I9n8fvsOLWHhtGzqstFIukHSYcX4TmFdndZwk2QISMneBPGszOSVay1jpiUI7NZlMvXcUQKJfT75z4oxAbSzpPecDI4WSMY0m5pMyX/0QCQsMXEj2YPHfu4nkGPT0P9S6wVLh6D5fwAAAABJRU5ErkJggg==" width="50" height="50">
-
-        <p class="text-center w-500 text-muted-z">No Unwanted queries</p>
-
-
-      </div>
-
-
-      <div class="col-md-2 text-center col-sm-3">
-        <img class="icon icons8-Cut-Paper" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADlklEQVRoQ+2YS0hUURjHf0crx8JXD6EsUhKioLIH0q4WLaJNCW00qJHcWJtxU2uXrdJNBiVdN7qJLCJo0SI3EcKUKCSR5QMfROWMmeOoM5449442jztq17nOCPcs773nnP//+/+/73znCjb5EJscPw6BdCvoKJCxCjR1z0k7wXkqc1KiftJFHAKryOcoEAmQYyGrie5YKCMt5HaXQvZ9oCKCrwfCDWjaUDKlMycHDPAfQRTGgpV+CJ9MRmJdBMYCfl6P99M3NaHvWZJbQHnebs4Vl7MzZ8eK6ZGQA+6658BloAtCbsAP2U0gbgAv0B5fMVtwXQTaB710Tw4nrJubvZWqA8ep3HUwKQkTAn6gAEJly9F2uwthiw/kEFprWcoJqAW7vg/QOdprCvRYwV5qys6gCMWPFQgUoWmKDOi22jIIchittdQWAmpRZaX2IS9js1Omatw8dJbyvD0x7xIIXL/5iixxCaSmJy6o6HdGEtoeC0Ujmg0v0DnSa2op9d254kNc3Hd0WY0YAu46D3KxESFcwDZi71lTEKqwJYnNJO3zjdM+7EURih8qyWtKT1OyvRCdgLvuPBBdNgG5ACKMlD6E6IaQZ8PL6OTcjG6pgT8/TXPjQnE5b14+1ECoahM9pgwLZWloj3rWcsqvqwqttsHriX69zJqO3z749gnmgpHXsg3CKtpGAq9xJCWw905vzIXm7tXD+pL3nn6OWXq15wPTP3Q1JucD/+YFpiEnF6SE/g8QmG5Ga/WsEXPMZ7YTULupfNC+vOPzzC9jc28XHDkF2/Ngfn6G/Pz91Fb9V+SXWNhqofiIqjPj5WgvocRQa9RX16ZUAbuulOrM0L6+50e0pRRyKXsQoor66qSNmxnBDVUgGoDH+6wRUL4viAOmsbjYzO1r6a9CK1lCPwdaOlR70BRp4ozPJSMgXQgRiKjSsJIq6VMg+rdKS8d5pHwAcj8iKy+GuJR+hDiZjERmEFCIWzqMdlrSRq7LQzCo7gXq2Qm9na6vTn07baVqLM1JaOZaOox22uUqWi6phsUGgSHqq+1pp62SSEoAypbt8qSzkGDQh5TD3Kqxr522QsKEwNKN7C1Qi8vlJxhUjZ7qlzaFhVSEVemML6vqklGR+UlsJLJRVqU0/koIoQh5Mr+MWvFgZE7mlFGLJBwCFgNnXClTMBwFrAbRdgWsAtvoeSnx4UaDjt7PIZDO6OuHdboBrHf/TU/gLwPbsEBSyHD0AAAAAElFTkSuQmCC" width="48" height="48">
-
-        <p class="text-center w-500 text-muted-z">No More Client Proposals</p>
-
-      </div>
-
-
-      <div class="col-md-2 text-center col-sm-12 ">
-        <img class="icon icons8-Positive-Dynamic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABmUlEQVRoQ+2YsVLDMAyGrYGhTLwBfYP2EWCFhbEZO5SHSoeOZWRJ1z4C8ATwBnQq3MFdON/VuZybEMuS48SnLhlq2fr0S7ZsUIn8IBEOJSBDU1IUEUUCRQCdWvli9w6gpi7+rLZ36Pld5m0ag15onRUfSsG1y4KDBmkD2Dzsr34mxz0omJsxowOpQ5Rl+QYAMw0zKhAb4uL78uZ38vWJBVlnu9IlXe0xJljoGqlP1ASxfL49GKcwikQDaYPQoBQQV3h7DS9F/oMYDUgXxChAXCAGD+IKoUHyRfGqv49P99WZ0rUjYevKq0YwEF0Ot/0fHKQPCJ90RCnSF0RQkD4hgoH0DREEJAYEOwgFgtorse1aFIh6RLHbr+mt2EDyrHjRlyJ9n9CtuO5iMU5RHaHaV02jOY19IDhynA0EE/2msVRHqPZebbyA1CJgKyCKnN7OJLXsOqGmBtU+PUVitxhsiiQH4vuuRI0o1b6qEepEse0FhPtkpioqiogip5aAOxCSWtwRlWK323hqRGLbn9UI9u5uP+fEsk8G5A8v2kZguU01PwAAAABJRU5ErkJggg==" width="50" height="50">
-
-        <p class="text-center w-500 text-muted-z">Increase Productivity</p>
-
-      </div>
-
-
-
-
-    </div>
-  </div>
-
-
-
-
-  <div class="card">
+  <div class="card"style="box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important" >
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center w-100">Zolo is specially built with freelancers & Small Business Owners in mind.</h2>
-        <hr>
+        <h2 class="text-center w-500 f-40 ">How it Works ?</h2>
       </div>
     </div>
 
-    <div class="row">
 
-      <div class="col-md-8 col-md-offset-2">
-        <p class="f-16 text-center w-500 text-muted-z">
-          As a freelancer or small business owner, it is extremely difficult to get the word out about your service. The only way to get new clients is through friend recommendations, which is not at all sustainable to grow a business.
-        </p>
+    <div class="row m-t-10" >
+      <div class="col-md-4 text-center col-sm-4 why-us-bg" style="background: rgba(244, 67, 54, 0.8);
+">
 
-      </div>
-    </div>
-
-    <div class="row m-b-40">
-      <div class="col-md-8 col-md-offset-2">
-
-        <p class="w-500 text-muted-z f-16 text-center">Other ways to grow your business is either by networking or spending heavily of building website and advertising your services online. Zolo has changed all that and more</p>
+        <i class="fa fa-pencil-square-o bg-icon" aria-hidden="true"></i>
 
 
-      </div>
-    </div>
+        <h2 class=" w-700 white-c">Create a package</h2>
+        <p class=" w-700 white-c f-15">The Supporting line goes here for a customer.</p>
+        <!--<hr>-->
 
-    <div class="row">
-      <div class="col-md-4 text-center col-sm-4">
-        <img class="icon icons8-One-Free" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEF0lEQVRoQ+1ZS3LTQBB9bStFdpgTQKqwtxgS1jgnAE4A3hB5F06AOUHMyg6bhBMAJyCsiUBsbapsToDZBSKrqRl9IpQZeQZboqhCm1Tknp73unv6MyL84w/94/jxn8Df9mBpHmi/HLedEEcMugFw33NbL8ogWwoBAb4e0jsCGgloBh97bqu7bhJrJ3BnOH5MRAdZ8GWSsCawffjlETjsENEMDJ9qmH940nwvQArwNaKjIitnPXH35eQeh2iA0JZrQrw/7TVPbLxkRaAIIINnJON9+cPAXOUhsZKJHnp7N98s1xJJWBHYHk3eEHDfVPmfyDHw1nObD0zXWhHYGY0/ARS5u7SH/VO3ddtUvSWBCZsqXkXu1G0a4zIWbA+nNxwKpqsAM10bsLPl97ZmJvLGBHaGkw4I70yUrizD2DXNRkYEYvDPAHRWBmem4ASM5yYkCgnEYSPyelXA8/ROAna6ReGkJNA+mjbqP84PCPTYzGDlSonit7iy8dTvbs3zOykJVJMubUmr0+slAsL6zo/gm636KuRV6VXpge3hZEaE61WAMt6DZZ906SwqCRT1PHkrJOk1+168Y+A4NUIuLaYpWQFqZ6QplprUqs1COi8IoNGwQgeR9bgh2ovkfT2kZ4srTrf+c9Eh5teRCHaDOs/zaxAT2BlNsvXlkpUZ/NlzW8oWRktA5wUBVFXUfnvP2JXAk8KX/z+JmwsChS1KyNz92Gsdq8KtsA6ovCAtLdoKBFGKJYgCh9QDC+wvsNGXv8e/SQ9sOr5zFkRWvCAm41oaRDqKxTD0KAuUGV+9XlPbphcTGI2n+R5fAj2aNjbOg1ty0xByAMm+P99wPtfPzgcpGEEAzsypBRE4Rj/+GxE4nEgjgGXBzIVQcXdaVgiJNqCfHsgVQyio8W3/Scu3CiFdMTM8A5Flk4ySHOIFDaShiRsEupUe4uHkYowk3MsDZdALz725b0ygqPO0IZCeoRXTqBhBPbd5zZhAFaOjcQGLBXWzsqYXqmbysiHBzK+8XutSc6luJSoY3m3AC1ldLdC309k0aLvbGuUZ+M6E/se9pkwA+Wf5QIPgGIrMsEaMSlUCODEGwaYzUM0BySLzkRLoV0aE8XwZcCsCQriqoX5Z62AVQlnhyq5VNH2/LmSNQihZrO3V13kgotuIqFcyeKwIbI/GvmwBSnxCwlNdxrHOQvkFlVRoi0stgc/OA4dfHqRTVo6dOHwmc7RIj/HGV/MGEr95bjP9qmPiaCsCaTaKe3aukU8hz5MbtGUfOATARY07ojWWtx9nQTusoU0cfVdYcH1geidqnUZNrCFkdCSy4E11mchZe8BEaZ5EWeCtz4AJ+EQm/tg3IIYf1HlfN1HZ6Fw5C626WRnrSwmhMoDqdP4nUKW1VXv9AkVtHk/4Y6VTAAAAAElFTkSuQmCC" width="52" height="52">
-
-
-        <p class="text-center "><i class="fa fa-check"></i>&nbsp; Joining Zolo is 100% <strong>free</strong> for now</p>
-        <hr>
-
+        <!--<img src="../global/images/ICONS-01.png" width="150" class="bg-icon">-->
+        <!--<i class="fa fa-lightbulb-o bg-icon"></i>-->
 
 
       </div>
 
-      <div class="col-md-4 text-center col-sm-4">
-        <img class="icon icons8-Advertising" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAFS0lEQVRoQ+1aXXLbNhD+lnD7WvcEdd8601K1JvJz5BPUOUGcE5g8QeQTiDlBnBNEPoHVZzO1LLUzfYt9gtiviaXtLEXKIEiQ0F/MacsZj0ckCOyHXXz7YUFCw6/9q2B3NsMJGAGAOwaGSiEctaO7MtOpyXh+vgr21RQXAO3m7eSbqcKLv9rRyLS/sYASz0zxsQgmg8A3nkLb9FQjASVgHnABov2aCHoz7vQlFBdXIwH5cfCeQEe6oQy8k98EvNTvz5gP/zyIhtm9xgHy4+AtgY5zYBi/Tw76Xbnnx+GIgF8XgQe8m3T6i/aNAuR/CI6J6a0ZZroXfrkMuh7Rhd7ms+If/25HN6kHm8FzNjCseSez1L8Mh0R4vrCc+XR8EPUaA8gGRgxk4leTZ9GZPu2F9syj8UHUbgSgKjBioKf4e5Oa55ROn8rC7knXkH8Z9IkoR7sGs51POv0c2y3CLg4HBPz2yNccjp9F0ZMAkhmeTiFsVmqsaWTZKm99CAIw9U22++qAWnF4AnDPrgAezZ8qbpfJG2kxl0V0pRFDso6+GqBWHL5k8DGBknxiXLcABgBO9PvjTr/SvlYcst5e1ttWAf10Fex9O6XnqUf2ykKHgXOl+Hj2gABEr7UQup50+pXSx0yykq82AkgM/4bph4Q2Z9hjcJeALkClIFKj70Hck4Usv1txKP8XHhKgNkLQiOFMl0JC8TlAEhZglpmqE4XrZuM3nuKeTsdVydI2WOsy6OleBfNpAmgJdbsOkHsGBl8U9zKZkkuWRvYvS6jm4GYOEwGbAGpdBlfb8opIF3h8pjwMzAQpBmUqoOChXELiEYiicaefKO7sMnWdjEUmn6/jAnk3mSXi0WyGkS7rbbObMVkrDj7VUjnzyNvBYTYx5YCqvMN86u0gsu3f08Wco846qhUjiPA6o+9HQHkKtk6spttSFv2o5yIyuVyjzdw+w7owjVxgAvL/CJ9jil0I8xGOTOZbGpAhWE37rYCqsrQOzuzQ1UAGrkEcZWvINrGlE6l5yRlQXehkA7kASohBchRhBOKbzx4GJtMtBQiAbeKsHlqVHFwnwuz/Pw1IwjWTRc4h12QP6Um3AMgUeKsCyd7bdsjp3jFpW55tIbGyFDCGYLqZKr627WdWWUNisFLcrUys0vGmvWQay+AzMA0mB/1zWwRUSR+T4iuljzycb4lpqBfw1g298vdZTg8GXxROTdo2Aa0lTrPBRSyCKdg+MICZI7WD0yx8Nrp9WNcb4uGHByz2UB7QZZBIHbn3nb1/vmNCKGphKxu8dYGVvZ8WM6T2LH+l4GSNEeg+V1PQ5I1VRxrCunILbs5YWadlZdqqSUk3ZFKyTbbrdVddCliqSOLHwRGB3lcOqtWU64zLCdr51lkKjBXhCJhHJXofZhkry09LlYlK6PjFpBNJ+Wnpy4lZaV4NLet8pUJj5bYY1TPoitCPw1zlRn+vqvLjr1IKrtueV4WEKyBpVwVqo8X6QrnVsNIl+bkCs4FyOU7R9V1tobEVh/I9gI1uh5NOdOhqdF27MlAMLozhx8FFrqS8zIFXIVZNL4HPJp3oVZ2xLs9tRLHRI8m6A6nU0MLxuguAsjbplkA+qFhEhe4ls4YoZbOlDo0LpSKLpZsiiDlJFHNgotiTY/38CflKx/qtOJQT5srs7lJcX8ZrLkoFwGofXrh0vqwMqgPnkHhvPcX7K30aU/ZtQFE15GO5zmCX52naECViRsftVPHRWh8vpeQgMqRA4bIwleKgqmTsAqCsTeopOQyW89j08zL7WLV5aFVDnuq9/wE91cy7jvuv89A/vx54uvWN220AAAAASUVORK5CYII=" width="52" height="52">
 
+      <div class="col-md-4 text-center col-sm-4 why-us-bg" style="background-color: rgba(106, 129, 243, 0.88);">
+        <!--<img src="../global/images/ICONS-02.png" width="150" class="bg-icon">-->
 
-        <p class="text-center"><i class="fa fa-check"></i>&nbsp; Zero marketing fees required</p>
-        <hr>
-
+        <h2 class=" w-700 white-c">Get An Order</h2>
+        <p class=" w-700 white-c f-15">The Supporting line goes here for a customer.</p>
+        <i class="fa fa-list-alt bg-icon" aria-hidden="true"></i>
 
 
 
       </div>
 
 
+      <div class="col-md-4 text-center col-sm-4 why-us-bg" style="background-color: rgba(37, 195, 43, 0.6);">
+        <!--<img src="../global/images/ICONS-03.png" width="230" class="bg-icon">-->
 
-      <div class="col-md-4 text-center col-sm-4">
-        <img class="icon icons8-Cloud-Storage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEIUlEQVRoQ+2ZP1LbQBTGvye7CFXgBDEniIPcQ4rMSFVIm8HGnCDkBDEnwDkBRmbSxlRWJgVOb4FzAuAEkCoUtl5mJa8QsvU3kjEzUKL98/1233v77ZrwiH/Vdx+r5XJpl5m2iVDxSRmB0RtDOR6ZnaskEilJo7zbVLeaq6UXk0MiasaOzWgNTeMgrt3CQQREecU+A1Blxh8C2oA9GJonAylW1Xe2wYrYpV3xP2buWGZ3Lwpm4SA1vXHhQvDvyV1pazTo3IYJFKFXKpUHRHgZB1MYiLOqoF1irLqrSj1SuALQfhIICfcABvYHq3/SmwdeCIiq1Y+i4n/MynrSJBaiN7R6UyE6YsaVZRrrCwGpaY0WCF9E/DN4XwG7VYeoBdAmM44t04hP8oBaVa9fEejVeDx+M/r5bRSEyX1HanqDxSTzJlS1RmcyGbfnCYmrSqKvSH4b/Pm8320XCiJDAOBfw353K05cmu9yp8E4GJpGqxAQ51xYmRwRaNuZIGSyNMKDbT0QYAQbreEP49TfJjS0anr9UFSYNJPLc2EMpZMmmZPM4QOZrhVuAXtPVrG5IFWtWSmTfZlkAtkmTUlNM65XhoUmjCs2qELANhG9F99s5r1zs9uZC+Ird5EVxvVK5QuxE5M7pRJ1uGURH9XnPh8BUc7ngngVYkobNqBXaoGvVt9IFYZ5gKl6o03AJ1HSw0AuhRuNO7hqen3gnA0RJ24egsMXcmcLpJyJg3IGROaHCBfLNBx7ETrQFARsv/WbviLFz1Sz6bk1A3KfH3xqmV23nIb8xR1SRQN5OQq+ngFJI04YQ4LyPcoDFQlzb4f4dAZE2uwwTxMUpmr1ERG9jrPZeQM5rrhcPiNgVYT2A5DppecmSX549d13ZwDzAEzt4KmbJ4STw7B3mbAvIKQJfQAiQyWtV3JXp9QT7jRP0XFjsa/sB0DcupzFK4ndVFYmTQUQF6rNOBH/+90PIcZ6ACLz4zHLaRxgWNR4IDI/xEDDvpH7PSVOYNLvYTo9wTXNPSXT5kdSAXm2k5XSHzk+EPeKmiU/8hSZZCzpsfxa70Ee2TclAZBt5uWJD2R61/6rrC3SjqcB8M6u6X2JgVurb6x5VUvmh7gcWWa3mmXwRfcJvqo4O/LY94osixD0hC7IE8oPCR106Q6IqjduhG+Ju0hlWbmi+nj3pmmekN/TW/2u/zeKojTkNq4/T2hDr+8roMOsT5m5qcowkD9PSNXqPfm0kmGspejiPD7I/FgKRRlFOI8P8tF5mY1iFJ/U/wySMQpy7/a8I7kvaciAwv8xlCPXENp7YQ+AS78jqtZwnm0FSNS72VMAuRU/Szsg4Osw17H0IE5oEXWc0GJuPtnQSpqLS78jzyBP3qKoWsOrDkm3c9naiapGsjos+gE6r8VwIJib/wCXgZ0uZDkRYQAAAABJRU5ErkJggg==" width="50" height="50">
+        <h2 class="text-center w-700 white-c">Deliver</h2>
+        <p class=" w-700 white-c f-15">The Supporting line goes here for a customer</p>
+        <i class="fa fa-truck bg-icon" aria-hidden="true" style="font-size: 25em;"></i>
 
-        <p class="text-center"><i class="fa fa-check"></i>&nbsp;Zero setup cost.</p>
-        <hr>
-
-
-
-      </div>
-
-
-    </div>
-
-
-
-    <div class="row m-t-40">
-      <div class="col-md-4 text-center col-sm-4">
-
-        <img class="icon icons8-Door-Opened" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACf0lEQVR4Xu2azW7TQBDH/7NuJdQL6QEp5ILfoOYJkqKG10CghufoI5QrjSjPQaPGfQLcN0gvUSQOwA2p7g7a0KDUdRtniB02Hh8Tz+zOb75W6yHU/KGa2w8FoBFQcwKaAjUPAC2CladA8/xTm6yNAHQI6ABozEfh+OCw0j2VulhjeNp4wrxnmDvMPDP40azzGkBzeBqaNN3jmXeJnKeXerwC8OzLx2jLmDYB0a3R4VLW5rzsDYDWoP89m79FjGfgioCYmZOUOd425utjNaA16HMRvVJw4hpQdGMALhmIndE2CJLJ/tvRvEFZPVlDiq7z3wBg5oupsUA86fbiRd7bGADX1r789vp9ssjg7P8bA0AagosAPARUKpfVt7IaoACEJzipJ6VyGgEZApoCy1bt2furCkGpHqmcpoCmwF0CWgO0BggJrKoISfVI5bQIahHUIniHQKVdwF2hbRszBPOHcbd35HYizWWp3FprQGvQ/wzgDYAf44PD3foCYP457vam3wOknpTKrTUCpilA5K7JjmuZAnlHDqknpXJrjQAFkENA6kmpnEaAngT1JLi+k6AWQS2C9wlIq7lUTruAdgHtAtoF5glUeiGibVDQBv0ZkSE6grXJNfPVMpMii9qZPwAy3nWDUWBOQDRiY5LJq3cXkhTwFkDu9xbmhIlGRJRYovgX0eXOzY0bt/v7eDMl9vzsxI2+RSB6mmus8EfpqI1wuX+fFnfjsUjT0AAd/gMkIuCFdEPeAXjI0ObZiRuOjogoYuaQiNpFoGwMgDxj3a1wEASRsTa8nS2+l0IbDaBIBFT9jvgkWPVGy1pPAZRF1he9GgG+eKqsfWoElEXWF72/AXwsXl++dEMPAAAAAElFTkSuQmCC" width="64" height="64">
-
-
-        <p class="text-center"><i class="fa fa-check"></i>&nbsp;No personal payment gateway needed.</p>
-        <hr>
-
-      </div>
-
-
-      <div class="col-md-4 text-center col-sm-4">
-        <img class="icon icons8-Find-User" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAEl0lEQVRoQ92aTXIaRxiGnwa0ilRxThC0TNlgdAKhE5gEspZyAqETRDqB8AksrT3E+ARBJ4gCTmUpdAI7FVc2ATr1taap1mhgugeUiTJL6L+3v7/3e2cUaz6/t6jOyuxrRdVdSiuG9bdcrbm893TlPTIx8EObQ63oAo1la2jNBM1Z/Scu8u7jOy8YyE2LZ58rvAOasomGP4Chgut7m2paKF6a3zQDBYMXfS59DxY6LghIDOJnYwXNrdacrrrtDx26Gs6dQ11vTznYHfAp9KBZ44OAjDucAj+i+XV7RtPnQBJDf5doUqKn4EuxXi3iIOtgof97AxFr/FnmRimeAQe1iGHIZmZ+hYmA0XN+2HTceAMZfceRKvEGuKpFd/ER+tg1NLyvR7RC568a7w1k3KaH4hg4q0XGxYKfOMY+ysRahPfePht5LzbuGFfaz+NW7kHGHUl0/w8gG7mQpJUKs8j2lK98sp6PW8mYwoAUFyNxsCs4eRHR870pd5zUlGmFGymmtf59bpZnPXeOt0Vsldaay3qfozwb/zfSb8fUDqEn17WIvVxA2lwoxeE6KXzZvt4WcQpi7howahtmUC22sncMg321zm06JDI3O1jbIpsoiIvKXmSwj2L/Xidrjdq0lDK9THEWsYfQmk9K0atFnIUEfBxjwtUahcaIHNpxr+CAt4Ee0suEXJR31rKLjttMUHwdQh5d1rtpamLPlQeIofMhhXFRTB+hD8kNxNIMiZWtGXvfDJhkucCifmi+rfcZZI3P83+wRWQTm8GkymeJCeM271CmG9x4psrFtdxJxufLXPvEim2kSoq9528TklGeq18yJ5dFEhlspRCR1RGK0DeHplJG6LNi37XW5qIG9Yj3PngLAyJ1CTgX7rXqoEathJOs2CoEyKjDucLIraJC3kqBVYqhdb3fvqehNU2t6cbuK41+rx5xsjbXSsaIr8ZlXasyZVcynKPGSHua2aTdUys1r2v9+AISiIItEqdf4Uviz5mZKM5wVdHCHK5FSPCLheaaX4wBl6RwbyBG+qxwjObIqI2a28qMZlYdkQz31xZVcRtbT3wskXQhp0Od1PvsJv/PBDLq8EppjuJacOfWmsudGd0QFWTRmK1B4S09SrNKKpC4Thxq6LpZRQBszTjNskJaQG6iDVilGzwA8iAtxlnliykXIRZIghl3jI83QmIjuYYTKw90g3tARm3eKLVQSOS12Wmo6r4sPWYVRp+iFxfiVMl1AcRyIvMGak5307L/vwLEvsAREGVF8zE40bhtKMfLjbhWSsJQbtMT0iz5uoId9+jBvgkF0QeU0/On1gHPNZbqYsr24csqps8GvmNsHVinIC7TjdVCFPA9TY5xlmc9KkWx2STH+UKmLDpJlzSi6db6vF610LjNMepO/Zf2emfGblo9y6QoIaf1HeuCkX5DQa9U4sql8fM5+y6zkIwav95Oba8LASKAjZthXrCKtLT8kQ8ToLszY/i5zDD+muIBmMKAOGlZOkUB1XA++ZDDD9EM3cIcc8BUMIUD8XVHO24ZmCcHRAClgXmSQFLAnD1ZIAswFbryJcY/PgV5NzCXM+EAAAAASUVORK5CYII=" width="64" height="64">
-
-        <p class="text-center"><i class="fa fa-check"></i>&nbsp;Get discovered by new clients everyday.</p>
-        <hr>
-
-
-      </div>
-
-
-      <div class="col-md-4 text-center col-sm-4">
-        <img class="icon icons8-Money-Transfer" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAESklEQVR4Xu2aT3ISQRTGvxdjFbgx3iCeQD2BcSls4kpwY6gSqlxJThBygiQrq8Cq4EZwJRtwqTcwnsB4AnEjVIl5VgMTodM9/c9khspkR6C7X//6e+990zWEa/5H13z/yABkCrjmBLIUCBVAqzzg0DlCxlc7haBDDBosAs8AZArIUiCmBvCw2ineCcnxVrn/A6AN3RwprwH8vdopboYAaJYGQyLcXk0AzPvVbrERAqBV6jdAtLcyAJjxk4iHYLRDNx9tulkeHBJ4m5k2ZDUkmgJvyoNtBj4snk5oQCa1yG2XgCcvOoWeaZzuey8f8Lr0cfMG8QEB2/LEVw1ArM9A7+YoX6n0Hg1dQTgDaD7tv6I1NHSVOQkAs03zkM/QqL0vHrlAsAYgTn0dfAzCVtwCNgCOtz9tTPKjPeaZggjUrnYf79sEbnSejM8TUOVl9/GpzXxWAEyn7loDZkUNrxbHMXBU6xTqpqCNABzVEAvAeOrM+3KLslGAytww47TWLdz1ALDLjIbSK1ioQQsg7tSZ+SvWsFN7VzyRT8QGgNrc2Jkm1Xrzotwm4OFFgPG1QQtAKzXJ3PgAUJobS9MUt16rPKjr1KA7GCcADD4BoSJOPiLtA0CMjczNLGXtTVPces1n/ftgHBPovm17dgJw3m4Yu7VusS0++wIw5brue916zVJ/hwgHru3ZA8AcA3P75vjW7iQ/+uHaBXw3rwK+Psrf+Z37dUBEOz7t2RvATLl8IsvNpgj+TwCqGFTzB9cAZq4AdBj3aCoWNgGYVmyc7QG0RYTpo7JogUToTZiOTAbG5APEwxjAdSI6tlGmtQLExqZF5gxtIrqnO8U4AK3y4ACAyewcVjuFXdsasGSmPNqzEwCx2NTG5kaHIDxXBcnEDxa7RPSbZnnwQfXwpJwD6NU6hSfyd+IAiOmLEg7j7fo4X48eiGyLszOA8w2V+jvqlOAhL3SJfy1v2fqa6oBsjXVVPpJ81JVc27M3gOnGYlKC511inBtvrBN/k6W6RtS4Mcp/Fv//kx9tnTE35NSaMN3NjXNDXZVfdKQy0EtXQLRgXEpMjRPodFH6Iuhat3jBqEyBlvonixDEcz7AmypjA0nyiQEwp8RyaHE3OKobJnljOsknDsCUElGAwrjobm7m9wRLxkpX5U015MpSQA7Et0tEAG2rfGoBmFPiYpeY57/Sy9tKPhUpoOrbOuMUdQkxxqfKp14B9l1ieid4sSsYqvzKADCnxPJWfCWfyhRwSQnx2zhjYzrxlQAggtR2iUDJrwwAOSVmn7kue3nXE185AOfGCYDq6fFaAAjdZNz4xJzgZW7KZe4MgPTyVvCdoOmuz+V0ruK3mQIyBSy/vpelgOaV2qA7wavIZd81shrwv2uA70mkZVxwDUjLRnzjyACEFkFf8mkZ56yAtAR+2XFYvSZ32UEkOX8GIEn6aVg7U0AaTiHJGDIFJEk/DWv/Bco1Om6EEjSKAAAAAElFTkSuQmCC" width="64" height="64">
-
-
-        <p class="text-center"><i class="fa fa-check"></i>&nbsp;Pay only when you make money</p>
-        <hr>
 
 
       </div>
@@ -240,9 +408,11 @@
 
     <div class="row">
       <div class="col-md-12 text-center">
-        <button class="btn zolo-btn btn-lg text-c">Become a Seller</button>
+        <button class="btn btn-success btn-lg text-c m-t-20">Register &amp; Post A Package</button>
       </div>
     </div>
+
+
 
 
 
@@ -252,11 +422,10 @@
 
 
 
-  <div class="card">
+  <div class="card" style="box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center f-28 w-100">Contacts</h2>
-        <p class="text-center text-muted-z f-16 zolo-n-m w-500">Reach Out To Us</p>
+        <h1 class="text-center w-500 f-40">Why Zolo?</h1>
         <!--<hr class="custom-hr">-->
 
       </div>
@@ -265,37 +434,73 @@
 
     <div class="row m-t-40">
 
-      <div class="col-md-3 text-center">
-        <i class="fa fa-mobile fa-3x zolo-c"></i>
-        <p class="text-center">+91 - 8527-770-212</p>
+      <div class="col-md-4 text-center">
+        <img src="../global/images/LEADS.png" alt="" width="250" class="b-seller img-circle b-s-img">
+        <h3 class="text-center m-0 w-700">Qualified Leads</h3>
+        <p class="text-center m-10 ">The supporting text goeshere for the customers.</p>
+
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img src="../global/images/SECURED%20PAYMENT.png" alt="" width="250" class="b-seller img-circle b-s-img">
+        <h3 class="text-center m-0 w-700">Secured Payments</h3>
+        <p class="text-center m-10 ">The supporting text goeshere for the customers</p>
 
       </div>
 
 
-      <div class="col-md-3 text-center">
-        <i class="fa fa-envelope-o fa-3x zolo-c"></i>
-        <p class="text-center">support@imozolo.com</p>
-      </div>
-
-
-      <div class="col-md-3 text-center">
-        <i class="fa fa-map-marker fa-3x zolo-c"></i>
-        <p class="text-center">A-36, Sector 4, Noida , India</p>
-
+      <div class="col-md-4 text-center">
+        <img src="../global/images/MINIMUM.png" alt="" width="250" class="b-seller img-circle b-s-img">
+        <h3 class="text-center m-0 w-700">Minimum Commission</h3>
+        <p class="text-center m-10 ">The supporting text goes herefor the customers</p>
 
       </div>
 
 
-      <div class="col-md-3 text-center">
-        <i class="fa fa-globe fa-3x zolo-c"></i>
-        <p class="text-center">www.imzolo.com</p>
-
-
-      </div>
 
 
     </div>
 
+
+
+
+
+    <div class="row m-t-40">
+
+      <div class="col-md-4 text-center">
+        <img src="../global/images/ADVANCED%20PLATFORM.png" width="250" alt="" class="b-seller img-circle b-s-img">
+        <h3 class="text-center m-0 w-700">Advance Platform</h3>
+        <p class="text-center m-10 ">The supporting text goes here for the customers</p>
+
+      </div>
+
+      <div class="col-md-4 text-center">
+        <img src="../global/images/FREE%20PROMOTION.png" width="250" alt="" class="b-seller img-circle b-s-img">
+        <h3 class="text-center m-0 w-700">Promotion &amp; Branding</h3>
+        <p class="text-center m-10 ">The supporting text goes here for the customers</p>
+
+      </div>
+
+
+      <div class="col-md-4 text-center">
+        <img src="../global/images/CUSTOMER%20SUPPORT.png" width="250" alt="" class="b-seller img-circle b-s-img">
+        <h3 class="text-center m-0 w-700">Customer Service</h3>
+        <p class="text-center m-10 ">The supporting text goes here for the customers</p>
+
+      </div>
+
+
+
+
+    </div>
+
+    <hr>
+
+    <div class="row m-">
+      <div class="col-md-12">
+        <h2 class="text-center">Let us help you create a package! Call <a href="tel:08880091091">8880091091</a></h2>
+      </div>
+    </div>
 
 
 
@@ -303,70 +508,38 @@
 
 
 
-  <div class="card">
+
+
+</div>
+
+
+
+
+
+<!--<div class="footer">-->
+<!--<div class="copyright">-->
+<!--<p class="pull-left sm-pull-reset">-->
+<!--<span>Copyright <span class="copyright">&copy;</span> 2016 </span>-->
+<!--<span>Zolo Technologies Pvt. Ltd.</span>.-->
+<!--<span>All rights reserved. </span>-->
+<!--</p>-->
+<!--<p class="pull-right sm-pull-reset">-->
+<!--<span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
 
 
 
 
 
 
+<div class="card m-t-60" style="box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important; padding: 10px 5px!important; margin-top: 16px!important; background-color: #f9f9f9;">
 
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-center m-t-0 f-28 w-100">Testimonials</h2>
-        <hr>
-      </div>
+  <div class="card" style="box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important;">
 
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-6 col-sm-6">
-        <div class="about-t-2" style="padding-bottom: 100px;">
-          <div class="row">
-            <div class="col-md-3 text-center">
-              <img src="../global/images/avatars/t-1.jpg" alt="" class="test-img img-circle img-responsive">
-
-            </div>
-
-            <div class="col-md-9">
-              <p>I'm guitar enthusiast and a student, but with Zolo I get regular weekends gigs to teach guitar lessons and play at small get togethers. I have quickly built up a healthy side income in no time. Thanks to Zolo.</p>
-              <p>Raghav Guitar Teacher |<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
-              <hr class="custom-hr">
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6">
-        <div class="about-t-3">
-          <div class="row">
-            <div class="col-md-3 text-center">
-              <img src="../global/images/avatars/t2.jpg" alt="" class="test-img img-circle img-responsive">
-
-
-            </div>
-
-            <div class="col-md-9">
-              <p>I was skeptical at first but once we listed our
-                personalised printing services on Zolo, we started receiving new clients almost within a week. All the clients we received through Zolo were really friendly and of highest quality. We look forward to expand our business on Zolo with help from the very capable Zolo team.</p>
-              <p>Shivani Printing Service |<span class="f-18 m-l-10 zolo-c">Delhi</span></p>
-              <hr class="custom-hr">
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-
-
-
-    <div class="row m-t-40">
-      <span class="col-xs-8 col-xs-offset-2 border-bottom m-b-20 hidden-sm"></span>
+    <div class="row ">
+      <span class="col-xs-8 col-xs-offset-2  m-b-20 hidden-sm"></span>
 
       <div class="col-md-12">
         <h1 class="text-center f-26 need-a-z"><strong class="w-300">Need Assistance? Want To Buy Something? Become A Seller?   </strong></h1>
@@ -379,7 +552,7 @@
     <div class="row">
       <div class="col-md-4 col-sm-4">
         <p class="text-muted text-center w-300 f-20"><i class="fa fa-phone zolo-c"></i>&nbsp;
-          Call <span class="zolo-c w-300 f-20"><a href="tel:088822-91091" class="zolo-c z-phone">+91 88822-91091</a></span> </p>
+          Call <span class="zolo-c w-300 f-20"><a href="tel:088820-91091" class="zolo-c z-phone">+91 88820-91091</a></span> </p>
       </div>
 
 
@@ -387,7 +560,7 @@
       <div class="col-md-4 text-center col-sm-4">
         <p class="text-muted text-center w-300 f-20">
           <i class="fa fa-envelope-o  zolo-c f-20"></i>&nbsp;
-          <a href="" class="text-muted border-bottom">hi@imzolo.com</a>
+          <a href="mailto:hi@imzolo.com" class="text-muted border-bottom">hi@imzolo.com</a>
         </p>
 
 
@@ -414,10 +587,209 @@
 
     </div>
 
+  </div>
 
+  <div class="p-20 p-t-0" style=" margin-top: 16px!important; background-color: #fcfcfc">
+    <div class="row s-strip border" style="background: transparent;">
+      <div class="col-md-4 border-right">
+        <p class="text-center text-muted-z">
+          <i class="fa fa-key"></i> 100% Secure Payments</p>
+      </div>
+
+      <div class="col-md-4 border-right">
+        <p class="text-center text-muted-z">
+          <i class="fa fa-shield"></i> 100% Buyer Protection </p>
+      </div>
+
+      <div class="col-md-4">
+        <p class="text-center text-muted-z">
+          <i class="fa fa-refresh"></i> Buyer Friendly Refund Policy </p>
+      </div>
+
+    </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-9">-->
+        <!--<h3 class="m-b-20">Categories</h3>-->
+        <!--&lt;!&ndash;<hr class="custom-hr m-b-20">&ndash;&gt;-->
+
+        <!--<div><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10 font-color" target="_blank">Business</a> | <a ng-href="/contact" class=" m-r-10 font-color">Digital</a>|  <a ng-href="/terms-of-use" class="font-color m-r-10">Creative</a>|-->
+          <!--<a ng-href="/privacy-policy" class=" font-color m-r-10">Consultation</a>| <a ng-href="/order-cancellation-policy" class=" font-color">Classes</a> | <a ng-href="/returns-refunds" class="m-l-10 font-color">Events</a> |<a ng-href="/returns-refunds" class="m-l-10 font-color">Products</a> |-->
+          <!--<a ng-href="/contact" class="m-l-10 m-r-10 font-color">Gifts</a> | <a ng-href="/terms-of-use" class="font-color m-r-10">Summers Deals</a>| <a ng-href="/privacy-policy" class=" font-color" style="color: #cd5c5c!important;">Weddings Special</a>-->
+
+        <!--</div>-->
+
+
+
+
+      <!--</div>-->
+
+      <!--<div class="col-md-3">-->
+        <!--<h3 class=" text-center m-b-20">Download Our App</h3>-->
+        <!--&lt;!&ndash;<hr class="custom-hr m-b-20">&ndash;&gt;-->
+        <!--<ul class="footer-links ">-->
+          <!--<li class="text-center" ><a href=""><img src="../global/images/google-play-badge.png" width="150" alt=""/></a></li>-->
+          <!--<li class="m-t-10 text-center"><a href=""><img src="../global/images/app-store.png" width="150" alt=""/></a></li>-->
+        <!--</ul>-->
+
+      <!--</div>-->
+
+    <!--</div>-->
   </div>
 
 
+
+
+  <!--<div class="row p-20 ">-->
+
+
+    <!--<div class="col-md-4 text-center hidden-xs">-->
+      <!--&lt;!&ndash;<h3 class="m-b-20">Download Our App</h3>&ndash;&gt;-->
+      <!--&lt;!&ndash;<ul class="footer-links">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li ><a href=""><img src="../global/images/google-play-badge.png" width="150" alt=""/></a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-10"><a href=""><img src="../global/images/app-store.png" width="150" alt=""/></a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+      <!--<h3>About Us</h3>-->
+      <!--&lt;!&ndash;<hr class="custom-hr m-b-20">&ndash;&gt;-->
+      <!--<p class="text-justify">Zolo is India's first marketplace for on-demand talent where you can discover thousands of talented people ready to help you get anything done.-->
+
+        <!--Imagine having an army of people with a variety of 'specialized skills & talent' ready to help you complete your to-do list, finish your projects <a-->
+          <!--href="">Read More</a> </p>-->
+
+    <!--</div>-->
+
+
+    <!--<div class="col-md-4 text-center">-->
+      <!--<h3 class="w-500 f-18 text-center m-b-20">Zolo Technologies</h3>-->
+      <!--&lt;!&ndash;<hr class="custom-hr m-b-20">&ndash;&gt;-->
+      <!--&lt;!&ndash;<ul class="footer-links">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Refunds</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">About Us</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Contact us</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Terms Of Use</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Cancellation</a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li class="m-t-5"><a href="">Privacy Policy</a></li>&ndash;&gt;-->
+
+
+
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+      <!--<div class="row m-l-50">-->
+        <!--<div class="col-xs-6">-->
+          <!--<p class="m-t-0"><a ng-href="/terms-of-use" class="font-color">Terms of Use</a></p>-->
+          <!--<p class="m-t-0"><a ng-href="http://www.imzolo.com/aboutus" class=" font-color" target="_blank">About Us</a></p>-->
+          <!--<p class="m-t-0"><a ng-href="/contact" class=" font-color">Contact Us</a></p>-->
+
+        <!--</div>-->
+
+        <!--<div class="col-xs-6">-->
+          <!--<p class="m-t-0"><a ng-href="/privacy-policy" class=" font-color">Privacy Policy</a></p>-->
+          <!--<p class="m-t-0"><a ng-href="/order-cancellation-policy" class=" font-color">Cancellation</a></p>-->
+          <!--<p class="m-t-0"><a ng-href="/returns-refunds" class=" font-color">Refunds</a></p>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+
+
+
+    <!--</div>-->
+
+
+
+
+
+    <!--<div class="col-md-4 text-center">-->
+      <!--<h3 class="m-b-20">Payment Options</h3>-->
+      <!--&lt;!&ndash;<hr class="custom-hr m-b-20">&ndash;&gt;-->
+      <!--&lt;!&ndash;<ul class="footer-links-s text-center">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><a href=""><i class="fa fa-facebook fa-3x f-hover"></i></a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><a href=""><i class="fa fa-google-plus fa-3x g-hover"></i></a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><a href=""><i class="fa fa-linkedin fa-3x l-hover"></i></a></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><a href=""><i class="fa fa-instagram fa-3x i-hover"></i></a></li>&ndash;&gt;-->
+
+
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+
+
+      <!--<ul class="footer-links-pay m-t-20 text-center">-->
+        <!--<li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/MasterCard.png" alt="" height="20"></li> <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/visa.png" alt="" height="20"></li>-->
+        <!--<li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/maestro_10.jpg" alt="" height="20"></li> <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/payumoney.png" alt="" height="20" class="m"></li> <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" height="20" class="m-l-5"></li> </ul>-->
+
+      <!--&lt;!&ndash;<ul class="footer-links">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/maestro_10.jpg" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/visa.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/MasterCard.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/payumoney.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li><img src="../global/images/Paytm.png" alt=""></li>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+    <!--</div>-->
+
+    <!--&lt;!&ndash;<div class="col-md-3">&ndash;&gt;-->
+
+
+
+    <!--&lt;!&ndash;<ul class="nav nav-tabs m-t-20">&ndash;&gt;-->
+    <!--&lt;!&ndash;<li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/MasterCard.png" alt="" height="20"></li> <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/visa.png" alt="" height="20"></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/maestro_10.jpg" alt="" height="20"></li> <li> <img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/payumoney.png" alt="" height="20" class="m"></li> <li><img src="https://s3-ap-southeast-1.amazonaws.com/zolo/booking_icons/Paytm.png" alt="" height="20" class="m-l-5"></li> </ul>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+
+
+
+  <!--</div>-->
+
+
+
+
+  <div class="p-40 p-b-10 white-c" style="background: rgb(113, 113, 113);">
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="text-center" style="height: 30px; border-bottom: 1px solid #dedede;">
+<span style="font-size: 40px; background: rgb(113, 113, 113); padding: 0 10px;">
+<img src="../global/images/Zolo-Logo-c.png" alt="" width="150">
+
+</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row m-t-40">
+      <div class="col-md-12">
+        <div class="footer-logo">
+<span>
+
+</span>
+        </div>
+
+
+        <ul class="footer-links-s text-center">
+          <li><a href="https://www.facebook.com/imZOLO" target="_blank"><i class="white-c fa fa-facebook-square fa-3x f-hover"></i></a></li>
+
+          <li><a href="https://plus.google.com/117607515376144487944" target="_blank"><i class="white-c fa fa-google-plus-square fa-3x g-hover"></i></a></li>
+
+          <li><a href="https://www.linkedin.com/company/zolo-technologies-private-limited" target="_blank"><i class="fa fa-linkedin-square fa-3x l-hover f-45 white-c"></i></a></li>
+
+          <li><a href="https://www.instagram.com/Imzolo.official/" target="_blank"><i class="white-c fa fa-instagram fa-3x i-hover"></i></a></li>
+
+          <li><a href="https://twitter.com/Zolo_Official" target="_blank"><i class="white-c fa fa-twitter-square fa-3x i-hover"></i></a></li>
+
+
+
+        </ul>
+        <p class="text-center m-b-0">Copyright © 2016 Zolo Technologies Pvt. Ltd.. All rights reserved</p>
+
+      </div>
+    </div>
+
+  </div>
 
 
 

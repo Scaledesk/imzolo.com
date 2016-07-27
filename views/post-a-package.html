@@ -296,15 +296,16 @@
                 <div class="row user-post-a-package">
                   <div class="col-lg-6">
                     <label for="actual_price">Actual Price*</label>
-                    <input ng-model="package.price" id="actual_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.price" id="actual_price" name="actual_price"  type="number" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;" required>
                     <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
-
+                    <span class="validation-message text-danger" ng-show="payment.actual_price.$error.maxlength ">Max Rs 10000000</span>
+                    <span class="validation-message text-danger" ng-show="payment.actual_price.$error.min ">Min Rs 1 </span>
                   </div>
 
 
                   <div class="col-lg-6">
                     <label>Discounted Price*</label>
-                    <input ng-model="package.deal_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                    <input ng-model="package.deal_price" type="number"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;" required>
                     <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
                     <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
 
@@ -358,7 +359,7 @@
 
 
 
-                  <div class="row tandc pulse animated" ng-show="package.deal_price>=50000">
+                  <div class="row tandc pulse animated" ng-show="package.deal_price>=1000">
 
                     <div  class="col-md-6 ">
                       <p class="m-10 p-l-5">Do you want to activate Installment Payment for this Package ? </p>

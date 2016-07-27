@@ -28,7 +28,7 @@
                 <div class="row column-seperation">
                   <div class="col-md-12 col-xs-12">
                     <div class="row">
-                      <div ng-repeat="package in user_packages.data" class="col-md-4 col-xs-12 col-sm-6">
+                      <div ng-repeat="package in user_packages.data|orderBy:'-timestamp'" class="col-md-4 col-xs-12 col-sm-6">
                         <div my-package-card package="package" master-collections="collections">
                         </div>
                       </div>
@@ -42,7 +42,7 @@
                 <div class="row column-seperation">
                   <div class="col-md-12 col-xs-12">
                     <div class="row">
-                      <div ng-repeat="package in user_packages.data | filter:'ACTIVE'" class="col-md-4 col-xs-12 col-sm-6">
+                      <div ng-repeat="package in user_packages.data|orderBy:'-timestamp' | filter:'ACTIVE'" class="col-md-4 col-xs-12 col-sm-6">
                         <div my-package-card package="package" master-collections="collections">
                         </div>
                       </div>
@@ -55,7 +55,7 @@
                 <div class="row column-seperation">
                   <div class="col-md-12 col-xs-12">
                     <div class="row">
-                      <div ng-repeat="package in user_packages.data | filter:'DRAFT'" class="col-md-4 col-xs-12 col-sm-6">
+                      <div ng-repeat="package in user_packages.data |orderBy:'-timestamp'| filter:'DRAFT'" class="col-md-4 col-xs-12 col-sm-6">
                         <div ng-if="package ===''">
                           <P>No package found</P>
                         </div>
@@ -74,7 +74,7 @@
                 <div class="row column-seperation">
                   <div class="col-md-12 col-xs-12">
                     <div class="row">
-                      <div ng-repeat="package in user_packages.data | filter:'PAUSED'" class="col-md-4 col-xs-12 col-sm-6">
+                      <div ng-repeat="package in user_packages.data |orderBy:'-timestamp' | filter:'PAUSED'" class="col-md-4 col-xs-12 col-sm-6">
                         <div my-package-card package="package" master-collections="collections">
                         </div>
                       </div>

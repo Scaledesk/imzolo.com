@@ -386,8 +386,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="card card-padding-5 hidden-xs" ng-if="package.Addons.data.length>0">
 
         <div class="zolo-pdp-add-ons">
@@ -556,7 +554,7 @@
             <span ng-hide="package.installment_available==1"  class="text-c">Buy Now ({{amount_to_show | currency:"&#8377 ":0}})</span><span ng-show="package.installment_available==1" class="text-c">Book Now @ {{amount_to_show*0.25 | currency:"&#8377 ":0}}</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
           </button>
 
-          <!--<button ng-show="amount_to_show>50000 && package.installment_available==1" ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">-->
+          <!--<button ng-show="amount_to_show>&& package.installment_available==1" ng-disabled="buyNowDisable || packagePaused || sameUser" ng-class="{'btn-default': packagePaused}" ng-click="booking(package.id)" type="button" class="btn zolo-pdp-buy-btn">-->
           <!--<span class="text-c">Book Now @ {{amount_to_show*0.4 | currency:"&#8377 ":0}}</span><span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
           <!--</button>-->
 
@@ -668,6 +666,19 @@
 
 
       <div class="card card-padding-5">
+        <div class="zolo-pdp-add-ons">
+          <div class="add-ons-header">
+            <div class="row">
+              <div class="col-md-12 p-l-40 p-r-40">
+                <button class="btn zolo-pdp-buy-btn" ng-click="sendMessageSeller()">Message Seller</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card card-padding-5">
         <div class="row zolo-pdp-more-info-user">
           <div class="user-info text-center">
             <div class="row">
@@ -772,16 +783,16 @@
 
 
 
-            <!--<a ng-click="show_seller_mobile()" class="seller-contact-dtls btn " style="text-transform: capitalize;">Contact Now</a>-->
-            <!------------------------------------------------------->
-            <!-----   if logged in user mobile is verified and seller mobile is given         ------>
+            <!--<a ng-click="show_seller_mobile()" class="seller-contact-dtls btn m-t-20 " style="text-transform: capitalize;">Contact Now</a>-->
+
+            <!--&lt;!&ndash;if logged in user mobile is verified and seller mobile is given&ndash;&gt;-->
             <!--<div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&other_user_profile.mobile">-->
             <!--&lt;!&ndash; Phone Disconnected icon by Icons8 &ndash;&gt;-->
             <!--<i class="icon icon-call-out" style="font-size: 20px;"></i>-->
             <!--<a href="tel: {{other_user_profile.mobile}}" style="display:inline-block; font-size: 20px;">&nbsp;{{other_user_profile.mobile}}</a>-->
 
             <!--</div>-->
-            <!-----   if logged in user mobile is verified and seller mobile is not given         ------>
+            <!--&lt;!&ndash; -&#45;&#45;   if logged in user mobile is verified and seller mobile is not given         &#45;&#45;&#45;&#45;&ndash;&gt;-->
             <!--<div class="col-md-12 text-center" ng-if="show_seller_mobile_var===1&&!other_user_profile.mobile">-->
             <!--&lt;!&ndash; Phone Disconnected icon by Icons8 &ndash;&gt;-->
             <!--<i class="icon icon-call-out "></i>-->
@@ -789,8 +800,8 @@
 
             <!--</div>-->
 
-            <!--------------------------------->
-            <!-----   if logged in user mobile is not verified        ------>
+
+            <!-- -&#45;&#45;   if logged in user mobile is not verified        &#45;&#45;&#45;&#45;-->
             <!--<div ng-if="show_seller_mobile_var===0" class="col-md-12 text-center">-->
             <!--<div class="col-md-12 text-center" >-->
             <!--<button class="seller-contact-dtls btn text-c f-14" ng-click="show_seller_mobile()">Contact {{package.seller_name |limitTo: 28}}<span ng-if="package.seller_name.length>28">..</span><md-tooltip md-direction="top">-->
@@ -799,10 +810,6 @@
             <!--</div>-->
             <!--</div>-->
 
-
-
-
-            <!------------------------------------------------------->
           </div>
 
 

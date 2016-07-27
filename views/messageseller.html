@@ -1,0 +1,59 @@
+<div class="modal-content" >
+  <div class="modal-body" style="padding: 0 10px;">
+    <div class="row">
+      <div class="col-xs-11">
+        <h3 class="text-center"> <strong>Message {{message.receiver_name}}</strong></h3>
+      </div>
+
+
+      <div class="col-xs-1 m-t-20">
+        <i class="close fa fa-times-circle fa-2x" ng-click="message.cloaseModal()" aria-label="Close"></i>
+        ​
+      </div>
+
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <label class="m-b-10">Enter your Message title:</label>
+        <input class="form-control" placeholder="Message title" ng-model="modalmessage.subject" ng-keydown="message.keyPressed()"/>
+      </div>
+
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <label class="m-b-10">Enter your Message:</label>
+        <textarea class="form-control" placeholder="Message" rows="3" cols="50" ng-model="modalmessage.body" ng-keydown="message.keyPressed()"></textarea>
+      </div>
+
+    </div>
+
+    ​
+    <!--</div>-->
+    ​
+    ​  <div class="row" ng-if="message.success!=''">
+    <div class="col-md-12 zolo-center">
+      <span style="color: green">{{message.success}}</span>
+    </div>
+  </div>
+    ​
+    <div class="row" ng-if="error!=''">
+      <div class="col-md-12 zolo-center">
+        <span style="color: red">{{message.error}}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 zolo-center">
+        <button class="btn zolo-btn" ng-click="message.sendMessageSeller();" type="button" data-dismiss="modal">Send Message</button>
+      </div>
+    </div>
+    ​
+    ​
+  </div>
+
+</div>

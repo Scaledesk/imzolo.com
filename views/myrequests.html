@@ -294,14 +294,27 @@
       </div>
 
       <div class="col-md-2">
-        <p class="text-right p-10 f-16 w-500 m-t-5 m-b-5">Sort Offers by</p>
+        <!--<p class="text-right p-10 f-16 w-500 m-t-5 m-b-5">Sort Offers by</p>-->
       </div>
 
-      <div class="col-md-2">
-        <select class="form-control border m-t-20">
-          <option value="">Date</option>
-          <option value="">Date</option>
-        </select>
+      <!--<div class="col-md-2">-->
+        <!--<select class="form-control border m-t-20">-->
+          <!--<option value="">Price</option>-->
+          <!--<option value="">Date</option>-->
+        <!--</select>-->
+      <!--</div>-->
+
+
+      <div class="col-md-2 ">
+        <md-input-container class="md-block zolo-n-m" >
+          <!--<label>Sort by Price</label>-->
+          <md-select name="myModel" ng-model="sortBy"  ng-change="myRequests.sortingofferByPrice(sortBy)">
+            <md-option class="md_selected w-500" value="none" id="first" selected="true">Sort Offer by</md-option>
+
+            <md-option value="price" id="second" >Price</md-option>
+            <!--<md-option value="date" id="second">date</md-option>-->
+          </md-select>
+        </md-input-container>
       </div>
 
 
@@ -311,6 +324,7 @@
 
   <!--repeat the responses-->
   <div ng-show="myRequests.show_responses==true" class="card card-5-15" ng-repeat="response in myRequests.targetResponses">
+
     <div class="row p-n-q-content">
       <div class="col-xs-1">
         <img src="{{response.seller || '../global/images/dummy.png'}}" alt="" class="img-responsive img-circle m-t-20">

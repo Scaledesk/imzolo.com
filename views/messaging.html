@@ -28,7 +28,11 @@
       <!--Show the listing of the message-->
       <div class="col-md-9" ng-if="_message.go_to_message==false">
         <div class="card">
-          <div class="row m-b-5 ">
+
+
+          <!--{{_message.active_placeholder.id}}-->
+
+          <div class="row m-b-5 " ng-show="_message.active_placeholder.id==1">
             <ul class="nav tabs">
               <li class="col-md-4">
                 <a href="" >
@@ -51,15 +55,15 @@
 
             </ul>
           </div>
+
+
+
+
           <hr style="margin-top:5px !important;">
 
 
           <a ng-if="_message.messages.length>0">
             <div class="row m-t-5 border-bottom" ng-repeat="message in _message.messages track by $index" ng-click="_message.setMessageRead($index);_message.openMessage($index);">
-
-
-
-
               <!--<div ng-class="{' has-to-click new-message':message.read==0,' has-to-click':message.read==1}">
 
               <div class="col-md-2 ">
@@ -79,12 +83,12 @@
               <div class="new-message">
                 <!--<div ng-class="{'new-message':message.read==1}">-->
 
-                <div class="col-md-3">
-                  <div class=" w-600" ng-bind="message.sender.name"></div>
+                <div class="col-md-2 ">
+                  <div class=" w-600 text-Justify f-20" style="color:#673AB7" ng-bind="message.sender.name"></div>
                 </div>
 
-                <div class="col-md-9">
-                  <span class="text-center w-600" ng-bind="message.subject"></span>-<span style="text-align: justify" ng-bind="message.body | limitTo:150"></span>
+                <div class="col-md-10">
+                  <span class="text-center w-600" ng-bind="message.subject"></span>&nbsp;-&nbsp;<span style="text-align: justify" ng-bind="message.body | limitTo:150"></span>
                 </div>
 
               </div>

@@ -67,7 +67,7 @@ body {
   height: 100%;
   background: #F5F5F5;
   color: #5B5B5B;
-  font-family: 'Lato', 'Open Sans', Helvetica, sans-serif !important;
+  font-family:  'Open Sans', Helvetica, sans-serif !important;
   line-height: 1.42857143;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -118,7 +118,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   font-weight: 100;
 }
 h1.light,
@@ -126,14 +126,14 @@ h2.light,
 h3.light,
 h4.light,
 h5.light {
-  font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   font-weight: 100;
 }
 h1,
 .h1 {
   font-size: 45px;
   margin-top: 0;
-  font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 .font-nothing {
   font-family: 'Nothing You Could Do', 'Arial', cursive;

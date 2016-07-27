@@ -5,11 +5,7 @@
   .main-content .page-content{
     padding: 0!important;
   }
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+
 
   </style>
 
@@ -121,6 +117,7 @@
                 <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex">
                   <md-tab label="Basic info" ng-click="selectedIndex=0" >
                     <md-content class="md-padding">
+
                       <form name="basicinfo" novalidate>
                       <p class="f-16 m-t-20">Name</p>
                       <input ng-model="profile.name" name="name" id="name" type="text" class="form-control" ng-change="validateProfileName()" maxlength="50" placeholder="Name">
@@ -191,7 +188,9 @@
                       </div>
                       <br>
                       <hr class="custom-hr">
-                      <md-button type="submit" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" ng-click="updateFirstTab()">Next <span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></md-button>
+                      <md-button type="submit" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" ng-click="updateFirstTab()">Save and Next <span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span> <md-tooltip md-direction="right" class="f-10">
+                        To open other tabs of profile to fill please Post a Package.
+                      </md-tooltip></md-button>
                       <!--<md-button ng-show="profile.is_seller == 1 && profile.step_number!=null" class="md-raised md-primary btn-default"ng-click="nextTab()">next</md-button>-->
                    </form>
                     </md-content>
@@ -298,7 +297,7 @@
                       <!--</div>-->
                       <div class="col-md-12">
                       <md-button type="button" class="md-raised md-primary btn-default" ng-click="backTab()">Back</md-button>
-                      <md-button type="submit" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" >Next<span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></md-button>
+                      <md-button type="submit" class="md-raised md-primary btn-default pull-right" ng-disabled="saving" >Save and Next<span><i ng-style="loaderStyle" class="fa fa-spinner fa-spin"></i> </span></md-button>
                       <!--<md-button type="button" class="md-raised md-primary btn-default" ng-click="nextTab()">Next</md-button>-->
                    </div>
                         </form>
@@ -927,7 +926,7 @@
 
            <div class="col-xs-6">
           <p class="pull-right w-500 f-18" ng-if="profile.skills.length<=0">N/A</p>
-          <p ng-if="profile.skills.length>0"  class="text-center pull-right"><strong ng-repeat="s in profile.skills"> <span ng-if="$index!=0">,</span> {{s.text}}</strong></p>
+          <p ng-if="profile.skills.length>0"  class="text-center pull-right"><strong ng-repeat="s in profile.skills"><span ng-if="$index!=0">,</span>{{s.text}} </strong></p>
           <!--<p class="text-center"><strong ng-if="profile.skills.length<=0" >NA</strong></p>-->
 
         </div>
