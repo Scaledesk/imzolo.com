@@ -1,7 +1,120 @@
 <style>
+
   .new-message{
-    background-color: #f7f7f7;
+    background-color: #fafafa!important;
+    border-left: 2px solid #6e8d9b;
+    transition: border-left 0.1s ease-out;
   }
+
+  .new-m{
+    border-left: 2px solid #6e8d9b;
+    transition: border-left 0.1s ease-out;
+        }
+  .new-m:hover {
+    border-left: 3px solid #6e8d9b;
+  }
+
+  .old-inborder{
+
+    border-left: 2px solid #C84648;
+    transition: border-left 0.1s ease-out;
+  }
+
+  .new-inborder{
+
+    border-left: 3px solid #C84648;
+    background-color: #f5f5f5!important;
+  }
+
+  .new-inbadge{
+    background-color: #C84648 ;
+  }
+
+
+
+
+  .old-sentborder{
+    border-left: 2px solid #259073;
+    transition: border-left 0.1s ease-out;
+  }
+
+  .new-sentborder{
+
+    border-left: 3px solid #259073;
+    background-color: #f5f5f5!important;
+  }
+
+  .new-sentbadge{
+    background-color:#259073;
+  }
+
+
+
+  .old-custborder{
+
+    border-left: 2px solid #673ab7;
+    transition: border-left 0.1s ease-out;
+
+  }
+
+  .new-custborder{
+
+    border-left: 3px solid #673ab7;
+    background-color: #f5f5f5!important;
+  }
+  .new-custbadge{
+    background-color:#673ab7;
+  }
+
+
+
+
+
+  .new-messageread{
+    background-color: #fafafa!important;
+    padding: 10px;
+    margin-top: 5px;
+    border-left: 2px solid #6e8d9b;
+    transition: border-left 0.1s ease-out;
+
+
+  }
+
+  .new-messageread:hover {
+    border-left: 3px solid #6e8d9b;
+  }
+
+
+
+  .new-messageunread
+  {
+    background-color: #f5f5f5!important;
+    padding: 10px;
+    margin-top: 5px;
+    border-left: 2px solid #6e8d9b;
+    transition: border-left 0.1s ease-out;
+
+  }
+  .new-messageunread:hover {
+    border-left: 3px solid #6e8d9b;
+  }
+
+.active.t {
+  background-color: #f5f5f5!important;
+}
+
+
+
+  .page-content{
+
+    margin-top: 30px!important;
+  }
+
+  /*.pagination-number {*/
+    /*border: 1px solid #ccf;*/
+  /*}*/
+
+
 </style>
 
 
@@ -14,9 +127,9 @@
 
     <div class="row" ng-hide="messageloading" >
       <div class="col-md-3" >
-        <div class="card" >
-          <ul class="navbar nav">
-            <li><a class="border-bottom" ng-click="_message.active_placeholder=placeholder;_message.updateMessageList();_message.go_to_message=false;" ng-class="{'row has-to-click active-local':placeholder.id==_message.active_placeholder.id, 'row has-to-click':placeholder.id!=_message.active_placeholder.id}"  ng-repeat="placeholder in _message.placeholders">{{placeholder.title.replace('_',' ')|uppercase}}&nbsp;<span class="badge badge-danger">{{placeholder.total_messages_number}}</span></a>
+        <div class="card p-t-10 p-b-10" >
+          <ul class="nav-bar nav">
+            <li><a   class="border-bottom" ng-click="_message.active_placeholder=placeholder;_message.updateMessageList();_message.go_to_message=false;" ng-class="{'row has-to-click active-local':placeholder.id==_message.active_placeholder.id, 'row has-to-click':placeholder.id!=_message.active_placeholder.id,'new-inborder':_message.active_placeholder.id ==1 && placeholder.id ==1,'new-sentborder':_message.active_placeholder.id ==2 && placeholder.id ==2,'new-custborder':_message.active_placeholder.id ==3 && placeholder.id ==3,'old-inborder':placeholder.id == 1,'old-sentborder':placeholder.id == 2,'old-custborder':placeholder.id == 3 }"  ng-repeat="placeholder in _message.placeholders">{{placeholder.title.replace('_',' ')|uppercase}}&nbsp;<span class="badge" ng-class="{'new-inbadge':placeholder.id == 1,'new-sentbadge':placeholder.id == 2,'new-custbadge':placeholder.id == 3}">{{placeholder.total_messages_number}}</span> </a>
             </li>
           </ul>
         </div>
@@ -27,135 +140,243 @@
 
       <!--Show the listing of the message-->
       <div class="col-md-9" ng-if="_message.go_to_message==false">
-        <div class="card">
+
+          <div class="panel m-t-5" ng-hide="messageloader">
+            <div class="panel-content p-t-0">
+
+              <div class="row m-b-5 " ng-show="_message.active_placeholder.id==1">
+                <!--<div class="row m-b-5 ">-->
+
+                <ul class="nav tabs tabss">
+                  <li class="col-md-4 active t" >
+                    <a data-target="#alltab" data-toggle="tab" >
+                      <div class="text-center f-18 text-c" style="color:#259073" >All</div>
+                    </a>
+                  </li>
+
+                  <li class="col-md-4 t">
+                    <a data-target="#readtab" data-toggle="tab">
+                    <div class=" text-center f-18 text-c" style="color:#259073" >Read</div>
+                   </a>
+                  </li>
+
+                  <li class="col-md-4 t">
+                    <a data-target="#unreadtab" data-toggle="tab">
+                      <div class=" text-center f-18 text-c" style="color:#259073">Unread</div>
+                  </a>
+                  </li>
+                </ul>
 
 
-          <!--{{_message.active_placeholder.id}}-->
+              </div>
+<hr class="custom-hr" ng-show="_message.active_placeholder.id==1">
 
-          <div class="row m-b-5 " ng-show="_message.active_placeholder.id==1">
-            <ul class="nav tabs">
-              <li class="col-md-4">
-                <a href="" >
 
-                  <div class="text-center f-18 text-c">ALL</div>
-                </a>
-              </li>
+              <div class="tab-content p-t-0" style="border-top: 0px" >
 
-              <li class="col-md-4"><a href="" >
 
-                <div class=" text-center f-18 text-c" >Read</div>
-              </a>
-              </li>
+                <div class="tab-pane fade active in"  id="alltab">
+                  <a ng-if="_message.messages.length>0">
+                    <!--<div class="row p-10 m-t-5 new-m" style="background-color: #f5f5f5;" ng-repeat="message in _message.messages |orderBy:'-timestamp' track by $index" ng-click="_message.setMessageRead(message);_message.openMessage(message);" ng-class="{'new-message':message.read==1}">-->
 
-              <li class="col-md-4"><a href="">
+                      <div class="row p-10 m-t-5 new-m" style="background-color: #f5f5f5;" dir-paginate="message in _message.sortmessages | itemsPerPage:'5' track by $index " pagination-id="msgPagination" ng-click="_message.setMessageRead(message);_message.openMessage(message);" ng-class="{'new-message':message.read==1}">
 
-                <div class=" text-center f-18 text-c">Unread</div>
-              </a>
-              </li>
+                      <!--<li dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="mealsPagination">{{ meal }}</li>-->
 
-            </ul>
+                      <div  >
+                        <!--{{message.read}}-->
+                        <div class="col-md-3 ">
+                          <div class="  text-Justify f-18" style="color:#673AB7" ng-bind="message.sender.name"></div>
+                        </div>
+
+                        <div class="col-md-9">
+                          <span class="text-center w-600" ng-bind="message.subject"></span>&nbsp;-&nbsp;<span style="text-align: justify" ng-bind="message.body | limitTo:150"></span>
+                        </div>
+                      </div>
+                      <hr>
+
+                    </div>
+                  </a>
+                  <div class="row" ng-if="_message.messages.length==0">
+                    <p class="text-center large-size f-20 m-b-100 m-t-100 ">No Message Found</p>
+                  </div>
+
+                  <div class="text-center ">
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" pagination-id="msgPagination" template-url="bower_components/angularUtils-pagination/dirPagination.tpl.html" ></dir-pagination-controls>
+
+                  </div>
+
+
+
+                </div>
+
+
+                <div class="tab-pane fade"  id="readtab">
+                  <a ng-if="_message.messages.length>0">
+                    <!--<div class="row "  ng-repeat="message1 in _message.messages |orderBy:'-timestamp' track by $index" ng-click="_message.setMessageRead(message1);_message.openMessage(message1);" ng-class="{'new-messageread':message1.read==1}">-->
+
+                      <div class="row"  dir-paginate="message1 in _message.sortmessages | itemsPerPage:'5' track by $index " pagination-id="readmsgPagination" ng-click="_message.setMessageRead(message1);_message.openMessage(message1);" ng-class="{'new-messageread':message1.read==1}">
+
+                      <div  ng-hide="message1.read == 0" >
+                        <!--<div ng-class="{'new-message':message.read==1}">-->
+                        <!--{{message1.read}}-->
+                        <div class="col-md-3 ">
+                          <div class=" text-Justify f-18" style="color:#673AB7" ng-bind="message1.sender.name"></div>
+                        </div>
+
+                        <div class="col-md-9">
+                          <span class="text-center w-600" ng-bind="message1.subject"></span>&nbsp;-&nbsp;<span style="text-align: justify" ng-bind="message1.body | limitTo:150"></span>
+                        </div>
+
+                      </div>
+                      <hr ng-hide="message1.read == 0" >
+
+                    </div>
+                  </a>
+
+                  <!--<div ng-repeat="message5 in _message.messages | filter:{ read:1 }" >-->
+                    <!--{{$index}}-->
+                  <!--</div>-->
+
+
+
+
+
+                  <div class="row" ng-if="_message.readmsg.length == 0">
+                    <p class="text-center large-size f-20 m-b-100 m-t-100 ">No Read Messages</p>
+                  </div>
+
+                  <div class="text-center">
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" pagination-id="readmsgPagination" template-url="bower_components/angularUtils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
+
+                  </div>
+
+                </div>
+
+
+                <div class="tab-pane fade"  id="unreadtab">
+                  <a ng-if="_message.messages.length>0">
+                    <div class="row " ng-repeat="message2 in _message.messages |orderBy:'-timestamp' track by $index" ng-click="_message.setMessageRead(message2);_message.openMessage(message2);" ng-class="{'new-messageunread':message2.read==0}">
+
+                      <div ng-hide="message2.read == 1" >
+                        <!--<div ng-class="{'new-message':message.read==1}">-->
+                        <!--{{message.read}}-->
+                        <div class="col-md-3 ">
+                          <div class="text-Justify f-18" style="color:#673AB7" ng-bind="message2.sender.name"></div>
+                        </div>
+
+                        <div class="col-md-9">
+                          <span class="text-center w-600" ng-bind="message2.subject"></span>&nbsp;-&nbsp;<span style="text-align: justify" ng-bind="message2.body | limitTo:150"></span>
+                        </div>
+                      </div>
+                      <hr ng-hide="message2.read == 1" >
+                    </div>
+                  </a>
+                  <div class="row" ng-if="_message.unreadmsg.length == 0">
+                    <p class="text-center large-size f-20 m-b-100 m-t-100 ">No Unread Messages</p>
+                  </div>
+
+                </div>
+
+              </div>
+
+          </div>
           </div>
 
-
-
-
-          <hr style="margin-top:5px !important;">
-
-
-          <a ng-if="_message.messages.length>0">
-            <div class="row m-t-5 border-bottom" ng-repeat="message in _message.messages track by $index" ng-click="_message.setMessageRead($index);_message.openMessage($index);">
-              <!--<div ng-class="{' has-to-click new-message':message.read==0,' has-to-click':message.read==1}">
-
-              <div class="col-md-2 ">
-                <div class="text-center w-600" ng-bind="message.sender.name"></div>
-              </div>
-
-              <div class="col-md-4">
-                <span class="text-center w-600" ng-bind="message.subject | limitTo: 27"></span><span ng-if="message.subject.length>30"><strong>...</strong></span>
-              </div>
-
-
-              <div class="col-md-6">
-                <div style="text-align: justify" ng-bind="message.body | limitTo:50"></div>
-              </div>
-
-    </div>-->
-              <div class="new-message">
-                <!--<div ng-class="{'new-message':message.read==1}">-->
-
-                <div class="col-md-2 ">
-                  <div class=" w-600 text-Justify f-20" style="color:#673AB7" ng-bind="message.sender.name"></div>
-                </div>
-
-                <div class="col-md-10">
-                  <span class="text-center w-600" ng-bind="message.subject"></span>&nbsp;-&nbsp;<span style="text-align: justify" ng-bind="message.body | limitTo:150"></span>
-                </div>
-
-              </div>
-
+        <div ng-show="messageloader" class="card ">
+          <div class="col-md-12 text-center m-t-60">
+            <div layout="row" layout-sm="column" layout-align="space-around">
+              <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
             </div>
-          </a>
-<div class="row" ng-if="_message.messages.length==0">
-  <p class="text-center large-size f-20 m-b-100 m-t-100 ">No Message Found</p>
-</div>
+          </div>
+        </div>
 
+      </div>
+
+
+
+
+      <!--Show the particular message-->
+      <div class="col-md-9 p-t-0 card" ng-if="_message.go_to_message==true">
+        <div class="row" >
+          <div class="col-md-12" style="padding-left: 2%">
+            <h2 class="zolo-c" ng-bind="_message.current_message.subject"></h2>
+            <hr class="custom-hr" color="black">
+          </div>
+          <div class="row" ng-repeat="local_message in _message.current_messages_thread track by $index">
+            <p class="border-bottom" style="padding-left: 3.5%;" >
+              <span ng-if="_message.active_placeholder.id==local_message.receiver_placeholder_id"><span>From : </span><span style="font-weight: bold" ng-bind="local_message.sender.name"><!--sender name--> </span> to <span style="font-weight: bold">Me</span> </span>
+              <span ng-if="_message.active_placeholder.id!=local_message.receiver_placeholder_id"><strong>by: </strong><span style="font-weight: bold">Me</span> to <span style="font-weight: bold" ng-bind="local_message.receiver.data.name"><!--sender name--> </span> </span>
+              <span style="padding-left: 2%;padding-right: 3% " class="pull-right"><i class="fa fa-clock-o" aria-hidden="true"></i>:<span style="font-weight: bold" ng-bind="local_message.timestamp"><!--date--></span></span></p>
+
+
+            <div class="col-md-11 m-t-5 m-b-5 border-bottom " style=" background:#f8f8f8;margin-left: 4.0%;padding-right: 3.5%;text-align: justify ;" ng-bind="local_message.body">
+            </div>
+            <div class="col-md-12" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0">
+              <div class="col-md-6" style="padding-left: 17px;">Days to Complete: <span style="font-weight: bold" ng-bind="_message.current_message.days"></span></div>
+              <div class="col-md-6">Price: <span style="font-weight: bold" ng-bind="_message.current_message.price"></span></div>
+            </div>
+            <hr ng-if="(_message.current_messages_thread.length-1)!=$index" color="grey">
+          </div>
+          <!--<div class="row" ng-bind="_message.success" style="color: green">-->
           <!--</div>-->
-        </div>
+          <!--<div class="row" ng-bind="_message.error" style="color: red">-->
+          <!--</div>-->
+          <div class="row p-l-30" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
+            <div class="col-md-12 m-t-5 border-top p-l-0">
+              <!--<hr color="grey">-->
+              <h3 class="zolo-c">This is the custom offer a user wants. Kindly send your quotation for the offer.</h3>
+            </div>
+            <div class="col-md-12 p-l-0 " ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
+              <div class="col-md-6 p-l-0">Enter Days to Complete  <input ng-model="_message.myreply.days" placeholder="Enter Days" type="number" min="1"/></div>
+              <div class="col-md-6">Enter Price  <input ng-model="_message.myreply.price" placeholder="Enter price" type="number" min="1"/></div>
+            </div>
+          </div>
+          <div class="row p-l-30" ng-if="_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
+            <div class="col-md-8 p-l-0"><textarea rows="10" style="margin-top: 3%;padding: 2%;width: 95%" ng-model="_message.myreply.body" ng-keypress="_message.success='';_message.error=''"></textarea></div>
+            <!--<div class="col-md-4" style="margin-top: 1.4%;">-->
+              <!--<md-button ng-click="_message.mysendMessage()" style="background-color:#C84648;color: white"> Reply</md-button>-->
+              <!--<div class="row" ng-bind="_message.error" style="color: red">-->
+              <!--</div>-->
+            <!--</div>-->
+          </div>
+
+          <div class="row " ng-if="_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
+            <div class="col-md-4" style="margin-top: 1.4%;margin-left: 1.4%; ">
+              <md-button class="m-l-0" ng-click="_message.mysendMessage()" style="background-color:#259073;color: white"> Reply</md-button>
+              <div class="row p-l-10" ng-bind="_message.error" style="color: red">
+              </div>
+            </div>
+          </div>
 
 
-      </div>
-    <!--Show the particular message-->
-    <div class="col-md-9" ng-if="_message.go_to_message==true">
-      <div class="row" >
-        <div class="col-md-12" style="padding-left: 2%">
-          <h2 ng-bind="_message.current_message.subject"></h2>
-          <hr size="20" color="black">
-        </div>
-        <div class="row" ng-repeat="local_message in _message.current_messages_thread track by $index">
-          <div class="col-md-12" style="padding-left: 3.5%"><p>
-            <span ng-if="_message.active_placeholder.id==local_message.receiver_placeholder_id"><strong>from: </strong><span style="font-weight: bold" ng-bind="local_message.sender.name"><!--sender name--> </span> to <span style="font-weight: bold">Me</span> </span>
-            <span ng-if="_message.active_placeholder.id!=local_message.receiver_placeholder_id"><strong>by: </strong><span style="font-weight: bold">Me</span> to <span style="font-weight: bold" ng-bind="local_message.receiver.data.name"><!--sender name--> </span> </span>
-            <span style="padding-left: 2%"><i class="fa fa-clock-o" aria-hidden="true"></i>:<span style="font-weight: bold" ng-bind="local_message.timestamp"><!--date--></span></span></p></div>
-          <div class="col-md-12" style="padding-left: 3.5%;text-align: justify" ng-bind="local_message.body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="row" ng-if="_message.current_message.has_buy_action==1&&_message  .active_placeholder.id!=2" style="margin-left: 2%;min-height: 100px;">
+            <br/>
+            <p><strong>Days in which the work will complete: </strong><span>{{_message.current_message.days}}</span></p><br/>
+            <md-button style="background-color: #78588C;color: #FFFFFF;" ng-click="_message.book()">Buy(&#8377; {{_message.current_message.price}})</md-button>
           </div>
-          <div class="col-md-12" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0">
-            <div class="col-md-6">Days to Complete: <span style="font-weight: bold" ng-bind="_message.current_message.days"></span></div>
-            <div class="col-md-6">Price: <span style="font-weight: bold" ng-bind="_message.current_message.price"></span></div>
-          </div>
-          <hr ng-if="(_message.current_messages_thread.length-1)!=$index" color="grey">
-        </div>
-        <div class="row" ng-bind="_message.success" style="color: green">
-        </div>
-        <div class="row" ng-bind="_message.error" style="color: red">
-        </div>
-        <div class="row" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
-          <div class="col-md-12">
-            <hr color="grey">
-            <h3>This is the custom offer a user wants. Kindly send your quotation for the offer.</h3>
-          </div>
-          <div class="col-md-12" ng-if="_message.current_message.receiver_placeholder_id==3&&_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
-            <div class="col-md-6">Enter Days to Complete: <input ng-model="_message.myreply.days" placeholder="Enter Days" type="number" min="1"/></div>
-            <div class="col-md-6">Enter Price: <input ng-model="_message.myreply.price" placeholder="Enter price" type="number" min="1"/></div>
-          </div>
-        </div>
-        <div class="row" ng-if="_message.current_message.has_buy_action==0&&_message.active_placeholder.id!=2">
-          <div class="col-md-8"><textarea rows="10" style="margin-top: 3%;margin-left: 1%;padding: 2%;width: 95%" ng-model="_message.myreply.body" ng-keypress="_message.success='';_message.error=''"></textarea></div>
-          <div class="col-md-4" style="margin-top: 1.4%;">
-            <md-button ng-click="_message.mysendMessage()" style="background-color: #78588C;color: white"> Reply</md-button>
-          </div>
-        </div>
-        <div class="row" ng-if="_message.current_message.has_buy_action==1&&_message  .active_placeholder.id!=2" style="margin-left: 2%;min-height: 100px;">
-          <br/>
-          <p><strong>Days in which the work will complete: </strong><span>{{_message.current_message.days}}</span></p><br/>
-          <md-button style="background-color: #78588C;color: #FFFFFF;" ng-click="_message.book()">Buy(&#8377; {{_message.current_message.price}})</md-button>
         </div>
       </div>
+
+
+
     </div>
-
-
-
   </div>
-</div>
 </div>
 
 <div ng-show="messageloading" class="card">

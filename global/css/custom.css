@@ -3041,3 +3041,21 @@ input[type=number]::-webkit-outer-spin-button {
 .white-c{
   color: #fff!important;
 }
+
+
+/*New Shadow effect for card view*/
+
+.card{
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.08)!important;
+}
+/*Ends here*/
+
+
+
+/*Team member///*/
+
+.board-member figcaption{
+  border: 2px solid #eee;
+}
+
+

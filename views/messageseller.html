@@ -1,8 +1,8 @@
-<div class="modal-content" >
+<div class="modal-content" style="height:450px;" >
   <div class="modal-body" style="padding: 0 10px;">
     <div class="row">
       <div class="col-xs-11">
-        <h3 class="text-center"> <strong>Message {{message.receiver_name}}</strong></h3>
+        <h3 class="text-center"> <strong>Message <p class="zolo-c ib">{{message.receiver_name}} </p></strong></h3>
       </div>
 
 
@@ -24,10 +24,10 @@
 
 
 
-    <div class="row">
+    <div class="row p-t-20">
       <div class="col-md-8 col-md-offset-2">
         <label class="m-b-10">Enter your Message:</label>
-        <textarea class="form-control" placeholder="Message" rows="3" cols="50" ng-model="modalmessage.body" ng-keydown="message.keyPressed()"></textarea>
+        <textarea class="form-control" placeholder="Message" rows="7" cols="50" ng-model="modalmessage.body" ng-keydown="message.keyPressed()"></textarea>
       </div>
 
     </div>

@@ -91,7 +91,12 @@
             </div>
             <hr ng-hide="booking.bookingPackagesAddons.data.length>0" class="custom-hr">
 
-
+<div class="row" ng-show="Couponamt>0">
+  <div class="col-md-6 col-md-offset-6 col-xs-10">
+    <p class="zolo-n-m p-r-20 pull-right f-16">Coupon code applied: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{Couponamt}}</span>&nbsp;<span class="zolo-c">off</span>
+    </p>
+  </div>
+</div>
 
 
             <div class="row m-t-10">
@@ -102,11 +107,16 @@
                   <span ng-hide="remaining_amount==0" class="w-500 text-danger">&nbsp;Pending</span>
                 </p>
               </div>
+
+
               <div class="col-md-6 col-xs-10">
-                <p class="zolo-n-m p-r-20 pull-right f-16">Total Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price*booking.quantity}}</span>
+                <p class="zolo-n-m p-r-20 pull-right f-16">Paid Amount: <span class="w-500"><i class="fa fa-inr text-success "></i>&nbsp;{{total_price*booking.quantity-Couponamt}}</span>
                 </p>
               </div>
             </div>
+
+
+
           </div>
         </div>
       </div>

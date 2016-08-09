@@ -70,7 +70,7 @@
                         </div>
                         <div class="col-md-2 col-xs-6">
                           <div class="m-t-10 text-center">
-                            <span class="text-muted-z f-12 w-500">Delivery time:</span>
+                            <span class="text-muted-z f-12 w-500">Delivery Time:</span>
                             <span class="w-500">{{booking.package_delivery_time}}&nbsp;{{booking.package_delivery_time_type}}</span>
                           </div>
                         </div>
@@ -152,17 +152,57 @@
                         </div>
                       </div>
 
-                      <div class="row">
+                      <div class="row"  >
                         <div class="col-md-12">
                           <hr class="custom-hr m-t-10">
 
                           <p class="f-14 w-500 pull-left zolo-n-m">Order Total</p>
-                          <p ng-hide="booking.bookingPackagesInstallments.data.length > 0" class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success"></i>&nbsp;{{total_price}}</p>
+                          <p ng-hide="booking.bookingPackagesInstallments.data.length > 0" class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success ib"></i>&nbsp;<span class="ib" ng-show="applying"><md-progress-circular style="padding-top:5px!important;"  md-mode="indeterminate" md-diameter="18" ></md-progress-circular></span><span ng-hide="applying">{{total_price}}</span></p>
 
-                          <p ng-show="booking.bookingPackagesInstallments.data.length > 0" class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success"></i>&nbsp;{{booking.bookingPackagesInstallments.data[installment_count-1].installment_amount}}</p>
+                          <p ng-show="booking.bookingPackagesInstallments.data.length > 0" class="zolo-n-m pull-right f-14 w-500"><i class="fa fa-inr text-success ib"></i>&nbsp;<span class="ib" ng-show="applying"><md-progress-circular style="padding-top:5px!important;"  md-mode="indeterminate" md-diameter="18" ></md-progress-circular></span><span ng-hide="applying">{{booking.bookingPackagesInstallments.data[installment_count-1].installment_amount}}</span></p>
 
                         </div>
                       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       <hr class="custom-hr m-t-5">
                       <div ng-show="booking.bookingPackagesInstallments.data.length > 0" class="text-success f-10 pull-right " style="text-align: center" >
                         With Easy Installment Policy*
@@ -177,7 +217,7 @@
 
                       <div ng-hide="booking.bookingPackagesInstallments.data.length>1" class="row">
                         <div class="col-md-12">
-                          <p class="w-500">Have a <span class="zolo-c">Promocode?</span>  Apply here!</p>
+                          <p class="w-500">Have a <span class="zolo-c">Coupon Code?</span>  Apply here !</p>
                         </div>
                       </div>
 
@@ -192,13 +232,13 @@
 
                           <div class="col-md-8">
                             <md-input-container class="md-block">
-                              <label>Enter Promo Code</label>
+                              <label>Enter Coupon Code</label>
 
                                 <input ng-disabled="c_applied_success" name="code" type="text" ng-model="code" id="code" aria-required="true"  required >
                               <div ng-messages="promoCode.code.$error" role="alert">
                                 <div ng-message-exp="['required']">Required</div>
                               </div>
-                              <p ng-show="c_applied_success" class="text-success m-0" >Coupan code Applied.</p>
+                              <p ng-show="c_applied_success" class="text-success m-0" >Coupon code applied</p>
 
                             </md-input-container>
                           </div>
@@ -211,6 +251,18 @@
                         </div>
 
                         </form>
+
+                      </div>
+
+                      <div class="row" ng-show="Couponsuccess==true">
+
+                        <div class="col-md-12 ">
+                          Coupon code amount <span class="text-success">
+                          <i class="fa fa-inr"></i>&nbsp;{{Couponamt}}&nbsp;
+                         </span>
+
+                        </div>
+
 
                       </div>
 

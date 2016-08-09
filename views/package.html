@@ -16,7 +16,7 @@
   }
 
   .heart-liked{
-    color:#c9625f !important;
+    color:#c9625f!important;
   }
 
   .desc-zolo-pdp p img{
@@ -129,7 +129,12 @@
   }
 
 
+  @media screen and (min-width: 1600px) {
+    .hidden-lg {
+      display: none !important;
+    }
 
+  }
 
 
 
@@ -285,7 +290,8 @@
             <div class="col-md-3 col-xs-5 m-t-10 ">
               <!--<div class=">-->
               <ul class="nav nav-tabs pdp-pkg-share pull-right">
-                <li><a class="p-l-r-0" href="" ng-click="addAndDeleteWishlist(package)" class="hover-g"><i class="fa fa-heart f-24" ng-class="{'heart-liked': wished_by_user=='yes'}" ></i> </a><md-tooltip md-direction="left">
+                <!--{{wished_by_user}}-->
+                <li><a class="p-l-r-0" href="" ng-click="addAndDeleteWishlist(package)" class="hover-g"><i class="fa fa-heart f-24" ng-class="{'heart-liked': wished_by_user== true || wished_by_user=='yes' }" ></i> </a><md-tooltip md-direction="left">
                   Add to Wishlist
                 </md-tooltip></li>
 
@@ -295,6 +301,8 @@
 
 
                   <md-menu ng-if="isLoggedIn()">
+
+                    <!--{{Collections}}-->
                     <!--<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
                         <md-icon md-menu-origin md-svg-icon="call:ring-volume"></md-icon>
                     </md-button>-->
@@ -665,12 +673,14 @@
       </div>
 
 
-      <div class="card card-padding-5">
+      <div class="card card-padding-10">
         <div class="zolo-pdp-add-ons">
           <div class="add-ons-header">
             <div class="row">
-              <div class="col-md-12 p-l-40 p-r-40">
-                <button class="btn zolo-pdp-buy-btn" ng-click="sendMessageSeller()">Message Seller</button>
+              <div class="col-md-12 p-l-40 p-r-40 text-center">
+                <!--<button class="btn zolo-pdp-buy-btn" ng-click="sendMessageSeller()">Message Seller</button>-->
+                <a href="" ng-click="sendMessageSeller()" class="zolo-c f-16 w-500 m-20" ><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Message Seller</a>
+
               </div>
             </div>
           </div>

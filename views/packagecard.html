@@ -79,14 +79,15 @@
           <div ng-click="addAndDeleteWishlist(package)" class="col-sm-4 col-xs-4 like zolo-card-space" ng-class="{'liked': package.wished_by_user=='yes'}">
             <i class="fa fa-heart"></i>
           </div>
+          <!--{{collections}}-->
           <div ng-if="isAuthenticated()" class="col-sm-4 col-xs-4 zolo-card-space">
             <div class="comment-number" uib-dropdown is-open="package.openCollection">
               <i class="fa fa-tasks" uib-dropdown-toggle> </i>
               <ul uib-dropdown-menu role="menu" aria-labelledby="single-button" class="adc-dropup">
 
-                <li ng-click="toggleCollectionStatus(package.id,collection)" style="cursor: pointer;" ng-repeat="collection in collections" >
+                <li ng-click="toggleCollectionStatus(package.id,collection)" style="cursor: pointer;" ng-repeat="collection in collection" >
                   <a>
-             <span title="Remove from this collection" ng-if="collection.package_collection_status == true">
+             <span title="Remove from this collection" ng-if="collection.package_collection_status == true" >
 <img class="icon icons8-Checkmark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAABm0lEQVQ4T52UMU/CUBDH/2fiAgMOBsMmcZXYSRhIbBcHbUzxC2hCdDSyqcRJCW66OpjAF4AOxMGFkjiAE3wBHYlMMsBCwjOv0OYVXtvoJU2Tvuvv7n/v7ggS0+uGyoATAAoBCndhQBdAl4BqI2dai7+R+OGgbigrwCMAVRZA+GZNgcJrzuRw21zQHNIEsBYCcY5/poDmwGzQPyBLMBuk1wwLhL2wTKKrUfBnMB6IrlYjZ2rECwuASwq1s1QeR1s6Sp0HtPsd0V+jw7pRodkNBVomkUYxfYXRZIz82zlGk5Hrz4Aq6TWjC8JOEIXLedl/tmVJsrFbg0tji5B4JG5HdKIW09fIJHbR7n+g1ClLYy6BkrEkytk7fI8HuHm/RWp921eSSFySxtMvZ++RjG3ic/iFjUjcV5JQpJ602CKMOwdJ4uezYvtcvwPj74tmwXNLkiJpgQ3p04BeDkOrcWyq7ogQg0WEWFg/ieeMYcgIKp83z9D+BSZCPNPvDi/DU+jcMbSmhEvpGhFTni+2U2JQ3K5n6DGyF1tFtth+Ab2ftcT+uhwaAAAAAElFTkSuQmCC" width="18" height="18">
                  {{collection.name}}
              </span>

@@ -55,328 +55,473 @@
 
   .pulse.ng-hide-add, .pulse.ng-hide-remove
   {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
   }
 
   .animated.ng-hide-add, .animated.ng-hide-remove {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
   }
 
+  li.active>a ,li.active{
+    background-color:#e0e0e0!important;
+  }
+
+  li.lt:hover{
+    background-color:#fafafa!important;
+  }
+
+  .nav.nav-tabs > li:hover > a {
+    background-color:#fafafa !important;
+  }
 
 
 
 </style>
 
-
-
 <div class="container m-b-60">
   <div class="card">
     <div class="row">
-      <div ng-hide="loadingPackage" class="col-md-12 text-center">
+      <div ng-hide="loadingPackage" class="col-md-12 text-center p-l-0">
 
 
-        <md-content class="md-padding">
-          <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex" class="tabsdemoDynamicHeight md-content">
-            <md-tab label="Start">
-              <md-content class="md-padding">
+
+
+
+        <div class="panel-content p-t-0 p-l-0">
+          <div class="tab_left">
+
+            <ul class="nav nav-tabs nav-red">
+              <li class="active p-10 p-r-0 lt "><a class="zolo-c"  data-target="#starttab" data-toggle="tab">START</a></li>
+              <li class="p-10 p-r-0 lt"  ><a class="zolo-c"  id="tabdes" data-target="#descriptiontab"  data-toggle="tab">DESCRIPTION</a></li>
+              <li class="p-10 p-r-0 lt" ><a class="zolo-c"  id="tabpay" data-target="#paymenttab"   data-toggle="tab">PAYMENT & DELIVERY</a></li>
+              <li class="p-10 p-r-0 lt" ><a class="zolo-c"  id="tabmed"  data-target="#mediatab"   data-toggle="tab">MEDIA</a></li>
+              <li class="p-10 p-r-0 lt" ><a class="zolo-c"  id="tabadd" data-target="#addonstab"   data-toggle="tab">ADD-ONS</a></li>
+              <!--help image comes here-->
+              <ul>
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'title'" class="m-t-10 " src="../global/images/fwdtooltip/1.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'catchy'" class="m-t-10 " src="../global/images/fwdtooltip/10.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'category'" class="m-t-10 " src="../global/images/fwdtooltip/2.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'p_type'" class="m-t-10 " src="../global/images/fwdtooltip/5.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'tag'" class="m-t-10 " src="../global/images/fwdtooltip/3.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'location'" class="m-t-10 " src="../global/images/fwdtooltip/4.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'desctiption'" class="m-t-10 " src="../global/images/fwdtooltip/9.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'term'" class="m-t-10 " src="../global/images/fwdtooltip/8.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'price'" class="m-t-10 " src="../global/images/fwdtooltip/6.png" >
+
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'd_days'" class="m-t-10 " src="../global/images/fwdtooltip/7.png" >
+
+              </ul>
+
+            </ul>
+
+            <div class="tab-content ">
+              <div class="tab-pane active" id="starttab">
+
+
                 <form name="start" ng-submit="updateFirstTabPackage(package.status)" novalidate>
-                <div class="row user-post-a-package">
-                  <div class="col-lg-6 text-center ">
-                    <div class="form-group">
-                      <label for="title">Package Title*</label>
-                      <input id="title" type="text" name="title" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 16px; !important;">
-                      <div ng-show="validation_error.package_name" class="text-danger">Title is required! || Min 20 character | Max 100 character</div>
-                                            <span class="word-counter">
-                                                <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
-                                            </span>
-                      <md-tooltip class="f-14 w-400" md-direction="right">
-                        *REQUIRED | Min 20 character | Max 100 character
-                      </md-tooltip>
+                  <div class="row m-15 m-t-0 ">
+                    <div class="col-md-12 text-center p-l-20">
+                      <div class="form-group m-b-0">
+                        <label for="title" class="p-l-0 f-17 w-500">Package Title*</label>
+                        <input id="title" ng-focus="count = 'title'" type="text" name="title" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 15px; !important;padding: 0!important;">
+                        <div ng-show="validation_error.package_name" class="text-danger">Title is required! || Min 20 character | Max 100 character</div>
+          <span class="word-counter">
+          <small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>
+          </span>
+
+                      </div>
                     </div>
                   </div>
+
+
+                  <div class="row m-15 m-t-40">
+                    <div class="col-md-12 p-l-20">
+
+                      <p class="f-17 w-500 m-0">Create a Catchy tagline for your package</p>
+
+                      <!--<input type="text" class="form-control  f-16" uib-popover-html="catchyTitlePopover" popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here..">-->
+                      <input type="text" ng-focus="count = 'catchy'" class="form-control f-16" id="text-edit" ng-model="package.introduction" placeholder="Please type here.." >
+
+                    </div>
+                  </div>
+
+
+
+
+
+
+                  <!--<div class="row user-post-a-package">-->
+                  <!--<div class="col-md-3">-->
+                  <!--<label for="category">Category*</label>-->
+                  <!--<md-select ng-model="p_category" id="category" ng-change="subCategory()">-->
+                  <!--<md-option value="" ng-selected="-1">Select Category</md-option>-->
+                  <!--<md-option ng-repeat="c in category" ng-if="c.id!=13" value="{{c.id}}">-->
+                  <!--{{c.name}}-->
+                  <!--</md-option>-->
+                  <!--<md-option value="13">-->
+                  <!--{{"Others"}}-->
+                  <!--</md-option>-->
+                  <!--</md-select>-->
+                  <!--<div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>-->
+                  <!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+                  <!--* Required Select category-->
+                  <!--</md-tooltip>-->
+                  <!--</div>-->
+                  <!--<div class="col-md-3">-->
+                  <!--<label for="subcategory">Subcategory</label>-->
+                  <!--<md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">-->
+                  <!--<md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>-->
+                  <!--<md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">-->
+                  <!--{{sub_c.name}}-->
+                  <!--</md-option>-->
+                  <!--</md-select>-->
+                  <!--</div>-->
+
+
+                  <!--<div class="col-md-1">-->
+                  <!--<label class="pull-right" style="margin: 10px;">Tags</label>-->
+                  <!--</div>-->
+
+
+                  <!--<div class="col-md-4">-->
+                  <!--<tags-input ng-model="p" key-property="value" add-from-autocomplete-only="true">-->
+                  <!--<auto-complete source="loadTags($query)"></auto-complete>-->
+                  <!--</tags-input>-->
+                  <!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+                  <!--* add tag-->
+                  <!--</md-tooltip>-->
+                  <!--</div>-->
+
+                  <!--</div>-->
+
+
+
+
+                  <div class="row m-15 m-t-40">
+                    <div class="col-md-6 p-l-20">
+
+                      <label for="category" class="f-17 w-500">Category*</label>
+                      <md-select class="m-5 m-l-0" ng-focus="count = 'category'" ng-model="p_category" id="category" ng-change="subCategory()">
+                        <md-option value="" ng-selected="-1">Select Category</md-option>
+                        <md-option ng-repeat="c in category" ng-if="c.id!=13" value="{{c.id}}">
+                          {{c.name}}
+                        </md-option>
+                        <md-option value="13">
+                          {{"Others"}}
+                        </md-option>
+                      </md-select>
+                      <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="subcategory" class="f-17 w-500">Subcategory</label>
+                      <md-select class="m-5 m-l-0" ng-focus="count = 'category'" ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">
+                        <md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
+                        <md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">
+                          {{sub_c.name}}
+                        </md-option>
+                      </md-select>
+                    </div>
+
+
+                  </div>
+
+
+
+
+
+                  <div class="row m-15 m-t-40">
+                    <div class="col-md-6 m-b-20 p-l-20">
+                      <label for="package_type" class="f-17 w-500">Package Type*</label>
+                      <md-select class="m-5 m-l-0" ng-focus="count = 'p_type'" ng-model="package.packages_type" id="package_type" ng-change="validation_error.package_type=false">
+                        <md-option value="" ng-selected="-1">Select Package Type</md-option>
+                        <md-option ng-repeat="pt in packagesType" value="{{pt.id}}">
+                          {{pt.name}}
+                        </md-option>
+                      </md-select>
+                      <div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6">
+                      <p class="m-5 f-17 w-500">Tags</p>
+                      <tags-input ng-focus="count = 'tag'" class="custom-tags" ng-model="p" key-property="value" add-from-autocomplete-only="true">
+                        <auto-complete source="loadTags($query)"></auto-complete>
+                      </tags-input>
+
+
+                    </div>
+
+                  </div>
+
+                  <div class="row m-15 m-t-40">
+                    <div class="col-md-12 p-l-20 p-b-20">
+
+                      <p class="f-17 w-500 m-t-0">Location* <span>(Your service is available at)</span></p>
+                      <tags-input class="custom-tags" ng-focus="count = 'location'"  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location=false">
+                        <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
+                      </tags-input>
+                      <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row btn-align-xs">
+                    <div class="col-lg-6 col-md-6 col-xs-12 ">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                      <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right">Save and Continue
+                        <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="tab-pane" id="descriptiontab">
+
+                <div class="panel-content p-0" id="des-tabs">
+                  <ul class="nav nav-tabs nav-primary">
+                    <li class="active f-16 m-r-30 m-l-50"><a data-target="#desc_subtab" data-toggle="tab">Description</a></li>
+                    <li class="f-16 m-r-30 m-l-50"><a id="del_asubtab" data-target="#del_subtab"    data-toggle="tab">Deliverables</a></li>
+                    <li class="f-16 m-r-30 m-l-50"><a id="term_asubtab" data-target="#term_subtab"  data-toggle="tab">Terms and Conditions</a></li>
+                  </ul>
+                  <div class="tab-content p-l-0">
+
+
+                    <div class="tab-pane fade active in" id="desc_subtab">
+
+                      <form name="Description" ng-submit="checkvaldndescription(package.status)" novalidate>
+                        <div class="row user-post-a-package">
+                          <div class="col-md-12 p-l-0">
+                            <label class="f-17 w-500">Describe your package*</label>
+                            <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
+
+
+
+
+                            <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
+
+                          </div>
+                        </div>
+
+
+                        <hr/>
+
+                        <div class="row btn-align-xs">
+                          <div class="col-lg-6 col-md-6 col-xs-12 ">
+                            <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTabs('starttab');">Back</button>
+
+                          </div>
+
+                          <div class="col-lg-6 col-md-6 col-xs-12">
+
+
+                            <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
+                            <button ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
+                              Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+
+
+
+                    </div>
+
+                    <div class="tab-pane fade " id="del_subtab">
+
+
+                      <form name="Descriptionsocial" ng-submit="checkvaldnsocial(package.status)" novalidate>
+
+
+                        <div class="row user-post-a-package">
+                          <div class="col-md-8">
+                            <label class="f-17 w-500">What does your package includes ? <span>(Deliverable)</span></label>
+                            <textarea ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
+
+                          </div>
+                        </div>
+
+
+
+                        <div class="row btn-align-xs">
+                          <div class="col-lg-6 col-md-6 col-xs-12 ">
+                            <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTabs('desc_subtab')">Back</button>
+
+                          </div>
+
+                          <div class="col-lg-6 col-md-6 col-xs-12">
+                            <button type="submit" class="btn btn-primary active pull-right m-l-20" ng-disabled="saving" >Save and Continue
+                              <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i></span></button>
+
+                          </div>
+                        </div>
+
+
+                      </form>
+
+                    </div>
+
+
+
+
+                    <div class="tab-pane fade" id="term_subtab">
+
+
+                      <form name="moreinfo" ng-submit="checkValidationterms(package.status)" novalidate>
+
+                        <div class="row user-post-a-package">
+                          <div class="col-lg-12  m-b-20">
+
+                            <p class="f-17 w-500 m-t-0">Instructions for Buyer</p>
+                            <textarea class="form-control" maxlength="1000" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
+                            <p class="f-17 w-500">Terms And Conditions</p>
+                            <textarea ng-focus="count = 'term'" froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
+                          </div>
+                        </div>
+
+                        <div class="row user-post-a-package">
+                          <div class="col-lg-3">
+                            <div class="service-tax-space">Client Meeting*</div>
+                          </div>
+
+                          <div class="col-lg-4 col-md-4">
+                            <div class="radio radio-primary custom-radio">
+                              <label class="f-17 ">
+                                <input ng-model="package.meeting_availability" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
+                                Yes, I am open for Client Meeting
+                              </label>
+                            </div>
+
+
+
+                          </div>
+
+                          <div class="col-lg-4 col-md-4">
+
+                            <div class="radio radio-primary custom-radio">
+                              <label class="f-17 ">
+                                <input ng-model="package.meeting_availability" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
+                                No ,I am not  open for Client Meeting
+                              </label>
+                            </div>
+
+
+                          </div>
+                        </div>
+                        <div ng-show="validation_error.meeting_availability" class="text-danger"> Required Client Meeting</div>
+
+                        <hr>
+
+                        <div class="row btn-align-xs">
+                          <div class="col-lg-6 col-md-6 col-xs-12 ">
+                            <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTabs('del_subtab')">Back</button>
+
+                          </div>
+
+                          <div class="col-lg-6 col-md-6 col-xs-12">
+
+                            <button type="submit" class="btn btn-primary active pull-right m-l-20"   ng-disabled="saving" >Save and Continue
+                              <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
+
+                          </div>
+                        </div>
+
+
+                      </form>
+
+                    </div>
+
+                  </div>
+
+
+
                 </div>
+              </div>
 
-                <div class="row user-post-a-package">
-                  <div class="col-md-3">
-                    <label for="category">Category*</label>
-                    <md-select ng-model="p_category" id="category" ng-change="subCategory()">
-                      <md-option value="" ng-selected="-1">Select Category</md-option>
-                      <md-option ng-repeat="c in category" ng-if="c.id!=13" value="{{c.id}}">
-                        {{c.name}}
-                      </md-option>
-                      <md-option value="13">
-                        {{"Others"}}
-                      </md-option>
-                    </md-select>
-                    <div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
-                      * Required Select category
-                    </md-tooltip>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="subcategory">Subcategory</label>
-                    <md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">
-                      <md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>
-                      <md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">
-                        {{sub_c.name}}
-                      </md-option>
-                    </md-select>
-                  </div>
+              <div class="tab-pane" id="paymenttab">
 
-
-                  <div class="col-md-1">
-                    <label class="pull-right" style="margin: 10px;">Tags</label>
-                  </div>
-
-
-                  <div class="col-md-4">
-                    <tags-input ng-model="p" key-property="value" add-from-autocomplete-only="true">
-                      <auto-complete source="loadTags($query)"></auto-complete>
-                    </tags-input>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
-                      * add tag
-                    </md-tooltip>
-                  </div>
-
-                </div>
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-6 m-b-20">
-                    <p>Location* <span>(Your service is available at)</span></p>
-                    <tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location=false">
-                      <auto-complete source="loadLocations($query)" min-length="1"></auto-complete>
-                    </tags-input>
-                    <div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
-                      * required add location
-                    </md-tooltip>
-
-                  </div>
-
-                  <div class="col-md-6 m-b-20">
-
-                    <label for="package_type">Package Type*</label>
-                    <md-select ng-model="package.packages_type" id="package_type" ng-change="validation_error.package_type=false">
-                      <md-option value="" ng-selected="-1">Select Package Type</md-option>
-                      <md-option ng-repeat="pt in packagesType" value="{{pt.id}}">
-                        {{pt.name}}
-                      </md-option>
-                    </md-select>
-                    <div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
-                      * required select package type
-                    </md-tooltip>
-
-                  </div>
-
-                </div>
-
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-12">
-                    <p class="w-400">Give a Catchy tagline to your package</p>
-                    <!--<textarea id="text-edit" ng-model="package.introduction" placeholder="Please type here.."></textarea>-->
-                    <textarea class="form-control" id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>
-                    <md-tooltip class="f-14 w-400" md-direction="right">
-                      * type catchy introduction
-                    </md-tooltip>
-                  </div>
-                </div>
-
-
-
-                <hr>
-
-                <div class="row btn-align-xs">
-                  <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <!--<button class="btn btn-zolo">Preview</button>-->
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-xs-12">
-                    <!--<button class="btn btn-primary active pull-right" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right">Save and Continue
-                      <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
-                    </button>
-                  </div>
-                </div>
-                  </form>
-              </md-content>
-            </md-tab>
-
-            <md-tab label="Description">
-              <md-content class="md-padding">
-                <form name="Description" ng-submit="updateDescriptionTabPackage(package.status)" novalidate>
-                <div class="row user-post-a-package">
-                  <div class="col-md-12">
-                    <label>Describe your package*</label>
-                    <textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
-                    <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
-                    <md-tooltip md-direction="right">
-                      * Required | Max 8000 character
-                    </md-tooltip>
-                  </div>
-                </div>
-
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-6">
-                    <label>What does your package includes ? <span>(Deliverable)</span></label>
-                    <textarea ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
-                    <md-tooltip md-direction="right">
-                      what does your package includes
-                    </md-tooltip>
-                  </div>
-
-
-                  <div class="col-md-6">
-                    <label>How is your package different from Others ?</label>
-                    <textarea ng-model="package.different_from_others" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
-                    <md-tooltip md-direction="right">
-                      How your package different from other
-                    </md-tooltip>
-                  </div>
-
-
-                </div>
-
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-6">
-                    <label>Facebook Link</label>
-                    <input type="text" maxlength="500" ng-model="package.facebook_links" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
-                    <md-tooltip md-direction="right">
-                      Facebook link Example: http://www.facebook.com
-                    </md-tooltip>
-                  </div>
-
-
-                  <div class="col-md-6">
-                    <label>Youtube Link</label>
-                    <input type="text" maxlength="500" ng-model="package.youtube_links" class="form-control"placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>
-                    <md-tooltip md-direction="right">
-                      Youtube link Example: http://www.youtube.com
-                    </md-tooltip>
-                  </div>
-
-                </div>
-
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-6">
-                    <label>Any Other Link</label>
-                    <input type="text" maxlength="500" class="form-control" ng-model="package.any_other_links" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">
-                    <md-tooltip md-direction="right">
-                      Any other link Example: http://www.other.com
-                    </md-tooltip>
-                  </div>
-
-
-
-                </div>
-
-
-
-                <hr/>
-
-                <div class="row btn-align-xs">
-                  <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button type="button" class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 col-xs-12">
-
-
-                    <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
-                      Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
-                    </button>
-                    <!--<button class="btn btn-zolo pull-right">Preview</button>-->
-                  </div>
-                </div>
-                  </form>
-
-              </md-content>
-
-            </md-tab>
-
-            <md-tab label="Payment & Delivery">
-              <md-content class="md-padding">
                 <form name="payment" ng-submit="updatePaymentTabPackage(package.status)" novalidate>
-                <div class="row user-post-a-package">
-                  <div class="col-lg-6">
-                    <label for="actual_price">Actual Price*</label>
-                    <input ng-model="package.price" id="actual_price" name="actual_price" maxlength="8" type="number" min="1"  ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;" required>
-                    <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
-                    <!--<span class="validation-message text-danger" ng-show="payment.actual_price.$error.required ">required</span>-->
-                    <span class="validation-message text-danger" ng-show="payment.actual_price.$error.maxlength ">Max Rs 10000000</span>
-                    <span class="validation-message text-danger" ng-show="payment.actual_price.$error.min ">Min Rs 1 </span>
+                  <div class="row user-post-a-package">
+                    <div class="col-lg-6">
+                      <label class="f-17 w-500" for="actual_price">Actual Price*</label>
+                      <input ng-model="package.price" ng-focus="count = 'price'" id="actual_price" maxlength="8" ng-keypress="filterValue($event)"type="text" min="1" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                      <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
 
-                    <md-tooltip class="f-14 w-400" md-direction="right">
-                      * Required Actual Price
-                    </md-tooltip>
-                  </div>
+                    </div>
 
 
-                  <div class="col-lg-6">
-                    <label>Discounted Price*</label>
-                    <input ng-model="package.deal_price" type="number" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;" required >
-                    <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted price must be less than Actual price</div>
-                    <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
+                    <div class="col-lg-6">
+                      <label class="f-17 w-500">Discounted Price*</label>
+                      <input ng-model="package.deal_price" maxlength="8" ng-keypress="filterValue($event)"type="text" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                      <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted price must be less than Actual price</div>
+                      <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
 
-                    <md-tooltip class="f-14 w-400" md-direction="right">s
-                      * Deal price should be less than Actual Price
-                    </md-tooltip>
-                  </div>
-                </div>
 
-                <div class="row user-post-a-package">
-                  <div class="col-md-12">
-                    <p><strong>Delivery time*</strong></p>
-                  </div>
-                </div>
-
-                <div class="row user-post-a-package">
-
-                  <div ng-show="validation_error.delivery_time_type" class="text-danger"> Required Delivery time type</div>
-                  <br/>
-                  <div class="col-lg-4 col-md-4">
-                    <div class="radio radio-primary custom-radio">
-                      <label>
-                        <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
-                        Days
-                      </label>
-                      <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>
-                      <div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days' " class="text-danger"> Required Delivery time | min 1 max 300</div>
-                      <md-tooltip class="f-14 w-400" md-direction="right">
-                        * Required Delivery Time
-                      </md-tooltip>
                     </div>
                   </div>
 
-                  <div class="col-lg-4 col-md-4">
-                    <div class="radio radio-primary custom-radio">
-                      <label>
-                        <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
-                        Hours
-                      </label>
-                      <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=false" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
-                      <div ng-show="validation_error.delivery_time_hours && package.delivery_time_type=='hours'" class="text-danger"> Required Delivery time | min 1 max 72</div>
+                  <div class="row user-post-a-package">
+                    <div class="col-md-12">
+                      <p class="w-500 f-17">Delivery time*</p>
                     </div>
                   </div>
 
-                  <div class="col-lg-4 col-md-4">
+                  <div class="row user-post-a-package">
 
-                    <div class="radio radio-primary custom-radio">
-                      <label>
-                        <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>
-                        Instant Delivery
-                      </label>
+                    <div ng-show="validation_error.delivery_time_type" class="text-danger"> Required Delivery time type</div>
+                    <br/>
+                    <div class="col-lg-4 col-md-4">
+                      <div class="radio radio-primary custom-radio">
+                        <label class="f-17 w-500">
+                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          Days
+                        </label>
+                        <input ng-show="package.delivery_time_type=='days'" ng-focus="count = 'd_days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>
+                        <div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days' " class="text-danger"> Required Delivery time | min 1 max 300</div>
+
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4">
+                      <div class="radio radio-primary custom-radio">
+                        <label class="f-17 w-500">
+                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
+                          Hours
+                        </label>
+                        <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=false" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
+                        <div ng-show="validation_error.delivery_time_hours && package.delivery_time_type=='hours'" class="text-danger"> Required Delivery time | min 1 max 72</div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4">
+
+                      <div class="radio radio-primary custom-radio">
+                        <label class="f-17 w-500">
+                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          Instant Delivery
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </div>
 
 
 
@@ -389,12 +534,12 @@
                     </div>
 
                     <div class="radio radio-primary custom-radio col-md-6">
-                      <label>
+                      <label class="f-17 w-500">
                         <input ng-model="package.installment_available" id="" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>
                         Yes
                       </label>
 
-                      <label>
+                      <label class="f-17 w-500">
                         <input ng-model="package.installment_available" type="radio"  name="r-primary" value="0"  class="md-radio"><span class="circle"></span><span class="check" ></span>
                         No
                       </label>
@@ -405,359 +550,225 @@
                   </div>
 
 
-                <div class="row user-post-a-package">
-                  <div class="col-lg-6 col-md-6 col-xs-12">
-                    <p><strong>Service Tax: Applicable</strong></p>
-                  </div>
-                </div>
-
-                <hr>
-
-                <div class="row btn-align-xs">
-                  <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button type="button" class="btn btn-default active pull-left m-l-10 " ng-click="backTab()">Back</button>
-
+                  <div class="row user-post-a-package">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                      <p><strong>Service Tax :<span class="text-success"> Applicable</span></strong></p>
+                    </div>
                   </div>
 
-                  <div class="col-lg-6 col-md-6 col-xs-12">
-                    <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save()">Save and Continue</button>-->
-                    <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
-                     Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
-                    </button>
-                    <!--<button class="btn btn-zolo pull-right">Preview</button>-->
+                  <hr>
 
-
-
-                  </div>
-                </div>
-                  </form>
-
-
-
-              </md-content>
-            </md-tab>
-
-            <md-tab label="Media">
-              <md-content class="md-padding">
-                <form name="media" ng-submit="save(package.status)" novalidate>
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-12 text-center">
-                    <script type="text/javascript">
-                      function uploadWidget()
-                      {
-                        cloudinary.openUploadWidget({ cloud_name: 'scaledesk', upload_preset: 'packages786',
-                            cropping: 'server', 'folder': 'user_photos',cropping_aspect_ratio:'2.01',min_image_height:300,min_image_width: 600},
-                          function(error, result) { console.log(error, result)
-                            result=result[0];
-                            coordinates=result.coordinates.custom[0];
-                            coordinate1='x_'+coordinates[0];
-                            coordinate2='y_'+coordinates[1];
-                            coordinate3='w_'+coordinates[2];
-                            coordinate4='h_'+coordinates[3];
-                            console.log(coordinate1);
-                            console.log(coordinate2);
-                            console.log(coordinate3);
-                            console.log(coordinate4);
-                            console.log(result.url);
-                            url=result.url;
-                            target_variable='upload/';
-                            index_local=url.indexOf(target_variable)+(target_variable.length);
-                            first_str=(url.slice(0,index_local));
-                            last_str=url.slice(index_local);
-                            final_url=first_str+coordinate1+','+coordinate2+','+coordinate3+','+coordinate4+',c_crop'+'/'+last_str;
-                            console.log(first_str);
-                            console.log(last_str);
-                            console.log(final_url);
-
-                            photos.push(final_url);
-
-                            delete coordinate1;
-                            delete coordinate2;
-                            delete coordinate3;
-                            delete coordinate4;
-                            delete result;
-                            delete first_str;
-                            delete last_str;
-                            refresh();
-                          });
-                      }
-                    </script>
-                    <h2 class="m-t-20">Upload Photos for Your Package...</h2>
-
-                    <button type="button" id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>
-                  </div>
-                </div>
-
-                <div class="row user-post-a-package">
-                  <div class="col-md-12" style="margin-bottom:20px;">
-                    <!--<h2>Preview</h2>-->
-                    <div id="images_to_show">
+                  <div class="row btn-align-xs">
+                    <div class="col-lg-6 col-md-6 col-xs-12 ">
+                      <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTabs('descriptiontab')">Back</button>
 
                     </div>
-                    <!--<script>
-                        function refresh(){
-                            document.getElementById('images_to_show').innerHTML='';
-                            var i=0;
-                            angular.forEach(photos,function(photo){
-                                document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
-                                        '<figcaption style="cursor: pointer;"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle"></i><small class="text-danger">Delete Image</small></a></figcaption></figure> ';
-                                i++;
+
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                      <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save()">Save and Continue</button>-->
+                      <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
+                        Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+                      </button>
+
+
+
+                    </div>
+                  </div>
+                </form>
+
+
+
+              </div>
+
+              <div class="tab-pane" id="mediatab">
+
+                <form name="media"  novalidate>
+
+                  <div class="row user-post-a-package">
+                    <div class="col-md-12 text-center">
+                      <script type="text/javascript">
+                        function uploadWidget()
+                        {
+                          cloudinary.openUploadWidget({ cloud_name: 'scaledesk', upload_preset: 'packages786',
+                              cropping: 'server', 'folder': 'user_photos',cropping_aspect_ratio:'2.01',min_image_height:300,min_image_width: 600},
+                            function(error, result) { console.log(error, result)
+                              result=result[0];
+                              coordinates=result.coordinates.custom[0];
+                              coordinate1='x_'+coordinates[0];
+                              coordinate2='y_'+coordinates[1];
+                              coordinate3='w_'+coordinates[2];
+                              coordinate4='h_'+coordinates[3];
+                              console.log(coordinate1);
+                              console.log(coordinate2);
+                              console.log(coordinate3);
+                              console.log(coordinate4);
+                              console.log(result.url);
+                              url=result.url;
+                              target_variable='upload/';
+                              index_local=url.indexOf(target_variable)+(target_variable.length);
+                              first_str=(url.slice(0,index_local));
+                              last_str=url.slice(index_local);
+                              final_url=first_str+coordinate1+','+coordinate2+','+coordinate3+','+coordinate4+',c_crop'+'/'+last_str;
+                              console.log(first_str);
+                              console.log(last_str);
+                              console.log(final_url);
+
+                              photos.push(final_url);
+
+                              delete coordinate1;
+                              delete coordinate2;
+                              delete coordinate3;
+                              delete coordinate4;
+                              delete result;
+                              delete first_str;
+                              delete last_str;
+                              refresh();
                             });
                         }
+                      </script>
+                      <h2 class="m-t-20">Upload Photos for Your Package...</h2>
+
+                      <button type="button" id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>
+                    </div>
+                  </div>
+
+                  <div class="row user-post-a-package">
+                    <div class="col-md-12" style="margin-bottom:20px;">
+                      <!--<h2>Preview</h2>-->
+                      <div id="images_to_show">
+
+                      </div>
+
+
+                      <script>
+                        function refresh(){
+                          document.getElementById('images_to_show').innerHTML='';
+                          var i=0;
+                          angular.forEach(photos,function(photo){
+
+                              document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
+                                '<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';
+                              i++;
+
+                              $("#thumbnail").attr("checked","checked");
+
+                            }
+
+
+                          );
+                        }
+
+                        function makeThumbnail(photo_local_id){
+                          thumbnail = photos[photo_local_id];
+                        }
+
                         function deletePhoto(id){
+
+
+                          var r = confirm("Are you sure you want to delete ??");
+                          if (r == true) {
                             photos.splice(id,1);
                             refresh();
-                        }
-                    </script>-->
-                    <!--<script>-->
-                      <!--function refresh(){-->
-                        <!--document.getElementById('images_to_show').innerHTML='';-->
-                        <!--var i=0;-->
-                        <!--angular.forEach(photos,function(photo){-->
-                          <!--document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +-->
-                            <!--'<figcaption ' +-->
-                            <!--'style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}">' +-->
-                            <!--' <a onClick="deletePhoto('+i+')">' +-->
-                            <!--' <i class="fa fa-times-circle" style="padding-left: 10px;"></i>' +-->
-                            <!--'<small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a>' +-->
-                            <!--' <div class="radio radio-success">' +-->
-                            <!--' <label layout-align="left"><input type="radio" id="thumbnail" name="r-success"  onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio">' +-->
-                            <!--'<span class="circle"></span><span class="check"></span>Make Cover Image</label>' +-->
-                            <!--' </div></figcaption></figure>';-->
-                          <!--i++;-->
-<!--//                          if(photos.length==1)-->
-                            <!--$("#thumbnail").attr("checked","checked");-->
 
-
-                        <!--});-->
-                      <!--}-->
-                      <!--function makeThumbnail(photo_local_id){-->
-                        <!--thumbnail = photos[photo_local_id];-->
-                      <!--}-->
-                      <!--function deletePhoto(id){-->
-
-                        <!--var r = confirm("Are you sure you want to delete ??");-->
-                        <!--if (r == true) {-->
-                          <!--photos.splice(id,1);-->
-                          <!--refresh();-->
-
-                        <!--} else {-->
-                        <!--}-->
-
-                      <!--}-->
-                      <!--refresh();-->
-                    <!--</script>-->
-
-
-                    <script>
-                      function refresh(){
-                        document.getElementById('images_to_show').innerHTML='';
-                        var i=0;
-                        angular.forEach(photos,function(photo){
-
-                            document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +
-                              '<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';
-                            i++;
-//                          if(photos.length==1)
-                            $("#thumbnail").attr("checked","checked");
-
+                          } else {
                           }
 
 
-                        );
-                      }
-
-                      function makeThumbnail(photo_local_id){
-                        thumbnail = photos[photo_local_id];
-                      }
-
-                      function deletePhoto(id){
-
-
-                        var r = confirm("Are you sure you want to delete ??");
-                        if (r == true) {
-                          photos.splice(id,1);
-                          refresh();
-
-                        } else {
                         }
+                      </script>
 
-
-                      }
-                    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  </div>
-                </div>
-
-
-
-
-                <hr class="custom-hr">
-
-                <div class="row btn-align-xs">
-                  <div class="col-lg-6 col-md-6 col-xs-12 ">
-                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
-
-
-
-                  </div>
-
-                  <div class="col-lg-6 col-md-6 col-xs-12">
-
-
-                    <!--<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>-->
-                    <button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">
-                      Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
-                    </button>
-                    <!--<button class="btn btn-zolo pull-right">Preview</button>-->
-
-
-                  </div>
-                </div>
-                  </form>
-
-              </md-content>
-            </md-tab>
-
-            <md-tab label="More info">
-              <md-content class="md-padding">
-                <form name="moreinfo"  novalidate>
-
-                <div class="row user-post-a-package">
-                  <div class="col-lg-12  m-b-20">
-
-                    <p>Instructions for Buyer</p>
-                    <textarea class="form-control" maxlength="1000" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
-                    <p>Terms And Conditions</p>
-                    <textarea froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
-                  </div>
-                </div>
-
-                <div class="row user-post-a-package">
-                  <div class="col-lg-3">
-                    <div class="service-tax-space">Client Meeting*</div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-4">
-                    <div class="radio radio-primary custom-radio">
-                      <label>
-                        <input ng-model="package.meeting_availability" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
-                        Yes, I am open for Client Meeting
-                      </label>
                     </div>
-                    <md-tooltip md-direction="right">
-                      * required
-                    </md-tooltip>
-
-
                   </div>
 
-                  <div class="col-lg-4 col-md-4">
+                  <hr class="custom-hr m-20">
 
-                    <div class="radio radio-primary custom-radio">
-                      <label>
-                        <input ng-model="package.meeting_availability" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
-                        No ,I am not  open for Client Meeting
-                      </label>
+
+                  <div class="row user-post-a-package">
+                    <div class="col-md-6 p-0">
+                      <div class="prepend-icon">
+
+                        <input type="text" maxlength="500" ng-model="package.facebook_links" class="form-control" placeholder="Facebook Link" style="font-size: 16px; font-weight: 400;"/>
+                        <i class="fa fa-facebook-square f-24"></i>
+                      </div>
+
                     </div>
 
 
-                  </div>
-                </div>
-                <div ng-show="validation_error.meeting_availability" class="text-danger"> Required Client Meeting</div>
-
-                <hr>
-
-                <div class="row">
-                  <div class="col-md-6">
-
-                    <div class="row btn-align-xs-l">
-                      <div class="col-md-3 col-xs-12">
-                        <button type="button" class="btn btn-default backmobile " ng-click="backTab()" style="margin-right: 10px;">Back</button>
+                    <div class="col-md-6">
+                      <div class="prepend-icon">
+                        <input type="text" maxlength="500" ng-model="package.youtube_links" class="form-control"placeholder="Youtube Link" style="font-size: 16px; font-weight: 400;"/>
+                        <i class="fa fa-youtube-square f-24"></i>
                       </div>
 
-                      <div class="col-md-3 col-xs-12">
-                        <!--<button class="btn btn-zolo ">Preview</button>-->
-
-                      </div>
 
                     </div>
 
                   </div>
 
 
-
-                  <div class="col-md-6">
-
-                    <div class="row btn-align-xs">
-                      <div class="col-md-3 col-xs-12 pull-right">
-                        <!--<button class="btn btn-success pull-right m-l-20" ng-click="save('ACTIVE')">Publish
-                            </button>-->
-                        <button ng-click="save('ACTIVE')" ng-disabled="saving" type="button" class="btn btn-success pull-right m-l-20">
-                         Publish<span><i ng-style="myStyle1" class="fa fa-spinner fa-spin"></i> </span>
-                        </button>
-                      </div>
-
-                      <div class="col-md-3 col-xs-12 pull-right">
-                        <!--<button class="btn btn-zolo  pull-right" ng-click="save('DRAFT')" style="margin-right: 10px;">Save as Draft
-                            </button>-->
-                        <button ng-click="save('DRAFT')"  class="btn btn-zolo active pull-right draftmobile">
-                          Save as Draft<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
-                        </button>
-
-                      </div>
+                  <div class="row m-t-40">
+                    <div class="col-md-6">
+                      <!--<label class="f-17 w-500">Any Other Link</label>-->
+                      <input type="text" maxlength="500" class="form-control" ng-model="package.any_other_links" placeholder="Any Other Link" style="font-size: 16px; font-weight: 400;">
 
                     </div>
 
+
                   </div>
-                </div>
 
 
 
-</form>
 
-              </md-content>
-            </md-tab>
 
-            <md-tab label="Add-ons">
-              <md-content class="md-padding">
+
+
+
+
+
+                  <hr class="custom-hr m-20">
+
+                  <div class="row btn-align-xs">
+                    <div class="col-lg-6 col-md-6 col-xs-12 ">
+                      <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTabs('paymenttab')">Back</button>
+
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+
+
+                      <div class="row btn-align-xs">
+                        <div class="col-md-4 col-xs-12 p-l-0 pull-right">
+
+                          <button ng-click="save('ACTIVE')" ng-disabled="saving" type="button" class="btn btn-success pull-right m-l-20">
+                            Publish<span><i ng-style="myStyle1" class="fa fa-spinner fa-spin"></i> </span>
+                          </button>
+                        </div>
+
+                        <div class="col-md-8 col-xs-12 p-r-0 pull-right">
+                          <button ng-click="save('DRAFT')"  class="btn btn-zolo active pull-right draftmobile">
+                            Save as Draft<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+                          </button>
+
+                        </div>
+
+                      </div>
+
+
+                    </div>
+                  </div>
+                </form>
+
+
+
+              </div>
+
+              <div class="tab-pane" id="addonstab">
 
 
                 <div class="row user-post-a-package">
                   <div class="col-lg-12">
-                    <h2>
+                    <h2 class="m-t-0">
                       Package Addons
                     </h2>
                   </div>
@@ -765,127 +776,120 @@
 
                 </div>
 
+
+
+
+
+
                 <form name="formadd" ng-submit="savePackageAddons(addons)" novalidate>
 
-                <button type="button" ng-click="addNewAddon()" class="btn">Add more addon</button>
+                  <button type="button" ng-click="addNewAddon()" class="btn">Add more addon</button>
 
-                <div data-ng-repeat="addon in addons">
-                  <ng-form name="repeatForm">
+                  <div data-ng-repeat="addon in addons">
+                    <ng-form name="repeatForm">
 
-                  <div class="row user-post-a-package">
+                      <div class="row user-post-a-package">
+                        <div class="col-md-6">
+                          <label class="f-17 w-500">Add-ons Name*</label>
+
+                          <input ng-model="addon.name" name="name" maxlength="90" required type="text" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
+                          <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitt">Name required | </span>
+                          <span class="validation-message text-danger" ng-show="repeatForm.name.$error.maxlength && submitt"> Max 90 Character </span>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="f-17 w-500">Add-ons Price*</label>
+                          <input ng-model="addon.amount" name="amount" required  type="number" maxlength="8" number-converter min="1" max="10000000" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
+                          <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitt">Price Required |</span>
+                          <span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitt">Min 1 | Max 10000000</span>
+
+
+                        </div>
+
+
+                      </div>
+                      <div class="text-danger" ng-show="repeatForm.dayss.$error.required && repeatForm.hourss.$error.required && submitt ">
+                        Please select a delivery time type
+
+                      </div>
+
+                      <div class="row user-post-a-package">
+
+                        <div class="col-lg-4 col-md-4">
+                          <div class="radio radio-primary custom-radio">
+                            <label class="f-17 w-500">
+                              <input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon_time_type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
+                              Days
+                            </label>
+                            <input ng-show="addons[$index].delivery_time_type=='days'" required name="dayss" ng-model="addons[$index].days" type="number" number-converter min="1" max="300" class="form-control" placeholder="Days"/>
+                            <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days' ">Days required |</span>
+                            <span class="validation-message text-danger" ng-show="repeatForm.dayss.$invalid && addon.delivery_time_type=='days' "> Max 300 days</span>
+
+                          </div>
+                        </div>
+                        <!--{{addon.delivery_time_type}}-->
+                        <div class="col-lg-4 col-md-4">
+                          <div class="radio radio-primary custom-radio">
+                            <label class="f-17 w-500">
+                              <input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
+                              Hours
+                            </label>
+                            <input ng-show="addons[$index].delivery_time_type=='hours'" ng-model="addons[$index].days" required name="hourss" type="number" number-converter min="1" max="72" class="form-control" placeholder="Hours"/>
+                            <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours' ">Hours Required |</span>
+                            <span class="validation-message text-danger" ng-show="repeatForm.hourss.$invalid && addon.delivery_time_type=='hours' ">  Max 72 hours</span>
+
+
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+
+                          <div class="radio radio-primary custom-radio">
+                            <label class="f-17 w-500">
+                              <input ng-model="addons[$index].delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=1" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>
+                              Instant Delivery
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button type="button" ng-click="removeAddon($index)" class="btn">Remove Addon</button>
+                  </div>
+
+                  <hr>
+
+                  <div class="row btn-align-xs">
+                    <div class="col-md-6 text-center">
+
+                      <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTabs('mediatab')">Back</button>
+
+
+
+                    </div>
+
                     <div class="col-md-6">
-                      <label>Add-ons Name*</label>
-
-                      <input ng-model="addon.name" name="name" maxlength="90" required type="text" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
-                    <span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitt">Name required | </span>
-                    <span class="validation-message text-danger" ng-show="repeatForm.name.$error.maxlength && submitt"> Max 90 Character </span>
-                    </div>
-
-                    <div class="col-md-6">
-                      <label>Add-ons Price*</label>
-                      <input ng-model="addon.amount" name="amount" required  type="number" maxlength="8" number-converter min="1" max="10000000" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">
-                      <span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitt">Price Required |</span>
-                      <span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitt">Min 1 | Max 10000000</span>
-
-
-                    </div>
-
-
-                  </div>
-                    <div class="text-danger" ng-show="repeatForm.dayss.$error.required && repeatForm.hourss.$error.required && submitt ">
-                      Please select a delivery time type
-
-                    </div>
-
-                  <div class="row user-post-a-package">
-
-                    <div class="col-lg-4 col-md-4">
-                      <div class="radio radio-primary custom-radio">
-                        <label>
-                          <input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon_time_type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
-                          Days
-                        </label>
-                        <input ng-show="addons[$index].delivery_time_type=='days'" required name="dayss" ng-model="addons[$index].days" type="number" number-converter min="1" max="300" class="form-control" placeholder="Days"/>
-                      <span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days' ">Days required |</span>
-                        <span class="validation-message text-danger" ng-show="repeatForm.dayss.$invalid && addon.delivery_time_type=='days' "> Max 300 days</span>
-
-                      </div>
-                    </div>
-                    <!--{{addon.delivery_time_type}}-->
-                    <div class="col-lg-4 col-md-4">
-                      <div class="radio radio-primary custom-radio">
-                        <label>
-                          <input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>
-                          Hours
-                        </label>
-                        <input ng-show="addons[$index].delivery_time_type=='hours'" ng-model="addons[$index].days" required name="hourss" type="number" number-converter min="1" max="72" class="form-control" placeholder="Hours"/>
-                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours' ">Hours Required |</span>
-                        <span class="validation-message text-danger" ng-show="repeatForm.hourss.$invalid && addon.delivery_time_type=='hours' ">  Max 72 hours</span>
-
-
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-
-                      <div class="radio radio-primary custom-radio">
-                        <label>
-                          <input ng-model="addons[$index].delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=1" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>
-                          Instant Delivery
-                        </label>
-                      </div>
+                      <a ng-href="/dashboard/my-packages/" class="btn btn-primary active pull-right">Skip</a>
+                      <button type="submit" class="btn btn-primary active pull-right" >
+                        Save Addons<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
+                      </button>
                     </div>
                   </div>
-                  <!--<div class="row user-post-a-package">
-                      <div class="col-md-6">
-                          <label>Add-ons Description</label>
-                          <input type="text" ng-model="addon.description" class="form-control" placeholder="type here.." style="font-size: 16px; font-weight: 400;"/>
+                </form>
 
-                      </div>
+              </div>
 
-                      <div class="col-md-6">
-                          <label>Add-ons days</label>
-                          <input ng-model="addon.days" type="number" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>
-                      </div>
+            </div>
+
+          </div>
+        </div>
 
 
-                  </div>
-
-                  <div class="row user-post-a-package">
-                      <div class="col-md-6">
-                          <label>Add-ons Terms and Condition</label>
-                          <input type="text" ng-model="addon.terms" class="form-control" placeholder="type here.."/>
-                      </div>
-                  </div>-->
-                  <button type="button" ng-click="removeAddon($index)" class="btn">Remove Addon</button>
-                </div>
-
-                <hr>
-
-                <div class="row btn-align-xs">
-                  <div class="col-md-6 text-center">
-                    <button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>
-                  </div>
-
-                  <div class="col-md-6">
-                    <a ng-href="/dashboard/my-packages/" class="btn btn-primary active pull-right">Skip</a>
-                    <!--<button class="btn btn-primary active pull-right" ng-click="savePackageAddons(addons)">Save Addon</button>-->
-                    <button type="submit" class="btn btn-primary active pull-right" >
-                      Save Addons<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>
-                    </button>
-                  </div>
-                </div>
-                  </form>
-              </md-content>
-            </md-tab>
-
-          </md-tabs>
-
-        </md-content>
 
 
 
 
       </div>
+
+
 
       <div ng-show="loadingPackage" class="col-md-12 text-center m-t-60">
         <div layout="row" layout-sm="column" layout-align="space-around">
@@ -898,9 +902,735 @@
 
 
 
+
     </div>
   </div>
-
 </div>
+
+
+
+<div class="footer">
+  <div class="copyright">
+    <p class="pull-left sm-pull-reset">
+      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
+      <span>Zolo Technologies Pvt. Ltd.</span>.
+      <span>All rights reserved. </span>
+    </p>
+    <p class="pull-right sm-pull-reset">
+      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+    </p>
+  </div>
+</div>
+
+
+
+<!--<div class="container m-b-60">-->
+<!--<div class="card">-->
+<!--<div class="row">-->
+<!--<div ng-hide="loadingPackage" class="col-md-12 text-center">-->
+
+<!--<md-content class="md-padding">-->
+<!--<md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex" class="tabsdemoDynamicHeight md-content">-->
+<!--<md-tab label="Start">-->
+<!--<md-content class="md-padding">-->
+<!--<form name="start" ng-submit="updateFirstTabPackage(package.status)" novalidate>-->
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-lg-6 text-center ">-->
+<!--<div class="form-group">-->
+<!--<label for="title">Package Title*</label>-->
+<!--<input id="title" type="text" name="title" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm" placeholder="Enter package title" style="font-size: 16px; !important;">-->
+<!--<div ng-show="validation_error.package_name" class="text-danger">Title is required! || Min 20 character | Max 100 character</div>-->
+<!--<span class="word-counter">-->
+<!--<small class="text-muted">Character Count : <span>{{package.name.length}}</span></small>-->
+<!--</span>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--*REQUIRED | Min 20 character | Max 100 character-->
+<!--</md-tooltip>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-3">-->
+<!--<label for="category">Category*</label>-->
+<!--<md-select ng-model="p_category" id="category" ng-change="subCategory()">-->
+<!--<md-option value="" ng-selected="-1">Select Category</md-option>-->
+<!--<md-option ng-repeat="c in category" ng-if="c.id!=13" value="{{c.id}}">-->
+<!--{{c.name}}-->
+<!--</md-option>-->
+<!--<md-option value="13">-->
+<!--{{"Others"}}-->
+<!--</md-option>-->
+<!--</md-select>-->
+<!--<div ng-show="validation_error.package_category" class="text-danger">Category is required! select category</div>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* Required Select category-->
+<!--</md-tooltip>-->
+<!--</div>-->
+<!--<div class="col-md-3">-->
+<!--<label for="subcategory">Subcategory</label>-->
+<!--<md-select ng-model="s_category" ng-disabled="sub_category.length==0" id="subcategory">-->
+<!--<md-option value="" ng-selected="-1" ng-disabled="true">Select Sub Category</md-option>-->
+<!--<md-option ng-repeat="sub_c in sub_category" value="{{sub_c.id}}">-->
+<!--{{sub_c.name}}-->
+<!--</md-option>-->
+<!--</md-select>-->
+<!--</div>-->
+
+
+<!--<div class="col-md-1">-->
+<!--<label class="pull-right" style="margin: 10px;">Tags</label>-->
+<!--</div>-->
+
+
+<!--<div class="col-md-4">-->
+<!--<tags-input ng-model="p" key-property="value" add-from-autocomplete-only="true">-->
+<!--<auto-complete source="loadTags($query)"></auto-complete>-->
+<!--</tags-input>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* add tag-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-6 m-b-20">-->
+<!--<p>Location* <span>(Your service is available at)</span></p>-->
+<!--<tags-input  placeholder="Add locations" id="location" ng-model="package.location" add-from-autocomplete-only="true" ng-change="validation_error.package_location=false">-->
+<!--<auto-complete source="loadLocations($query)" min-length="1"></auto-complete>-->
+<!--</tags-input>-->
+<!--<div ng-show="validation_error.package_location" class="text-danger">Location is required! add Location</div>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* required add location-->
+<!--</md-tooltip>-->
+
+<!--</div>-->
+
+<!--<div class="col-md-6 m-b-20">-->
+
+<!--<label for="package_type">Package Type*</label>-->
+<!--<md-select ng-model="package.packages_type" id="package_type" ng-change="validation_error.package_type=false">-->
+<!--<md-option value="" ng-selected="-1">Select Package Type</md-option>-->
+<!--<md-option ng-repeat="pt in packagesType" value="{{pt.id}}">-->
+<!--{{pt.name}}-->
+<!--</md-option>-->
+<!--</md-select>-->
+<!--<div ng-show="validation_error.package_type" class="text-danger">Package Type is required!</div>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* required select package type-->
+<!--</md-tooltip>-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-12">-->
+<!--<p class="w-400">Give a Catchy tagline to your package</p>-->
+<!--<textarea class="form-control" id="text-edit" ng-model="package.introduction" placeholder="type here.." rows="3"></textarea>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* type catchy introduction-->
+<!--</md-tooltip>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+<!--<hr>-->
+
+<!--<div class="row btn-align-xs">-->
+<!--<div class="col-lg-6 col-md-6 col-xs-12 ">-->
+<!--</div>-->
+<!--<div class="col-lg-6 col-md-6 col-xs-12">-->
+<!--<button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right">Save and Continue-->
+<!--<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</md-content>-->
+<!--</md-tab>-->
+
+<!--<md-tab label="Description">-->
+<!--<md-content class="md-padding">-->
+<!--<form name="Description" ng-submit="updateDescriptionTabPackage(package.status)" novalidate>-->
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-12">-->
+<!--<label>Describe your package*</label>-->
+<!--<textarea froala="froalaOptions" ng-model="package.description" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>-->
+<!--<div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>-->
+<!--<md-tooltip md-direction="right">-->
+<!--* Required | Max 8000 character-->
+<!--</md-tooltip>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-6">-->
+<!--<label>What does your package includes ? <span>(Deliverable)</span></label>-->
+<!--<textarea ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>-->
+<!--<md-tooltip md-direction="right">-->
+<!--what does your package includes-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+
+<!--<div class="col-md-6">-->
+<!--<label>How is your package different from Others ?</label>-->
+<!--<textarea ng-model="package.different_from_others" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>-->
+<!--<md-tooltip md-direction="right">-->
+<!--How your package different from other-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+
+<!--</div>-->
+
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-6">-->
+<!--<label>Facebook Link</label>-->
+<!--<input type="text" maxlength="500" ng-model="package.facebook_links" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>-->
+<!--<md-tooltip md-direction="right">-->
+<!--Facebook link Example: http://www.facebook.com-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+
+<!--<div class="col-md-6">-->
+<!--<label>Youtube Link</label>-->
+<!--<input type="text" maxlength="500" ng-model="package.youtube_links" class="form-control"placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"/>-->
+<!--<md-tooltip md-direction="right">-->
+<!--Youtube link Example: http://www.youtube.com-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+<!--</div>-->
+
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-6">-->
+<!--<label>Any Other Link</label>-->
+<!--<input type="text" maxlength="500" class="form-control" ng-model="package.any_other_links" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;">-->
+<!--<md-tooltip md-direction="right">-->
+<!--Any other link Example: http://www.other.com-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+
+
+<!--</div>-->
+
+
+
+<!--<hr/>-->
+
+<!--<div class="row btn-align-xs">-->
+<!--<div class="col-lg-6 col-md-6 col-xs-12 ">-->
+<!--<button type="button" class="btn btn-default active m-l-10" ng-click="backTab()">Back</button>-->
+<!--</div>-->
+
+<!--<div class="col-lg-6 col-md-6 col-xs-12">-->
+
+
+<!--&lt;!&ndash;<button class="btn btn-primary active pull-right m-l-20" ng-click="save(package.status)">Save and Continue</button>&ndash;&gt;-->
+<!--<button ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">-->
+<!--Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+
+<!--</md-content>-->
+
+<!--</md-tab>-->
+
+<!--<md-tab label="Payment & Delivery">-->
+<!--<md-content class="md-padding">-->
+<!--<form name="payment" ng-submit="updatePaymentTabPackage(package.status)" novalidate>-->
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-lg-6">-->
+<!--<label for="actual_price">Actual Price*</label>-->
+<!--<input ng-model="package.price" id="actual_price" maxlength="8" ng-keypress="filterValue($event)"type="text" min="1" ng-change="validation_error.package_price=false" class="form-control" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">-->
+<!--<div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* Required Actual Price-->
+<!--</md-tooltip>-->
+<!--</div>-->
+
+
+<!--<div class="col-lg-6">-->
+<!--<label>Discounted Price*</label>-->
+<!--<input ng-model="package.deal_price" maxlength="8" ng-keypress="filterValue($event)"type="text" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">-->
+<!--<div ng-show="validation_error.package_deal_price" class="text-danger">Discounted price must be less than Actual price</div>-->
+<!--<div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>-->
+
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* Deal price should be less than Actual Price-->
+<!--</md-tooltip>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-12">-->
+<!--<p><strong>Delivery time*</strong></p>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+
+<!--<div ng-show="validation_error.delivery_time_type" class="text-danger"> Required Delivery time type</div>-->
+<!--<br/>-->
+<!--<div class="col-lg-4 col-md-4">-->
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Days-->
+<!--</label>-->
+<!--<input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>-->
+<!--<div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days' " class="text-danger"> Required Delivery time | min 1 max 300</div>-->
+<!--<md-tooltip class="f-14 w-400" md-direction="right">-->
+<!--* Required Delivery Time-->
+<!--</md-tooltip>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Hours-->
+<!--</label>-->
+<!--<input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=false" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>-->
+<!--<div ng-show="validation_error.delivery_time_hours && package.delivery_time_type=='hours'" class="text-danger"> Required Delivery time | min 1 max 72</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="package.delivery_time_type" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Instant Delivery-->
+<!--</label>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+<!--<div class="row tandc pulse animated" ng-show="package.deal_price>=50000">-->
+
+<!--<div  class="col-md-6 ">-->
+<!--<p class="m-10 p-l-5">Do you want to activate Installment Payment for this Package ? </p>-->
+<!--</div>-->
+
+<!--<div class="radio radio-primary custom-radio col-md-6">-->
+<!--<label>-->
+<!--<input ng-model="package.installment_available" id="" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Yes-->
+<!--</label>-->
+
+<!--<label>-->
+<!--<input ng-model="package.installment_available" type="radio"  name="r-primary" value="0"  class="md-radio"><span class="circle"></span><span class="check" ></span>-->
+<!--No-->
+<!--</label>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-lg-6 col-md-6 col-xs-12">-->
+<!--<p><strong>Service Tax: Applicable</strong></p>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<hr>-->
+
+<!--<div class="row btn-align-xs">-->
+<!--<div class="col-lg-6 col-md-6 col-xs-12 ">-->
+<!--<button type="button" class="btn btn-default active pull-left m-l-10 " ng-click="backTab()">Back</button>-->
+
+<!--</div>-->
+
+<!--<div class="col-lg-6 col-md-6 col-xs-12">-->
+<!--&lt;!&ndash;<button class="btn btn-primary active pull-right m-l-20" ng-click="save()">Save and Continue</button>&ndash;&gt;-->
+<!--<button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">-->
+<!--Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+
+
+
+<!--</md-content>-->
+<!--</md-tab>-->
+
+<!--<md-tab label="Media">-->
+<!--<md-content class="md-padding">-->
+<!--<form name="media" ng-submit="save(package.status)" novalidate>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-12 text-center">-->
+<!--<script type="text/javascript">-->
+<!--function uploadWidget()-->
+<!--{-->
+<!--cloudinary.openUploadWidget({ cloud_name: 'scaledesk', upload_preset: 'packages786',-->
+<!--cropping: 'server', 'folder': 'user_photos',cropping_aspect_ratio:'2.01',min_image_height:300,min_image_width: 600},-->
+<!--function(error, result) { console.log(error, result)-->
+<!--result=result[0];-->
+<!--coordinates=result.coordinates.custom[0];-->
+<!--coordinate1='x_'+coordinates[0];-->
+<!--coordinate2='y_'+coordinates[1];-->
+<!--coordinate3='w_'+coordinates[2];-->
+<!--coordinate4='h_'+coordinates[3];-->
+<!--console.log(coordinate1);-->
+<!--console.log(coordinate2);-->
+<!--console.log(coordinate3);-->
+<!--console.log(coordinate4);-->
+<!--console.log(result.url);-->
+<!--url=result.url;-->
+<!--target_variable='upload/';-->
+<!--index_local=url.indexOf(target_variable)+(target_variable.length);-->
+<!--first_str=(url.slice(0,index_local));-->
+<!--last_str=url.slice(index_local);-->
+<!--final_url=first_str+coordinate1+','+coordinate2+','+coordinate3+','+coordinate4+',c_crop'+'/'+last_str;-->
+<!--console.log(first_str);-->
+<!--console.log(last_str);-->
+<!--console.log(final_url);-->
+
+<!--photos.push(final_url);-->
+
+<!--delete coordinate1;-->
+<!--delete coordinate2;-->
+<!--delete coordinate3;-->
+<!--delete coordinate4;-->
+<!--delete result;-->
+<!--delete first_str;-->
+<!--delete last_str;-->
+<!--refresh();-->
+<!--});-->
+<!--}-->
+<!--</script>-->
+<!--<h2 class="m-t-20">Upload Photos for Your Package...</h2>-->
+
+<!--<button type="button" id="upload_widget_opener" class="btn btn-lg" onclick="uploadWidget()"><i class="fa fa-cloud-upload"></i> &nbsp;Add Photo</button>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-12" style="margin-bottom:20px;">-->
+<!--&lt;!&ndash;<h2>Preview</h2>&ndash;&gt;-->
+<!--<div id="images_to_show">-->
+
+<!--</div>-->
+
+<!---->
+<!--<script>-->
+<!--function refresh(){-->
+<!--document.getElementById('images_to_show').innerHTML='';-->
+<!--var i=0;-->
+<!--angular.forEach(photos,function(photo){-->
+
+<!--document.getElementById('images_to_show').innerHTML=document.getElementById('images_to_show').innerHTML+'&nbsp;<figure style="display: inline-block;"><img width="150px" height="auto" src="'+photo+'"/>' +-->
+<!--'<figcaption style="cursor: pointer; width: 200px;margin-top: 8px;margin-left: -12px;}"> <a onClick="deletePhoto('+i+')"> <i class="fa fa-times-circle" style="padding-left: 10px;"></i><small class="text-danger" style="font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;Delete Image</small></a> <div class="radio radio-success"> <label><input type="radio" id="thumbnail" name="r-success" onchange="makeThumbnail('+i+')" value="'+photo+'" class="md-radio"><span class="circle"></span><span class="check"></span>Make Cover Image</label> </div></figcaption></figure>';-->
+<!--i++;-->
+
+<!--$("#thumbnail").attr("checked","checked");-->
+
+<!--}-->
+
+
+<!--);-->
+<!--}-->
+
+<!--function makeThumbnail(photo_local_id){-->
+<!--thumbnail = photos[photo_local_id];-->
+<!--}-->
+
+<!--function deletePhoto(id){-->
+
+
+<!--var r = confirm("Are you sure you want to delete ??");-->
+<!--if (r == true) {-->
+<!--photos.splice(id,1);-->
+<!--refresh();-->
+
+<!--} else {-->
+<!--}-->
+
+
+<!--}-->
+<!--</script>-->
+<!---->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+<!--<hr class="custom-hr">-->
+
+<!--<div class="row btn-align-xs">-->
+<!--<div class="col-lg-6 col-md-6 col-xs-12 ">-->
+<!--<button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>-->
+
+
+
+<!--</div>-->
+
+<!--<div class="col-lg-6 col-md-6 col-xs-12">-->
+
+<!--<button  ng-disabled="saving" type="submit" class="btn btn-primary active pull-right m-l-20">-->
+<!--Save and Continue<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+
+<!--</md-content>-->
+<!--</md-tab>-->
+
+<!--<md-tab label="More info">-->
+<!--<md-content class="md-padding">-->
+<!--<form name="moreinfo"  novalidate>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-lg-12  m-b-20">-->
+
+<!--<p>Instructions for Buyer</p>-->
+<!--<textarea class="form-control" maxlength="1000" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>-->
+<!--<p>Terms And Conditions</p>-->
+<!--<textarea froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-lg-3">-->
+<!--<div class="service-tax-space">Client Meeting*</div>-->
+<!--</div>-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="package.meeting_availability" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Yes, I am open for Client Meeting-->
+<!--</label>-->
+<!--</div>-->
+<!--<md-tooltip md-direction="right">-->
+<!--* required-->
+<!--</md-tooltip>-->
+
+
+<!--</div>-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="package.meeting_availability" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--No ,I am not  open for Client Meeting-->
+<!--</label>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--<div ng-show="validation_error.meeting_availability" class="text-danger"> Required Client Meeting</div>-->
+
+<!--<hr>-->
+
+<!--<div class="row">-->
+<!--<div class="col-md-6">-->
+
+<!--<div class="row btn-align-xs-l">-->
+<!--<div class="col-md-3 col-xs-12">-->
+<!--<button type="button" class="btn btn-default backmobile " ng-click="backTab()" style="margin-right: 10px;">Back</button>-->
+<!--</div>-->
+
+<!--<div class="col-md-3 col-xs-12">-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+
+
+<!--<div class="col-md-6">-->
+
+<!--<div class="row btn-align-xs">-->
+<!--<div class="col-md-3 col-xs-12 pull-right">-->
+<!---->
+<!--<button ng-click="save('ACTIVE')" ng-disabled="saving" type="button" class="btn btn-success pull-right m-l-20">-->
+<!--Publish<span><i ng-style="myStyle1" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+<!--</div>-->
+
+<!--<div class="col-md-3 col-xs-12 pull-right">-->
+<!--<button ng-click="save('DRAFT')"  class="btn btn-zolo active pull-right draftmobile">-->
+<!--Save as Draft<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+
+<!--</form>-->
+
+<!--</md-content>-->
+<!--</md-tab>-->
+
+<!--<md-tab label="Add-ons">-->
+<!--<md-content class="md-padding">-->
+
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-lg-12">-->
+<!--<h2>-->
+<!--Package Addons-->
+<!--</h2>-->
+<!--</div>-->
+
+
+<!--</div>-->
+
+<!--<form name="formadd" ng-submit="savePackageAddons(addons)" novalidate>-->
+
+<!--<button type="button" ng-click="addNewAddon()" class="btn">Add more addon</button>-->
+
+<!--<div data-ng-repeat="addon in addons">-->
+<!--<ng-form name="repeatForm">-->
+
+<!--<div class="row user-post-a-package">-->
+<!--<div class="col-md-6">-->
+<!--<label>Add-ons Name*</label>-->
+
+<!--<input ng-model="addon.name" name="name" maxlength="90" required type="text" class="form-control" placeholder="addon title.." style="font-size: 16px; font-weight: 400;"/>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.name.$error.required && submitt">Name required | </span>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.name.$error.maxlength && submitt"> Max 90 Character </span>-->
+<!--</div>-->
+
+<!--<div class="col-md-6">-->
+<!--<label>Add-ons Price*</label>-->
+<!--<input ng-model="addon.amount" name="amount" required  type="number" maxlength="8" number-converter min="1" max="10000000" class="form-control" placeholder="addon amount..." style="font-size: 16px; font-weight: 400;">-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.amount.$error.required && submitt">Price Required |</span>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.amount.$invalid && submitt">Min 1 | Max 10000000</span>-->
+
+
+<!--</div>-->
+
+
+<!--</div>-->
+<!--<div class="text-danger" ng-show="repeatForm.dayss.$error.required && repeatForm.hourss.$error.required && submitt ">-->
+<!--Please select a delivery time type-->
+
+<!--</div>-->
+
+<!--<div class="row user-post-a-package">-->
+
+<!--<div class="col-lg-4 col-md-4">-->
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon_time_type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Days-->
+<!--</label>-->
+<!--<input ng-show="addons[$index].delivery_time_type=='days'" required name="dayss" ng-model="addons[$index].days" type="number" number-converter min="1" max="300" class="form-control" placeholder="Days"/>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.dayss.$error.required && addon.delivery_time_type=='days' ">Days required |</span>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.dayss.$invalid && addon.delivery_time_type=='days' "> Max 300 days</span>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;{{addon.delivery_time_type}}&ndash;&gt;-->
+<!--<div class="col-lg-4 col-md-4">-->
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="addons[$index].delivery_time_type" type="radio" name="{{$index}}addon-type" value="hours" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Hours-->
+<!--</label>-->
+<!--<input ng-show="addons[$index].delivery_time_type=='hours'" ng-model="addons[$index].days" required name="hourss" type="number" number-converter min="1" max="72" class="form-control" placeholder="Hours"/>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.hourss.$error.required && addon.delivery_time_type=='hours' ">Hours Required |</span>-->
+<!--<span class="validation-message text-danger" ng-show="repeatForm.hourss.$invalid && addon.delivery_time_type=='hours' ">  Max 72 hours</span>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-lg-4 col-md-4">-->
+
+<!--<div class="radio radio-primary custom-radio">-->
+<!--<label>-->
+<!--<input ng-model="addons[$index].delivery_time_type" type="radio" name="addon-type" ng-click="addon.days=1" value="instant_type" class="md-radio"><span class="circle"></span><span class="check"></span>-->
+<!--Instant Delivery-->
+<!--</label>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!---->
+<!--<button type="button" ng-click="removeAddon($index)" class="btn">Remove Addon</button>-->
+<!--</div>-->
+
+<!--<hr>-->
+
+<!--<div class="row btn-align-xs">-->
+<!--<div class="col-md-6 text-center">-->
+<!--<button type="button" class="btn btn-default active pull-left m-l-10" ng-click="backTab()">Back</button>-->
+<!--</div>-->
+
+<!--<div class="col-md-6">-->
+<!--<a ng-href="/dashboard/my-packages/" class="btn btn-primary active pull-right">Skip</a>-->
+<!--<button type="submit" class="btn btn-primary active pull-right" >-->
+<!--Save Addons<span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span>-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</md-content>-->
+<!--</md-tab>-->
+
+<!--</md-tabs>-->
+
+<!--</md-content>-->
+<!---->
+<!--</div>-->
+
+<!--<div ng-show="loadingPackage" class="col-md-12 text-center m-t-60">-->
+<!--<div layout="row" layout-sm="column" layout-align="space-around">-->
+<!--<md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
 
 

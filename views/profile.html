@@ -226,7 +226,8 @@
                         <p class="f-16 ">Years of Experience</p>
 
                         <div class="form-control-wrapper">
-                          <input ng-model="profile.experiences" type="number"  class="form-control" placeholder="Year">
+                          <input ng-model="profile.experiences" name="exper" type="number" max="200"  class="form-control" placeholder="Year">
+                          <span class="validation-message text-danger" ng-show="aboutyour.exper.$invalid ">Enter feasible years of experience !</span>
                         </div>
                       </div>
                       <!--<div class="col-md-12 m-b-20">-->
