@@ -3059,3 +3059,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+p,h2{
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}

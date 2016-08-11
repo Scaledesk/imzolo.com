@@ -37,7 +37,7 @@
         <div class="row ">
           <div class="col-xs-6 "><p class="text-center f-18">Amount Earned</p></div>
           <!--<div class="col-xs-4 "><p class="text-center f-18">Received</p></div>-->
-          <div class="col-xs-6 "><p class="text-center f-18">Pending</p></div>
+          <div class="col-xs-6 "><p class="text-center f-18">In Process</p></div>
         </div>
 
         <div class="row ">
@@ -100,8 +100,29 @@
             </tbody>
           </table>
         </div>
-        <div ng-if="my_seles.length<=0" class="panel-content">
-          <p class="f-18 w-500 text-center">You don't have any sales !</p>
+        <div ng-if="my_seles.length<=0" class="panel-content text-center">
+          <img width="100" height="100" class="img-circle" src="../global/images/SALES-PURCHASE.png" alt="">
+          <p class="text-center f-18 w-600">You  don't have any sales !</p>
+          <div class="row m-t-20">
+            <div class="col-md-4 text-center">
+              <p class="w-700 text-center">
+                <img src="global/images/Circled-Filled-50.png" alt="">
+                Post a package</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p class="w-700 text-center">
+                <img src="global/images/Circled-2-Filled-50.png" alt="">
+                Get Orders</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p class="w-700 text-center">
+                <img src="global/images/Circled-3-Filled-50.png" alt="">
+                Get Paid</p>
+            </div>
+          </div>
+          <div class="row text-center m-t-20">
+            <a ng-href="/post-a-package" ng-click="" class="btn btn-success">Post a package</a>
+          </div>
         </div>
       </div>
     </div>

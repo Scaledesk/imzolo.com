@@ -279,10 +279,10 @@
 
                     <div class="col-md-6">
                       <p class="m-5 f-17 w-500">Tags</p>
-                      <tags-input ng-focus="count = 'tag'" class="custom-tags" ng-model="package.tags" key-property="value" id="tags" add-from-autocomplete-only="true"  popover-placement="top" popover-trigger="focus">
+                      <tags-input ng-focus="count = 'tag'" class="custom-tags" ng-model="packageTags" key-property="value" id="tags" add-from-autocomplete-only="true"  popover-placement="top" popover-trigger="focus">
                         <auto-complete source="loadTags($query)" max-results-to-show="602" min-length="2" ></auto-complete>
                       </tags-input>
-                      <div ng-show="package.tags.length>5" class="text-danger">only five tag allowed</div>
+                      <div ng-show="packageTags.length>5" class="text-danger">only five tag allowed</div>
 
                     </div>
 
