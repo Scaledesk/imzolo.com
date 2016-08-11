@@ -730,8 +730,6 @@
 
             <div class="row m-t-20">
               <!--zolo-pdp-more-info-user"  ng-hide="package.meeting_availability==0"-->
-
-
               <div class="col-xs-6">
                 <p class="f-14 text-center zolo-n-m text-muted">
                   <i class="fa fa-file f-14"></i>&nbsp;&nbsp;Package Type:
@@ -745,9 +743,22 @@
                 </p>
                 <p class="text-center zolo-n-m"> <b>#{{package.id}}</b></p>
               </div>
-
-
             </div>
+
+
+            <div ng-show="verifiedUser" class="row m-t-20">
+              <div class="col-xs-6 text-center">
+                <img width="50" src="global/images/ZOLO-VERIFIED.png">
+                <p class="text-center m-5">Zolo Verified</p>
+              </div>
+              <div class="col-xs-6 text-center">
+                <img width="50" src="global/images/ZOLO-TRUST.png">
+                <p class="text-center m-5">Zolo Trusted</p>
+              </div>
+            </div>
+
+
+
             <div class="row m-t-10 m-b-10">
               <hr class="custom-hr ">
 

@@ -115,7 +115,7 @@
 
                 <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'location'" class="m-t-10 " src="../global/images/fwdtooltip/4.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'desctiption'" class="m-t-10 " src="../global/images/fwdtooltip/9.png" >
+                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'description'" class="m-t-10 " src="../global/images/fwdtooltip/9.png" >
 
                 <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'term'" class="m-t-10 " src="../global/images/fwdtooltip/8.png" >
 
@@ -355,7 +355,7 @@
                         <div class="row user-post-a-package">
                           <div class="col-md-8">
                             <label class="f-17 w-500">What does your package includes ? <span>(Deliverable)</span></label>
-                            <textarea ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
+                            <textarea ng-focus="count = 'deliverable'" ng-model="package.deliverable" class="form-control" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
 
                           </div>
                         </div>
@@ -392,9 +392,9 @@
                           <div class="col-lg-12  m-b-20">
 
                             <p class="f-17 w-500 m-t-0">Instructions for Buyer</p>
-                            <textarea class="form-control" maxlength="1000" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
+                            <textarea class="form-control" ng-focus="count = 'instruction'" maxlength="1000" ng-model="package.instructions" placeholder="type here.." rows="4"></textarea>
                             <p class="f-17 w-500">Terms And Conditions</p>
-                            <textarea ng-focus="count = 'term'" froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
+                            <textarea froala="froalaOptions1" ng-model="package.term_condition" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
                           </div>
                         </div>
 
@@ -406,7 +406,7 @@
                           <div class="col-lg-4 col-md-4">
                             <div class="radio radio-primary custom-radio">
                               <label class="f-17 ">
-                                <input ng-model="package.meeting_availability" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
+                                <input ng-model="package.meeting_availability" ng-focus="count = 'client_meating'" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
                                 Yes, I am open for Client Meeting
                               </label>
                             </div>
@@ -419,7 +419,7 @@
 
                             <div class="radio radio-primary custom-radio">
                               <label class="f-17 ">
-                                <input ng-model="package.meeting_availability" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
+                                <input ng-model="package.meeting_availability" ng-focus="count = 'client_meating'" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
                                 No ,I am not  open for Client Meeting
                               </label>
                             </div>
@@ -471,7 +471,7 @@
 
                     <div class="col-lg-6">
                       <label class="f-17 w-500">Discounted Price*</label>
-                      <input ng-model="package.deal_price" maxlength="8" ng-keypress="filterValue($event)"type="text" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="package.deal_price" ng-focus="count = 'deal_price'" maxlength="8" ng-keypress="filterValue($event)"type="text" class="form-control" id="deal_price" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                       <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted price must be less than Actual price</div>
                       <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
 
@@ -492,10 +492,10 @@
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label class="f-17 w-500">
-                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="package.delivery_time_type" ng-focus="count = 'd_days'" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
                         </label>
-                        <input ng-show="package.delivery_time_type=='days'" ng-focus="count = 'd_days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>
+                        <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" id="delivery_time_days" number-converter ng-change="validation_error.delivery_time_days=''" type="number" max="300" min="1" class="form-control" placeholder="Days"/>
                         <div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days' " class="text-danger"> Required Delivery time | min 1 max 300</div>
 
                       </div>
@@ -504,7 +504,7 @@
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label class="f-17 w-500">
-                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="package.delivery_time_type" ng-focus="count = 'd_days'" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
                         <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" number-converter id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=false" type="number" max="72" min="1" class="form-control" placeholder="Hours"/>
@@ -516,7 +516,7 @@
 
                       <div class="radio radio-primary custom-radio">
                         <label class="f-17 w-500">
-                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-model="package.delivery_time_type" ng-focus="count = 'd_days'" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Instant Delivery
                         </label>
                       </div>

@@ -99,6 +99,11 @@
     font-size:30px !important;
   }
 
+.disabledTab{
+  pointer-events: none;
+}
+
+  /*style="pointer-events:none;"*/
 
 </style>
 
@@ -107,8 +112,11 @@
 <div class="container ">
 
   <div class="row">
-    <div class="col-md-12">
+    <div ng-hide="packageprogress==undefined" class="col-md-12">
       <md-progress-linear md-mode="determinate" value="{{packageprogress}}"></md-progress-linear><p class=" f-17 w-500">{{packageprogress}}%</p>
+    </div>
+    <div ng-show="packageprogress==undefined" class="col-md-12">
+      <h2 class="m-b-20 w-600 zolo-c">Start posting your package!</h2>
     </div>
   </div>
 
@@ -120,35 +128,37 @@
         <div class="panel-content p-0">
           <div class="tab_left">
 
+            <!--style="pointer-events:none;"-->
+
             <ul class="nav nav-tabs nav-red">
               <li class="active p-10 lt p-r-0 "><a class="zolo-c" data-target="#starttab" data-toggle="tab">START</a></li>
-              <li class="p-10 lt p-r-0 " ><a class="zolo-c"  id="tabdes" data-target="#descriptiontab" style="pointer-events:none;" data-toggle="tab">DESCRIPTION</a></li>
-              <li class="p-10 lt p-r-0 "><a class="zolo-c" id="tabpay" data-target="#paymenttab" style="pointer-events:none;" data-toggle="tab">PAYMENT & DELIVERY</a></li>
-              <li class="p-10 lt p-r-0 "><a class="zolo-c" id="tabmed"  data-target="#mediatab" style="pointer-events:none;"  data-toggle="tab">MEDIA</a></li>
-              <li class="p-10 lt p-r-0 "><a class="zolo-c" id="tabadd" data-target="#addonstab" style="pointer-events:none;"  data-toggle="tab">ADD-ONS</a></li>
+              <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab"  id="tabdes" data-target="#descriptiontab" data-toggle="tab">DESCRIPTION</a></li>
+              <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabpay" data-target="#paymenttab"  data-toggle="tab">PAYMENT & DELIVERY</a></li>
+              <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabmed"  data-target="#mediatab"  data-toggle="tab">MEDIA</a></li>
+              <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabadd" data-target="#addonstab"  data-toggle="tab">ADD-ONS</a></li>
 <!--help image comes here-->
 
               <ul>
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'title'" class="m-t-10 " src="../global/images/fwdtooltip/1.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'title'" class="m-t-10 " src="../global/images/fwdtooltip/1.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'catchy'" class="m-t-10 " src="../global/images/fwdtooltip/10.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'catchy'" class="m-t-10 " src="../global/images/fwdtooltip/10.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'category'" class="m-t-10 " src="../global/images/fwdtooltip/2.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'category'" class="m-t-10 " src="../global/images/fwdtooltip/2.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'p_type'" class="m-t-10 " src="../global/images/fwdtooltip/5.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'p_type'" class="m-t-10 " src="../global/images/fwdtooltip/5.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'tag'" class="m-t-10 " src="../global/images/fwdtooltip/3.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'tag'" class="m-t-10 " src="../global/images/fwdtooltip/3.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'location'" class="m-t-10 " src="../global/images/fwdtooltip/4.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'location'" class="m-t-10 " src="../global/images/fwdtooltip/4.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'desctiption'" class="m-t-10 " src="../global/images/fwdtooltip/9.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'description'" class="m-t-10 " src="../global/images/fwdtooltip/9.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'term'" class="m-t-10 " src="../global/images/fwdtooltip/8.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'term'" class="m-t-10 " src="../global/images/fwdtooltip/8.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'price'" class="m-t-10 " src="../global/images/fwdtooltip/6.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'price'" class="m-t-10 " src="../global/images/fwdtooltip/6.png" >
 
-                <img class="ani p-imgl img-responsive" style="padding-left: 8px;" ng-if="count== 'd_days'" class="m-t-10 " src="../global/images/fwdtooltip/7.png" >
+                <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'd_days'" class="m-t-10 " src="../global/images/fwdtooltip/7.png" >
 
               </ul>
 
@@ -170,7 +180,7 @@
                         <label for="title" class="p-l-0 f-17 w-500">Package Title* </label>
                         <i class="fa fa-question-circle" aria-hidden="true"></i>
 
-                        <input ng-focus="count = 'title'" id="title" type="text" name="title" uib-popover-html="titlePopover" popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm " placeholder="Enter package title" style="font-size: 15px !important; padding: 0!important;">
+                        <input ng-focus="count = 'title';packageprogress=0" id="title" type="text" name="title" uib-popover-html="titlePopover" popover-placement="top"  popover-trigger="focus" ng-model="package.name" ng-change="changeTitle()" required maxlength="100" class="form-control input-sm " placeholder="Enter package title" style="font-size: 15px !important; padding: 0!important;">
                         <div ng-show="validation_error.package_name" class="text-danger">Title is Required! || Min 20 character | Max 100 character</div>
                         <div class="word-counter m-t-10">
                           <small class="text-muted" ng-show="package.name.length>0">Character Count : <span>{{package.name.length}}</span></small>
@@ -187,7 +197,7 @@
 
                       <p class="f-17 w-500 m-0">Create a Catchy tagline for your package</p>
 
-                      <input ng-focus="count = 'catchy'" type="text" class="form-control  f-16" uib-popover-html="catchyTitlePopover" popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here..">
+                      <input ng-focus="count = 'catchy';packageprogress=0" type="text" class="form-control  f-16" uib-popover-html="catchyTitlePopover" popover-placement="top" popover-trigger="focus"  id="text-edit" ng-model="package.introduction" placeholder="Please type here..">
 
                     </div>
                   </div>
@@ -307,11 +317,13 @@
 
               <div class="tab-pane" id="descriptiontab">
 
+                <!--style="pointer-events:none;"-->
+
                 <div class="panel-content p-t-0" id="des-tabs">
                   <ul class="nav nav-tabs nav-primary">
                     <li class="active f-16 m-r-30 m-l-50"><a data-target="#desc_subtab" data-toggle="tab">Description</a></li>
-                    <li class="f-16 m-r-30 m-l-50" ><a id="del_asubtab" style="pointer-events:none;" data-target="#del_subtab"    data-toggle="tab">Deliverables</a></li>
-                    <li class="f-16 m-r-30 m-l-50"><a id="term_asubtab" style="pointer-events:none;" data-target="#term_subtab"  data-toggle="tab">Terms and Conditions</a></li>
+                    <li class="f-16 m-r-30 m-l-50 disabledTab"><a id="del_asubtab" data-target="#del_subtab" data-toggle="tab">Deliverables</a></li>
+                    <li class="f-16 m-r-30 m-l-50l disabledTab"><a id="term_asubtab" data-target="#term_subtab"  data-toggle="tab">Terms and Conditions</a></li>
                   </ul>
 
                   <div class="tab-content p-t-10 p-l-0">
@@ -323,7 +335,7 @@
                         <div class="row user-post-a-package">
                           <div class="col-md-12 p-l-0">
                             <label class="f-17 w-500">Describe your package*</label>
-                            <textarea froala="froalaOptions" ng-model="package.description" ng-focus="count = 'desctiption'" uib-popover-html="descriptionPopover"  popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
+                            <textarea froala="froalaOptions" ng-model="package.description" uib-popover-html="descriptionPopover"  popover-placement="top" popover-trigger="focus" ng-change="validation_error.package_description = false" class="form-control" id="description" placeholder="Enter the package description"></textarea>
 
                             <div ng-show="validation_error.package_description" class="text-danger">Package Description is required! | Max 8000 character</div>
 
@@ -366,7 +378,7 @@
                         <div class="row ">
                           <div class="col-md-8 m-t-10">
                             <label class="f-17 w-500">What does your package includes ? <span>(Deliverable)</span></label>
-                            <textarea rows="3" ng-model="package.deliverable" class="form-control zolo-input-darken"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
+                            <textarea ng-focus="count = 'deliverable'" rows="3" ng-model="package.deliverable" class="form-control zolo-input-darken"  popover-placement="top" popover-trigger="focus" placeholder="Please Type here.." style="font-size: 16px; font-weight: 400;"></textarea>
 
                           </div>
 
@@ -411,9 +423,9 @@
 
                             <p class="w-500 f-17 m-t-0">Instructions for Buyer  <i class="fa fa-question-circle" aria-hidden="true"></i>
                             </p>
-                            <textarea class="form-control zolo-input-darken" maxlength="1000" ng-model="package.instructions" placeholder="Type here.." rows="4"></textarea>
+                            <textarea ng-focus="count = 'instruction'" class="form-control zolo-input-darken" maxlength="1000" ng-model="package.instructions" placeholder="Type here.." rows="4"></textarea>
                             <p class="w-500 f-17">Terms And Conditions</p>
-                            <textarea froala="froalaOptions1" ng-focus="count = 'term'" ng-model="package.term_condition" popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
+                            <textarea froala="froalaOptions1" ng-model="package.term_condition" popover-placement="top" popover-trigger="focus" class="form-control" placeholder="Please type here.." id="term_condition"></textarea>
                           </div>
 
 
@@ -427,7 +439,7 @@
                           <div class="col-lg-4 col-md-4">
                             <div class="radio radio-primary custom-radio">
                               <label class="f-17 ">
-                                <input ng-model="package.meeting_availability" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
+                                <input ng-focus="count = 'client_meating'" ng-model="package.meeting_availability" id="meeting_availability" type="radio" name="r-primary" value="1" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
                                 Yes, I am open for Client Meeting
                               </label>
                             </div>
@@ -442,7 +454,7 @@
 
                             <div class="radio radio-primary custom-radio">
                               <label class="f-17 ">
-                                <input ng-model="package.meeting_availability" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
+                                <input ng-focus="count = 'client_meating'" ng-model="package.meeting_availability" type="radio" name="r-primary" value="0" ng-change="validation_error.meeting_availability = false" class="md-radio"><span class="circle"></span><span class="check"></span>
                                 No ,I am not  open for Client Meeting
                               </label>
                             </div>
@@ -479,6 +491,7 @@
 
               </div>
 
+
               <div class="tab-pane" id="paymenttab">
                 <form name="payment" ng-submit="checkValidationThird()" novalidate>
                   <div class="row user-post-a-package">
@@ -492,7 +505,7 @@
 
                     <div class="col-lg-6">
                       <label class="f-17 w-500">Discounted Price*</label>
-                      <input ng-model="package.deal_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="package.deal_price" ng-focus="count = 'descount_price'" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
                       <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
                       <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
 
@@ -515,7 +528,7 @@
                           <input ng-focus="count = 'd_days'" ng-model="package.delivery_time_type" type="radio" name="d-type" value="days" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Days
                         </label>
-                        <input ng-focus="count = 'd_days'" ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" popover-placement="top" popover-trigger="focus" id="delivery_time_days" ng-change="validation_error.delivery_time_days=''" type="number" min="1" max="300" class="form-control zolo-input-darken" placeholder="Days"/>
+                        <input ng-show="package.delivery_time_type=='days'" ng-model="package.delivery_time" popover-placement="top" popover-trigger="focus" id="delivery_time_days" ng-change="validation_error.delivery_time_days=''" type="number" min="1" max="300" class="form-control zolo-input-darken" placeholder="Days"/>
                         <div ng-show="validation_error.delivery_time_days && package.delivery_time_type=='days'" class="text-danger"> Required Delivery time | min 1 max 300</div>
 
                       </div>
@@ -524,7 +537,7 @@
                     <div class="col-lg-4 col-md-4">
                       <div class="radio radio-primary custom-radio">
                         <label class="f-17 w-500">
-                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-focus="count = 'd_days'" ng-model="package.delivery_time_type" type="radio" name="d-type" value="hours"  class="md-radio"><span class="circle"></span><span class="check"></span>
                           Hours
                         </label>
                         <input ng-show="package.delivery_time_type=='hours'" ng-model="package.delivery_time" popover-placement="top" popover-trigger="focus" id="delivery_time_hours" ng-change="validation_error.delivery_time_hours=''" type="number" max="72" min="1" class="form-control zolo-input-darken" placeholder="Hours"/>
@@ -536,7 +549,7 @@
 
                       <div class="radio radio-primary custom-radio">
                         <label class="f-17 w-500">
-                          <input ng-model="package.delivery_time_type" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>
+                          <input ng-focus="count = 'd_days'" ng-model="package.delivery_time_type" type="radio" name="d-type" value="instant_delivery" ng-change="package.delivery_time=''" class="md-radio"><span class="circle"></span><span class="check"></span>
                           Instant Delivery
                         </label>
                       </div>
@@ -554,12 +567,12 @@
 
                     <div class="radio radio-primary custom-radio col-md-6">
                       <label class="f-17 w-500">
-                        <input ng-model="package.installment_available" id="" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>
+                        <input ng-focus="count = 'installment'" ng-model="package.installment_available" id="" type="radio" name="r-primary" value="1" class="md-radio"><span class="circle"></span><span class="check"></span>
                         Yes
                       </label>
 
                       <label class="f-17 w-500">
-                        <input ng-model="package.installment_available" type="radio" name="r-primary" value="0" checked class="md-radio"><span class="circle"></span><span class="check"></span>
+                        <input ng-focus="count = 'installment'" ng-model="package.installment_available" type="radio" name="r-primary" value="0" checked class="md-radio"><span class="circle"></span><span class="check"></span>
                         No
                       </label>
 

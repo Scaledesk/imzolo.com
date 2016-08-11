@@ -15,7 +15,6 @@
 
 /*}*/
 
-
 @media only screen
 and (min-device-width: 768px)
 and (max-device-width: 1024px)
@@ -49,9 +48,11 @@ and (max-device-width: 1024px)
     </div>
     <div class="card">
       <div class="dashboard-seller-profile text-center">
-        <h5>Refer Zolo! And Earn Gifts</h5>
-        <i class="fa fa-gift f-18 text-danger"></i>
-        <a ng-href="/dashboard/referral/">GO!</a>
+
+        <img width="100" height="100" class="img-circle" src="global/images/INVITE-EARN.png" alt="">
+        <h5>Refer & Earn</h5>
+        <!--<i class="fa fa-gift f-18 text-danger"></i>-->
+        <!--<a ng-href="/dashboard/referral/">GO!</a>-->
       </div>
     </div>
   </div>
@@ -185,8 +186,31 @@ and (max-device-width: 1024px)
               <a ng-if="my_seles.length>4" ng-href="/dashboard/sales/" class="pull-right" style="margin-top: -20px;">See All</a>
 
           </div>
-          <div ng-if="my_seles.length<=0" class="panel-content">
+          <div ng-if="my_seles.length<=0" class="panel-content text-center">
+            <img width="100" height="100" class="img-circle" src="../global/images/SALES-PURCHASE.png" alt="">
             <p class="text-center f-18 w-600">You  don't have any sales !</p>
+
+            <div class="row m-t-20">
+              <div class="col-md-4 text-center">
+                <p class="w-700 text-center">
+                  <img src="global/images/Circled-Filled-50.png" alt="">
+                  Post a package</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <p class="w-700 text-center">
+                  <img src="global/images/Circled-2-Filled-50.png" alt="">
+                  Get Orders</p>
+              </div>
+              <div class="col-md-4 text-center">
+                  <p class="w-700 text-center">
+                    <img src="global/images/Circled-3-Filled-50.png" alt="">
+                    Get Paid</p>
+              </div>
+            </div>
+
+            <div class="row text-center m-t-20">
+              <a ng-href="/post-a-package" ng-click="" class="btn btn-success">Post a package</a>
+            </div>
           </div>
         </div>
         <!--</div>-->
@@ -236,7 +260,12 @@ and (max-device-width: 1024px)
 
           <div ng-if="my_purchases.length<=0" class="panel-content">
 
-            <p class="text-center">You don't have any purchases !</p>
+            <img width="100" height="100" class="img-circle" src="../global/images/SALES-PURCHASE.png" alt="">
+            <p class="text-center f-18 w-600">You  don't have any purchases !</p>
+
+            <div class="row text-center m-t-20">
+              <a ng-href="/" ng-click="" class="btn btn-success">Explore</a>
+            </div>
 
           </div>
         </div>
