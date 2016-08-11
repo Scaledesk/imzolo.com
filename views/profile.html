@@ -5,6 +5,37 @@
   .main-content .page-content{
     padding: 0!important;
   }
+    .profile-fab-btn{
+      position: fixed;
+      bottom: 40px;
+      right: 10px;
+      background-color: #673ab7;
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      line-height: 70px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .profile-share-fab-btn{
+      right: 112px;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: #fff;
+      top: 265px;
+      background: #673ab7;
+      text-align: center;
+      line-height: 65px;
+      z-index: 99;
+    }
+
+  .profile-share-fab-btn i:hover{
+    color: #fff;
+  }
 
 
   </style>
@@ -18,11 +49,22 @@
 
 
     <div ng-hide="loadingCoverImage" class="col-md-12">
-      <div class="cover-img" style="background: url('{{profile.banner || '../global/images/bg.jpg'}}') center no-repeat; background-size:cover; "></div>
+      <div class="cover-img" style="background: url('{{profile.banner || '../global/images/logo/BANNER.png'}}') center no-repeat; background-size:cover; "></div>
       <div class="edit-btn-bg">
-        <button ng-show="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Change Cover</button>
+        <button ng-show="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Edit Profile </button>
+
         <div ng-show="profile.short_description!=null" class="user-name">{{profile.short_description}}</div>
       </div>
+      <a href=""
+         socialshare
+         socialshare-url="http://imzolo.com/profile/{{profile.user_id}}"
+         socialshare-provider="facebook"
+         socialshare-text="{{profile.name}}"
+         socialshare-media="{{profile.image}}"
+         socialshare-via="953913041345816"
+         socialshare-description="{{profile.description}}"
+         socialshare-type="feed"
+         class="profile-share-fab-btn hover-f"><i class="fa fa-share f-24 "></i></a>
     </div>
 
 
@@ -45,10 +87,12 @@
               <img src="{{profile.image || '../global/images/dummy.png'}}" alt="" class="img-circle profile-img">
               <button ng-click="openProfilePicModal()" class="btn edit-profile" style="left:60px;" >edit <i class="fa fa-pencil"></i></button>
             </div>
+
             <div class="col-md-2 col-sm-6 col-xs-12">
               <p class="w-600 f-20" id="scrollmedownn" >{{profile.name}} </p>
               <p class="text-muted-z f-14 zolo-n-m w-500">{{profile.short_description}}</p>
             </div>
+
             <div class="col-md-2 col-sm-6 col-xs-12">
               <p class="w-600 f-20 text-center">{{profile.completed_orders || 'None'}}</p>
               <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Projects Completed</p>
@@ -57,9 +101,10 @@
             <div class="col-md-2 col-sm-6 col-xs-12">
               <p class="w-600 f-20 text-center">{{profile.mobile || 'NA'}}</p>
               <p class="zolo-n-m text-muted-z f-14 w-500 text-center">Contact Number</p>
-
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-12">
+
+
+            <!--<div class="col-md-2 col-sm-6 col-xs-12">
               <p class="zolo-n-m f-18 pdp-share">
                 <a href=""
                    socialshare
@@ -74,25 +119,22 @@
               </p>
               <p></p>
               <p>
-            </div>
-            <div class="col-md-2 col-sm-6 col-xs-12 ng-cloak">
-              <button ng-click="edit_profile=true" class="btn e-profile-btn zolo-btn"><span ng-hide="edit_profile">Edit Profile</span><span ng-show="edit_profile">Editing......</span></button>
+            </div>-->
 
-              <!--<button ng-if="edit_profile" ng-click="saveProfile()" class="btn e-profile-btn zolo-btn ">Save</button>-->
-              <!--<button ladda-button="disabled" type="submit" class="btn e-profile-btn zolo-btn ladda-button" style="width: 100%;" data-style="zoom-in"  >-->
-             <!---->
+            <!--<div class="col-md-2 col-sm-6 col-xs-12 ng-cloak">-->
+              <!--<button ng-click="edit_profile=true" class="btn e-profile-btn zolo-btn"><span ng-hide="edit_profile">Edit Profile</span><span ng-show="edit_profile">Editing......</span></button>-->
 
-
-
-              <!--<button class="btn e-profile-btn zolo-btn"  >-->
-                <!--<span ng-hide="edit_profile"  ng-click="edit_profile=true;goToTop()" >Edit Profile</span>-->
-                <!--<span ng-show="edit_profile" ng-click="saveProfile()" >Save</span>-->
-              <!--</button>-->
+              <!--&lt;!&ndash;<button ng-if="edit_profile" ng-click="saveProfile()" class="btn e-profile-btn zolo-btn ">Save</button>&ndash;&gt;-->
+              <!--&lt;!&ndash;<button ladda-button="disabled" type="submit" class="btn e-profile-btn zolo-btn ladda-button" style="width: 100%;" data-style="zoom-in"  >&ndash;&gt;-->
+             <!--&lt;!&ndash;&ndash;&gt;-->
 
 
 
-
-            </div>
+              <!--&lt;!&ndash;<button class="btn e-profile-btn zolo-btn"  >&ndash;&gt;-->
+                <!--&lt;!&ndash;<span ng-hide="edit_profile"  ng-click="edit_profile=true;goToTop()" >Edit Profile</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;<span ng-show="edit_profile" ng-click="saveProfile()" >Save</span>&ndash;&gt;-->
+              <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--</div>-->
           </div>
         </div>
       </div>
@@ -951,6 +993,14 @@
 
 </div>
 
+
+  <div class="profile-fab-btn">
+    <a ng-click="edit_profile=true">
+      <span ng-hide="edit_profile"><i class="fa fa-pencil fa-2x white-c"></i></span>
+      <span ng-show="edit_profile"><i class="fa fa-file fa-2x white-c"></i></span>
+    </a>
+  </div>
+
   <div class="footer">
     <div class="copyright">
       <p class="pull-left sm-pull-reset">
@@ -959,7 +1009,7 @@
         <span>All rights reserved. </span>
       </p>
       <p class="pull-right sm-pull-reset">
-        <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About Us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+        <span><a ng-href="/about-zolo" class="m-r-10">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
       </p>
     </div>
   </div>

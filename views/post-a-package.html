@@ -9,6 +9,9 @@
   });
 </script>
 <style>
+  .sidebar-top.fixed-topbar .main-content .page-content{
+    top: 33px!important;
+  }
 
   input[type=text]{
     font-size: 16px !important;
@@ -131,8 +134,8 @@
             <!--style="pointer-events:none;"-->
 
             <ul class="nav nav-tabs nav-red">
-              <li class="active p-10 lt p-r-0 "><a class="zolo-c" data-target="#starttab" data-toggle="tab">START</a></li>
-              <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab"  id="tabdes" data-target="#descriptiontab" data-toggle="tab">DESCRIPTION</a></li>
+              <li class="active p-10 lt p-r-0 "><a class="zolo-c" data-target="#starttab" id="stab" data-toggle="tab">START</a></li>
+              <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" ng-click="gggg()"  id="tabdes" data-target="#descriptiontab" data-toggle="tab">DESCRIPTION</a></li>
               <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabpay" data-target="#paymenttab"  data-toggle="tab">PAYMENT & DELIVERY</a></li>
               <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabmed"  data-target="#mediatab"  data-toggle="tab">MEDIA</a></li>
               <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabadd" data-target="#addonstab"  data-toggle="tab">ADD-ONS</a></li>
