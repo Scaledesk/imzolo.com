@@ -2587,6 +2587,7 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
 
 .footer-links li{
   list-style-type: none;
+  text-align: center;
 }
 
 
@@ -3072,4 +3073,10 @@ p,h2{
    -filter: grayscale(100%);
    width: 60%;
    height: 100%;
+}
+
+
+
+.app-bg{
+  background-color: #525252;
 }
