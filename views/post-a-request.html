@@ -74,7 +74,7 @@
 
 
         <div class="col-md-6">
-          <input type="text" ng-keypress="postARequest.filterValue($event)" class="form-control" maxlength="3" ng-model="postARequest.request.days" name="days" id="days" placeholder="Enter Days" required>
+          <input type="number"  class="form-control" maxlength="3" ng-model="postARequest.request.days" name="days" id="days" placeholder="Enter Days" required>
           <p ng-show="pq.days.$error.required && postARequest.submitted" class="text-danger">Enter Days</p>
         </div>
 
@@ -91,7 +91,7 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" ng-keypress="postARequest.filterValue($event)" maxlength="8" class="form-control"  ng-model="postARequest.request.budget" name="budget" id="budget" placeholder="Enter Budget" required>
+          <input type="number"  maxlength="8" class="form-control"  ng-model="postARequest.request.budget" name="budget" id="budget" placeholder="Enter Budget" required>
           <p ng-show="pq.budget.$error.required && postARequest.submitted" class="text-danger">Enter Budget</p>
 
 

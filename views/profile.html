@@ -51,7 +51,7 @@
     <div ng-hide="loadingCoverImage" class="col-md-12">
       <div class="cover-img" style="background: url('{{profile.banner || '../global/images/logo/BANNER.png'}}') center no-repeat; background-size:cover; "></div>
       <div class="edit-btn-bg">
-        <button ng-show="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Edit Profile </button>
+        <button ng-show="edit_profile" ngf-select="uploadBanner($file)" class="btn zolo-btn cover-edit-btn">Change cover</button>
 
         <div ng-show="profile.short_description!=null" class="user-name">{{profile.short_description}}</div>
       </div>
@@ -1001,15 +1001,15 @@
     </a>
   </div>
 
-  <div class="footer">
-    <div class="copyright">
-      <p class="pull-left sm-pull-reset">
-        <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-        <span>Zolo Technologies Pvt. Ltd.</span>.
-        <span>All rights reserved. </span>
-      </p>
-      <p class="pull-right sm-pull-reset">
-        <span><a ng-href="/about-zolo" class="m-r-10">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
-      </p>
-    </div>
-  </div>
+  <!--<div class="footer">-->
+    <!--<div class="copyright">-->
+      <!--<p class="pull-left sm-pull-reset">-->
+        <!--<span>Copyright <span class="copyright">&copy;</span> 2016 </span>-->
+        <!--<span>Zolo Technologies Pvt. Ltd.</span>.-->
+        <!--<span>All rights reserved. </span>-->
+      <!--</p>-->
+      <!--<p class="pull-right sm-pull-reset">-->
+        <!--<span><a ng-href="/about-zolo" class="m-r-10">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of Use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</div>-->

@@ -3064,3 +3064,12 @@ p,h2{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
 }
+
+
+.seen-on{
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+   -filter: grayscale(100%);
+   width: 60%;
+   height: 100%;
+}

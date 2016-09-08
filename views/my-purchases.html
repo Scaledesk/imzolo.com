@@ -53,14 +53,14 @@
         <h2><strong>Manage Purchases</strong></h2>
         <hr class="custom-hr">
         <ul class="nav nav-tabs nav-primary manage-sales">
-          <li><a ng-click="MyallPurchase()">All purchases</a></li>
+          <li ng-class="{'active':allpurchase_active==true}" ><a ng-click="MyallPurchase()">All purchases</a></li>
 
           <!--<li><a href="">New</a></li>-->
-          <li><a ng-click="filterMyPurchase('payment_done')">In process</a></li>
+          <li ng-class="{'active':inprocessp_active==true}" ><a ng-click="filterMyPurchase('payment_done')">In process</a></li>
           <!--<li><a href="">Late</a></li>-->
           <!--<li><a href="">Deliver</a></li>-->
-          <li><a ng-click="filterMyPurchase('completed')">Completed</a></li>
-          <li><a ng-click="filterMyPurchase('cancelled')">Cancelled</a></li>
+          <li ng-class="{'active':completedp_active==true}"><a ng-click="filterMyPurchase('completed')">Completed</a></li>
+          <li ng-class="{'active':cancelledp_active==true}"><a ng-click="filterMyPurchase('cancelled')">Cancelled</a></li>
         </ul>
       </div>
     </div>

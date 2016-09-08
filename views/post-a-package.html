@@ -40,6 +40,41 @@
       text-align: center !important;
     }
 
+
+    .tab_left > .nav-tabs{
+
+      float:none;
+    }
+
+    .draftmob{
+
+      margin-right:20%;
+    }
+
+    .descmobi
+    {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .delmobi{
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .termmobi{
+      padding-left: 10%;
+    }
+   .addonmobi{
+     padding-left:5% ;
+     padding-right:0%;
+     margin-left:30%;
+
+   }
+
+
+
+
   }
 
 
@@ -106,6 +141,36 @@
   pointer-events: none;
 }
 
+  .firsttabp{
+
+    padding-left: 20%;
+    transition:padding-left  0.5s ease-out;
+  }
+  .secondtabp{
+
+    padding-left: 40%;
+    transition:padding-left  0.5s ease-out;
+  }
+  .thirdtabp{
+
+    padding-left: 60%;
+    transition:padding-left  0.5s ease-out;
+  }
+
+
+  .fourthtabp{
+
+    padding-left: 80%;
+    transition:padding-left  0.5s ease-out;
+  }
+
+  .fifthtabp{
+
+    padding-left: 100%;
+    transition:padding-left  0.1s ease-out;
+  }
+
+
   /*style="pointer-events:none;"*/
 
 </style>
@@ -116,14 +181,20 @@
 
   <div class="row">
     <div ng-hide="packageprogress==undefined" class="col-md-12">
-      <md-progress-linear md-mode="determinate" value="{{packageprogress}}"></md-progress-linear><p class=" f-17 w-500">{{packageprogress}}%</p>
+      <span ng-class="{'firsttabp':packageprogress==20,'secondtabp':packageprogress==40,'thirdtabp':packageprogress==60,'fourthtabp':packageprogress==80,'fifthtabp':packageprogress==100 }">
+              <img style="margin-left: -13px;" width="30" src="../favicon.png" >
+
+      </span>
+
+
+      <md-progress-linear md-mode="determinate" value="{{packageprogress}}"></md-progress-linear><p style="margin-left: -13px;" ng-class="{'firsttabp':packageprogress==20,'secondtabp':packageprogress==40,'thirdtabp':packageprogress==60,'fifthtabp':packageprogress==100,'fourthtabp':packageprogress==80 }" class="f-17 m-b-5">{{packageprogress}}%</p>
     </div>
     <div ng-show="packageprogress==undefined" class="col-md-12">
       <h2 class="m-b-20 w-600 zolo-c">Start posting your package!</h2>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card m-t-0">
 
     <div class="row" ng-hide="loadingPackage" style="min-height:600px;">
       <div  class="col-sm-12 p-0">
@@ -133,7 +204,7 @@
 
             <!--style="pointer-events:none;"-->
 
-            <ul class="nav nav-tabs nav-red">
+            <ul class="nav nav-tabs nav-red ">
               <li class="active p-10 lt p-r-0 "><a class="zolo-c" data-target="#starttab" id="stab" data-toggle="tab">START</a></li>
               <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" ng-click="gggg()"  id="tabdes" data-target="#descriptiontab" data-toggle="tab">DESCRIPTION</a></li>
               <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabpay" data-target="#paymenttab"  data-toggle="tab">PAYMENT & DELIVERY</a></li>
@@ -141,7 +212,7 @@
               <li class="p-10 lt p-r-0 "><a class="zolo-c disabledTab" id="tabadd" data-target="#addonstab"  data-toggle="tab">ADD-ONS</a></li>
 <!--help image comes here-->
 
-              <ul>
+              <ul class="hidden-xs">
 
                 <img class="ani p-imgl img-responsive p-l-10" ng-if="count== 'title'" class="m-t-10 " src="../global/images/fwdtooltip/1.png" >
 
@@ -324,9 +395,9 @@
 
                 <div class="panel-content p-t-0" id="des-tabs">
                   <ul class="nav nav-tabs nav-primary">
-                    <li class="active f-16 m-r-30 m-l-50"><a data-target="#desc_subtab" data-toggle="tab">Description</a></li>
-                    <li class="f-16 m-r-30 m-l-50 disabledTab"><a id="del_asubtab" data-target="#del_subtab" data-toggle="tab">Deliverables</a></li>
-                    <li class="f-16 m-r-30 m-l-50l disabledTab"><a id="term_asubtab" data-target="#term_subtab"  data-toggle="tab">Terms and Conditions</a></li>
+                    <li class="active f-16 m-r-30 m-l-50 descmobi"><a data-target="#desc_subtab" data-toggle="tab">Description</a></li>
+                    <li class="f-16 m-r-30 m-l-50 disabledTab delmobi"><a id="del_asubtab" data-target="#del_subtab" data-toggle="tab">Deliverables</a></li>
+                    <li class="f-16 m-r-30 m-l-50l disabledTab termmobi"><a id="term_asubtab" data-target="#term_subtab"  data-toggle="tab">Terms and Conditions</a></li>
                   </ul>
 
                   <div class="tab-content p-t-10 p-l-0">
@@ -500,17 +571,23 @@
                   <div class="row user-post-a-package">
                     <div class="col-lg-6">
                       <label class="f-17 w-500" for="actual_price">Actual Price*</label>
-                      <input ng-focus="count = 'price'" ng-model="package.price" id="actual_price" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-focus="count = 'price'" ng-model="package.price" id="actual_price" name="actual_price" number-converter  type="number" maxlength="8" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_price=false" class="form-control zolo-input-darken" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;" required>
                       <div ng-show="validation_error.package_price" class="text-danger">Package Price is required!</div>
+                      <span class="validation-message text-danger" ng-show="payment.actual_price.$error.maxlength ">Max Rs 10000000</span>
+                      <span class="validation-message text-danger" ng-show="payment.actual_price.$error.min ">Min Rs 1 </span>
 
                     </div>
 
 
                     <div class="col-lg-6">
                       <label class="f-17 w-500">Discounted Price*</label>
-                      <input ng-model="package.deal_price" ng-focus="count = 'descount_price'" number-converter ng-keypress="filterValue($event)" type="text" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+                      <input ng-model="package.deal_price" ng-focus="count = 'descount_price'" number-converter  type="number" maxlength="8"  class="form-control zolo-input-darken" id="deal_price" name="deal_price" popover-placement="top" popover-trigger="focus" min="1" ng-change="validation_error.package_deal_price=false;validation_error.package_deal_pricereq=false" placeholder="Please type here..." style="font-size: 16px; font-weight: 400;">
+
                       <div ng-show="validation_error.package_deal_price" class="text-danger">Discounted Price must be less than Actual price</div>
                       <div ng-show="validation_error.package_deal_pricereq" class="text-danger">Discounted price is required</div>
+                      <span class="validation-message text-danger" ng-show="payment.deal_price.$error.min ">Min Rs 1 </span>
+                      <span class="validation-message text-danger" ng-show="payment.deal_price.$error.maxlength ">Max Rs 10000000</span>
+
 
                     </div>
                   </div>
@@ -765,7 +842,7 @@
                         </div>
 
                         <div class="col-md-8 col-xs-12 p-r-0 pull-right">
-                          <button ng-disabled="!completed_package" class="btn btn-zolo  pull-right draftmobile" ng-click="checkValidationFourth('DRAFT')" style="margin-right: 10px;">Save as Draft
+                          <button ng-disabled="!completed_package" class="btn btn-zolo  pull-right draftmob" ng-click="checkValidationFourth('DRAFT')" style="margin-right: 10px;">Save as Draft
                             <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
                         </div>
@@ -880,7 +957,7 @@
 
                     <div class="col-md-6">
                       <a ng-href="/dashboard/my-packages/" class="btn btn-primary active pull-right">Skip</a>
-                      <button type="submit" class="btn btn-primary active pull-right" >Save Addon
+                      <button type="submit" class="btn btn-primary active pull-right addonmobi" >Save Addon
                         <span><i ng-style="myStyle" class="fa fa-spinner fa-spin"></i> </span></button>
 
                     </div>
@@ -918,7 +995,7 @@
       <span>All rights reserved. </span>
     </p>
     <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
+      <span><a ng-href="http://www.imzolo.com/about-zolo" class="m-r-10" target="_blank">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
     </p>
   </div>
 </div>

@@ -1,3 +1,13 @@
+<style>
+
+  .liked{
+    color:#c9625f!important;
+  }
+
+
+</style>
+
+
 <div class="page-content page-app page-profil zolo-search-page-no-style" style="background-color: inherit;margin-top: 1px !important; top: 1px !important;">
 
   <div class="profil-content">
@@ -76,8 +86,8 @@
       <div class="more">
         <div class="row">
           <!--{{package.wished_by_user}}-->
-          <div ng-click="addAndDeleteWishlist(package)" class="col-sm-4 col-xs-4 like zolo-card-space" ng-class="{'liked': package.wished_by_user=='yes'}">
-            <i class="fa fa-heart"></i>
+          <div ng-click="addAndDeleteWishlist(package)"  class="col-sm-4 col-xs-4 like zolo-card-space " >
+            <i class="fa fa-heart" ng-class="{'liked':package.wished_by_user=='yes'}"></i>
           </div>
           <!--{{collections}}-->
           <div ng-if="isAuthenticated()" class="col-sm-4 col-xs-4 zolo-card-space">

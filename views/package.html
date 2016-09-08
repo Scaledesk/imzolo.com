@@ -746,12 +746,12 @@
             </div>
 
 
-            <div ng-show="verifiedUser" class="row m-t-20">
-              <div class="col-xs-6 text-center">
+            <div class="row m-t-20">
+              <div ng-show="verifiedUser" class="col-xs-6 text-center">
                 <img width="50" src="global/images/ZOLO-VERIFIED.png">
                 <p class="text-center m-5">Zolo Verified</p>
               </div>
-              <div class="col-xs-6 text-center">
+              <div ng-show="TrustedUser" class="col-xs-6 text-center">
                 <img width="50" src="global/images/ZOLO-TRUST.png">
                 <p class="text-center m-5">Zolo Trusted</p>
               </div>
@@ -876,7 +876,7 @@
   </div>
 
 
-  <div ng-hide="loading" class="card card-5-15" ng-if="(sellerOtherPackages.length - DraftPackage.length) >1" >
+  <div ng-hide="loading" class="card card-5-15 m-b-60" ng-if="(sellerOtherPackages.length - DraftPackage.length) >1" >
 
 
     <div class="row ">
@@ -951,18 +951,18 @@
 
 
 
-<div class="footer">
-  <div class="copyright">
-    <p class="pull-left sm-pull-reset">
-      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-      <span>Zolo Technologies Pvt. Ltd.</span>.
-      <span>All rights reserved. </span>
-    </p>
-    <p class="pull-right sm-pull-reset">
-      <span><a ng-href="/about-zolo" class="m-r-10">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
-    </p>
-  </div>
-</div>
+<!--<div class="footer">-->
+  <!--<div class="copyright">-->
+    <!--<p class="pull-left sm-pull-reset">-->
+      <!--<span>Copyright <span class="copyright">&copy;</span> 2016 </span>-->
+      <!--<span>Zolo Technologies Pvt. Ltd.</span>.-->
+      <!--<span>All rights reserved. </span>-->
+    <!--</p>-->
+    <!--<p class="pull-right sm-pull-reset">-->
+      <!--<span><a ng-href="/about-zolo" class="m-r-10">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>-->
+    <!--</p>-->
+  <!--</div>-->
+<!--</div>-->
 
 
 

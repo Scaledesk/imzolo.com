@@ -507,13 +507,20 @@
 
     <div class="col-md-12 col-xs-12 p-0" ng-if="booking.booking_status=='review'&&booking.review_counter%2!=0">
 
-      <div class="card">
+      <div class="card" ng-hide="loadreview">
 
         <p class="f-18 m-l-20 m-t-10 ib m-r-20">Are you not satisfied with the work delivered ?  </p>
 
         <button ng-click="notAccept()" type="button" class="btn btn-warning btn-transparent ib m-l-20">Send for Review<div class="ripple-wrapper"></div></button>
 
       </div>
+
+      <div ng-show="loadreview" class="col-md-12 card text-center">
+        <div layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -532,15 +539,15 @@
 
 
 
-<div class="footer">
-  <div class="copyright">
-    <p class="pull-left sm-pull-reset">
-      <span>Copyright <span class="copyright">&copy;</span> 2016 </span>
-      <span>Zolo Technologies Pvt. Ltd.</span>
-      <span>All rights reserved. </span>
-    </p>
-    <p class="pull-right sm-pull-reset">
-      <span><a ng-href="http://www.imzolo.com/aboutus" class="m-r-10" target="_blank">About us</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>
-    </p>
-  </div>
-</div>
+<!--<div class="footer">-->
+  <!--<div class="copyright">-->
+    <!--<p class="pull-left sm-pull-reset">-->
+      <!--<span>Copyright <span class="copyright">&copy;</span> 2016 </span>-->
+      <!--<span>Zolo Technologies Pvt. Ltd.</span>-->
+      <!--<span>All rights reserved. </span>-->
+    <!--</p>-->
+    <!--<p class="pull-right sm-pull-reset">-->
+      <!--<span><a ng-href="http://www.imzolo.com/about-zolo" class="m-r-10" target="_blank">About Zolo</a> | <a ng-href="/contact" class="m-l-10 m-r-10">Contact us</a> | <a ng-href="/terms-of-use" class="m-l-10 m-r-10">Terms of use</a> | <a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a> | <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a> | <a ng-href="/returns-refunds" class="m-l-10">Refunds</a>  </span>-->
+    <!--</p>-->
+  <!--</div>-->
+<!--</div>-->

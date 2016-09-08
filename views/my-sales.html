@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
 
-<div  ng-hide="Loading_mypurchase" class="row">
+<div  ng-hide="Loading_mysale" class="row">
   <div class="card card-5-15">
     <div class="dashboard-sellers">
       <div class="col-md-6 account-summary-right-border">
@@ -41,9 +41,9 @@
         </div>
 
         <div class="row ">
-          <div class="col-xs-6 text-center"><strong>&#8377; {{profile.sales.amount}}</strong></div>
+          <div class="col-xs-6 text-center"><strong>&#8377; {{completed_earning}}</strong></div>
           <!--<div class="col-xs-4 text-center"><strong>&#8377;0</strong></div>-->
-          <div class="col-xs-6 text-center"><strong>&#8377;{{profile.sales.amount}}</strong></div>
+          <div class="col-xs-6 text-center"><strong>&#8377;{{pending_earning}}</strong></div>
         </div>
       </div>
     </div>
@@ -52,20 +52,20 @@
 
 
 
-<div ng-hide="Loading_mypurchase" class="row">
+<div ng-hide="Loading_mysale" class="row">
   <div class="card card-5-15">
     <div class="row">
       <div class="col-md-12">
         <h2><strong>Manage Sales</strong></h2>
         <hr class="custom-hr">
         <ul class="nav nav-tabs nav-primary manage-sales">
-          <li><a ng-click="MyallSales()">All sales</a></li>
+          <li ng-class="{'active':allsale_active==true}"><a ng-click="MyallSales()">All sales</a></li>
           <!--<li><a ng-click="orderMySales('package_available_dates')">New</a></li>-->
-          <li><a ng-click="filterMySales('payment_done')">In process</a></li>
+          <li ng-class="{'active':inprocess_active==true}"><a ng-click="filterMySales('payment_done')">In process</a></li>
           <!--<li><a ng-click="filterMySales('payment_done')">Late</a></li>-->
-          <li><a ng-click="filterMySales('completed')">Delivered</a></li>
+          <li ng-class="{'active':delivered_active==true}" ><a ng-click="filterMySales('completed')">Delivered</a></li>
           <!--<li><a ng-click="filterMySales('completed')">Transaction Completed</a></li>-->
-          <li><a ng-click="filterMySales('cancelled')">Cancelled</a></li>
+          <li ng-class="{'active':cancelled_active==true}"><a ng-click="filterMySales('cancelled')">Cancelled</a></li>
         </ul>
       </div>
     </div>
@@ -132,7 +132,7 @@
 
 </div>
 
-  <div ng-show="Loading_mypurchase" class="row p-20 text-center card">
+  <div ng-show="Loading_mysale" class="row p-20 text-center card">
     <div class="col-md-12 text-center m-t-60">
       <div layout="row" layout-sm="column" layout-align="space-around">
         <md-progress-circular md-mode="indeterminate" md-diameter="96" ></md-progress-circular>
