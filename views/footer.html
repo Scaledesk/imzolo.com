@@ -2,6 +2,14 @@
   a{
     color: #565a5c;
   }
+
+  @media screen and (max-width: 768px) {
+    .footer-link-container{
+      padding: 10px!important;
+    }
+
+  }
+
 </style>
 
 
@@ -170,7 +178,7 @@
 
   <div class="p-20 p-t-0" style=" margin-top: 16px!important; background-color: #fcfcfc">
     <div class="row s-strip border m-b-0" style="background: transparent;">
-      <div class="col-md-4 border-right">
+      <div class="col-md-4 border-right ">
         <p class="text-center text-muted-z">
           <i class="fa fa-key"></i> 100% Secure Payments</p>
       </div>
@@ -285,7 +293,7 @@
 
 
 
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-center p-0">
       <h3 class="m-b-20">Payment Options</h3>
       <!--<hr class="custom-hr m-b-20">-->
       <!--<ul class="footer-links-s text-center">-->
@@ -333,7 +341,7 @@
 
 
 
-  <div class="p-40 p-b-10" style="background: #fcfcfc;">
+  <div class="p-40 p-b-10 footer-link-container" style="background: #fcfcfc;">
     <div class="row">
       <div class="col-md-12 ">
         <div class="text-center" style="height: 30px; border-bottom: 1px solid #dedede;">
@@ -375,10 +383,37 @@
 
 
 
+  <div class="row visible-xs border-bottom">
+    <div class="col-xs-6 border-right">
+      <p class="text-center"><a ng-href="/about-zolo">About Zolo</a></p>
 
+    </div>
+
+    <div class="col-xs-6">
+      <p class="text-center"><a ng-href="/contact" class="m-l-10 m-r-10">Contact Us</a></p>
+    </div>
+
+
+  </div>
+
+
+  <div class="row visible-xs">
+    <div class="col-xs-6 border-right">
+      <p class="text-center"><a ng-href="/privacy-policy" class="m-l-10">Privacy Policy</a></p>
+
+    </div>
+
+    <div class="col-xs-6">
+      <p class="text-center"> <a ng-href="/order-cancellation-policy" class="m-l-10">Cancellation</a></p>
+    </div>
+
+
+  </div>
 
 
 </div>
+
+
 
 
 <div class="footer">
